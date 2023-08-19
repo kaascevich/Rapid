@@ -13,3 +13,65 @@
 //
 // You should have received a copy of the GNU General Public License along
 // with this package. If not, see https://www.gnu.org/licenses/.
+
+// MARK: Increment
+
+postfix operator ++
+
+/// Increments the specified value by 1.
+///
+/// The increment operator (postfix `++`) adds 1 to its argument and assigns
+/// the result to said argument.
+///
+/// ```swift
+/// var x = 21
+/// x++
+/// // x == 22
+/// ```
+///
+/// The resulting value must be representable in the same type as the argument.
+/// In particular, incrementing an integer type's maximum results in a value
+/// that cannot be represented.
+///
+/// ```swift
+/// var y = Int8.max
+/// y++
+/// // Overflow error
+/// ```
+///
+/// - Parameters:
+///   - operand: The value to increment.
+public postfix func ++ <T: BinaryInteger>(_ operand: inout T) {
+    operand += 1
+}
+
+// MARK: Decrement
+
+postfix operator --
+
+/// Decrements the specified value by 1.
+///
+/// The decrement operator (postfix `--`) subtracts 1 from its argument and
+/// assigns the result to said argument.
+///
+/// ```swift
+/// var x = 21
+/// x--
+/// // x == 20
+/// ```
+///
+/// The resulting value must be representable in the same type as the argument.
+/// In particular, decrementing an integer type's minimum results in a value
+/// that cannot be represented.
+///
+/// ```swift
+/// var y = Int8.min
+/// y--
+/// // Overflow error
+/// ```
+///
+/// - Parameters:
+///   - operand: The value to decrement.
+public postfix func -- <T: BinaryInteger>(_ operand: inout T) {
+    operand -= 1
+}

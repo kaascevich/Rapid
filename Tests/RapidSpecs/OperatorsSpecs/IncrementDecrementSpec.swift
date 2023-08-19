@@ -20,7 +20,20 @@ import Nimble
 
 final class IncrementDecrementSpec: QuickSpec {
     override class func spec() {
-        // nothing yet
-        return
+        describe("the ++ operator") {
+            it("adds 1 to its argument") {
+                var x = 21
+                x++
+                expect(x).to(equal(22))
+            }
+        }
+        
+        describe("the -- operator") {
+            it("subtracts 1 from its argument") {
+                var x = 21
+                x--
+                expect(x).to(equal(20))
+            }
+        }
     }
 }
