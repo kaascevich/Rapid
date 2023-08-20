@@ -64,11 +64,59 @@ public extension Sequence {
     /// - Returns: The last element of the sequence that satisfies `predicate`,
     ///   or `nil` if there is no element that satisfies `predicate`.
     func last(where predicate: (Element) throws -> Bool) rethrows -> Element? {
-        for element in self.reversed() {
-            if try predicate(element) {
-                return element
-            }
+        for element in self.reversed() where try predicate(element) {
+            return element
         }
         return nil
+    }
+}
+
+// MARK: - Counting
+
+public extension Collection {
+    /// The number of elements in the collection that satisfy the given predicate.
+    ///
+    /// In this example, `count(of:)` is used to count the number of names shorter
+    /// than five characters.
+    ///
+    /// ```swift
+    /// let cast = ["Vivien", "Marlon", "Kim", "Karl"]
+    /// let numberOfShortNames = cast.count { $0.count < 5 }
+    /// print(numberOfShortNames)
+    /// // Prints "2"
+    /// ```
+    ///
+    /// - Complexity: O(*n*), where *n* is the length of the sequence.
+    ///
+    /// - Parameter predicate: A closure that takes an element of the sequence as
+    ///   its argument and returns a Boolean value indicating whether the element
+    ///   should be included in the count.
+    ///
+    /// - Returns: The number of elements that satisfy `predicate`.
+    func count(of predicate: (Element) throws -> Bool) rethrows -> Int {
+        try filter(predicate).count
+    }
+}
+
+public extension Collection where Element: Equatable {
+    /// The number of times the given element appears in the collection.
+    ///
+    /// In this example, `count(of:)` is used to count the number of times the
+    /// number `4` occurs in the array.
+    ///
+    /// ```swift
+    /// let cast = [5, 4, 9, 3, 6, 4, 1, 4, 3]
+    /// let numberOfFours = cast.count(of: 4)
+    /// print(numberOfFours)
+    /// // Prints "3"
+    /// ```
+    ///
+    /// - Complexity: O(*n*), where *n* is the length of the sequence.
+    ///
+    /// - Parameter element: The element to count.
+    ///
+    /// - Returns: The number of times `element` appears in the collection.
+    func count(of element: Element) -> Int {
+        count { $0 == element }
     }
 }

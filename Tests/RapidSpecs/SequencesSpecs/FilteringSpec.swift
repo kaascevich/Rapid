@@ -51,5 +51,23 @@ final class FilteringSpec: QuickSpec {
                 expect(numbers.last { $0 == 0 }).to(beNil())
             }
         }
+        
+        describe("the count(of:) methods") {
+            describe("the version that takes a predicate") {
+                it("returns the number of elements that satisfy the predicate") {
+                    let cast = ["Vivien", "Marlon", "Kim", "Karl"]
+                    let numberOfShortNames = cast.count { $0.count < 5 }
+                    expect(numberOfShortNames).to(equal(2))
+                }
+            }
+            
+            describe("the version that takes an element") {
+                it("returns the number of times the element appears") {
+                    let cast = [5, 4, 9, 3, 6, 4, 1, 4, 3]
+                    let numberOfFours = cast.count(of: 4)
+                    expect(numberOfFours).to(equal(3))
+                }
+            }
+        }
     }
 }
