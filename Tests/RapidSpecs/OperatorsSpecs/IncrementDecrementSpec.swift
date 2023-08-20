@@ -35,5 +35,35 @@ final class IncrementDecrementSpec: QuickSpec {
                 expect(x).to(equal(20))
             }
         }
+        
+        describe("the overflowing operators, &++ and &--") {
+            describe("the &++ operator") {
+                it("adds 1 to its argument") {
+                    var x: Int8 = 27
+                    x&++
+                    expect(x).to(equal(28))
+                }
+                
+                it("wraps any overflow") {
+                    var y: Int8 = 127
+                    y&++
+                    expect(y).to(equal(-128))
+                }
+            }
+            
+            describe("the &-- operator") {
+                it("subtracts 1 from its argument") {
+                    var x: Int8 = -28
+                    x&--
+                    expect(x).to(equal(-29))
+                }
+                
+                it("wraps any overflow") {
+                    var y: Int8 = -128
+                    y&--
+                    expect(y).to(equal(127))
+                }
+            }
+        }
     }
 }

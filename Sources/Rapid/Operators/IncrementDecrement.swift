@@ -14,7 +14,7 @@
 // You should have received a copy of the GNU General Public License along
 // with this package. If not, see https://www.gnu.org/licenses/.
 
-// MARK: Increment
+// MARK: - Increment
 
 postfix operator ++
 
@@ -45,7 +45,7 @@ public postfix func ++ <T: BinaryInteger>(_ operand: inout T) {
     operand += 1
 }
 
-// MARK: Decrement
+// MARK: - Decrement
 
 postfix operator --
 
@@ -74,4 +74,58 @@ postfix operator --
 ///   - operand: The value to decrement.
 public postfix func -- <T: BinaryInteger>(_ operand: inout T) {
     operand -= 1
+}
+
+// MARK: - Overflowing Increment
+
+postfix operator &++
+
+/// Increments the specified value by 1, wrapping any overflow.
+///
+/// The masking increment operator (postfix `&++`) silently wraps any overflow
+/// that occurs during the operation. In the following example, incrementing
+/// `127` results in a value that is greater than the maximum representable
+/// `Int8` value, so the result is the partial value after discarding the
+/// overflowing bits.
+///
+/// ```swift
+/// var x: Int8 = 27
+/// x&++
+/// // x == 28
+/// var y: Int8 = 127
+/// y&++
+/// // y == -128 (after overflow)
+/// ```
+///
+/// - Parameters:
+///   - operand: The value to increment.
+public postfix func &++ <T: FixedWidthInteger>(_ operand: inout T) {
+    operand &+= 1
+}
+
+// MARK: - Overflowing Decrement
+
+postfix operator &--
+
+/// Decrements the specified value by 1, wrapping any overflow.
+///
+/// The masking decrement operator (postfix `&--`) silently wraps any overflow
+/// that occurs during the operation. In the following example, decrementing
+/// `127` results in a value that is less than the minimum representable `Int8`
+/// value, so the result is the partial value after discarding the overflowing
+/// bits.
+///
+/// ```swift
+/// var x: Int8 = -28
+/// x&--
+/// // x == -29
+/// var y: Int8 = -128
+/// y&--
+/// // y == 127 (after overflow)
+/// ```
+///
+/// - Parameters:
+///   - operand: The value to decrement.
+public postfix func &-- <T: FixedWidthInteger>(_ operand: inout T) {
+    operand &-= 1
 }
