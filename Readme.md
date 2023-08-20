@@ -6,6 +6,35 @@
 
 A host of utilities to make Swift swifter.
 
-## Overview
+ - [Using Rapid](#using-rapid)
+ - [Features](/Features.md)
+ - [License](/License.md)
 
-<#TODO: Fill out the readme once there's actually some code to talk about#>
+## Using Rapid
+
+### Using in a Swift package
+
+ 1. Add Rapid as a dependency to your Package.swift:
+ 
+    ```swift
+    .package(
+        url: "https://github.com/kaascevich/Rapid.git",
+        branch: "main"
+    )
+    ```
+ 2. Add Rapid as a dependency to each of your targets:
+ 
+    ```swift
+    .product(
+        name: "Rapid",
+        package: "Rapid"
+    )
+    ```
+    
+### Using in an Xcode project
+
+ 1. Choose *File* → *Add Package Dependencies...*
+ 2. [Copy this link](https://github.com/kaascevich/Rapid.git), and paste it into the search bar.
+ 3. Click *Add Package*.
+ 4. Choose the target you want to add Rapid to, and then click *Add Package* again.
+

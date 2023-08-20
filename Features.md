@@ -1,0 +1,165 @@
+# Features
+
+## Operators
+
+### `++` and `--`
+
+Why doesn't Swift have these by default? You're asking the wrong person. But if you're using Rapid, you don't need to ask at all.
+
+```swift
+var x = 21
+x++
+// x == 22
+
+var y = -6
+y--
+// y == -7
+```
+
+To avoid confusion as to what value is returned, `++` and `--` don't return a value at all.
+
+```swift
+let z = y--
+// warning: constant 'z' inferred to have type '()', which may be unexpected
+```
+
+Rapid also provides `&++` and `&--`, which behave like their `&`-less counterparts but wrap when an overflow occurs.
+
+```swift
+var x = Int8.max
+// x == 127
+
+x&++
+// x == -128
+```
+
+### `√`
+
+You can use the `√` operator to... well, take a square root.
+
+```swift
+func hypotenuse(_ a: Double, _ b: Double) -> Double {
+    √(a*a + b*b)
+}
+let (dx, dy) = (3.0, 4.0)
+let distance = hypotenuse(dx, dy)
+// distance == 5.0
+```
+
+## Numbers
+
+### `SignedNumeric.isPositive` and `SignedNumeric.isNegative`
+
+They do exactly what they say on the tins.
+
+```swift
+let x = 7
+// x.isPositive == true
+// x.isNegative == false
+
+let y = -5
+// x.isPositive == false
+// x.isNegative == true
+
+let z = 0
+// x.isPositive == false
+// x.isNegative == false
+```
+
+### `SignedNumeric.absoluteValue`
+
+`abs(_:)`, but Swifty.
+
+```swift
+let x = 5.absoluteValue
+// x == 5
+
+let y = (-8).absoluteValue
+// y == 8
+```
+
+## Closures
+
+### `run(_:)`
+
+Syntactic sugar for self-executing closures.
+
+```swift
+let sixPlusOne = run {
+    var six = 6
+    six++
+    return six
+}
+// sixPlusOne == 7
+```
+
+### `Chainable.do(_:)`
+
+Just `do` it.
+
+```swift
+editor.do {
+    $0.click()
+    $0.typeKey("a", modifierFlags: .command)
+    $0.typeKey(.delete, modifierFlags: [])
+}
+```
+
+### `Chainable.then(_:)`
+
+You know all those Objective-C types that you configure by setting their numerous properties? This method helps with that.
+
+```swift
+let formatter = NumberFormatter().then {
+    $0.numberStyle = .decimal
+    $0.minimumFractionDigits = 2
+    $0.allowsFloats = true
+}
+```
+
+## Sequences
+
+### `Sequence.noneSatisfy(_:)`
+
+It's like `allSatisfy(_:)`, but the opposite.
+
+```swift
+let names = ["Sofia", "Camilla", "Martina", "Mateo", "Nicolás"]
+let noneHaveFewerThanFive = names.noneSatisfy { $0.count < 5 }
+// noneHaveFewerThanFive == true
+```
+
+### `Sequence.last(where:)`
+
+`first(where:)` in reverse.
+
+```swift
+let numbers = [3, 7, 4, -2, 9, -6, 10, 1]
+if let lastNegative = numbers.last(where: \.isNegative) {
+    print("The last negative number is \(lastNegative).")
+}
+// Prints "The last negative number is -6."
+```
+
+### `Collection.count(of:)`
+
+There are two of these: one that takes a predicate, and one that takes an element.
+
+The one taking a predicate:
+
+```swift
+let cast = ["Vivien", "Marlon", "Kim", "Karl"]
+let numberOfShortNames = cast.count { $0.count < 5 }
+print(numberOfShortNames)
+// Prints "2"
+```
+
+The one taking an element:
+
+```swift
+let cast = [5, 4, 9, 3, 6, 4, 1, 4, 3]
+let numberOfFours = cast.count(of: 4)
+print(numberOfFours)
+// Prints "3"
+```
+

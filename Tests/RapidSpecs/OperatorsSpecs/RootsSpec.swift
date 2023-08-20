@@ -33,6 +33,16 @@ final class RootsSpec: QuickSpec {
                 let squareRootOfNegativeFour = √(-4)
                 expect(squareRootOfNegativeFour.isNaN).to(beTrue())
             }
+            
+            it("does what the doc comment says it does") {
+                func hypotenuse(_ a: Double, _ b: Double) -> Double {
+                    √(a*a + b*b)
+                }
+                
+                let (dx, dy) = (3.0, 4.0)
+                let distance = hypotenuse(dx, dy)
+                expect(distance).to(equal(5))
+            }
         }
     }
 }
