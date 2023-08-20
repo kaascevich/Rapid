@@ -39,5 +39,17 @@ final class FilteringSpec: QuickSpec {
                 expect(noneHaveFewerThanFive).to(beTrue())
             }
         }
+        
+        describe("the last(where:) method") {
+            let numbers = [3, 7, 4, -2, 9, -6, 10, 1]
+            
+            it("returns the last element that satisfies the predicate") {
+                expect(numbers.last(where: \.isNegative)).to(equal(-6))
+            }
+            
+            it("returns nil if no elements satisfy the predicate") {
+                expect(numbers.last { $0 == 0 }).to(beNil())
+            }
+        }
     }
 }

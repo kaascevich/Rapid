@@ -15,8 +15,6 @@
 // with this package. If not, see https://www.gnu.org/licenses/.
 
 public extension Sequence {
-    // MARK: - Conditions
-    
     /// Returns a Boolean value indicating whether no elements of a sequence
     /// satisfiy a given predicate.
     ///
@@ -41,5 +39,36 @@ public extension Sequence {
     ///   `predicate`; otherwise, `false`.
     func noneSatisfy(_ predicate: (Element) throws -> Bool) rethrows -> Bool {
         try allSatisfy { try !predicate($0) }
+    }
+    
+    /// Returns the last element of the sequence that satisfies the given
+    /// predicate.
+    ///
+    /// The following example uses the `last(where:)` method to find the last
+    /// negative number in an array of integers:
+    ///
+    /// ```swift
+    /// let numbers = [3, 7, 4, -2, 9, -6, 10, 1]
+    /// if let lastNegative = numbers.last(where: \.isNegative) {
+    ///     print("The last negative number is \(lastNegative).")
+    /// }
+    /// // Prints "The last negative number is -6."
+    /// ```
+    ///
+    /// - Complexity: O(*n*), where *n* is the length of the sequence.
+    ///
+    /// - Parameter predicate: A closure that takes an element of the sequence as
+    ///   its argument and returns a Boolean value indicating whether the element
+    ///   is a match.
+    ///
+    /// - Returns: The last element of the sequence that satisfies `predicate`,
+    ///   or `nil` if there is no element that satisfies `predicate`.
+    func last(where predicate: (Element) throws -> Bool) rethrows -> Element? {
+        for element in self.reversed() {
+            if try predicate(element) {
+                return element
+            }
+        }
+        return nil
     }
 }
