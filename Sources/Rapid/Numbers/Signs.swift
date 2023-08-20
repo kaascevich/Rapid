@@ -15,6 +15,8 @@
 // with this package. If not, see https://www.gnu.org/licenses/.
 
 public extension SignedNumeric where Self: Comparable {
+    // MARK: - Positivity
+    
     /// A Boolean value indicating whether this value is positive.
     ///
     /// A number is positive if it compares greater than zero. Zero is
@@ -22,6 +24,8 @@ public extension SignedNumeric where Self: Comparable {
     var isPositive: Bool {
         self > 0
     }
+    
+    // MARK: - Negativity
     
     /// A Boolean value indicating whether this value is negative.
     ///
