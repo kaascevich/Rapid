@@ -58,13 +58,31 @@ let z = 0
 A more elegant way of saying `x == 0` and `x != 0`.
 
 ```swift
-let z = 0
+let x = 0
 // x.isZero == true
 // x.isNonzero == false
 
-let x = 7
+let y = 7
 // x.isZero == false
 // x.isNonzero == true
+```
+
+### `isEven` and `isOdd`
+
+A more elegant way of saying `x.isMultiple(of: 2)` and `!x.isMultiple(of: 2)`.
+
+```swift
+let x = 6
+// x.isEven == true
+// x.isOdd == false
+
+let y = -3
+// x.isEven == false
+// x.isOff == true
+
+let z = 0
+// x.isEven == true
+// x.isOff == false
 ```
 
 ### `absoluteValue`
