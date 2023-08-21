@@ -1,4 +1,4 @@
-// StringifySpec.swift
+// RepetitionSpec.swift
 // Copyright © 2023 Kaleb A. Ascevich
 //
 // This package is free software: you can redistribute it and/or modify it
@@ -18,21 +18,15 @@ import Quick
 import Nimble
 @testable import Rapid
 
-final class StringifySpec: QuickSpec {
+final class RepetitionSpec: QuickSpec {
     override class func spec() {
-        describe("the § operator") {
-            it("returns the value's description") {
-                let int = 6
-                let double = 3.14
-                let string = "hello"
-                let array = [1, 2, 3]
-                let bool = true
-                
-                expect(§int).to(equal("6"))
-                expect(§double).to(equal("3.14"))
-                expect(§string).to(equal("hello"))
-                expect(§array).to(equal("[1, 2, 3]"))
-                expect(§bool).to(equal("true"))
+        describe("the * operator when used with strings") {
+            it("creates a String repeated the specified number of times") {
+                expect("hello" * 3).to(equal("hellohellohello"))
+            }
+            
+            it("fails if the count is negative") {
+                expect("error" * -13).to(throwAssertion())
             }
         }
     }

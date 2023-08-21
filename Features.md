@@ -266,3 +266,13 @@ let p = Point(x: 21, y: 30)
 print(§p)
 // Prints "Point(x: 21, y: 30)"
 ```
+
+### The `*` operator
+
+A more concise way to write the `String(repeating:count:)` initializer.
+
+```swift
+let s = "ab" * 10
+print(s)
+// Prints "abababababababababab"
+```
