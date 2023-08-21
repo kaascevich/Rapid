@@ -191,3 +191,19 @@ if horseName.isNotEmpty {
 }
 // Prints "Hi ho, Silver!"
 ```
+
+## Optionals
+
+### `isNil` and `isNotNil`
+
+`x == nil` and `x != nil`, nicely expressed
+
+```swift
+let intWithoutValue: Int? = nil
+// intWithoutValue.isNil == true
+// intWithoutValue.isNotNil == false
+
+let intWithValue: Int? = 42
+// intWithValue.isNil == false
+// intWithValue.isNotNil == true
+```
