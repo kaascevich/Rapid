@@ -21,9 +21,11 @@ public extension Collection {
     /// The following example tries to access an element of an array through
     /// its subscript, but fails because the element does not exist:
     ///
-    ///     var streets = ["Adams", "Bryant", "Channing", "Douglas", "Evarts"]
-    ///     print(streets[ifExists: 7])
-    ///     // Prints "nil"
+    /// ```swift
+    /// var streets = ["Adams", "Bryant", "Channing", "Douglas", "Evarts"]
+    /// print(streets[ifExists: 7])
+    /// // Prints "nil"
+    /// ```
     ///
     /// You can subscript a collection with any valid index other than the
     /// collection's end index. The end index refers to the position one past

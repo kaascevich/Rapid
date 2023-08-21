@@ -71,6 +71,27 @@ public extension Sequence {
     }
 }
 
+public extension RangeReplaceableCollection where Element: Equatable {
+    /// Removes all the elements that equal the given value..
+    ///
+    /// Use this method to remove every element in a collection equal to a
+    /// particular value. The order of the remaining elements is preserved.
+    /// This example removes all the sixes from an array of numbers:
+    ///
+    /// ````swift
+    /// var numbers = [5, 6, 7, 8, 7, 6, 5]
+    /// numbers.removeAll(occurrencesOf: 6)
+    /// // numbers == [5, 7, 8, 7, 5]
+    /// ```
+    ///
+    /// - Parameter element: An element of the collection.
+    ///
+    /// - Complexity: O(*n*), where *n* is the length of the collection.
+    mutating func removeAll(occurrencesOf element: Element) {
+        removeAll { $0 == element }
+    }
+}
+
 // MARK: - Counting
 
 public extension Collection {

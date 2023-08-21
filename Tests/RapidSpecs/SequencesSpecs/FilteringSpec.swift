@@ -52,6 +52,14 @@ final class FilteringSpec: QuickSpec {
             }
         }
         
+        describe("the removeAll(occurrencesOf:) method") {
+            it("removes all elements equal to the given element") {
+                var numbers = [5, 6, 7, 8, 7, 6, 5]
+                numbers.removeAll(occurrencesOf: 6)
+                expect(numbers).to(equal([5, 7, 8, 7, 5]))
+            }
+        }
+        
         describe("the count(of:) methods") {
             describe("the version that takes a predicate") {
                 it("returns the number of elements that satisfy the predicate") {

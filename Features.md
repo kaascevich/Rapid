@@ -50,8 +50,6 @@ fortyTwo <=> sixtyNine
 
 ### `isPositive` and `isNegative`
 
-A more elegant way of saying `x > 0` and `x < 0`.
-
 ```swift
 let x = 7
 // x.isPositive == true
@@ -68,8 +66,6 @@ let z = 0
 
 ### `isZero` and `isNonzero`
 
-A more elegant way of saying `x == 0` and `x != 0`.
-
 ```swift
 let x = 0
 // x.isZero == true
@@ -81,8 +77,6 @@ let y = 7
 ```
 
 ### `isEven` and `isOdd`
-
-A more elegant way of saying `x.isMultiple(of: 2)` and `!x.isMultiple(of: 2)`.
 
 ```swift
 let x = 6
@@ -99,8 +93,6 @@ let z = 0
 ```
 
 ### `absoluteValue`
-
-`abs(_:)`, but Swifty.
 
 ```swift
 let x = 5.absoluteValue
@@ -126,8 +118,6 @@ let sixPlusOne = run {
 ```
 
 ### `do(_:)`
-
-Just `do` it.
 
 ```swift
 editor.do {
@@ -166,8 +156,6 @@ A more concise way to represent a `for`-`in` loop when iterating through a range
 
 ### `noneSatisfy(_:)`
 
-It's like `allSatisfy(_:)`, but the opposite.
-
 ```swift
 let names = ["Sofia", "Camilla", "Martina", "Mateo", "Nicolás"]
 let noneHaveFewerThanFive = names.noneSatisfy { $0.count < 5 }
@@ -175,8 +163,6 @@ let noneHaveFewerThanFive = names.noneSatisfy { $0.count < 5 }
 ```
 
 ### `last(where:)`
-
-`first(where:)` in reverse.
 
 ```swift
 let numbers = [3, 7, 4, -2, 9, -6, 10, 1]
@@ -236,11 +222,17 @@ if horseName.isNotEmpty {
 // Prints "Hi ho, Silver!"
 ```
 
+### `removeAll(occurrencesOf:)`
+
+````swift
+var numbers = [5, 6, 7, 8, 7, 6, 5]
+numbers.removeAll(occurrencesOf: 6)
+// numbers == [5, 7, 8, 7, 5]
+```
+
 ## Optionals
 
 ### `isNil` and `isNotNil`
-
-`x == nil` and `x != nil`, nicely expressed
 
 ```swift
 let intWithoutValue: Int? = nil
@@ -255,8 +247,6 @@ let intWithValue: Int? = 42
 ## Comparable
 
 ### `isBetween(_:)`
-
-Check whether a value is contained within a range.
 
 ```swift
 1.isBetween(5...7)          // false

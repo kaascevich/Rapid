@@ -23,13 +23,15 @@ public extension Collection {
     /// `RandomAccessCollection`, accessing the `count` property iterates
     /// through the elements of the collection.
     ///
-    ///     let horseName = "Silver"
-    ///     if horseName.isNotEmpty {
-    ///         print("Hi ho, \(horseName)!")
-    ///     } else {
-    ///         print("My horse has no name.")
-    ///     }
-    ///     // Prints "Hi ho, Silver!"
+    /// ```swift
+    /// let horseName = "Silver"
+    /// if horseName.isNotEmpty {
+    ///     print("Hi ho, \(horseName)!")
+    /// } else {
+    ///     print("My horse has no name.")
+    /// }
+    /// // Prints "Hi ho, Silver!"
+    /// ```
     ///
     /// - Complexity: O(1)
     var isNotEmpty: Bool {
