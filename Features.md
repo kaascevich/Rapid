@@ -118,6 +118,19 @@ let formatter = NumberFormatter().then {
 }
 ```
 
+### `repeat(_:)`
+
+A more concise way to represent a `for`-`in` loop when iterating through a range of integers.
+
+```swift
+3.repeat { number in
+    print(number)
+}
+// Prints "1"
+// Prints "2"
+// Prints "3"
+```
+
 ## Collections
 
 ### `noneSatisfy(_:)`
@@ -207,7 +220,6 @@ let intWithValue: Int? = 42
 // intWithValue.isNil == false
 // intWithValue.isNotNil == true
 ```
-
 
 ## Comparable
 
