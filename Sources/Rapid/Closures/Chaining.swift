@@ -18,7 +18,7 @@ import Foundation
 
 // MARK: - Chainable Definition
 
-/// A marker protocol that enables a type to use the ``then(_:)`` and
+/// A marker protocol that enables a type to use the ``then(_:)-7emy7`` and
 /// ``do(_:)`` methods.
 ///
 /// Since Swift doesn't allow extending `Any` or related metatypes, types

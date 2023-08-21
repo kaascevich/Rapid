@@ -163,3 +163,16 @@ print(numberOfFours)
 // Prints "3"
 ```
 
+### `Collection.subscript(safe:)`
+
+Returns `nil` if the index isn't valid; returns the element at that index otherwise.
+
+```swift
+let streets = ["Adams", "Bryant", "Channing", "Douglas", "Evarts"]
+
+print(streets[safe: 1]) // Prints "Bryant"
+print(streets[1])       // Prints "Bryant"
+
+print(streets[safe: 7]) // Prints "nil"
+print(streets[7])       // Fatal error: Index out of range
+```
