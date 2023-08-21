@@ -1,4 +1,4 @@
-// RootsSpec.swift
+// ZeroSpec.swift
 // Copyright © 2023 Kaleb A. Ascevich
 //
 // This package is free software: you can redistribute it and/or modify it
@@ -18,30 +18,33 @@ import Quick
 import Nimble
 @testable import Rapid
 
-final class RootsSpec: QuickSpec {
+final class ZeroSpec: QuickSpec {
     override class func spec() {
-        describe("square roots") {
-            it("returns the square root of a decimal") {
-                expect(√2.2).to(equal(1.483_239_697_419_132_6))
+        describe("the isZero property") {
+            it("is true if the value is zero") {
+                expect(0.isZero).to(beTrue())
             }
             
-            it("returns the square root of an integer") {
-                expect(√64).to(equal(8))
+            it("is false if the value is positive") {
+                expect(5.isZero).to(beFalse())
             }
             
-            it("fails with negative radicands") {
-                let squareRootOfNegativeFour = √(-4)
-                expect(squareRootOfNegativeFour.isNaN).to(beTrue())
+            it("is false if the value is negative") {
+                expect((-5).isZero).to(beFalse())
+            }
+        }
+        
+        describe("the isNonzero property") {
+            it("is false if the value is zero") {
+                expect(0.isNonzero).to(beFalse())
             }
             
-            it("does what the doc comment says it does") {
-                func hypotenuse(_ a: Double, _ b: Double) -> Double {
-                    √(a*a + b*b)
-                }
-                
-                let (dx, dy) = (3.0, 4.0)
-                let distance = hypotenuse(dx, dy)
-                expect(distance).to(equal(5))
+            it("is true if the value is positive") {
+                expect(5.isNonzero).to(beTrue())
+            }
+            
+            it("is true if the value is negative") {
+                expect((-5).isNonzero).to(beTrue())
             }
         }
     }

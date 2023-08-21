@@ -33,24 +33,11 @@ x&++
 // x == -128
 ```
 
-### `√`
-
-You can use the `√` operator to... well, take a square root.
-
-```swift
-func hypotenuse(_ a: Double, _ b: Double) -> Double {
-    √(a*a + b*b)
-}
-let (dx, dy) = (3.0, 4.0)
-let distance = hypotenuse(dx, dy)
-// distance == 5.0
-```
-
 ## Numbers
 
-### `SignedNumeric.isPositive` and `SignedNumeric.isNegative`
+### `isPositive` and `isNegative`
 
-They do exactly what they say on the tins.
+A more elegant way of saying `x > 0` and `x < 0`.
 
 ```swift
 let x = 7
@@ -66,7 +53,21 @@ let z = 0
 // x.isNegative == false
 ```
 
-### `SignedNumeric.absoluteValue`
+### `isZero` and `isNonzero`
+
+A more elegant way of saying `x == 0` and `x != 0`.
+
+```swift
+let z = 0
+// x.isZero == true
+// x.isNonzero == false
+
+let x = 7
+// x.isZero == false
+// x.isNonzero == true
+```
+
+### `absoluteValue`
 
 `abs(_:)`, but Swifty.
 
@@ -93,7 +94,7 @@ let sixPlusOne = run {
 // sixPlusOne == 7
 ```
 
-### `Chainable.do(_:)`
+### `do(_:)`
 
 Just `do` it.
 
@@ -105,7 +106,7 @@ editor.do {
 }
 ```
 
-### `Chainable.then(_:)`
+### `then(_:)`
 
 You know all those Objective-C types that you configure by setting their numerous properties? This method helps with that.
 
@@ -119,7 +120,7 @@ let formatter = NumberFormatter().then {
 
 ## Sequences
 
-### `Sequence.noneSatisfy(_:)`
+### `noneSatisfy(_:)`
 
 It's like `allSatisfy(_:)`, but the opposite.
 
@@ -129,7 +130,7 @@ let noneHaveFewerThanFive = names.noneSatisfy { $0.count < 5 }
 // noneHaveFewerThanFive == true
 ```
 
-### `Sequence.last(where:)`
+### `last(where:)`
 
 `first(where:)` in reverse.
 
@@ -141,7 +142,7 @@ if let lastNegative = numbers.last(where: \.isNegative) {
 // Prints "The last negative number is -6."
 ```
 
-### `Collection.count(of:)`
+### `count(of:)`
 
 There are two of these: one that takes a predicate, and one that takes an element.
 
@@ -163,7 +164,7 @@ print(numberOfFours)
 // Prints "3"
 ```
 
-### `Collection.subscript(safe:)`
+### `subscript(safe:)`
 
 Returns `nil` if the index isn't valid; returns the element at that index otherwise.
 
