@@ -33,6 +33,19 @@ x&++
 // x == -128
 ```
 
+### The `<=>` operator
+
+`swap(x, y)` in a somewhat more elegant form.
+
+```swift
+var fortyTwo = 42
+var sixtyNine = 69
+
+fortyTwo <=> sixtyNine
+// fortyTwo == 69
+// sixtyNine == 42
+```
+
 ## Numbers
 
 ### `isPositive` and `isNegative`
