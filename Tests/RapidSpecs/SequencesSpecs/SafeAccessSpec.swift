@@ -23,13 +23,13 @@ final class SafeAccessSpec: QuickSpec {
         describe("the (safe:) subscript") {
             it("returns the value at that index if it exists") {
                 let streets = ["Adams", "Bryant", "Channing", "Douglas", "Evarts"]
-                let validStreet = streets[safe: 1]
+                let validStreet = streets[ifExists: 1]
                 expect(validStreet).to(equal("Bryant"))
             }
             
             it("returns nil if the value at that index does not exist") {
                 let streets = ["Adams", "Bryant", "Channing", "Douglas", "Evarts"]
-                let invalidStreet = streets[safe: 7]
+                let invalidStreet = streets[ifExists: 7]
                 expect(invalidStreet).to(beNil())
             }
         }

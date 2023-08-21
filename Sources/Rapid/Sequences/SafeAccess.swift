@@ -22,7 +22,7 @@ public extension Collection {
     /// its subscript, but fails because the element does not exist:
     ///
     ///     var streets = ["Adams", "Bryant", "Channing", "Douglas", "Evarts"]
-    ///     print(streets[safe: 7])
+    ///     print(streets[ifExists: 7])
     ///     // Prints "nil"
     ///
     /// You can subscript a collection with any valid index other than the
@@ -36,7 +36,7 @@ public extension Collection {
     ///
     /// - Returns: The element at the specified position, or `nil` if it
     ///   doesn't exist.
-    subscript(safe position: Index) -> Element? {
+    subscript(ifExists position: Index) -> Element? {
         guard indices.contains(position) else {
             return nil
         }
