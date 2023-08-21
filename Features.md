@@ -207,3 +207,17 @@ let intWithValue: Int? = 42
 // intWithValue.isNil == false
 // intWithValue.isNotNil == true
 ```
+
+
+## Comparable
+
+### `isBetween(_:)`
+
+Check whether a value is contained within a range.
+
+```swift
+1.isBetween(5...7)          // false
+7.isBetween(6...12)         // true
+"e".isBetween("a"..."d")    // false
+0.32.isBetween(0.31...0.33) // true
+```
