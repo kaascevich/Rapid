@@ -118,7 +118,7 @@ let formatter = NumberFormatter().then {
 }
 ```
 
-## Sequences
+## Collections
 
 ### `noneSatisfy(_:)`
 
@@ -176,4 +176,18 @@ print(streets[1])           // Prints "Bryant"
 
 print(streets[ifExists: 7]) // Prints nil
 print(streets[7])           // Fatal error: Index out of range
+```
+
+### `isNotEmpty`
+
+If there's one reason to extend `Collection`, it's for this. If there's one reason *not* to extend `Collection`, it's because Rapid does it for you.
+
+```swift
+let horseName = "Silver"
+if horseName.isNotEmpty {
+    print("Hi ho, \(horseName)!")
+} else {
+    print("My horse has no name.")
+}
+// Prints "Hi ho, Silver!"
 ```
