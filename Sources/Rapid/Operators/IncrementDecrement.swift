@@ -42,6 +42,10 @@ public extension BinaryInteger {
     ///
     /// - Parameters:
     ///   - operand: The value to increment.
+    ///
+    /// ## See Also
+    ///
+    /// ``--(_:)``
     static postfix func ++ (_ operand: inout Self) {
         operand += 1
     }
@@ -75,6 +79,10 @@ public extension BinaryInteger {
     ///
     /// - Parameters:
     ///   - operand: The value to decrement.
+    ///
+    /// ## See Also
+    ///
+    /// ``++(_:)``
     static postfix func -- (_ operand: inout Self) {
         operand -= 1
     }
@@ -104,6 +112,10 @@ public extension FixedWidthInteger {
     ///
     /// - Parameters:
     ///   - operand: The value to increment.
+    ///
+    /// ## See Also
+    ///
+    /// ``&--(_:)``
     static postfix func &++ (_ operand: inout Self) {
         operand &+= 1
     }
@@ -133,6 +145,10 @@ public extension FixedWidthInteger {
     ///
     /// - Parameters:
     ///   - operand: The value to decrement.
+    ///
+    /// ## See Also
+    ///
+    /// ``&++(_:)``
     static postfix func &-- (_ operand: inout Self) {
         operand &-= 1
     }

@@ -93,6 +93,10 @@ public extension Collection {
     ///   should be included in the count.
     ///
     /// - Returns: The number of elements that satisfy `predicate`.
+    ///
+    /// ## See Also
+    ///
+    /// ``count(of:)-3wi3r``
     func count(of predicate: (Element) throws -> Bool) rethrows -> Int {
         try filter(predicate).count
     }
@@ -116,6 +120,10 @@ public extension Collection where Element: Equatable {
     /// - Parameter element: The element to count.
     ///
     /// - Returns: The number of times `element` appears in the collection.
+    ///
+    /// ## See Also
+    ///
+    /// ``count(of:)-4eom8``
     func count(of element: Element) -> Int {
         count { $0 == element }
     }

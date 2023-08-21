@@ -17,12 +17,20 @@
 public extension AdditiveArithmetic {
     /// A Boolean value indicating whether this value is equal to the zero
     /// value.
+    ///
+    /// ## See Also
+    ///
+    /// ``isNonzero``
     var isZero: Bool {
         self == .zero
     }
     
     /// A Boolean value indicating whether this value is not equal to the
     /// zero value.
+    ///
+    /// ## See Also
+    ///
+    /// ``isZero``
     var isNonzero: Bool {
         !isZero
     }

@@ -17,11 +17,19 @@
 public extension Optional {
     /// A Boolean value indicating whether this optional does not contain a
     /// value.
+    ///
+    /// ## See Also
+    ///
+    /// ``isNotNil``
     var isNil: Bool {
         self == nil
     }
     
     /// A Boolean value indicating whether this optional contains a value.
+    ///
+    /// ## See Also
+    ///
+    /// ``isNil``
     var isNotNil: Bool {
         !isNil
     }
