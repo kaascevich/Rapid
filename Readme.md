@@ -6,9 +6,20 @@
 
 A host of utilities to make Swift swifter.
 
- - [Using Rapid](#using-rapid)
  - [Features](/Features.md)
  - [License](/License.md)
+ 
+## What's this about?
+
+Rapid is a package that will (eventually) contain many of the most common extensions to the standard library (and, occasionally, Foundation).
+
+Within Rapid, you will find:
+ - Operators for the most commonly used features, such as `§` to create `String` representations
+ - Computed properties to simplify common comparisons, such as `isNil` or `isNotEmpty`
+ - Inverted versions of methods, such as `last(where:)` or `noneSatisfy(_:)`
+ - Syntactic sugar for working on specific values, such as `then(_:)` or `do(_:)`
+ - Methods and subscripts that return `nil` instead of crashing when invalid arguments are passed
+ - [And more...](/Features.md)
 
 ## Using Rapid
 
@@ -38,3 +49,14 @@ A host of utilities to make Swift swifter.
  3. Click *Add Package*.
  4. Choose the target you want to add Rapid to, and then click *Add Package* again.
 
+## Documentation?
+
+I've documented everything to the best of my ability. However, at least for the time being, you'll need to build it yourself. (Unless SPM does something magical that I'm not aware of... 😏)
+
+To do that:
+ 1. Open Xcode, and choose *Integrate* → *Clone...*
+ 2. [Copy this link](https://github.com/kaascevich/Rapid.git), paste it into the search bar, and click *Clone*.
+ 3. Once Xcode completes package resolution, choose *Product* → *Build Documentation* or hit ⌃⌥⌘D.
+ 4. Wait for the build to finish. When it's done, the documentation window will open.
+ 5. At the very top of the sidebar, open *Rapid*, and then open the *Rapid* under that.
+ 6. There is no 6th step.
