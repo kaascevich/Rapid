@@ -251,3 +251,18 @@ Check whether a value is contained within a range.
 "e".isBetween("a"..."d")    // false
 0.32.isBetween(0.31...0.33) // true
 ```
+
+## Strings
+
+### The `§` operator
+
+A more concise way to write the `String(describing:)` initializer.
+
+```swift
+struct Point {
+    let x: Int, y: Int
+}
+let p = Point(x: 21, y: 30)
+print(§p)
+// Prints "Point(x: 21, y: 30)"
+```
