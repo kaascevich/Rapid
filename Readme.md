@@ -25,7 +25,7 @@ Within Rapid, you will find:
 
 ### Using in a Swift package
 
- 1. Add Rapid as a dependency to your Package.swift:
+ 1. Add Rapid as a dependency of your package manifest:
  
     ```swift
     .package(
@@ -33,7 +33,7 @@ Within Rapid, you will find:
         branch: "main"
     )
     ```
- 2. Add Rapid as a dependency to each of your targets:
+ 2. Add Rapid as a dependency for each of your targets:
  
     ```swift
     .product(
