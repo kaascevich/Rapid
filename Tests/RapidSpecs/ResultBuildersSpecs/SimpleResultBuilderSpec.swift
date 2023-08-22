@@ -36,30 +36,17 @@ final class SimpleResultBuilderSpec: QuickSpec {
             it("implements all the result builder methods") {
                 let notTrue = false // bypassing the "will never be executed" warning
                 let aBunchOfRandomThings = String {
-                    "hello "
-                    if true {
-                        "yes "
-                    }
-                    
-                    if notTrue {
-                        "if "
-                    } else {
-                        "else "
-                    }
-                    
-                    for i in 1...5 {
-                        §i
-                    }
-                    
-                    if #available(macOS 14, *) {
-                        " Sonoma"
-                    }
+                    "hello"
+                    if true { "yes" }
+                    if notTrue { "if" } else { "else" }
+                    for i in 1...5 { §i }
+                    if #available(macOS 14, *) { "Sonoma" }
                 }
                 
                 if #available(macOS 14, *) {
-                    expect(aBunchOfRandomThings).to(equal("hello yes else 12345 Sonoma"))
+                    expect(aBunchOfRandomThings).to(equal("hello" + "yes" + "else" + "12345" + "Sonoma"))
                 } else {
-                    expect(aBunchOfRandomThings).to(equal("hello yes else 12345"))
+                    expect(aBunchOfRandomThings).to(equal("hello" + "yes" + "else" + "12345"))
                 }
             }
         }
