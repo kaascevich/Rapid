@@ -224,7 +224,7 @@ if horseName.isNotEmpty {
 
 ### `removeAll(occurrencesOf:)`
 
-````swift
+```swift
 var numbers = [5, 6, 7, 8, 7, 6, 5]
 numbers.removeAll(occurrencesOf: 6)
 // numbers == [5, 7, 8, 7, 5]
@@ -286,6 +286,12 @@ print(s)
 
 A protocol that implements all result builder methods for you using a `buildResult(from:)` method.
 
-### `StringBuilder` and `ArrayBuilder`
-
-Create strings and arrays using result builders.
+```swift
+let aBunchOfRandomThings = String {
+    "hello"
+    if true { "yes" }
+    if notTrue { "if" } else { "else" }
+    for i in 1...5 { §i }
+    if #available(macOS 14, *) { "Sonoma" }
+}
+```
