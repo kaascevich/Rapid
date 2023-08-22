@@ -73,9 +73,17 @@
 /// - ``buildResult(from:)``
 public protocol SimpleResultBuilder {
     /// The type to use when creating blocks.
+    ///
+    /// ## See Also
+    ///
+    /// ``Component``
     associatedtype Expression
     
     /// The type to use for building results.
+    ///
+    /// ## See Also
+    ///
+    /// ``Expression``
     associatedtype Component
     
     /// Builds a result from an array of components.
@@ -85,11 +93,11 @@ public protocol SimpleResultBuilder {
     /// - Returns: The result of combining all the components.
     static func buildResult(from components: [Component]) -> Component
     
-    /// Builds a result from an array of components.
+    /// Builds a component from an expression.
     ///
-    /// - Parameter components: The components to build the result from.
+    /// - Parameter expression: The expression to build the component from.
     ///
-    /// - Returns: The result of combining all the components.
+    /// - Returns: A component created from the expression.
     static func buildExpression(_ expression: Expression) -> Component
 }
 
