@@ -284,7 +284,7 @@ print(s)
 
 ### `SimpleResultBuilder`
 
-A protocol that implements all result builder methods for you using a `buildResult(from:)` method.
+A protocol that implements all result builder methods for you using a `buildResult(from:)` method and (if needed) a `buildExpression(_:)` method.
 
 ```swift
 let aBunchOfRandomThings = String {

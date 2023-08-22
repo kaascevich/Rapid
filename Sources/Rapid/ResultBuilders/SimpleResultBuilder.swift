@@ -20,13 +20,20 @@
 /// When creating a custom result builder type, consider conforming to
 /// `SimpleResultBuilder` to remove boilerplate. Your type must implement
 /// a `buildResult(from:)` method that takes an array of components and
-/// returns the combined result of those components.
+/// returns the combined result of those components, as well as a
+/// `buildExpression(_:)` method that takes an expression and creates a
+/// component from it.
 ///
 /// - Important: The conforming type must still be annotated with the
 ///   `@resultBuilder` attribute to be used as a result builder.
 ///
+/// If the `Expression` and `Component` types are the same, you only need
+/// to implement `buildResult(from:)`.
+///
 /// ```swift
 /// @resultBuilder public enum StringBuilder: SimpleResultBuilder {
+///     public typealias Expression = String
+///
 ///     public static func buildResult(from components: [String]) -> String {
 ///         components.reduce("", +)
 ///     }
@@ -45,12 +52,13 @@
 /// }
 /// ```
 ///
-/// Default implementations are provided for types whose `Result` type
+/// Default implementations are provided for types whose `Component` type
 /// conforms to `RangeReplaceableCollection`.
 ///
 /// ```swift
-/// @resultBuilder public enum ArrayBuilder<Component>: SimpleResultBuilder {
-///     public typealias Result = [Component]
+/// @resultBuilder public enum ArrayBuilder<Element>: SimpleResultBuilder {
+///     public typealias Component = [Element]
+///     public typealias Expression = Element
 ///
 ///     // everything else is already implemented
 /// }
@@ -64,18 +72,25 @@
 /// - ``Result``
 /// - ``buildResult(from:)``
 public protocol SimpleResultBuilder {
+    /// The type to use when creating blocks.
+    associatedtype Expression
+    
     /// The type to use for building results.
     associatedtype Component
-    
-    /// The type used as the final result.
-    associatedtype Result
     
     /// Builds a result from an array of components.
     ///
     /// - Parameter components: The components to build the result from.
     ///
     /// - Returns: The result of combining all the components.
-    static func buildResult(from components: [Component]) -> Result
+    static func buildResult(from components: [Component]) -> Component
+    
+    /// Builds a result from an array of components.
+    ///
+    /// - Parameter components: The components to build the result from.
+    ///
+    /// - Returns: The result of combining all the components.
+    static func buildExpression(_ expression: Expression) -> Component
 }
 
 public extension SimpleResultBuilder {
@@ -92,7 +107,7 @@ public extension SimpleResultBuilder {
     /// - Parameter components: The components to build the result from.
     ///
     /// - Returns: The result of combining all the components.
-    static func buildBlock(_ components: Component...) -> Result {
+    static func buildBlock(_ components: Component...) -> Component {
         buildResult(from: components)
     }
     
@@ -112,7 +127,7 @@ public extension SimpleResultBuilder {
     ///   from.
     ///
     /// - Returns: The result of combining all the components.
-    static func buildArray(_ components: [Component]) -> Result {
+    static func buildArray(_ components: [Component]) -> Component {
         buildResult(from: components)
     }
     
@@ -138,7 +153,7 @@ public extension SimpleResultBuilder {
     /// ## See Also
     ///
     /// - ``buildEither(second:)``
-    static func buildEither(first component: Component) -> Result {
+    static func buildEither(first component: Component) -> Component {
         buildResult(from: [component])
     }
     
@@ -164,7 +179,7 @@ public extension SimpleResultBuilder {
     /// ## See Also
     ///
     /// - ``buildEither(first:)``
-    static func buildEither(second component: Component) -> Result {
+    static func buildEither(second component: Component) -> Component {
         buildResult(from: [component])
     }
     
@@ -185,7 +200,7 @@ public extension SimpleResultBuilder {
     /// - Parameter component: A component.
     ///
     /// - Returns: The `component` parameter.
-    static func buildLimitedAvailability(_ component: Component) -> Result {
+    static func buildLimitedAvailability(_ component: Component) -> Component {
         buildResult(from: [component])
     }
     
@@ -204,30 +219,42 @@ public extension SimpleResultBuilder {
     ///
     /// - Returns: The `component` parameter, if it isn't `nil`; otherwise,
     ///   an empty result.
-    static func buildOptional(_ component: Component?) -> Result {
+    static func buildOptional(_ component: Component?) -> Component {
         let components = component.isNotNil ? [component!] : []
         return buildResult(from: components)
     }
 }
 
+public extension SimpleResultBuilder where Component == Expression {
+    static func buildExpression(_ expression: Expression) -> Component {
+        expression
+    }
+}
+
 // MARK: - RangeReplaceableCollection Conformances
 
-public extension SimpleResultBuilder where Result: RangeReplaceableCollection {
-    static func buildResult(from components: [Result.Element]) -> Result {
-        components.map { [$0] }.reduce(.init(), +)
+public extension SimpleResultBuilder where Component: RangeReplaceableCollection {
+    static func buildResult(from components: [Component]) -> Component {
+        components.reduce(.init(), +)
+    }
+    
+    static func buildExpression(_ expression: Component.Element) -> Component {
+        Component([expression])
     }
 }
 
 // MARK: - StringBuilder
 
-/// Creates a `String` using a result builder.
-@resultBuilder public enum StringBuilder: SimpleResultBuilder {
-    public static func buildResult(from components: [String]) -> String {
-        components.reduce("", +)
-    }
-}
-
 public extension String {
+    /// Creates a `String` using a result builder.
+    @resultBuilder enum Builder: SimpleResultBuilder {
+        public typealias Expression = String
+        
+        public static func buildResult(from components: [String]) -> String {
+            components.reduce("", +)
+        }
+    }
+    
     /// Creates a new instance from a `StringBuilder`.
     ///
     /// ```swift
@@ -243,23 +270,24 @@ public extension String {
     /// ```
     ///
     /// - Parameter stringBuilder: A `StringBuilder` result builder.
-    init(@StringBuilder stringBuilder: () -> String) {
+    init(@String.Builder stringBuilder: () -> String) {
         self = stringBuilder()
     }
 }
 
 // MARK: - ArrayBuilder
 
-/// Creates an `Array` using a result builder.
-@resultBuilder public enum ArrayBuilder<Element>: SimpleResultBuilder {
-    public typealias Result = [Element]
-}
-
 public extension Array {
+    /// Creates an `Array` using a result builder.
+    @resultBuilder enum Builder: SimpleResultBuilder {
+        public typealias Component = [Element]
+        public typealias Expression = Element
+    }
+    
     /// Creates a new instance from an `ArrayBuilder`.
     ///
     /// - Parameter arrayBuilder: An `ArrayBuilder` result builder.
-    init(@ArrayBuilder<Element> arrayBuilder: () -> [Element]) {
+    init(@Array.Builder arrayBuilder: () -> [Element]) {
         self = arrayBuilder()
     }
 }
