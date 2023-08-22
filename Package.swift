@@ -49,6 +49,10 @@ let package = Package(
         .package(
             url: "https://github.com/Quick/Nimble.git",
             from: Version(12, 0, 0)
+        ),
+        .package(
+            url: "https://github.com/apple/swift-docc-plugin",
+            from: Version(1, 0, 0)
         )
     ],
     targets: [
