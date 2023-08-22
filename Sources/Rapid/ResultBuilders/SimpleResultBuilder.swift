@@ -68,8 +68,8 @@
 ///
 /// ### Requirements
 ///
+/// - ``Expression``
 /// - ``Component``
-/// - ``Result``
 /// - ``buildResult(from:)``
 public protocol SimpleResultBuilder {
     /// The type to use when creating blocks.
@@ -220,8 +220,11 @@ public extension SimpleResultBuilder {
     /// - Returns: The `component` parameter, if it isn't `nil`; otherwise,
     ///   an empty result.
     static func buildOptional(_ component: Component?) -> Component {
-        let components = component.isNotNil ? [component!] : []
-        return buildResult(from: components)
+        if let component {
+            buildResult(from: [component])
+        } else {
+            buildResult(from: [])
+        }
     }
 }
 
@@ -249,13 +252,9 @@ public extension String {
     /// Creates a `String` using a result builder.
     @resultBuilder enum Builder: SimpleResultBuilder {
         public typealias Expression = String
-        
-        public static func buildResult(from components: [String]) -> String {
-            components.reduce("", +)
-        }
     }
     
-    /// Creates a new instance from a `StringBuilder`.
+    /// Creates a new instance from a `String.Builder`.
     ///
     /// ```swift
     /// let theAnswer = String {
@@ -269,8 +268,8 @@ public extension String {
     /// // Prints "6 times 9 is not 42."
     /// ```
     ///
-    /// - Parameter stringBuilder: A `StringBuilder` result builder.
-    init(@String.Builder stringBuilder: () -> String) {
+    /// - Parameter stringBuilder: A `String.Builder` result builder.
+    init(@Builder stringBuilder: () -> String) {
         self = stringBuilder()
     }
 }
@@ -284,10 +283,10 @@ public extension Array {
         public typealias Expression = Element
     }
     
-    /// Creates a new instance from an `ArrayBuilder`.
+    /// Creates a new instance from an `Array.Builder`.
     ///
-    /// - Parameter arrayBuilder: An `ArrayBuilder` result builder.
-    init(@Array.Builder arrayBuilder: () -> [Element]) {
+    /// - Parameter arrayBuilder: An `Array.Builder` result builder.
+    init(@Builder arrayBuilder: () -> [Element]) {
         self = arrayBuilder()
     }
 }
