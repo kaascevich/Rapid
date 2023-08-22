@@ -26,12 +26,10 @@ let package = Package(
         .iOS(.v13),
         .watchOS(.v6),
         .tvOS(.v13),
-        .driverKit(.v19),
         .macCatalyst(.v13),
         .visionOS(.v1)
     ],
     products: [
-        // Products define the executables and libraries a package produces, making them visible to other packages.
         .library(
             name: "Rapid",
             targets: [
@@ -54,8 +52,6 @@ let package = Package(
         )
     ],
     targets: [
-        // Targets are the basic building blocks of a package, defining a module or a test suite.
-        // Targets can depend on other targets in this package and products from dependencies.
         .target(
             name: "Rapid",
             plugins: [
