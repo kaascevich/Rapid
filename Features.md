@@ -279,3 +279,13 @@ let s = "ab" * 10
 print(s)
 // Prints "abababababababababab"
 ```
+
+## Result Builders
+
+### `SimpleResultBuilder`
+
+A protocol that implements all result builder methods for you using a `buildResult(from:)` method.
+
+### `StringBuilder` and `ArrayBuilder`
+
+Create strings and arrays using result builders.
