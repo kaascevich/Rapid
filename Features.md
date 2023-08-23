@@ -46,6 +46,19 @@ fortyTwo <=> sixtyNine
 // sixtyNine == 42
 ```
 
+### Operator aliases -- the `≠`, `≤`, and `≥` operators
+
+Unicode versions of the `!=`, `<=`, and `>=` operators, respectively.
+
+```swift
+let fortyTwo = 42
+let sixtyNine = 69
+
+// fortyTwo ≠ sixtyNine == true
+// fortyTwo ≤ sixtyNine == true
+// fortyTwo ≥ sixtyNine == false
+```
+
 ## Numbers
 
 ### `isPositive` and `isNegative`
