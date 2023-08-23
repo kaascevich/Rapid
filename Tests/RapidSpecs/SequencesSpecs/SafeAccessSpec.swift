@@ -32,6 +32,12 @@ final class SafeAccessSpec: QuickSpec {
                 let invalidStreet = streets[ifExists: 7]
                 expect(invalidStreet).to(beNil())
             }
+            
+            it("returns nil if passed the end index") {
+                let streets = ["Adams", "Bryant", "Channing", "Douglas", "Evarts"]
+                let invalidStreet = streets[ifExists: streets.endIndex]
+                expect(invalidStreet).to(beNil())
+            }
         }
     }
 }
