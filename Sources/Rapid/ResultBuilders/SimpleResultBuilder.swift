@@ -84,7 +84,7 @@ public protocol SimpleResultBuilder {
     /// ## See Also
     ///
     /// ``Expression``
-    associatedtype Component
+    associatedtype Component = Expression
     
     /// Builds a result from an array of components.
     ///
@@ -287,8 +287,8 @@ public extension String {
 public extension Array {
     /// Creates an `Array` using a result builder.
     @resultBuilder enum Builder: SimpleResultBuilder {
-        public typealias Component = [Element]
         public typealias Expression = Element
+        public typealias Component = [Element]
     }
     
     /// Creates a new instance from an `Array.Builder`.
