@@ -53,7 +53,7 @@ public extension Chainable {
     /// - ``do(_:)``
     /// - ``run(_:)``
     /// - ``Chainable/then(_:)-4mhy8``
-    func then(_ closure: (inout Self) throws -> Void) rethrows -> Self {
+    @inlinable func then(_ closure: (inout Self) throws -> Void) rethrows -> Self {
         var copy = self
         try closure(&copy)
         return copy
@@ -89,7 +89,7 @@ public extension Chainable {
     /// - ``run(_:)``
     /// - ``Chainable/then(_:)-7emy7``
     /// - ``Chainable/then(_:)-4mhy8``
-    func `do`(_ closure: (Self) throws -> Void) rethrows {
+    @inlinable func `do`(_ closure: (Self) throws -> Void) rethrows {
         try closure(self)
     }
 }
@@ -119,7 +119,7 @@ public extension Chainable where Self: AnyObject {
     /// - ``do(_:)``
     /// - ``run(_:)``
     /// - ``Chainable/then(_:)-7emy7``
-    func then(_ closure: (Self) throws -> Void) rethrows -> Self {
+    @inlinable func then(_ closure: (Self) throws -> Void) rethrows -> Self {
         try closure(self)
         return self
     }

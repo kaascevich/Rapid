@@ -46,7 +46,7 @@ public extension BinaryInteger {
     /// ## See Also
     ///
     /// ``--(_:)``
-    static postfix func ++ (_ operand: inout Self) {
+    @inlinable static postfix func ++ (_ operand: inout Self) {
         operand += 1
     }
 }
@@ -83,7 +83,7 @@ public extension BinaryInteger {
     /// ## See Also
     ///
     /// ``++(_:)``
-    static postfix func -- (_ operand: inout Self) {
+    @inlinable static postfix func -- (_ operand: inout Self) {
         operand -= 1
     }
 }
@@ -116,7 +116,7 @@ public extension FixedWidthInteger {
     /// ## See Also
     ///
     /// ``&--(_:)``
-    static postfix func &++ (_ operand: inout Self) {
+    @inlinable static postfix func &++ (_ operand: inout Self) {
         operand &+= 1
     }
 }
@@ -149,7 +149,7 @@ public extension FixedWidthInteger {
     /// ## See Also
     ///
     /// ``&++(_:)``
-    static postfix func &-- (_ operand: inout Self) {
+    @inlinable static postfix func &-- (_ operand: inout Self) {
         operand &-= 1
     }
 }

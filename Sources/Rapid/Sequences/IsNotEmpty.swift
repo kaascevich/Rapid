@@ -34,7 +34,7 @@ public extension Collection {
     /// ```
     ///
     /// - Complexity: O(1)
-    var isNotEmpty: Bool {
+    @inlinable var isNotEmpty: Bool {
         !isEmpty
     }
 }

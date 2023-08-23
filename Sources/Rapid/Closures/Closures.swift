@@ -53,6 +53,6 @@
 /// - ``Chainable/then(_:)-7emy7``
 /// - ``Chainable/then(_:)-4mhy8``
 /// - ``Chainable/do(_:)``
-public func run<T>(_ closure: () throws -> T) rethrows -> T {
+@inlinable public func run<T>(_ closure: () throws -> T) rethrows -> T {
     try closure()
 }

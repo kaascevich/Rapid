@@ -38,7 +38,7 @@ public extension Collection {
     ///
     /// - Returns: The element at the specified position, or `nil` if it
     ///   doesn't exist.
-    subscript(ifExists position: Index) -> Element? {
+    @inlinable subscript(ifExists position: Index) -> Element? {
         guard indices.contains(position) else {
             return nil
         }

@@ -21,7 +21,7 @@ public extension Optional {
     /// ## See Also
     ///
     /// ``isNotNil``
-    var isNil: Bool {
+    @inlinable var isNil: Bool {
         self == nil
     }
     
@@ -30,7 +30,7 @@ public extension Optional {
     /// ## See Also
     ///
     /// ``isNil``
-    var isNotNil: Bool {
+    @inlinable var isNotNil: Bool {
         !isNil
     }
 }
