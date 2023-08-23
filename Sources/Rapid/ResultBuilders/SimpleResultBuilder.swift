@@ -76,7 +76,7 @@ public protocol SimpleResultBuilder {
     ///
     /// ## See Also
     ///
-    /// ``Component``
+    /// <doc:/documentation/Rapid/SimpleResultBuilder/Component>
     associatedtype Expression
     
     /// The type to use for building results.
