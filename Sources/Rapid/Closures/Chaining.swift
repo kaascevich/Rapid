@@ -139,7 +139,7 @@ extension Character: Chainable { }
 @available(iOS 15, macOS 12, macCatalyst 15, tvOS 15, watchOS 8, *) extension AttributedString: Chainable { }
 @available(iOS 15, macOS 12, macCatalyst 15, tvOS 15, watchOS 8, *) extension AttributedSubstring: Chainable { }
 
-// MARK: - Collections
+// MARK: - Sequences
 
 extension Array: Chainable { }
 extension Set: Chainable { }
@@ -164,6 +164,7 @@ extension ReversedCollection: Chainable { }
 extension Slice: Chainable { }
 extension StrideThrough: Chainable { }
 extension StrideTo: Chainable { }
+extension UnfoldFirstSequence: Chainable { }
 
 // MARK: - Async Sequences
 
