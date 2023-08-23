@@ -18,17 +18,40 @@ Within Rapid, you will find:
 
 ## Topics
 
+### Numbers
+
+ - <doc:Numbers>
+
+### Sequences
+
+ - <doc:Sequences>
+
 ### Result Builders
 
-- ``SimpleResultBuilder``
+ - <doc:ResultBuilders>
 
 ### Closures
 
-- ``Chainable``
-- ``run(_:)``
+ - ``Chainable``
+ - ``run(_:)``
+ - ``Swift/BinaryInteger/repeat(_:)``
 
 ### Operator Aliases
 
-- ``Swift/Equatable/≠(_:_:)``
-- ``Swift/Comparable/≥(_:_:)``
-- ``Swift/Comparable/≤(_:_:)``
+ - ``Swift/Equatable/≠(_:_:)``
+ - ``Swift/Comparable/≥(_:_:)``
+ - ``Swift/Comparable/≤(_:_:)``
+
+### Optionals
+
+ - ``Swift/Optional/isNil``
+ - ``Swift/Optional/isNotNil``
+
+### Comparisons
+
+ - ``Swift/Comparable/isBetween(_:)``
+
+### Strings
+
+ - ``§(_:)``
+ - ``Swift/String/*(_:_:)``

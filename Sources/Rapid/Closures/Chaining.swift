@@ -27,6 +27,12 @@ import Foundation
 /// See the Conforming Types section below for a list of conformances provided
 /// by Rapid -- most standard library and Foundation types are included, along
 /// with almost all Objective-C classes.
+///
+/// ## Topics
+///
+/// ### Conformances
+///
+///  - <doc:ChainableConformances>
 public protocol Chainable { }
 
 public extension Chainable {
@@ -164,11 +170,9 @@ extension ReversedCollection: Chainable { }
 extension Slice: Chainable { }
 extension StrideThrough: Chainable { }
 extension StrideTo: Chainable { }
-extension UnfoldFirstSequence: Chainable { }
 
 // MARK: - Async Sequences
 
-@available(iOS 15, macOS 12, macCatalyst 15, tvOS 15, watchOS 8, *) extension AsyncCharacterSequence: Chainable { }
 extension AsyncCompactMapSequence: Chainable { }
 extension AsyncDropFirstSequence: Chainable { }
 extension AsyncDropWhileSequence: Chainable { }
