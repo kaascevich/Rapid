@@ -64,10 +64,7 @@ public extension Sequence {
     /// - Returns: The last element of the sequence that satisfies `predicate`,
     ///   or `nil` if there is no element that satisfies `predicate`.
     @inlinable func last(where predicate: (Element) throws -> Bool) rethrows -> Element? {
-        for element in self.reversed() where try predicate(element) {
-            return element
-        }
-        return nil
+        try reversed().first(where: predicate)
     }
 }
 
