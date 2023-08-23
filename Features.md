@@ -122,6 +122,15 @@ print(π)
 // Prints "3.14159265358979"
 ```
 
+### The postfix `%` operator
+
+Returns its operand divided by 100.
+
+```swift
+let oneHalf = 50%
+// oneHalf == 0.5
+```
+
 ## Closures
 
 ### `run(_:)`
