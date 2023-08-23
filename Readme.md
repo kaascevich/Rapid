@@ -17,6 +17,7 @@ Rapid is a package that will (eventually) contain many of the most common extens
 Within Rapid, you will find:
  - Operators for the most commonly used features, such as `§` to create `String` representations
  - Unicode versions of built-in operators, such as `≠` instead of `!=`
+ - Global constants for commonly used values, such as `π` for `Double.pi`
  - Computed properties to simplify common comparisons, such as `isNil` or `isNotEmpty`
  - Inverted versions of methods, such as `last(where:)` or `noneSatisfy(_:)`
  - Syntactic sugar for working on specific values, such as `then(_:)` or `do(_:)`

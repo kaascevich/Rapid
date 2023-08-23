@@ -115,6 +115,13 @@ let y = (-8).absoluteValue
 // y == 8
 ```
 
+### `π`
+
+```swift
+print(π)
+// Prints "3.14159265358979"
+```
+
 ## Closures
 
 ### `run(_:)`
