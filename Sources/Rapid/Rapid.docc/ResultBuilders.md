@@ -4,6 +4,8 @@ Create collections using the elegance of result builders.
 
 ## Topics
 
+ - <doc:AboutResultBuilders>
+
 ### Creating a Result Builder Type
 
  - ``SimpleResultBuilder``
