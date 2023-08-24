@@ -2,10 +2,6 @@
 
 Create collections using the elegance of result builders.
 
-The articles here were taken mostly verbatim from [The Swift Programming Language], with minor modifications.
-
-[The Swift Programming Language]: https://docs.swift.org/swift-book/documentation/the-swift-programming-language/
-
 ## Topics
 
  - <doc:AboutResultBuilders>

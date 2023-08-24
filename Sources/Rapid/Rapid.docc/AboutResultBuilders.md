@@ -2,6 +2,10 @@
 
 Implement a DSL for creating nested data structures in a natural, declarative way.
 
+*This article was taken mostly verbatim from [The Swift Programming Language], with minor modifications.*
+
+[The Swift Programming Language]: https://docs.swift.org/swift-book/documentation/the-swift-programming-language/
+
 A *result builder* is a type you define that adds syntax for creating nested data, like a list or tree, in a natural, declarative way. The code that uses the result builder can include ordinary Swift syntax, like `if` and `for`, to handle conditional or repeated pieces of data.
 
 The code below defines a few types for drawing on a single line using stars and text.
