@@ -81,9 +81,9 @@ public extension RangeReplaceableCollection where Element: Equatable {
     /// // numbers == [5, 7, 8, 7, 5]
     /// ```
     ///
-    /// - Parameter element: An element of the collection.
-    ///
     /// - Complexity: O(*n*), where *n* is the length of the collection.
+    ///
+    /// - Parameter element: An element of the collection.
     @inlinable mutating func removeAll(occurrencesOf element: Element) {
         removeAll { $0 == element }
     }
