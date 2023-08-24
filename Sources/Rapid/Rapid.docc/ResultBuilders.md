@@ -9,7 +9,6 @@ The articles here were taken mostly verbatim from [The Swift Programming Languag
 ## Topics
 
  - <doc:AboutResultBuilders>
- - <doc:ResultBuilderMethods>
 
 ### Creating a Result Builder
 

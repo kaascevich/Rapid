@@ -152,5 +152,3 @@ let manyStars = draw {
 ```
 
 In the code above, the `for` loop creates an array of drawings, and the `buildArray(_:)` method turns that array into a `Line`.
-
-For a complete list of how Swift transforms builder syntax into calls to the builder type's methods, see <doc:ResultBuilderMethods>.
