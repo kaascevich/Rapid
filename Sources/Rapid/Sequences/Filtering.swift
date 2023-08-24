@@ -115,7 +115,7 @@ public extension Collection {
     /// ## See Also
     ///
     /// ``count(of:)-3wi3r``
-    func count(of predicate: (Element) throws -> Bool) rethrows -> Int {
+    @inlinable func count(of predicate: (Element) throws -> Bool) rethrows -> Int {
         try filter(predicate).count
     }
 }
@@ -142,7 +142,7 @@ public extension Collection where Element: Equatable {
     /// ## See Also
     ///
     /// ``count(of:)-4eom8``
-    func count(of element: Element) -> Int {
+    @inlinable func count(of element: Element) -> Int {
         count { $0 == element }
     }
 }
