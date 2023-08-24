@@ -46,6 +46,9 @@ public extension Comparable {
     /// - Parameters:
     ///   - lhs: A value to compare.
     ///   - rhs: Another value to compare.
+    ///
+    /// - Returns: Whether the first value is less than or equal to the
+    ///   second.
     @inlinable static func ≤ (lhs: Self, rhs: Self) -> Bool {
         lhs <= rhs
     }
@@ -56,6 +59,9 @@ public extension Comparable {
     /// - Parameters:
     ///   - lhs: A value to compare.
     ///   - rhs: Another value to compare.
+    ///
+    /// - Returns: Whether the first value is greater than or equal to
+    ///   the second.
     @inlinable static func ≥ (lhs: Self, rhs: Self) -> Bool {
         lhs >= rhs
     }
