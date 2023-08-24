@@ -25,4 +25,6 @@
 /// print(π)
 /// // Prints "3.14159265358979"
 /// ```
+///
+/// This value is equivalent to `Double.pi`.
 public let π = Double.pi
