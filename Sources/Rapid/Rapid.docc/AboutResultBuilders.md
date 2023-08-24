@@ -2,272 +2,155 @@
 
 Implement a DSL for creating nested data structures in a natural, declarative way.
 
-*This document was taken mostly verbatim from [The Swift Programming Language], with minor modifications.*
+A *result builder* is a type you define that adds syntax for creating nested data, like a list or tree, in a natural, declarative way. The code that uses the result builder can include ordinary Swift syntax, like `if` and `for`, to handle conditional or repeated pieces of data.
 
-Apply the `@resultBuilder` attribute to a class, structure, or enumeration to use that type as a result builder. A *result builder* is a type that builds a nested data structure step by step. You use result builders to implement a domain-specific language (DSL) for creating nested data structures in a natural, declarative way.
+The code below defines a few types for drawing on a single line using stars and text.
 
-## Result-Building Methods
+```swift
+protocol Drawable {
+    func draw() -> String
+}
 
-A result builder implements the static methods described below. Because all of the result builder's functionality is exposed through static methods, you don't ever initialize an instance of that type. A result builder must implement either the `buildBlock(_:)` method or both the `buildPartialBlock(first:)` and `buildPartialBlock(accumulated:next:)` methods. The other methods -- which enable additional functionality in the DSL -- are optional. The declaration of a result builder type doesn't actually have to include any protocol conformances.
+struct Line: Drawable {
+    var elements: [Drawable]
+    func draw() -> String {
+        elements.map { $0.draw() }.joined(separator: "")
+    }
+}
 
-The descriptions of the static methods uses three types as placeholders. The type `Expression` is a placeholder for the type of the result builder's input, `Component` is a placeholder for the type of a partial result, and `FinalResult` is a placeholder for the type of the result that the result builder produces. You replace these types with the actual types that your result builder uses. If your result-building methods don't specify a type for `Expression` or `FinalResult`, they default to being the same as `Component`.
+struct Text: Drawable {
+    var content: String
+    init(_ content: String) { self.content = content }
+    func draw() -> String { content }
+}
 
-The block-building methods are as follows:
+struct Space: Drawable {
+    func draw() -> String { " " }
+}
 
- - term `static func buildBlock(_ components: Component...) -> Component`: Combines an array of partial results into a single partial result.
+struct Stars: Drawable {
+    var length: Int
+    func draw() -> String { String(repeating: "*", count: length) }
+}
 
- - term `static func buildPartialBlock(first: Component) -> Component`: Builds a partial result component from the first component. Implement both this method and `buildPartialBlock(accumulated:next:)` to support building blocks one component at a time. Compared to `buildBlock(_:)`, this approach reduces the need for generic overloads that handle different numbers of arguments.
+struct AllCaps: Drawable {
+    var content: Drawable
+    func draw() -> String { content.draw().uppercased() }
+}
+```
 
- - term `static func buildPartialBlock(accumulated: Component, next: Component) -> Component`: Builds a partial result component by combining an accumulated component with a new component. Implement both this method and `buildPartialBlock(first:)` to support building blocks one component at a time. Compared to `buildBlock(_:)`, this approach reduces the need for generic overloads that handle different numbers of arguments.
+The `Drawable` protocol defines the requirement for something that can be drawn, like a line or shape: the type must implement a `draw()` method. The `Line` structure represents a single-line drawing, and it serves as the top-level container for most drawings. To draw a `Line`, the structure calls `draw()` on each of the line's components, and then concatenates the resulting strings into a single string. The `Text` structure wraps a string to make it part of a drawing. The `AllCaps` structure wraps and modifies another drawing, converting any text in the drawing to uppercase.
 
-A result builder can implement all three of the block-building methods listed above; in this case, availability determines which method is called. By default, Swift calls the `buildPartialBlock(first:)` and `buildPartialBlock(accumulated:next:)` methods. To make Swift call `buildBlock(_:)` instead, mark the enclosing declaration as being available before the availability you write on `buildPartialBlock(first:)` and `buildPartialBlock(accumulated:next:)`.
+It's possible to make a drawing with these types by calling their initializers:
 
-The additional result-building methods are as follows:
+```swift
+let name: String? = "Ravi Patel"
+let manualDrawing = Line(elements: [
+    Stars(length: 3),
+    Text("Hello"),
+    Space(),
+    AllCaps(content: Text((name ?? "World") + "!")),
+    Stars(length: 2)
+])
+print(manualDrawing.draw())
+// Prints "***Hello RAVI PATEL!**"
+```
 
- - term `static func buildOptional(_ component: Component?) -> Component`: Builds a partial result from another partial result that can be `nil`. Implement this method to support `if` statements that don't include an `else` clause.
+This code works, but it's a little awkward. The deeply nested parentheses after `AllCaps` are hard to read. The fallback logic to use "World" when `name` is `nil` has to be done inline using the `??` operator, which would be difficult with anything more complex. If you needed to include switches or `for` loops to build up part of the drawing, there's no way to do that. A result builder lets you rewrite code like this so that it looks like normal Swift code.
 
- - term `static func buildEither(first: Component) -> Component`: Builds a partial result whose value varies depending on some condition. Implement both this method and `buildEither(second:)` to support `switch` statements and `if` statements that include an `else` clause.
-
- - term `static func buildEither(second: Component) -> Component`: Builds a partial result whose value varies depending on some condition. Implement both this method and `buildEither(first:)` to support `switch` statements and `if` statements that include an `else` clause.
-
- - term `static func buildArray(_ components: [Component]) -> Component`: Builds a partial result from an array of partial results. Implement this method to support `for` loops.
-
- - term `static func buildExpression(_ expression: Expression) -> Component`: Builds a partial result from an expression. You can implement this method to perform preprocessing -- for example, converting expressions to an internal type -- or to provide additional information for type inference at use sites.
-
- - term `static func buildFinalResult(_ component: Component) -> FinalResult`: Builds a final result from a partial result. You can implement this method as part of a result builder that uses a different type for partial and final results, or to perform other postprocessing on a result before returning it.
-
- - term `static func buildLimitedAvailability(_ component: Component) -> Component`: Builds a partial result that propagates or erases type information outside a compiler-control statement that performs an availability check. You can use this to erase type information that varies between the conditional branches.
-
-For example, the code below defines a simple result builder that builds an array of integers. This code defines `Component` and `Expression` as type aliases, to make it easier to match the examples below to the list of methods above.
+To define a result builder, you write the `@resultBuilder` attribute on a type declaration. For example, this code defines a result builder called `DrawingBuilder`, which lets you use a declarative syntax to describe a drawing:
 
 ```swift
 @resultBuilder
-struct ArrayBuilder {
-    typealias Component = [Int]
-    typealias Expression = Int
-
-    static func buildExpression(_ element: Expression) -> Component {
-        [element]
+struct DrawingBuilder {
+    static func buildBlock(_ components: Drawable...) -> Drawable {
+        Line(elements: components)
     }
 
-    static func buildOptional(_ component: Component?) -> Component {
-        guard let component else { return [] }
-        return component
+    static func buildEither(first: Drawable) -> Drawable {
+        first
     }
 
-    static func buildEither(first component: Component) -> Component {
-        component
-    }
-
-    static func buildEither(second component: Component) -> Component {
-        component
-    }
-
-    static func buildArray(_ components: [Component]) -> Component {
-        Array(components.joined())
-    }
-
-    static func buildBlock(_ components: Component...) -> Component {
-        Array(components.joined())
+    static func buildEither(second: Drawable) -> Drawable {
+        second
     }
 }
 ```
 
-## Result Transformations
+The `DrawingBuilder` structure defines three methods that implement parts of the result builder syntax. The `buildBlock(_:)` method adds support for writing a series of lines in a block of code. It combines the components in that block into a `Line`. The `buildEither(first:)` and `buildEither(second:)` methods add support for `if`-`else`.
 
-The following syntactic transformations are applied recursively to transform code that uses result-builder syntax into code that calls the static methods of the result builder type:
+You can apply the `@DrawingBuilder` attribute to a function's parameter, which turns a closure passed to the function into the value that the result builder creates from that closure. For example:
 
- - If the result builder has a `buildExpression(_:)` method, each expression becomes a call to that method. This transformation is always first. For example, the following declarations are equivalent:
+```swift
+func draw(@DrawingBuilder content: () -> Drawable) -> Drawable {
+    content()
+}
 
-   ```swift
-   @ArrayBuilder var builderNumber: [Int] { 10 }
-   var manualNumber = ArrayBuilder.buildExpression(10)
-   ```
+func caps(@DrawingBuilder content: () -> Drawable) -> Drawable {
+    AllCaps(content: content())
+}
 
- - An assignment statement is transformed like an expression, but is understood to evaluate to `Void`. You can define an overload of `buildExpression(_:)` that takes an argument of type `Void` to handle assignments specifically.
- - A branch statement that checks an availability condition becomes a call to the `buildLimitedAvailability(_:)` method. This transformation happens before the transformation into a call to `buildEither(first:)`, `buildEither(second:)`, or `buildOptional(_:)`. You use the `buildLimitedAvailability(_:)` method to erase type information that changes depending on which branch is taken. For example, the `buildEither(first:)` and  `buildEither(second:)` methods below use a generic type that captures type information about both branches.
+func makeGreeting(for name: String? = nil) -> Drawable {
+    let greeting = draw {
+        Stars(length: 3)
+        Text("Hello")
+        Space()
+        caps {
+            if let name = name {
+                Text(name + "!")
+            } else {
+                Text("World!")
+            }
+        }
+        Stars(length: 2)
+    }
+    return greeting
+}
 
-   ```swift
-   protocol Drawable {
-       func draw() -> String
-   }
+let genericGreeting = makeGreeting()
+print(genericGreeting.draw())
+// Prints "***Hello WORLD!**"
 
-   struct Text: Drawable {
-       var content: String
-       init(_ content: String) { self.content = content }
-       func draw() -> String { content }
-   }
+let personalGreeting = makeGreeting(for: "Ravi Patel")
+print(personalGreeting.draw())
+// Prints "***Hello RAVI PATEL!**"
+```
 
-   struct Line<D: Drawable>: Drawable {
-       var elements: [D]
-       func draw() -> String {
-           elements.map(D.draw).joined(separator: "")
-       }
-   }
+The `makeGreeting(for:)` function takes a `name` parameter and uses it to draw a personalized greeting. The `draw(_:)` and `caps(_:)` functions both take a single closure as their argument, which is marked with the `@DrawingBuilder` attribute. When you call those functions, you use the special syntax that `DrawingBuilder` defines. Swift transforms that declarative description of a drawing into a series of calls to the methods on `DrawingBuilder` to build up the value that's passed as the function argument. For example, Swift transforms the call to `caps(_:)` in that example into code like the following:
 
-   struct DrawEither<First: Drawable, Second: Drawable>: Drawable {
-       var content: Drawable
-       func draw() -> String { content.draw() }
-   }
-   
-   @resultBuilder
-   struct DrawingBuilder {
-       static func buildBlock<D: Drawable>(_ components: D...) -> Line<D> {
-           Line(elements: components)
-       }
+```swift
+let capsDrawing = caps {
+    let partialDrawing: Drawable
+    if let name = name {
+        let text = Text(name + "!")
+        partialDrawing = DrawingBuilder.buildEither(first: text)
+    } else {
+        let text = Text("World!")
+        partialDrawing = DrawingBuilder.buildEither(second: text)
+    }
+    return partialDrawing
+}
+```
 
-       static func buildEither<First, Second>(first: First) -> DrawEither<First, Second> {
-           DrawEither(content: first)
-       }
+Swift transforms the `if`-`else` block into calls to the `buildEither(first:)` and `buildEither(second:)` methods. Although you don't call these methods in your own code, showing the result of the transformation makes it easier to see how Swift transforms your code when you use the `DrawingBuilder` syntax.
 
-       static func buildEither<First, Second>(second: Second) -> DrawEither<First, Second> {
-           DrawEither(content: second)
-       }
-   }
-   ```
-  
-   However, this approach causes a problem in code that has availability checks:
+To add support for writing `for` loops in the special drawing syntax, add a `buildArray(_:)` method.
 
-   ```swift
-   @available(macOS 99, *)
-   struct FutureText: Drawable {
-       var content: String
-       init(_ content: String) { self.content = content }
-       func draw() -> String { content }
-   }
+```swift
+extension DrawingBuilder {
+    static func buildArray(_ components: [Drawable]) -> Drawable {
+        Line(elements: components)
+    }
+}
+let manyStars = draw {
+    Text("Stars:")
+    for length in 1...3 {
+        Space()
+        Stars(length: length)
+    }
+}
+```
 
-   @DrawingBuilder var brokenDrawing: Drawable {
-       if #available(macOS 99, *) {
-           FutureText("Inside.future")  // Problem
-       } else {
-           Text("Inside.present")
-       }
-   }
-   // The type of brokenDrawing is Line<DrawEither<Line<FutureText>, Line<Text>>>
-   ```
-  
-   In the code above, `FutureText` appears as part of the type of `brokenDrawing` because it's one of the types in the `DrawEither` generic type. This could   cause your program to crash if `FutureText` isn't available at runtime, even in the case where that type is explicitly not being used.
-  
-   To solve this problem, implement a `buildLimitedAvailability(_:)` method to erase type information. For example, the code below builds an `AnyDrawable`   value from its availability check.
-  
-   ```swift
-   struct AnyDrawable: Drawable {
-       var content: Drawable
-       func draw() -> String { content.draw() }
-   }
+In the code above, the `for` loop creates an array of drawings, and the `buildArray(_:)` method turns that array into a `Line`.
 
-   extension DrawingBuilder {
-       static func buildLimitedAvailability(_ content: Drawable) -> AnyDrawable {
-           AnyDrawable(content: content)
-       }
-   }
-   
-   @DrawingBuilder var typeErasedDrawing: Drawable {
-       if #available(macOS 99, *) {
-           FutureText("Inside.future")
-       } else {
-           Text("Inside.present")
-       }
-   }
-   // The type of typeErasedDrawing is Line<DrawEither<AnyDrawable, Line<Text>>>
-   ```
-
- - A branch statement becomes a series of nested calls to the `buildEither(first:)` and `buildEither(second:)` methods. The statements' conditions and cases are mapped onto the leaf nodes of a binary tree, and the statement becomes a nested call to the `buildEither` methods following the path to that leaf node from the root node.
-
-   For example, if you write a switch statement that has three cases, the compiler uses a binary tree with three leaf nodes. Likewise, because the path from the root node to the second case is "second child" and then "first child", that case becomes a nested call like `buildEither(first: buildEither(second: ... ))`. The following declarations are equivalent:
-
-   ```swift
-   let someNumber = 19
-   @ArrayBuilder var builderConditional: [Int] {
-       if someNumber < 12 {
-           31
-       } else if someNumber == 19 {
-           32
-       } else {
-           33
-       }
-   }
-   
-   var manualConditional: [Int]
-   if someNumber < 12 {
-       let partialResult = ArrayBuilder.buildExpression(31)
-       let outerPartialResult = ArrayBuilder.buildEither(first: partialResult)
-       manualConditional = ArrayBuilder.buildEither(first: outerPartialResult)
-   } else if someNumber == 19 {
-       let partialResult = ArrayBuilder.buildExpression(32)
-       let outerPartialResult = ArrayBuilder.buildEither(second: partialResult)
-       manualConditional = ArrayBuilder.buildEither(first: outerPartialResult)
-   } else {
-       let partialResult = ArrayBuilder.buildExpression(33)
-       manualConditional = ArrayBuilder.buildEither(second: partialResult)
-   }
-   ```
-
- - A branch statement that might not produce a value, like an `if` statement without an `else` clause, becomes a call to `buildOptional(_:)`. If the `if` statement's condition is satisfied, its code block is transformed and passed as the argument; otherwise, `buildOptional(_:)` is called with `nil` as its argument. For example, the following declarations are equivalent:
-
-   ```swift
-   @ArrayBuilder var builderOptional: [Int] {
-       if (someNumber % 2) == 1 { 20 }
-   }
-   
-   var partialResult: [Int]? = nil
-   if (someNumber % 2) == 1 {
-       partialResult = ArrayBuilder.buildExpression(20)
-   }
-   var manualOptional = ArrayBuilder.buildOptional(partialResult)
-   ```
-
- - A code block or `do` statement becomes a call to the `buildBlock(_:)` method. Each of the statements inside of the block is transformed, one at a time, and they become the arguments to the `buildBlock(_:)` method. For example, the following declarations are equivalent:
-
-   ```swift
-   @ArrayBuilder var builderBlock: [Int] {
-       100
-       200
-       300
-   }
-   
-   var manualBlock = ArrayBuilder.buildBlock(
-       ArrayBuilder.buildExpression(100),
-       ArrayBuilder.buildExpression(200),
-       ArrayBuilder.buildExpression(300)
-   )
-   ```
-
- - A `for` loop becomes a temporary variable, a `for` loop, and a call to the `buildArray(_:)` method. The new `for` loop iterates over the sequence and appends each partial result to that array. The temporary array is passed as the argument in the `buildArray(_:)` call. For example, the following declarations are equivalent:
- 
-   ```swift
-   @ArrayBuilder var builderArray: [Int] {
-       for i in 5...7 {
-           100 + i
-       }
-   }
-   
-   var temporary: [[Int]] = []
-   for i in 5...7 {
-       let partialResult = ArrayBuilder.buildExpression(100 + i)
-       temporary.append(partialResult)
-   }
-   let manualArray = ArrayBuilder.buildArray(temporary)
-   ```
- 
- - If the result builder has a `buildFinalResult(_:)` method, the final result becomes a call to that method. This transformation is always last.
-
-Although the transformation behavior is described in terms of temporary variables, using a result builder doesn't actually create any new declarations that are visible from the rest of your code.
-
-You can't use `break`, `continue`, `defer`, `guard`, `return`, `while`, or `do`-`catch` statements in the code that a result builder transforms.
-
-The transformation process doesn't change declarations in the code, which lets you use temporary constants and variables to build up expressions piece by piece. It also doesn't change `throw` statements, compile-time diagnostic statements, or closures that contain a `return` statement.
-
-Whenever possible, transformations are coalesced. For example, the expression `4 + 5 * 6` becomes `buildExpression(4 + 5 * 6)` rather than multiple calls to that function. Likewise, nested branch statements become a single binary tree of calls to the `buildEither` methods.
-
-## Custom Result-Builder Attributes
-
-Creating a result builder type creates a custom attribute with the same name. You can apply that attribute in the following places:
-
- - On a function declaration, the result builder builds the body of the function.
- - On a variable or subscript declaration that includes a getter, the result builder builds the body of the getter.
- - On a parameter in a function declaration, the result builder builds the body of a closure that's passed as the corresponding argument.
-
-Applying a result builder attribute doesn't impact ABI compatibility. Applying a result builder attribute to a parameter makes that attribute part of the function's interface, which can affect source compatibility.
-
-[The Swift Programming Language]: https://docs.swift.org/swift-book/documentation/the-swift-programming-language/attributes
+For a complete list of how Swift transforms builder syntax into calls to the builder type's methods, see <doc:ResultBuilderMethods>.
