@@ -50,7 +50,7 @@
 ///
 /// ## See Also
 ///
-/// - ``run(with:closure:)``
+/// - ``run(with:do:)``
 /// - ``configure(_:using:)``
 @inlinable public func run<ReturnType>(
     closure: () throws -> ReturnType
@@ -90,7 +90,7 @@
 /// - ``configure(_:using:)``
 @inlinable public func run<Value>(
     with value: Value,
-    closure: (Value) throws -> Void
+    do closure: (Value) throws -> Void
 ) rethrows {
     try closure(value)
 }
@@ -118,7 +118,7 @@
 /// ## See Also
 ///
 /// - ``run(closure:)``
-/// - ``run(with:closure:)``
+/// - ``run(with:do:)``
 @inlinable public func configure<Value>(
     _ value: Value,
     using closure: (inout Value) throws -> Void
