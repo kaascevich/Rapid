@@ -22,6 +22,8 @@ Other, more minor changes:
  - The `throws` and `rethrows` keywords have been added to the `String` and `Array` result builder initializers
  - `SimpleResultBuilder` has been renamed to `ResultBuilder`
  - The `?!` operator for throwing an error when optional unwrapping fails has been added
+ 
+I've also decided that Rapid will be kept API stable from this point onward to the best of my ability.
 
 ## 0.2.0
 
