@@ -264,6 +264,26 @@ let intWithValue: Int? = 42
 // intWithValue.isNotNil == true
 ```
 
+### The `?!` operator
+
+Unwrap a value, and if it's `nil`, throw an error.
+
+```swift
+enum SomeError: Error { case ohNo }
+
+func getError() -> SomeError {
+    print("Calculating error...")
+    return .ohNo
+}
+
+let goodNumber = try Int("100") ?! getError()
+// goodNumber == 100
+
+let notSoGoodNumber = try Int("invalid-input") ?! getError()
+// Prints "Calculating error..."
+// Throws SomeError.ohNo
+```
+
 ## Comparable
 
 ### `isBetween(_:)`
