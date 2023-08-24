@@ -12,7 +12,7 @@ Within Rapid, you will find:
 - Global constants for commonly used values, such as ``π`` for `Double.pi`
 - Computed properties to simplify common comparisons, such as ``Swift/Optional/isNil`` or ``Swift/Collection/isNotEmpty``
 - Inverted versions of methods, such as ``Swift/Sequence/last(where:)`` or ``Swift/Sequence/noneSatisfy(_:)``
-- Syntactic sugar for working on specific values, such as ``Chainable/then(_:)-7emy7`` or ``Chainable/do(_:)``
+- Syntactic sugar for working on specific values, such as ``configure(_:_:)`` or ``run(with:_:)``
 - Methods and subscripts that return `nil` instead of crashing when invalid arguments are passed
 - And more...
 
@@ -32,8 +32,9 @@ Within Rapid, you will find:
 
 ### Closures
 
- - ``Chainable``
  - ``run(_:)``
+ - ``run(with:_:)``
+ - ``configure(_:_:)``
  - ``Swift/BinaryInteger/repeat(_:)``
 
 ### Operator Aliases

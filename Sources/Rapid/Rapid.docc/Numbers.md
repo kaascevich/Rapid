@@ -15,18 +15,18 @@ Work with Swift's numeric types in more expressive ways.
 
 ### Incrementing and Decrementing
 
-- ``Swift/BinaryInteger/++(_:)``
-- ``Swift/FixedWidthInteger/&++(_:)``
-- ``Swift/BinaryInteger/--(_:)``
-- ``Swift/FixedWidthInteger/&--(_:)``
+ - ``Swift/BinaryInteger/++(_:)``
+ - ``Swift/FixedWidthInteger/&++(_:)``
+ - ``Swift/BinaryInteger/--(_:)``
+ - ``Swift/FixedWidthInteger/&--(_:)``
 
 ### Evenness and Oddness
 
-- ``Swift/BinaryInteger/isEven``
-- ``Swift/BinaryInteger/isOdd``
+ - ``Swift/BinaryInteger/isEven``
+ - ``Swift/BinaryInteger/isOdd``
 
 ### Signs
 
-- ``Swift/SignedNumeric/isPositive``
-- ``Swift/SignedNumeric/isNegative``
-- ``Swift/SignedNumeric/absoluteValue``
+ - ``Swift/SignedNumeric/isPositive``
+ - ``Swift/SignedNumeric/isNegative``
+ - ``Swift/SignedNumeric/absoluteValue``

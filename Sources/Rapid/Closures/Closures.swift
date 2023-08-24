@@ -50,9 +50,72 @@
 ///
 /// ## See Also
 ///
-/// - ``Chainable/then(_:)-7emy7``
-/// - ``Chainable/then(_:)-4mhy8``
-/// - ``Chainable/do(_:)``
+/// - ``run(with:_:)``
+/// - ``configure(_:_:)``
 @inlinable public func run<T>(_ closure: () throws -> T) rethrows -> T {
     try closure()
+}
+
+/// Executes a closure, passing it a copy of the provided value..
+///
+/// The `run(with:_:)` method is useful when you need to perform several
+/// operations involving a specific value. For instance, the following
+/// code:
+///
+/// ```swift
+/// run(with: editor) {
+///     $0.click()
+///     $0.typeKey("a", modifierFlags: .command)
+///     $0.typeKey(.delete, modifierFlags: [])
+/// }
+/// ```
+///
+/// is equivalent to:
+///
+/// ```swift
+/// editor.click()
+/// editor.typeKey("a", modifierFlags: .command)
+/// editor.typeKey(.delete, modifierFlags: [])
+/// ```
+///
+/// - Parameters:
+///   - value: Anything.
+///   - closure: The closure to execute. Recieves a copy of `value`.
+///
+/// ## See Also
+///
+/// - ``run(_:)``
+/// - ``configure(_:_:)``
+@inlinable public func run<T>(with value: T, _ closure: (T) throws -> Void) rethrows {
+    try closure(value)
+}
+
+/// Mutates a copy of the provided value.
+///
+/// The `configure(_:_:)` method mutates a copy of the given value and
+/// returns the result. It's useful for types that require properties to
+/// be configured, such as formatter components:
+///
+/// ```swift
+/// let components = configure(PersonNameComponents()) {
+///     $0.givenName = "John"
+///     $0.familyName = "Appleseed"
+/// }
+/// ```
+///
+/// - Parameters:
+///   - value: Anything.
+///   - closure: The closure to execute. Recieves a copy of `value` to
+///     mutate.
+///
+/// - Returns: The return value of the closure.
+///
+/// ## See Also
+///
+/// - ``run(_:)``
+/// - ``run(with:_:)``
+@inlinable public func configure<T>(_ value: T, _ closure: (inout T) throws -> Void) rethrows -> T {
+    var copy = value
+    try closure(&copy)
+    return copy
 }

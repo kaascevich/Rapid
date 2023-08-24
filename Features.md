@@ -137,22 +137,22 @@ let sixPlusOne = run {
 // sixPlusOne == 7
 ```
 
-### `do(_:)`
+### `run(with:_:)`
 
 ```swift
-editor.do {
+run(with: editor) {
     $0.click()
     $0.typeKey("a", modifierFlags: .command)
     $0.typeKey(.delete, modifierFlags: [])
 }
 ```
 
-### `then(_:)`
+### `configure(_:_:)`
 
-You know all those Objective-C types that you configure by setting their numerous properties? This method helps with that.
+You know all those Objective-C types that you configure by setting their numerous properties? This function helps with that.
 
 ```swift
-let formatter = NumberFormatter().then {
+let formatter = configure(NumberFormatter()) {
     $0.numberStyle = .decimal
     $0.minimumFractionDigits = 2
     $0.allowsFloats = true

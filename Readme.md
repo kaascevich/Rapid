@@ -20,7 +20,7 @@ Within Rapid, you will find:
  - Global constants for commonly used values, such as `π` for `Double.pi`
  - Computed properties to simplify common comparisons, such as `isNil` or `isNotEmpty`
  - Inverted versions of methods, such as `last(where:)` or `noneSatisfy(_:)`
- - Syntactic sugar for working on specific values, such as `then(_:)` or `do(_:)`
+ - Syntactic sugar for working on specific values, such as `configure(_:_:)` or `run(with:_:)`
  - Methods and subscripts that return `nil` instead of crashing when invalid arguments are passed
  - [And more...](/Features.md)
 
