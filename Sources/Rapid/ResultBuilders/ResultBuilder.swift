@@ -1,4 +1,4 @@
-// SimpleResultBuilder.swift
+// ResultBuilder.swift
 // Copyright © 2023 Kaleb A. Ascevich
 //
 // This package is free software: you can redistribute it and/or modify it
@@ -18,7 +18,7 @@
 /// `buildResult(from:)` method.
 ///
 /// When creating a custom result builder type, consider conforming to
-/// `SimpleResultBuilder` to remove boilerplate. Your type must implement
+/// `ResultBuilder` to remove boilerplate. Your type must implement
 /// a `buildResult(from:)` method that takes an array of components and
 /// returns the combined result of those components, as well as a
 /// `buildExpression(_:)` method that takes an expression and creates a
@@ -31,7 +31,7 @@
 /// to implement `buildResult(from:)`.
 ///
 /// ```swift
-/// @resultBuilder public enum StringBuilder: SimpleResultBuilder {
+/// @resultBuilder public enum StringBuilder: ResultBuilder {
 ///     public typealias Expression = String
 ///
 ///     public static func buildResult(from components: [String]) -> String {
@@ -56,7 +56,7 @@
 /// conforms to `RangeReplaceableCollection`.
 ///
 /// ```swift
-/// @resultBuilder public enum ArrayBuilder<Element>: SimpleResultBuilder {
+/// @resultBuilder public enum ArrayBuilder<Element>: ResultBuilder {
 ///     public typealias Component = [Element]
 ///     public typealias Expression = Element
 ///
@@ -71,12 +71,12 @@
 /// - ``Expression``
 /// - ``Component``
 /// - ``buildResult(from:)``
-public protocol SimpleResultBuilder {
+public protocol ResultBuilder {
     /// The type to use when creating blocks.
     ///
     /// ## See Also
     ///
-    /// <doc:/documentation/Rapid/SimpleResultBuilder/Component>
+    /// <doc:/documentation/Rapid/ResultBuilder/Component>
     associatedtype Expression
     
     /// The type to use for building results.
@@ -101,7 +101,7 @@ public protocol SimpleResultBuilder {
     static func buildExpression(_ expression: Expression) -> Component
 }
 
-public extension SimpleResultBuilder {
+public extension ResultBuilder {
     /// Required by every result builder to build combined results from
     /// statement blocks.
     ///
@@ -236,7 +236,7 @@ public extension SimpleResultBuilder {
     }
 }
 
-public extension SimpleResultBuilder where Component == Expression {
+public extension ResultBuilder where Component == Expression {
     @inlinable static func buildExpression(_ expression: Expression) -> Component {
         expression
     }
@@ -244,7 +244,7 @@ public extension SimpleResultBuilder where Component == Expression {
 
 // MARK: - RangeReplaceableCollection Conformances
 
-public extension SimpleResultBuilder where Component: RangeReplaceableCollection {
+public extension ResultBuilder where Component: RangeReplaceableCollection {
     @inlinable static func buildResult(from components: [Component]) -> Component {
         components.reduce(.init(), +)
     }
@@ -258,7 +258,7 @@ public extension SimpleResultBuilder where Component: RangeReplaceableCollection
 
 public extension String {
     /// Creates a `String` using a result builder.
-    @resultBuilder enum Builder: SimpleResultBuilder {
+    @resultBuilder enum Builder: ResultBuilder {
         public typealias Expression = String
     }
     
@@ -286,7 +286,7 @@ public extension String {
 
 public extension Array {
     /// Creates an `Array` using a result builder.
-    @resultBuilder enum Builder: SimpleResultBuilder {
+    @resultBuilder enum Builder: ResultBuilder {
         public typealias Expression = Element
         public typealias Component = [Element]
     }

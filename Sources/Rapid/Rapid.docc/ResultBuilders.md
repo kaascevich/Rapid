@@ -12,7 +12,7 @@ The articles here were taken mostly verbatim from [The Swift Programming Languag
 
 ### Creating a Result Builder
 
- - ``SimpleResultBuilder``
+ - ``ResultBuilder``
 
 ### Result Builder Types
 

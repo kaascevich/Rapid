@@ -1,4 +1,4 @@
-// SimpleResultBuilderSpec.swift
+// ResultBuilderSpec.swift
 // Copyright © 2023 Kaleb A. Ascevich
 //
 // This package is free software: you can redistribute it and/or modify it
@@ -19,7 +19,7 @@ import Nimble
 @testable import Rapid
 
 // swiftlint:disable cyclomatic_complexity
-final class SimpleResultBuilderSpec: QuickSpec {
+final class ResultBuilderSpec: QuickSpec {
     override class func spec() {
         describe("the StringBuilder result builder") {
             it("creates a String from a result builder") {
