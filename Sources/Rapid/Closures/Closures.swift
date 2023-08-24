@@ -52,7 +52,9 @@
 ///
 /// - ``run(with:closure:)``
 /// - ``configure(_:using:)``
-@inlinable public func run<T>(closure: () throws -> T) rethrows -> T {
+@inlinable public func run<ReturnType>(
+    closure: () throws -> ReturnType
+) rethrows -> ReturnType {
     try closure()
 }
 
@@ -86,7 +88,10 @@
 ///
 /// - ``run(closure:)``
 /// - ``configure(_:using:)``
-@inlinable public func run<T>(with value: T, closure: (T) throws -> Void) rethrows {
+@inlinable public func run<Value>(
+    with value: Value,
+    closure: (Value) throws -> Void
+) rethrows {
     try closure(value)
 }
 
@@ -114,7 +119,10 @@
 ///
 /// - ``run(closure:)``
 /// - ``run(with:closure:)``
-@inlinable public func configure<T>(_ value: T, using closure: (inout T) throws -> Void) rethrows -> T {
+@inlinable public func configure<Value>(
+    _ value: Value,
+    using closure: (inout Value) throws -> Void
+) rethrows -> Value {
     var copy = value
     try closure(&copy)
     return copy

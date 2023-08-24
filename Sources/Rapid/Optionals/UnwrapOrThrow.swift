@@ -58,7 +58,10 @@ public extension Optional {
     /// - Returns: The unwrapped value of `optional`.
     ///
     /// - Throws: `error` if `optional` is `nil`.
-    static func ?! <E: Error>(optional: Self, error: @autoclosure () -> E) throws -> Wrapped {
+    static func ?! <ErrorType: Error>(
+        optional: Self,
+        error: @autoclosure () -> ErrorType
+    ) throws -> Wrapped {
         switch optional {
             case .some(let value): return value
             case nil: throw error()
