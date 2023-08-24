@@ -277,8 +277,8 @@ public extension String {
     /// ```
     ///
     /// - Parameter stringBuilder: A `String.Builder` result builder.
-    @inlinable init(@Builder stringBuilder: () -> String) {
-        self = stringBuilder()
+    @inlinable init(@Builder stringBuilder: () throws -> String) rethrows {
+        self = try stringBuilder()
     }
 }
 
@@ -294,7 +294,7 @@ public extension Array {
     /// Creates a new instance from an `Array.Builder`.
     ///
     /// - Parameter arrayBuilder: An `Array.Builder` result builder.
-    @inlinable init(@Builder arrayBuilder: () -> [Element]) {
-        self = arrayBuilder()
+    @inlinable init(@Builder arrayBuilder: () throws -> [Element]) rethrows {
+        self = try arrayBuilder()
     }
 }
