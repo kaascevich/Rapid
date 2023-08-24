@@ -50,15 +50,15 @@
 ///
 /// ## See Also
 ///
-/// - ``run(with:_:)``
-/// - ``configure(_:_:)``
-@inlinable public func run<T>(_ closure: () throws -> T) rethrows -> T {
+/// - ``run(with:closure:)``
+/// - ``configure(_:using:)``
+@inlinable public func run<T>(closure: () throws -> T) rethrows -> T {
     try closure()
 }
 
 /// Executes a closure, passing it a copy of the provided value..
 ///
-/// The `run(with:_:)` method is useful when you need to perform several
+/// The `run(with:closure:)` method is useful when you need to perform several
 /// operations involving a specific value. For instance, the following
 /// code:
 ///
@@ -84,9 +84,9 @@
 ///
 /// ## See Also
 ///
-/// - ``run(_:)``
-/// - ``configure(_:_:)``
-@inlinable public func run<T>(with value: T, _ closure: (T) throws -> Void) rethrows {
+/// - ``run(closure:)``
+/// - ``configure(_:using:)``
+@inlinable public func run<T>(with value: T, closure: (T) throws -> Void) rethrows {
     try closure(value)
 }
 
@@ -112,9 +112,9 @@
 ///
 /// ## See Also
 ///
-/// - ``run(_:)``
-/// - ``run(with:_:)``
-@inlinable public func configure<T>(_ value: T, _ closure: (inout T) throws -> Void) rethrows -> T {
+/// - ``run(closure:)``
+/// - ``run(with:closure:)``
+@inlinable public func configure<T>(_ value: T, using closure: (inout T) throws -> Void) rethrows -> T {
     var copy = value
     try closure(&copy)
     return copy
