@@ -1,34 +1,65 @@
-# Changelog
+# Rapid
 
-## 1.0.0
+![Swift Compatibility] ![Platform Compatibility]
 
-I'm really bad at making incremental releases.
+[Swift Compatibility]: https://img.shields.io/endpoint?url=https%3A%2F%2Fswiftpackageindex.com%2Fapi%2Fpackages%2Fkaascevich%2FRapid%2Fbadge%3Ftype%3Dswift-versions
+[Platform Compatibility]: https://img.shields.io/endpoint?url=https%3A%2F%2Fswiftpackageindex.com%2Fapi%2Fpackages%2Fkaascevich%2FRapid%2Fbadge%3Ftype%3Dplatforms
 
-Here are the most major changes:
+A host of utilities to make Swift Swiftier.
+
+ - [Features](/Features.md)
+ - [License](/License.md)
  
- - Rapid now has *vastly* improved documentation all around
- - `Chainable` has been removed in favor of global functions
-   - `then(_:)` for value types has been moved to `configure(_:using:)`
-   - The dedicated `then(_:)` method for reference types has been removed
-   - `do(_:)` has been moved to `run(with:do:)`
+## What's this about?
 
-Other, more minor changes:
+Rapid is a package that will (eventually) contain many of the most common extensions to the standard library (and, occasionally, Foundation).
 
- - Operator aliases -- `≠`, `≤` and `≥` -- have been added
- - A global `π` constant for `Double.pi` has been added
- - The `@inlinable` attribute has been applied to most methods and properties
- - The implementation of `last(where:)` has been changed to use `first(where:)` instead of a `for`-`in` loop
- - A default value for the `Component` associated type of `ResultBuilder` has been added
- - The `throws` and `rethrows` keywords have been added to the `String` and `Array` result builder initializers
- - `SimpleResultBuilder` has been renamed to `ResultBuilder`
- - The `?!` operator for throwing an error when optional unwrapping fails has been added
+Within Rapid, you will find:
+ - Operators for the most commonly used features, such as `§` to create `String` representations
+ - Unicode versions of built-in operators, such as `≠` instead of `!=`
+ - Global constants for commonly used values, such as `π` for `Double.pi`
+ - Computed properties to simplify common comparisons, such as `isNil` or `isNotEmpty`
+ - Inverted versions of methods, such as `last(where:)` or `noneSatisfy(_:)`
+ - Syntactic sugar for working on specific values, such as `configure(_:_:)` or `run(with:_:)`
+ - Methods and subscripts that return `nil` instead of crashing when invalid arguments are passed
+ - [And more...](/Features.md)
+
+## Using Rapid
+
+### Using in a Swift package
+
+ 1. Add Rapid as a dependency for your package manifest:
  
-I've also decided that Rapid will be kept API stable from this point onward to the best of my ability.
+    ```swift
+    .package(
+        url: "https://github.com/kaascevich/Rapid.git",
+        branch: "main"
+    )
+    ```
+ 2. Add Rapid as a dependency for each of your targets:
+ 
+    ```swift
+    .product(
+        name: "Rapid",
+        package: "Rapid"
+    )
+    ```
+    
+### Using in an Xcode project
 
-## 0.2.0
+ 1. Choose *File* → *Add Package Dependencies...*
+ 2. [Copy this link](https://github.com/kaascevich/Rapid.git), and paste it into the search bar.
+ 3. Click *Add Package*.
+ 4. Choose the target you want to add Rapid to, and then click *Add Package* again.
 
- - The `SimpleResultBuilder` protocol and related types have been added
+## Documentation?
 
-## 0.1.0
+I've documented everything to the best of my ability. However, at least for the time being, you'll need to build it yourself. (Unless SPM does something magical that I'm not aware of... 😏)
 
- - Initial release
+To do that:
+ 1. Open Xcode, and choose *Integrate* → *Clone...*
+ 2. [Copy this link](https://github.com/kaascevich/Rapid.git), paste it into the search bar, and click *Clone*.
+ 3. Once Xcode completes package resolution, choose *Product* → *Build Documentation* or hit ⌃⌥⌘D.
+ 4. Wait for the build to finish. When it's done, the documentation window will open.
+ 5. At the very top of the sidebar, open *Rapid*, and then open the *Rapid* under that.
+ 6. There is no 6th step.
