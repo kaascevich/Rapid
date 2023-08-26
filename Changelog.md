@@ -1,5 +1,9 @@
 # Changelog
 
+## 1.0.1
+
+ - A `factorial()` method has been added to `BinaryInteger`
+
 ## 1.0.0
 
 I'm really bad at making incremental releases.

@@ -221,10 +221,10 @@ Returns `nil` if the index isn't valid; returns the element at that index otherw
 ```swift
 let streets = ["Adams", "Bryant", "Channing", "Douglas", "Evarts"]
 
-print(streets[ifExists: 1]) // Prints Optional("Bryant")
+print(streets[ifExists: 1]) // Prints "Optional("Bryant")"
 print(streets[1])           // Prints "Bryant"
 
-print(streets[ifExists: 7]) // Prints nil
+print(streets[ifExists: 7]) // Prints "nil"
 print(streets[7])           // Fatal error: Index out of range
 ```
 

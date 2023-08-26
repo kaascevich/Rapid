@@ -1,4 +1,4 @@
-// ConstantsSpec.swift
+// FactorialsSpec.swift
 // Copyright © 2023 Kaleb A. Ascevich
 //
 // This package is free software: you can redistribute it and/or modify it
@@ -18,11 +18,19 @@ import Quick
 import Nimble
 @testable import Rapid
 
-final class ConstantsSpec: QuickSpec {
+final class FactorialsSpec: QuickSpec {
     override class func spec() {
-        describe("the π constant") {
-            it("is equal to Double.pi") {
-                expect(π).to(equal(Double.pi))
+        describe("the factorial() method") {
+            it("returns the value's factorial") {
+                expect(6.factorial()).to(equal(720))
+            }
+            
+            it("returns 1 when the value is 0") {
+                expect(0.factorial()).to(equal(1))
+            }
+            
+            it("asserts when the value is negative") {
+                expect((-4).factorial()).to(throwAssertion())
             }
         }
     }
