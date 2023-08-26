@@ -360,3 +360,19 @@ Transforms a value.
 value = -346
 // value == 346
 ```
+
+### `@Validated`
+
+Validates a value.
+
+```swift
+func isInRange(value: Int) -> Bool {
+    (5...10).contains(value)
+}
+
+@Validated(if: isInRange)
+var value: Int = 7 // value == 7
+
+value = 29         // value == 7
+value = 9          // value == 9
+```
