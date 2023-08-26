@@ -51,3 +51,5 @@ public struct Clamped<Value: Comparable> {
         self.wrappedValue = wrappedValue.clamped(to: range)
     }
 }
+
+extension Clamped: Sendable where Value: Sendable { }
