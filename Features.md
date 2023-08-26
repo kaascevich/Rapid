@@ -306,6 +306,15 @@ let notSoGoodNumber = try Int("invalid-input") ?! getError()
 0.32.isBetween(0.31...0.33) // true
 ```
 
+### `clamped(to:)`
+
+```swift
+1.clamped(to: 5...7)          // 5
+7.clamped(to: 6...12)         // 7
+"e".clamped(to: "a"..."d")    // "d"
+0.32.clamped(to: 0.31...0.33) // 0.32
+```
+
 ## Strings
 
 ### The `§` operator

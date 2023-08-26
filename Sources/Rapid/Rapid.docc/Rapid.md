@@ -52,6 +52,7 @@ Within Rapid, you will find:
 ### Comparisons
 
  - ``Swift/Comparable/isBetween(_:)``
+ - ``Swift/Comparable/clamped(to:)``
 
 ### Strings
 

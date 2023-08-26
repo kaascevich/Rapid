@@ -12,7 +12,7 @@ A host of utilities to make Swift Swiftier.
  
 ## What's this about?
 
-Rapid is a package that will (eventually) contain many of the most common extensions to the standard library (and, occasionally, Foundation).
+Rapid is a package that will (eventually) contain many of the most common extensions to the standard library (and, occasionally, other frameworks).
 
 Within Rapid, you will find:
  - Operators for the most commonly used features, such as `§` to create `String` representations
