@@ -30,3 +30,7 @@ Work with Swift's numeric types in more expressive ways.
  - ``Swift/SignedNumeric/isPositive``
  - ``Swift/SignedNumeric/isNegative``
  - ``Swift/SignedNumeric/absoluteValue``
+
+### Other
+
+ - ``Swift/BinaryInteger/factorial()``
