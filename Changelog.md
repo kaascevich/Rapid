@@ -1,6 +1,6 @@
 # Changelog
 
-## 1.0.1
+## 1.1.0
 
  - A `factorial()` method has been added to `BinaryInteger`
  - Added `@Clamped`, `@Transformed`, and `@Validated` property wrappers
