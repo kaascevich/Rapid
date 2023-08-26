@@ -25,7 +25,7 @@ final class ClosuresSpec: QuickSpec {
             it("executes a closure") {
                 let sixPlusOne = Rapid.run {
                     var six = 6
-                    six++
+                    six += 1
                     return six
                 }
                 

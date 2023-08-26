@@ -18,6 +18,7 @@ import Quick
 import Nimble
 @testable import Rapid
 
+@available(*, deprecated, message: "See https://github.com/apple/swift-evolution/blob/main/proposals/0004-remove-pre-post-inc-decrement.md")
 final class IncrementDecrementSpec: QuickSpec {
     override class func spec() {
         describe("the ++ operator") {

@@ -62,6 +62,14 @@ Within Rapid, you will find:
 
 ### Property Wrappers
 
-- ``Clamped``
-- ``Transformed``
-- ``Validated``
+ - ``Clamped``
+ - ``Transformed``
+ - ``Validated``
+
+### Other
+
+ - ``<=>(_:_:)``
+
+### Deprecated
+
+ - <doc:Deprecated>

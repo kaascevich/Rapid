@@ -1,5 +1,9 @@
 # Changelog
 
+## 1.2.0
+
+ - The `++`, `--`, `&++`, and `&--` operators have been deprecated; see [this Swift Evolution proposal](https://github.com/apple/swift-evolution/blob/main/proposals/0004-remove-pre-post-inc-decrement.md) for reasons as to why. Use `+= 1`, `-= 1`, `&+= 1`, and `&-= 1` instead.
+
 ## 1.1.0
 
  - A `factorial()` method has been added to `BinaryInteger`

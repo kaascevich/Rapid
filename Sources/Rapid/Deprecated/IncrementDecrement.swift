@@ -18,6 +18,7 @@
 
 postfix operator ++
 
+@available(*, deprecated, message: "Use '+= 1' instead; see https://github.com/apple/swift-evolution/blob/main/proposals/0004-remove-pre-post-inc-decrement.md")
 public extension BinaryInteger {
     /// Increments the specified value by 1.
     ///
@@ -46,7 +47,7 @@ public extension BinaryInteger {
     /// ## See Also
     ///
     /// ``--(_:)``
-    @inlinable static postfix func ++ (_ operand: inout Self) {
+    static postfix func ++ (_ operand: inout Self) {
         operand += 1
     }
 }
@@ -55,6 +56,7 @@ public extension BinaryInteger {
 
 postfix operator --
 
+@available(*, deprecated, message: "Use '-= 1' instead; see https://github.com/apple/swift-evolution/blob/main/proposals/0004-remove-pre-post-inc-decrement.md")
 public extension BinaryInteger {
     /// Decrements the specified value by 1.
     ///
@@ -83,7 +85,7 @@ public extension BinaryInteger {
     /// ## See Also
     ///
     /// ``++(_:)``
-    @inlinable static postfix func -- (_ operand: inout Self) {
+    static postfix func -- (_ operand: inout Self) {
         operand -= 1
     }
 }
@@ -92,6 +94,7 @@ public extension BinaryInteger {
 
 postfix operator &++
 
+@available(*, deprecated, message: "Use '&+= 1' instead; see https://github.com/apple/swift-evolution/blob/main/proposals/0004-remove-pre-post-inc-decrement.md")
 public extension FixedWidthInteger {
     /// Increments the specified value by 1, wrapping any overflow.
     ///
@@ -116,7 +119,7 @@ public extension FixedWidthInteger {
     /// ## See Also
     ///
     /// ``&--(_:)``
-    @inlinable static postfix func &++ (_ operand: inout Self) {
+    static postfix func &++ (_ operand: inout Self) {
         operand &+= 1
     }
 }
@@ -125,6 +128,7 @@ public extension FixedWidthInteger {
 
 postfix operator &--
 
+@available(*, deprecated, message: "Use '&-= 1' instead; see https://github.com/apple/swift-evolution/blob/main/proposals/0004-remove-pre-post-inc-decrement.md")
 public extension FixedWidthInteger {
     /// Decrements the specified value by 1, wrapping any overflow.
     ///
@@ -149,7 +153,7 @@ public extension FixedWidthInteger {
     /// ## See Also
     ///
     /// ``&++(_:)``
-    @inlinable static postfix func &-- (_ operand: inout Self) {
+    static postfix func &-- (_ operand: inout Self) {
         operand &-= 1
     }
 }

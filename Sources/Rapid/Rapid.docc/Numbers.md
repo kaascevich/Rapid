@@ -13,13 +13,6 @@ Work with Swift's numeric types in more expressive ways.
  - ``Swift/AdditiveArithmetic/isZero``
  - ``Swift/AdditiveArithmetic/isNonzero``
 
-### Incrementing and Decrementing
-
- - ``Swift/BinaryInteger/++(_:)``
- - ``Swift/FixedWidthInteger/&++(_:)``
- - ``Swift/BinaryInteger/--(_:)``
- - ``Swift/FixedWidthInteger/&--(_:)``
-
 ### Evenness and Oddness
 
  - ``Swift/BinaryInteger/isEven``

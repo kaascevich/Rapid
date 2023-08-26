@@ -2,37 +2,6 @@
 
 ## Operators
 
-### `++` and `--`
-
-Why doesn't Swift have these by default? You're asking the wrong person. But if you're using Rapid, you don't need to ask at all.
-
-```swift
-var x = 21
-x++
-// x == 22
-
-var y = -6
-y--
-// y == -7
-```
-
-To avoid confusion as to what value is returned, `++` and `--` don't return a value at all.
-
-```swift
-let z = y--
-// warning: constant 'z' inferred to have type '()', which may be unexpected
-```
-
-Rapid also provides `&++` and `&--`, which behave like their `&`-less counterparts but wrap when an overflow occurs.
-
-```swift
-var x = Int8.max
-// x == 127
-
-x&++
-// x == -128
-```
-
 ### The `<=>` operator
 
 `swap(x, y)` in a somewhat more elegant form.
