@@ -1,4 +1,4 @@
-// ValidatedSpec.swift
+// ClampedSpec.swift
 // Copyright © 2023 Kaleb A. Ascevich
 //
 // This package is free software: you can redistribute it and/or modify it
@@ -18,18 +18,17 @@ import Quick
 import Nimble
 @testable import Rapid
 
-final class ValidatedSpec: QuickSpec {
+final class ClampedSpec: QuickSpec {
     override class func spec() {
-        describe("the @Validated property wrapper") {
-            it("only allows mutations if they pass validation") {
-                func isInRange(value: Int) -> Bool {
-                    (5...10).contains(value)
-                }
+        describe("the @Clamped property wrapper") {
+            it("clamps the value to the given range") {
+                @Clamped(to: 3...15) var value = 7
                 
-                @Validated(if: isInRange) var value = 7
+                value = 22
+                expect(value).to(equal(15))
                 
-                value = 29
-                expect(value).to(equal(7))
+                value = -4
+                expect(value).to(equal(3))
                 
                 value = 9
                 expect(value).to(equal(9))

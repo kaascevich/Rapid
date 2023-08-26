@@ -20,11 +20,10 @@
 /// upon assigning it.
 ///
 /// ```swift
-/// @Transformed(with: -) var value: Int = 5
-/// // value == -5
+/// @Transformed(with: -)
+/// var value = 5 // value == -5
 ///
-/// value = -346
-/// // value == 346
+/// value = -346  // value == 346
 /// ```
 @propertyWrapper
 public struct Transformed<Value> {

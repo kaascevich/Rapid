@@ -3,7 +3,7 @@
 ## 1.0.1
 
  - A `factorial()` method has been added to `BinaryInteger`
- - Added `@Transformed` and `@Validated` property wrappers
+ - Added `@Clamped`, `@Transformed`, and `@Validated` property wrappers
  - Added `clamped(to:)` and `clamp(to:)` methods to `Comparable`
 
 ## 1.0.0

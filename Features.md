@@ -362,8 +362,6 @@ let aBunchOfRandomThings = String {
 
 ### `@Transformed`
 
-Transforms a value.
-
 ```swift
 @Transformed(with: -) var value: Int = 5
 // value == -5
@@ -372,9 +370,18 @@ value = -346
 // value == 346
 ```
 
-### `@Validated`
+### `@Clamped`
 
-Validates a value.
+```swift
+@Clamped(to: 3...15)
+var value = 7 // value == 7
+
+value = 22    // value == 15
+value = -4    // value == 3
+value = 9     // value == 9
+```
+
+### `@Validated`
 
 ```swift
 func isInRange(value: Int) -> Bool {

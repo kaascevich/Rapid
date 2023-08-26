@@ -22,7 +22,7 @@ final class TransformedSpec: QuickSpec {
     override class func spec() {
         describe("the @Transformed property wrapper") {
             it("transforms a value using the given closure") {
-                @Transformed(with: -) var value: Int = 5
+                @Transformed(with: -) var value = 5
                 expect(value).to(equal(-5))
                 
                 value = -346

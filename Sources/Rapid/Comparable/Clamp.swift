@@ -1,4 +1,4 @@
-// Clamped.swift
+// Clamp.swift
 // Copyright © 2023 Kaleb A. Ascevich
 //
 // This package is free software: you can redistribute it and/or modify it

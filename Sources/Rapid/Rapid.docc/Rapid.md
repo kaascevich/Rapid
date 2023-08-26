@@ -62,5 +62,6 @@ Within Rapid, you will find:
 
 ### Property Wrappers
 
+- ``Clamped``
 - ``Transformed``
 - ``Validated``

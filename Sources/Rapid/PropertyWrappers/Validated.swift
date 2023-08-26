@@ -26,10 +26,10 @@
 /// }
 ///
 /// @Validated(if: isInRange)
-/// var value: Int = 7 // value == 7
+/// var value = 7 // value == 7
 ///
-/// value = 29         // value == 7
-/// value = 9          // value == 9
+/// value = 29    // value == 7
+/// value = 9     // value == 9
 /// ```
 @propertyWrapper
 public struct Validated<Value> {

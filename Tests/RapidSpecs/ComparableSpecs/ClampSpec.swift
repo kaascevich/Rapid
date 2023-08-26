@@ -1,4 +1,4 @@
-// ClampedSpec.swift
+// ClampSpec.swift
 // Copyright © 2023 Kaleb A. Ascevich
 //
 // This package is free software: you can redistribute it and/or modify it
@@ -18,7 +18,7 @@ import Quick
 import Nimble
 @testable import Rapid
 
-final class ClampedSpec: QuickSpec {
+final class ClampSpec: QuickSpec {
     override class func spec() {
         describe("the clamped(to:) method") {
             it("returns the value if it is in the given range") {
