@@ -117,9 +117,20 @@ let y = (-8).absoluteValue
 
 ### `π`
 
+A wrapper for `Double.pi`.
+
 ```swift
 print(π)
 // Prints "3.14159265358979"
+```
+
+### `factorial()`
+
+Returns the factorial of the value.
+
+```swift
+print(6.factorial())
+// Prints "720"
 ```
 
 ## Closures
@@ -334,4 +345,18 @@ let aBunchOfRandomThings = String {
     for i in 1...5 { §i }
     if #available(macOS 14, *) { "Sonoma" }
 }
+```
+
+## Property Wrappers
+
+### `@Transformed`
+
+Transforms a value.
+
+```swift
+@Transformed(with: -) var value: Int = 5
+// value == -5
+
+value = -346
+// value == 346
 ```

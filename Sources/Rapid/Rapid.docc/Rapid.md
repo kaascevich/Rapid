@@ -57,3 +57,7 @@ Within Rapid, you will find:
 
  - ``§(_:)``
  - ``Swift/String/*(_:_:)``
+
+### Property Wrappers
+
+- ``Transformed``
