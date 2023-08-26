@@ -3,6 +3,7 @@
 ## 1.0.1
 
  - A `factorial()` method has been added to `BinaryInteger`
+ - The `@Transformed` property wrapper has been added
 
 ## 1.0.0
 
