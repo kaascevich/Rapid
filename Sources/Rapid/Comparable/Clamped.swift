@@ -20,7 +20,7 @@ public extension Comparable {
     /// ```swift
     /// 1.clamped(to: 5...7)          // 5
     /// 7.clamped(to: 6...12)         // 7
-    /// "e".clamped(to: "a"..."d")    // "d""
+    /// "e".clamped(to: "a"..."d")    // "d"
     /// 0.32.clamped(to: 0.31...0.33) // 0.32
     /// ```
     ///
@@ -34,6 +34,26 @@ public extension Comparable {
             range.lowerBound
         } else {
             self
+        }
+    }
+    
+    /// Clamps `self` to the given range.
+    ///
+    /// ```swift
+    /// var one = 1, seven = 7, e = "e", point32 = 0.32
+    ///
+    /// one.clamp(to: 5...7)           // one == 5
+    /// seven.clamp(to: 6...12)        // seven == 7
+    /// e.clamp(to: "a"..."d")         // e == "d"
+    /// point32.clamp(to: 0.31...0.33) // point32 == 0.32
+    /// ```
+    ///
+    /// - Parameter range: A closed range.
+    mutating func clamp(to range: ClosedRange<Self>) {
+        if self > range.upperBound {
+            self = range.upperBound
+        } else if self < range.lowerBound {
+            self = range.lowerBound
         }
     }
 }

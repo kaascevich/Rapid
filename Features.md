@@ -306,7 +306,7 @@ let notSoGoodNumber = try Int("invalid-input") ?! getError()
 0.32.isBetween(0.31...0.33) // true
 ```
 
-### `clamped(to:)`
+### `clamped(to:)` and `clamp(to:)`
 
 ```swift
 1.clamped(to: 5...7)          // 5
@@ -314,6 +314,8 @@ let notSoGoodNumber = try Int("invalid-input") ?! getError()
 "e".clamped(to: "a"..."d")    // "d"
 0.32.clamped(to: 0.31...0.33) // 0.32
 ```
+
+`clamp(to:)` behaves identically, but it mutates the value directly instead of returning a new one.
 
 ## Strings
 
