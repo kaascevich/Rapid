@@ -16,8 +16,8 @@ Safely access collection elements, and filter sequences in more expressive ways.
 
 ### Counting
 
-- ``Swift/Collection/count(of:)-3wi3r``
-- ``Swift/Collection/count(of:)-4eom8``
+- ``Swift/Sequence/count(of:)-9tin5``
+- ``Swift/Sequence/count(of:)-9ifmz``
 
 ### Filtering
 

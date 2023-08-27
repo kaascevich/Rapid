@@ -91,8 +91,8 @@ public extension RangeReplaceableCollection where Element: Equatable {
 
 // MARK: - Counting
 
-public extension Collection {
-    /// The number of elements in the collection that satisfy the given predicate.
+public extension Sequence {
+    /// The number of elements in the sequence that satisfy the given predicate.
     ///
     /// In this example, `count(of:)` is used to count the number of names shorter
     /// than five characters.
@@ -104,9 +104,9 @@ public extension Collection {
     /// // Prints "2"
     /// ```
     ///
-    /// - Complexity: O(2*n*), where *n* is the length of the collection.
+    /// - Complexity: O(2*n*), where *n* is the length of the sequence.
     ///
-    /// - Parameter predicate: A closure that takes an element of the collection as
+    /// - Parameter predicate: A closure that takes an element of the sequence as
     ///   its argument and returns a Boolean value indicating whether the element
     ///   should be included in the count.
     ///
@@ -114,14 +114,12 @@ public extension Collection {
     ///
     /// ## See Also
     ///
-    /// ``count(of:)-3wi3r``
+    /// ``count(of:)-9tin5``
     func count(of predicate: (Element) throws -> Bool) rethrows -> Int {
         try filter(predicate).count
     }
-}
-
-public extension Collection where Element: Equatable {
-    /// The number of times the given element appears in the collection.
+    
+    /// The number of times the given element appears in the sequence.
     ///
     /// In this example, `count(of:)` is used to count the number of times the
     /// number `4` occurs in the array.
@@ -133,16 +131,16 @@ public extension Collection where Element: Equatable {
     /// // Prints "3"
     /// ```
     ///
-    /// - Complexity: O(2*n*), where *n* is the length of the collection.
+    /// - Complexity: O(2*n*), where *n* is the length of the sequence.
     ///
     /// - Parameter element: The element to count.
     ///
-    /// - Returns: The number of times `element` appears in the collection.
+    /// - Returns: The number of times `element` appears in the sequence.
     ///
     /// ## See Also
     ///
-    /// ``count(of:)-4eom8``
-    func count(of element: Element) -> Int {
+    /// ``count(of:)-9ifmz``
+    func count(of element: Element) -> Int where Element: Equatable {
         count { $0 == element }
     }
 }
