@@ -61,7 +61,7 @@
 
 /// Executes a closure, passing it a copy of the provided value.
 ///
-/// The `run(with:closure:)` method is useful when you need to perform several
+/// The `run(with:do:)` method is useful when you need to perform several
 /// operations involving a specific value. For instance, the following
 /// code:
 ///
