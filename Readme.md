@@ -12,7 +12,7 @@ A host of utilities to make Swift Swiftier.
  
 ## What's this about?
 
-Rapid is a package that will (eventually) contain many of the most common extensions to the standard library (and, occasionally, other frameworks).
+Rapid is a package containing many of the most common extensions to the standard library (and, occasionally, other frameworks).
 
 Within Rapid, you will find:
  - Operators for the most commonly used features, such as `§` to create `String` representations
@@ -21,7 +21,7 @@ Within Rapid, you will find:
  - Global constants for commonly used values, such as `π` for `Double.pi`
  - Computed properties to simplify common comparisons, such as `isNil` or `isNotEmpty`
  - Inverted versions of methods, such as `last(where:)` or `noneSatisfy(_:)`
- - Syntactic sugar for working on specific values, such as `configure(_:_:)` or `run(with:_:)`
+ - Syntactic sugar for working on specific values, such as `configure(_:_:)` or `run(with:do:)`
  - Methods and subscripts that return `nil` instead of crashing when invalid arguments are passed
  - [And more...](/Features.md)
 
@@ -37,6 +37,7 @@ Within Rapid, you will find:
         branch: "main"
     )
     ```
+    
  2. Add Rapid as a dependency for each of your targets:
  
     ```swift
@@ -55,12 +56,11 @@ Within Rapid, you will find:
 
 ## Documentation?
 
-I've documented everything to the best of my ability. However, at least for the time being, you'll need to build it yourself. (Unless SPM does something magical that I'm not aware of... 😏)
+I've documented everything to the best of my ability. However, due to an issue with the Swift Package Index, you'll need to build it yourself for now.
 
 To do that:
- 1. Open Xcode, and choose *Integrate* → *Clone...*
+ 1. Open Xcode, and choose *Integrate* → *Clone...* (or *Source Control* → *Clone...* on Xcode 14 or earlier).
  2. [Copy this link](https://github.com/kaascevich/Rapid.git), paste it into the search bar, and click *Clone*.
- 3. Once Xcode completes package resolution, choose *Product* → *Build Documentation* or hit ⌃⌥⌘D.
+ 3. Once Xcode completes package resolution, choose *Product* → *Build Documentation* or hit ⌃⇧⌘D.
  4. Wait for the build to finish. When it's done, the documentation window will open.
- 5. At the very top of the sidebar, open *Rapid*, and then open the *Rapid* under that.
- 6. There is no 6th step.
+ 5. At the very top of the sidebar, expand *Rapid*, and then expand the *Rapid* under that.
