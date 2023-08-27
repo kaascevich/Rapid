@@ -34,7 +34,7 @@ public extension BinaryInteger where Stride: SignedInteger {
     /// // Same as above
     /// ```
     ///
-    /// The `body` closure recieves the current loop index, starting from 0.
+    /// The `body` closure receives the current loop index, starting from 0.
     ///
     /// Using the `repeat` method is distinct from a `for`-`in` loop in two
     /// important ways:

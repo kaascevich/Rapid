@@ -36,7 +36,7 @@
 /// ```
 ///
 /// Don't overuse this, though. If you're not returning a value, and just want
-/// to execute code in a seperate scope, use Swift's `do` keyword:
+/// to execute code in a separate scope, use Swift's `do` keyword:
 ///
 /// ```swift
 /// do {
@@ -83,7 +83,7 @@
 ///
 /// - Parameters:
 ///   - value: Anything.
-///   - closure: The closure to execute. Recieves a copy of `value`.
+///   - closure: The closure to execute. Receives a copy of `value`.
 ///
 /// ## See Also
 ///
@@ -114,7 +114,7 @@
 ///
 /// - Parameters:
 ///   - value: Anything.
-///   - closure: The closure to execute. Recieves a copy of `value` to
+///   - closure: The closure to execute. Receives a copy of `value` to
 ///     mutate.
 ///
 /// - Returns: The return value of the closure.
@@ -150,7 +150,7 @@ infix operator <-
 ///
 /// - Parameters:
 ///   - value: Anything.
-///   - closure: The closure to execute. Recieves a copy of `value` to
+///   - closure: The closure to execute. Receives a copy of `value` to
 ///     mutate.
 ///
 /// - Returns: The return value of the closure.

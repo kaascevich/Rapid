@@ -16,7 +16,7 @@
 
 public extension Sequence {
     /// Returns a Boolean value indicating whether no elements of a sequence
-    /// satisfiy a given predicate.
+    /// satisfy a given predicate.
     ///
     /// The following code uses this method to test whether none of the names
     /// in an array have fewer than five characters:
