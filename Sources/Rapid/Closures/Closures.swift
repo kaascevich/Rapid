@@ -35,14 +35,9 @@
 /// }
 /// ```
 ///
-/// Don't overuse this, though. If you're not returning a value, and just want
-/// to execute code in a separate scope, use Swift's `do` keyword:
-///
-/// ```swift
-/// do {
-///     // ...statements...
-/// }
-/// ```
+/// - Note: Don't overuse this. If you're not returning a value, and just
+///   want to execute code in a separate scope, use Swift's `do` keyword
+///   instead.
 ///
 /// - Parameter closure: The closure to execute.
 ///
