@@ -65,6 +65,7 @@ Within Rapid, you will find:
  - ``run(closure:)``
  - ``run(with:do:)``
  - ``configure(_:using:)``
+ - ``<-(_:_:)``
  - ``Swift/BinaryInteger/repeat(_:)``
 
 ### Operator Aliases

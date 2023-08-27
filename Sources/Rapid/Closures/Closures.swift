@@ -52,6 +52,7 @@
 ///
 /// - ``run(with:do:)``
 /// - ``configure(_:using:)``
+/// - ``<-(_:_:)``
 @inlinable public func run<ReturnType>(
     closure: () throws -> ReturnType
 ) rethrows -> ReturnType {
@@ -88,12 +89,15 @@
 ///
 /// - ``run(closure:)``
 /// - ``configure(_:using:)``
+/// - ``<-(_:_:)``
 @inlinable public func run<Value>(
     with value: Value,
     do closure: (Value) throws -> Void
 ) rethrows {
     try closure(value)
 }
+
+// MARK: - Configure
 
 /// Mutates a copy of the provided value.
 ///
@@ -119,6 +123,7 @@
 ///
 /// - ``run(closure:)``
 /// - ``run(with:do:)``
+/// - ``<-(_:_:)``
 @inlinable public func configure<Value>(
     _ value: Value,
     using closure: (inout Value) throws -> Void
@@ -126,4 +131,38 @@
     var copy = value
     try closure(&copy)
     return copy
+}
+
+infix operator <-
+
+/// Mutates a copy of the provided value.
+///
+/// The `<-` operator mutates a copy of the given value and returns the
+/// result. It's useful for types that require properties to be configured,
+/// such as formatter components:
+///
+/// ```swift
+/// let components = PersonNameComponents() <- {
+///     $0.givenName = "John"
+///     $0.familyName = "Appleseed"
+/// }
+/// ```
+///
+/// - Parameters:
+///   - value: Anything.
+///   - closure: The closure to execute. Recieves a copy of `value` to
+///     mutate.
+///
+/// - Returns: The return value of the closure.
+///
+/// ## See Also
+///
+/// - ``run(closure:)``
+/// - ``run(with:do:)``
+/// - ``configure(_:using:)``
+@inlinable public func <- <Value>(
+    _ value: Value,
+    closure: (inout Value) throws -> Void
+) rethrows -> Value {
+    try configure(value, using: closure)
 }

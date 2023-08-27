@@ -34,6 +34,14 @@ final class ClosuresSpec: QuickSpec {
             }
         }
         
+        describe("the run(with:_:) function") {
+            it("executes a closure, passing it the value") {
+                Rapid.run(with: 42) {
+                    expect($0).to(equal(42))
+                }
+            }
+        }
+        
         describe("the configure(_:_:) function") {
             it("mutates a copy of a value") {
                 let formatter = configure(NumberFormatter()) {
@@ -48,11 +56,17 @@ final class ClosuresSpec: QuickSpec {
             }
         }
         
-        describe("the run(with:_:) function") {
-            it("executes a closure, passing it the value") {
-                Rapid.run(with: 42) {
-                    expect($0).to(equal(42))
+        describe("the <- operator") {
+            it("mutates a copy of a value") {
+                let formatter = NumberFormatter() <- {
+                    $0.numberStyle = .decimal
+                    $0.minimumFractionDigits = 2
+                    $0.allowsFloats = true
                 }
+                
+                expect(formatter.numberStyle).to(equal(.decimal))
+                expect(formatter.minimumFractionDigits).to(equal(2))
+                expect(formatter.allowsFloats).to(beTrue())
             }
         }
     }
