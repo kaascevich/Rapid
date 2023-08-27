@@ -104,9 +104,9 @@ public extension Collection {
     /// // Prints "2"
     /// ```
     ///
-    /// - Complexity: O(*n*), where *n* is the length of the sequence.
+    /// - Complexity: O(*n*), where *n* is the length of the collection.
     ///
-    /// - Parameter predicate: A closure that takes an element of the sequence as
+    /// - Parameter predicate: A closure that takes an element of the collection as
     ///   its argument and returns a Boolean value indicating whether the element
     ///   should be included in the count.
     ///
@@ -133,7 +133,7 @@ public extension Collection where Element: Equatable {
     /// // Prints "3"
     /// ```
     ///
-    /// - Complexity: O(*n*), where *n* is the length of the sequence.
+    /// - Complexity: O(*n*), where *n* is the length of the collection.
     ///
     /// - Parameter element: The element to count.
     ///
