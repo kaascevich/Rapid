@@ -32,7 +32,10 @@ public extension Collection {
     /// the last element of a collection, so it doesn't correspond with an
     /// element.
     ///
-    /// - Complexity: O(1)
+    /// -
+    ///
+    /// - Complexity: If the type conforms to `RandomAccessCollection`, O(1);
+    ///   otherwise, O(*n*), where *n* is the length of the collection.
     ///
     /// - Parameter position: The position of the element to access.
     ///
