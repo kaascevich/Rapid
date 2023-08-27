@@ -92,7 +92,3 @@ Within Rapid, you will find:
 ### Other
 
  - ``<=>(_:_:)``
-
-### Deprecated
-
- - <doc:Deprecated>

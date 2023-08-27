@@ -4,6 +4,7 @@
 
  - `isBetween(_:)` now accepts a `RangeExpression` instead of only a `ClosedRange`
  - Replaced the `?!` operator's `ErrorType` with `some Error`
+ - The `++`, `--`, `&++`, and `&--` operators have been marked as unavailable. They will be removed entirely in Rapid 3.
 
 ## 1.3.0
 
