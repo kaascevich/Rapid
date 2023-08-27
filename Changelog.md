@@ -1,5 +1,11 @@
 # Changelog
 
+## 1.2.1
+
+ - Minor documentation improvements.
+ - **Potentially breaking:** Changed `repeat(_:)` to start iteration from 0 instead of 1, to more closely match the behavior of the standard library.
+   - Issues caused by this should be trivial to fix -- just add 1 to the loop index each time you use it.
+
 ## 1.2.0
 
  - The `++`, `--`, `&++`, and `&--` operators have been deprecated; see [this Swift Evolution proposal](https://github.com/apple/swift-evolution/blob/main/proposals/0004-remove-pre-post-inc-decrement.md) for reasons as to why. Use `+= 1`, `-= 1`, `&+= 1`, and `&-= 1` instead. The operators will be marked as unavailable in Rapid 2, and will be removed entirely in Rapid 3.
