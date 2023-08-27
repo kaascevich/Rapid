@@ -2,7 +2,7 @@
 
 ## 1.2.0
 
- - The `++`, `--`, `&++`, and `&--` operators have been deprecated; see [this Swift Evolution proposal](https://github.com/apple/swift-evolution/blob/main/proposals/0004-remove-pre-post-inc-decrement.md) for reasons as to why. Use `+= 1`, `-= 1`, `&+= 1`, and `&-= 1` instead.
+ - The `++`, `--`, `&++`, and `&--` operators have been deprecated; see [this Swift Evolution proposal](https://github.com/apple/swift-evolution/blob/main/proposals/0004-remove-pre-post-inc-decrement.md) for reasons as to why. Use `+= 1`, `-= 1`, `&+= 1`, and `&-= 1` instead. The operators will be marked as unavailable in Rapid 2, and will be removed entirely in Rapid 3.
  - `Clamped` now conforms to `Sendable` when its `Value` type is `Sendable`
  - Added the `<-` operator as an alias for `configure(_:using:)`
  - Added `isNilOrEmpty` and `isNotNilOrEmpty` for optional collections
