@@ -48,16 +48,8 @@ Within Rapid, you will find:
 
 ## Topics
 
-### Numbers
-
  - <doc:Numbers>
-
-### Sequences
-
  - <doc:Sequences>
-
-### Result Builders
-
  - <doc:ResultBuilders>
 
 ### Closures
