@@ -31,7 +31,9 @@ public extension Optional {
     ///
     /// ## See Also
     ///
+    /// ``isNil``
     /// ``isNilOrEmpty``
+    /// ``isNotNilOrEmpty``
     @inlinable var isNotNil: Bool {
         !isNil
     }
