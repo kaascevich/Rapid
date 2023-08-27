@@ -50,10 +50,6 @@ public extension Comparable {
     ///
     /// - Parameter range: A closed range.
     mutating func clamp(to range: ClosedRange<Self>) {
-        if self > range.upperBound {
-            self = range.upperBound
-        } else if self < range.lowerBound {
-            self = range.lowerBound
-        }
+        self = clamped(to: range)
     }
 }
