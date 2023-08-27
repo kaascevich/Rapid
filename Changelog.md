@@ -3,6 +3,7 @@
 ## 2.0.0
 
  - `isBetween(_:)` now accepts a `RangeExpression` instead of only a `ClosedRange`
+ - Replaced the `?!` operator's `ErrorType` with `some Error`
 
 ## 1.3.0
 
