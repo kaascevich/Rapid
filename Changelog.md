@@ -1,5 +1,9 @@
 # Changelog
 
+## 2.0.0
+
+ - `isBetween(_:)` now accepts a `RangeExpression` instead of only a `ClosedRange`
+
 ## 1.3.0
 
  - General documentation improvements (fixing typos and whatnot).

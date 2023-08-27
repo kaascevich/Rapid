@@ -29,6 +29,7 @@ final class BetweenSpec: QuickSpec {
             it("returns false if the range does not contain the value") {
                 expect(1.isBetween(5...7)).to(beFalse())
                 expect("e".isBetween("a"..."d")).to(beFalse())
+                expect(69.isBetween(42..<69)).to(beFalse())
             }
         }
     }

@@ -25,11 +25,11 @@ public extension Comparable {
     /// 0.32.isBetween(0.31...0.33) // true
     /// ```
     ///
-    /// - Parameter range: A closed range.
+    /// - Parameter range: A range expression.
     ///
     /// - Returns: `true` if this value is contained within `range`;
     ///   otherwise, `false`.
-    func isBetween(_ range: ClosedRange<Self>) -> Bool {
+    func isBetween(_ range: some RangeExpression<Self>) -> Bool {
         range.contains(self)
     }
 }
