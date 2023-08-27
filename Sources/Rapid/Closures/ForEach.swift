@@ -22,7 +22,7 @@ public extension BinaryInteger where Stride: SignedInteger {
     ///
     /// ```swift
     /// for integer in 1...3 {
-    ///     print(word)
+    ///     print(integer)
     /// }
     /// // Prints "1"
     /// // Prints "2"
