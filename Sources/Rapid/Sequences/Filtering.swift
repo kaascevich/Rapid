@@ -69,7 +69,7 @@ public extension Sequence {
 }
 
 public extension RangeReplaceableCollection where Element: Equatable {
-    /// Removes all the elements that equal the given value..
+    /// Removes all the elements that equal the given value.
     ///
     /// Use this method to remove every element in a collection equal to a
     /// particular value. The order of the remaining elements is preserved.
