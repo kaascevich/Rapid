@@ -7,7 +7,12 @@
 
 A host of utilities to make Swift Swiftier.
 
- - [Features](/Features.md)
+ - [What's this about?](#whats-this-about)
+ - [Using Rapid](#using-rapid)
+   - [Using in a Swift Package](#using-in-a-swift-package)
+   - [Using in an Xcode project](#using-in-an-xcode-project)
+ - [Documentation?](#documentation)
+ - [Changelog](/Changelog.md)
  - [License](/License.md)
  
 ## What's this about?
@@ -23,7 +28,7 @@ Within Rapid, you will find:
  - Inverted versions of methods, such as `last(where:)` or `noneSatisfy(_:)`
  - Syntactic sugar for working on specific values, such as `configure(_:_:)` or `run(with:do:)`
  - Methods and subscripts that return `nil` instead of crashing when invalid arguments are passed
- - [And more...](/Features.md)
+ - And more...
 
 ## Using Rapid
 
