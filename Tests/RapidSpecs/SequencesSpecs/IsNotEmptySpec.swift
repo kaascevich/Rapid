@@ -23,51 +23,83 @@ import Nimble
 final class IsNotEmptySpec: QuickSpec {
     override class func spec() {
         describe("the isNotEmpty property") {
-            it("is true if the collection contains elements") {
-                let array = [1, 2, 3, 4, 5]
-                let dictionary = ["one": 1, "two": 2]
-                let set: Set = [1, 2, 3, 4, 5]
+            context("when the collection is an array") {
+                it("is true if the array contains elements") {
+                    expect([1, 2, 3, 4, 5].isNotEmpty).to(beTrue())
+                }
                 
-                expect(array.isNotEmpty).to(beTrue())
-                expect(dictionary.isNotEmpty).to(beTrue())
-                expect(set.isNotEmpty).to(beTrue())
-            }
-            
-            it("is false if the collection is empty") {
-                let array = []
-                let dictionary = [:]
-                let set: Set<Int> = []
-                
-                expect(array.isNotEmpty).to(beFalse())
-                expect(dictionary.isNotEmpty).to(beFalse())
-                expect(set.isNotEmpty).to(beFalse())
-            }
-        }
-        
-        describe("the nil-or-empty properties") {
-            describe("the isNilOrEmpty property") {
-                it("is true if the collection is nil or empty, false otherwise") {
-                    var array: [Int]? = nil
-                    expect(array.isNilOrEmpty).to(beTrue())
-                    
-                    array = []
-                    expect(array.isNilOrEmpty).to(beTrue())
-                    
-                    array = [1, 2, 3, 4, 5]
-                    expect(array.isNilOrEmpty).to(beFalse())
+                it("is false if the array is empty") {
+                    expect([].isNotEmpty).to(beFalse())
                 }
             }
             
-            describe("the isNotNilOrEmpty property") {
-                it("is false if the collection is nil or empty, true otherwise") {
+            context("when the collection is a dictionary") {
+                it("is true if the dictionary contains elements") {
+                    expect(["one": 1, "two": 2].isNotEmpty).to(beTrue())
+                }
+                
+                it("is false if the dictionary is empty") {
+                    expect([:].isNotEmpty).to(beFalse())
+                }
+            }
+            
+            context("when the collection is a string") {
+                it("is true if the string contains characters") {
+                    expect("a string".isNotEmpty).to(beTrue())
+                }
+                
+                it("is false if the string is empty") {
+                    expect("".isNotEmpty).to(beFalse())
+                }
+            }
+        }
+        
+        describe("the isNilOrEmpty property") {
+            context("when the collection is an array") {
+                it("is true if the array is nil or empty, false otherwise") {
                     var array: [Int]? = nil
+                    expect(array.isNilOrEmpty).to(beTrue())
                     expect(array.isNotNilOrEmpty).to(beFalse())
                     
                     array = []
+                    expect(array.isNilOrEmpty).to(beTrue())
                     expect(array.isNotNilOrEmpty).to(beFalse())
                     
                     array = [1, 2, 3, 4, 5]
+                    expect(array.isNilOrEmpty).to(beFalse())
                     expect(array.isNotNilOrEmpty).to(beTrue())
+                }
+            }
+            
+            context("when the collection is a dictionary") {
+                it("is true if the dictionary is nil or empty, false otherwise") {
+                    var dictionary: [String: Int]? = nil
+                    expect(dictionary.isNilOrEmpty).to(beTrue())
+                    expect(dictionary.isNotNilOrEmpty).to(beFalse())
+                    
+                    dictionary = [:]
+                    expect(dictionary.isNilOrEmpty).to(beTrue())
+                    expect(dictionary.isNotNilOrEmpty).to(beFalse())
+                    
+                    dictionary = ["one": 1, "two": 2]
+                    expect(dictionary.isNilOrEmpty).to(beFalse())
+                    expect(dictionary.isNotNilOrEmpty).to(beTrue())
+                }
+            }
+            
+            context("when the collection is a string") {
+                it("is true if the string is nil or empty, false otherwise") {
+                    var string: String? = nil
+                    expect(string.isNilOrEmpty).to(beTrue())
+                    expect(string.isNotNilOrEmpty).to(beFalse())
+                    
+                    string = ""
+                    expect(string.isNilOrEmpty).to(beTrue())
+                    expect(string.isNotNilOrEmpty).to(beFalse())
+                    
+                    string = "a string"
+                    expect(string.isNilOrEmpty).to(beFalse())
+                    expect(string.isNotNilOrEmpty).to(beTrue())
                 }
             }
         }
