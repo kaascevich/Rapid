@@ -35,8 +35,7 @@ public extension Collection {
     /// - Important: Please don't abuse this. The default subscript traps
     ///   on an out-of-bounds index for a reason.
     ///
-    /// - Complexity: If the type conforms to `RandomAccessCollection`, O(1);
-    ///   otherwise, O(*n*), where *n* is the length of the collection.
+    /// - Complexity: O(*n*), where *n* is the length of the collection.
     ///
     /// - Parameter position: The position of the element to access.
     ///
