@@ -21,12 +21,12 @@ public extension BinaryInteger where Stride: SignedInteger {
     /// The two loops in the following example produce the same output:
     ///
     /// ```swift
-    /// for integer in 1...3 {
+    /// for integer in 0..<3 {
     ///     print(integer)
     /// }
+    /// // Prints "0"
     /// // Prints "1"
     /// // Prints "2"
-    /// // Prints "3"
     ///
     /// 3.repeat { number in
     ///     print(number)
@@ -34,7 +34,7 @@ public extension BinaryInteger where Stride: SignedInteger {
     /// // Same as above
     /// ```
     ///
-    /// The `body` closure recieves the current loop index, starting from 1.
+    /// The `body` closure recieves the current loop index, starting from 0.
     ///
     /// Using the `repeat` method is distinct from a `for`-`in` loop in two
     /// important ways:
@@ -47,6 +47,6 @@ public extension BinaryInteger where Stride: SignedInteger {
     ///
     /// - Parameter body: A closure that takes an instance of `Self` as a parameter.
     @inlinable func `repeat`(_ body: (Self) throws -> Void) rethrows {
-        try (1...self).forEach(body)
+        try (0..<self).forEach(body)
     }
 }

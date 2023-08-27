@@ -26,7 +26,7 @@ final class ForEachSpec: QuickSpec {
                 5.repeat { number in
                     string.append(String(number))
                 }
-                expect(string).to(equal("12345"))
+                expect(string).to(equal("01234"))
             }
         }
     }
