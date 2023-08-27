@@ -4,6 +4,8 @@
 
  - The `++`, `--`, `&++`, and `&--` operators have been deprecated; see [this Swift Evolution proposal](https://github.com/apple/swift-evolution/blob/main/proposals/0004-remove-pre-post-inc-decrement.md) for reasons as to why. Use `+= 1`, `-= 1`, `&+= 1`, and `&-= 1` instead.
  - `Clamped` now conforms to `Sendable` when its `Value` type is `Sendable`
+ - Added the `<-` operator as an alias for `configure(_:using:)`
+ - Added `isNilOrEmpty` and `isNotNilOrEmpty` for optional collections
 
 ## 1.1.0
 
