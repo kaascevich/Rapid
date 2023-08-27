@@ -2,7 +2,7 @@
 
 ## 1.2.1
 
- - Minor documentation improvements.
+ - General documentation improvements (fixing typos and whatnot).
  - **Potentially breaking:** Changed `repeat(_:)` to start iteration from 0 instead of 1, to more closely match the behavior of the standard library.
    - Issues caused by this should be trivial to fix -- just add 1 to the loop index each time you use it.
 

@@ -18,7 +18,7 @@
 
 postfix operator ++
 
-@available(*, deprecated, message: "Use '+= 1' instead; see https://github.com/apple/swift-evolution/blob/main/proposals/0004-remove-pre-post-inc-decrement.md")
+@available(*, deprecated, message: "Use '+= 1' instead; see https://github.com/apple/swift-evolution/blob/main/proposals/0004-remove-pre-post-inc-decrement.md. This operator will be marked as unavailable in Rapid 2 and will be removed entirely in Rapid 3.")
 public extension BinaryInteger {
     /// Increments the specified value by 1.
     ///
@@ -56,7 +56,7 @@ public extension BinaryInteger {
 
 postfix operator --
 
-@available(*, deprecated, message: "Use '-= 1' instead; see https://github.com/apple/swift-evolution/blob/main/proposals/0004-remove-pre-post-inc-decrement.md")
+@available(*, deprecated, message: "Use '-= 1' instead; see https://github.com/apple/swift-evolution/blob/main/proposals/0004-remove-pre-post-inc-decrement.md. This operator will be marked as unavailable in Rapid 2 and will be removed entirely in Rapid 3.")
 public extension BinaryInteger {
     /// Decrements the specified value by 1.
     ///
@@ -94,7 +94,7 @@ public extension BinaryInteger {
 
 postfix operator &++
 
-@available(*, deprecated, message: "Use '&+= 1' instead; see https://github.com/apple/swift-evolution/blob/main/proposals/0004-remove-pre-post-inc-decrement.md")
+@available(*, deprecated, message: "Use '&+= 1' instead; see https://github.com/apple/swift-evolution/blob/main/proposals/0004-remove-pre-post-inc-decrement.md. This operator will be marked as unavailable in Rapid 2 and will be removed entirely in Rapid 3.")
 public extension FixedWidthInteger {
     /// Increments the specified value by 1, wrapping any overflow.
     ///
@@ -128,7 +128,7 @@ public extension FixedWidthInteger {
 
 postfix operator &--
 
-@available(*, deprecated, message: "Use '&-= 1' instead; see https://github.com/apple/swift-evolution/blob/main/proposals/0004-remove-pre-post-inc-decrement.md")
+@available(*, deprecated, message: "Use '&-= 1' instead; see https://github.com/apple/swift-evolution/blob/main/proposals/0004-remove-pre-post-inc-decrement.md. This operator will be marked as unavailable in Rapid 2 and will be removed entirely in Rapid 3.")
 public extension FixedWidthInteger {
     /// Decrements the specified value by 1, wrapping any overflow.
     ///
