@@ -21,7 +21,7 @@ public extension AdditiveArithmetic {
     /// ## See Also
     ///
     /// ``isNonzero``
-    @inlinable var isZero: Bool {
+    var isZero: Bool {
         self == .zero
     }
     
@@ -31,7 +31,7 @@ public extension AdditiveArithmetic {
     /// ## See Also
     ///
     /// ``isZero``
-    @inlinable var isNonzero: Bool {
+    var isNonzero: Bool {
         !isZero
     }
 }

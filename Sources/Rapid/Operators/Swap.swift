@@ -25,6 +25,6 @@ infix operator <=>: AssignmentPrecedence
 /// - Parameters:
 ///   - a: The first value to swap.
 ///   - b: The second value to swap.
-@inlinable public func <=> <Value>(_ a: inout Value, _ b: inout Value) {
+public func <=> <Value>(_ a: inout Value, _ b: inout Value) {
     swap(&a, &b)
 }

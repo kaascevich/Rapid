@@ -46,7 +46,7 @@ public extension BinaryInteger where Stride: SignedInteger {
     ///    subsequent calls.
     ///
     /// - Parameter body: A closure that takes an instance of `Self` as a parameter.
-    @inlinable func `repeat`(_ body: (Self) throws -> Void) rethrows {
+    func `repeat`(_ body: (Self) throws -> Void) rethrows {
         try (0..<self).forEach(body)
     }
 }

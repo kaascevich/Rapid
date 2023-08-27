@@ -37,7 +37,7 @@ public extension Sequence {
     ///
     /// - Returns: `true` if the sequence contains no elements that satisfy
     ///   `predicate`; otherwise, `false`.
-    @inlinable func noneSatisfy(_ predicate: (Element) throws -> Bool) rethrows -> Bool {
+    func noneSatisfy(_ predicate: (Element) throws -> Bool) rethrows -> Bool {
         try allSatisfy { try !predicate($0) }
     }
     
@@ -63,7 +63,7 @@ public extension Sequence {
     ///
     /// - Returns: The last element of the sequence that satisfies `predicate`,
     ///   or `nil` if there is no element that satisfies `predicate`.
-    @inlinable func last(where predicate: (Element) throws -> Bool) rethrows -> Element? {
+    func last(where predicate: (Element) throws -> Bool) rethrows -> Element? {
         try reversed().first(where: predicate)
     }
 }
@@ -84,7 +84,7 @@ public extension RangeReplaceableCollection where Element: Equatable {
     /// - Complexity: O(*n*), where *n* is the length of the collection.
     ///
     /// - Parameter element: An element of the collection.
-    @inlinable mutating func removeAll(occurrencesOf element: Element) {
+    mutating func removeAll(occurrencesOf element: Element) {
         removeAll { $0 == element }
     }
 }
@@ -115,7 +115,7 @@ public extension Collection {
     /// ## See Also
     ///
     /// ``count(of:)-3wi3r``
-    @inlinable func count(of predicate: (Element) throws -> Bool) rethrows -> Int {
+    func count(of predicate: (Element) throws -> Bool) rethrows -> Int {
         try filter(predicate).count
     }
 }
@@ -142,7 +142,7 @@ public extension Collection where Element: Equatable {
     /// ## See Also
     ///
     /// ``count(of:)-4eom8``
-    @inlinable func count(of element: Element) -> Int {
+    func count(of element: Element) -> Int {
         count { $0 == element }
     }
 }

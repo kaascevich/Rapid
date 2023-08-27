@@ -31,7 +31,7 @@ public extension BinaryInteger {
     /// ## See Also
     ///
     /// ``isOdd``
-    @inlinable var isEven: Bool {
+    var isEven: Bool {
         isMultiple(of: 2)
     }
     
@@ -51,7 +51,7 @@ public extension BinaryInteger {
     /// ## See Also
     ///
     /// ``isEven``
-    @inlinable var isOdd: Bool {
+    var isOdd: Bool {
         !isEven
     }
 }

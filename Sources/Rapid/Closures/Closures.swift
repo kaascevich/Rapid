@@ -48,7 +48,7 @@
 /// - ``run(with:do:)``
 /// - ``configure(_:using:)``
 /// - ``<-(_:_:)``
-@inlinable public func run<ReturnType>(
+public func run<ReturnType>(
     closure: () throws -> ReturnType
 ) rethrows -> ReturnType {
     try closure()
@@ -85,7 +85,7 @@
 /// - ``run(closure:)``
 /// - ``configure(_:using:)``
 /// - ``<-(_:_:)``
-@inlinable public func run<Value>(
+public func run<Value>(
     with value: Value,
     do closure: (Value) throws -> Void
 ) rethrows {
@@ -119,7 +119,7 @@
 /// - ``run(closure:)``
 /// - ``run(with:do:)``
 /// - ``<-(_:_:)``
-@inlinable public func configure<Value>(
+public func configure<Value>(
     _ value: Value,
     using closure: (inout Value) throws -> Void
 ) rethrows -> Value {
@@ -155,7 +155,7 @@ infix operator <-
 /// - ``run(closure:)``
 /// - ``run(with:do:)``
 /// - ``configure(_:using:)``
-@inlinable public func <- <Value>(
+public func <- <Value>(
     _ value: Value,
     closure: (inout Value) throws -> Void
 ) rethrows -> Value {

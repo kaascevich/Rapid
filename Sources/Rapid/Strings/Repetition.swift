@@ -34,7 +34,7 @@ public extension String {
     ///
     /// - Returns: A new string representing `repeatedValue` repeated
     ///   `count` times.
-    @inlinable static func * (_ repeatedValue: Self, count: Int) -> Self {
+    static func * (_ repeatedValue: Self, count: Int) -> Self {
         Self(repeating: repeatedValue, count: count)
     }
 }

@@ -115,7 +115,7 @@ public extension ResultBuilder {
     /// - Parameter components: The components to build the result from.
     ///
     /// - Returns: The result of combining all the components.
-    @inlinable static func buildBlock(_ components: Component...) -> Component {
+    static func buildBlock(_ components: Component...) -> Component {
         buildResult(from: components)
     }
     
@@ -135,7 +135,7 @@ public extension ResultBuilder {
     ///   from.
     ///
     /// - Returns: The result of combining all the components.
-    @inlinable static func buildArray(_ components: [Component]) -> Component {
+    static func buildArray(_ components: [Component]) -> Component {
         buildResult(from: components)
     }
     
@@ -161,7 +161,7 @@ public extension ResultBuilder {
     /// ## See Also
     ///
     /// - ``buildEither(second:)``
-    @inlinable static func buildEither(first component: Component) -> Component {
+    static func buildEither(first component: Component) -> Component {
         buildResult(from: [component])
     }
     
@@ -187,7 +187,7 @@ public extension ResultBuilder {
     /// ## See Also
     ///
     /// - ``buildEither(first:)``
-    @inlinable static func buildEither(second component: Component) -> Component {
+    static func buildEither(second component: Component) -> Component {
         buildResult(from: [component])
     }
     
@@ -208,7 +208,7 @@ public extension ResultBuilder {
     /// - Parameter component: A component.
     ///
     /// - Returns: The `component` parameter.
-    @inlinable static func buildLimitedAvailability(_ component: Component) -> Component {
+    static func buildLimitedAvailability(_ component: Component) -> Component {
         buildResult(from: [component])
     }
     
@@ -227,7 +227,7 @@ public extension ResultBuilder {
     ///
     /// - Returns: The `component` parameter, if it isn't `nil`; otherwise,
     ///   an empty result.
-    @inlinable static func buildOptional(_ component: Component?) -> Component {
+    static func buildOptional(_ component: Component?) -> Component {
         if let component {
             buildResult(from: [component])
         } else {
@@ -237,7 +237,7 @@ public extension ResultBuilder {
 }
 
 public extension ResultBuilder where Component == Expression {
-    @inlinable static func buildExpression(_ expression: Expression) -> Component {
+    static func buildExpression(_ expression: Expression) -> Component {
         expression
     }
 }
@@ -245,11 +245,11 @@ public extension ResultBuilder where Component == Expression {
 // MARK: - RangeReplaceableCollection Conformances
 
 public extension ResultBuilder where Component: RangeReplaceableCollection {
-    @inlinable static func buildResult(from components: [Component]) -> Component {
+    static func buildResult(from components: [Component]) -> Component {
         components.reduce(.init(), +)
     }
     
-    @inlinable static func buildExpression(_ expression: Component.Element) -> Component {
+    static func buildExpression(_ expression: Component.Element) -> Component {
         Component([expression])
     }
 }
@@ -277,7 +277,7 @@ public extension String {
     /// ```
     ///
     /// - Parameter stringBuilder: A `String.Builder` result builder.
-    @inlinable init(@Builder stringBuilder: () throws -> String) rethrows {
+    init(@Builder stringBuilder: () throws -> String) rethrows {
         self = try stringBuilder()
     }
 }
@@ -294,7 +294,7 @@ public extension Array {
     /// Creates a new instance from an `Array.Builder`.
     ///
     /// - Parameter arrayBuilder: An `Array.Builder` result builder.
-    @inlinable init(@Builder arrayBuilder: () throws -> [Element]) rethrows {
+    init(@Builder arrayBuilder: () throws -> [Element]) rethrows {
         self = try arrayBuilder()
     }
 }

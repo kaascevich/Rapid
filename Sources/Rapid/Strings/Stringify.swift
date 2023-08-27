@@ -67,6 +67,6 @@ prefix operator §
 ///   representation.
 ///
 /// - Returns: A string representing `instance`.
-@inlinable public prefix func § (_ instance: Any) -> String {
+public prefix func § (_ instance: Any) -> String {
     String(describing: instance)
 }
