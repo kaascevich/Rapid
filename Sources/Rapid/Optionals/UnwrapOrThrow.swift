@@ -62,9 +62,10 @@ public extension Optional {
         optional: Self,
         error: @autoclosure () -> ErrorType
     ) throws -> Wrapped {
-        switch optional {
-            case .some(let value): return value
-            case nil: throw error()
+        if let optional {
+            return optional
+        } else {
+            throw error()
         }
     }
 }
