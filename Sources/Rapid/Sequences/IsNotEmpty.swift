@@ -45,6 +45,8 @@ public extension Optional where Wrapped: Collection {
     /// A Boolean value indicating whether this optional is `nil` or, if
     /// it has a value, whether it does not contain any elements.
     ///
+    /// - Complexity: O(1)
+    ///
     /// ## See Also
     ///
     /// ``isNil``
@@ -56,6 +58,8 @@ public extension Optional where Wrapped: Collection {
     
     /// A Boolean value indicating whether this optional is not `nil` and,
     /// if so, whether it contains any elements.
+    ///
+    /// - Complexity: O(1)
     ///
     /// ## See Also
     ///
