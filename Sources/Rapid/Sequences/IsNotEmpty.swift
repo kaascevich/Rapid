@@ -33,7 +33,7 @@ public extension Collection {
     /// // Prints "Hi ho, Silver!"
     /// ```
     ///
-    /// - Complexity: O(1)
+    /// - Complexity: O(1).
     @inlinable var isNotEmpty: Bool {
         !isEmpty
     }
@@ -45,7 +45,7 @@ public extension Optional where Wrapped: Collection {
     /// A Boolean value indicating whether this optional is `nil` or, if
     /// it has a value, whether it does not contain any elements.
     ///
-    /// - Complexity: O(1)
+    /// - Complexity: O(1).
     ///
     /// ## See Also
     ///
@@ -59,7 +59,7 @@ public extension Optional where Wrapped: Collection {
     /// A Boolean value indicating whether this optional is not `nil` and,
     /// if so, whether it contains any elements.
     ///
-    /// - Complexity: O(1)
+    /// - Complexity: O(1).
     ///
     /// ## See Also
     ///
