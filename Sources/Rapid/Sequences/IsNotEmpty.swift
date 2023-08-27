@@ -38,3 +38,31 @@ public extension Collection {
         !isEmpty
     }
 }
+
+// MARK: - Nil or Empty
+
+public extension Optional where Wrapped: Collection {
+    /// A Boolean value indicating whether this optional is `nil` or, if
+    /// it has a value, whether it does not contain any elements.
+    ///
+    /// ## See Also
+    ///
+    /// ``isNil``
+    /// ``isNotNil``
+    /// ``isNotNilOrEmpty``
+    @inlinable var isNilOrEmpty: Bool {
+        self.isNil || self?.isEmpty == true
+    }
+    
+    /// A Boolean value indicating whether this optional is not `nil` and,
+    /// if so, whether it contains any elements.
+    ///
+    /// ## See Also
+    ///
+    /// ``isNil``
+    /// ``isNotNil``
+    /// ``isNilOrEmpty``
+    @inlinable var isNotNilOrEmpty: Bool {
+        !isNilOrEmpty
+    }
+}

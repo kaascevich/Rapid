@@ -18,6 +18,8 @@ import Quick
 import Nimble
 @testable import Rapid
 
+// swiftlint:disable discouraged_optional_collection redundant_optional_initialization
+
 final class IsNotEmptySpec: QuickSpec {
     override class func spec() {
         describe("the isNotEmpty property") {
@@ -41,5 +43,35 @@ final class IsNotEmptySpec: QuickSpec {
                 expect(set.isNotEmpty).to(beFalse())
             }
         }
+        
+        describe("the nil-or-empty properties") {
+            describe("the isNilOrEmpty property") {
+                it("is true if the collection is nil or empty, false otherwise") {
+                    var array: [Int]? = nil
+                    expect(array.isNilOrEmpty).to(beTrue())
+                    
+                    array = []
+                    expect(array.isNilOrEmpty).to(beTrue())
+                    
+                    array = [1, 2, 3, 4, 5]
+                    expect(array.isNilOrEmpty).to(beFalse())
+                }
+            }
+            
+            describe("the isNotNilOrEmpty property") {
+                it("is false if the collection is nil or empty, true otherwise") {
+                    var array: [Int]? = nil
+                    expect(array.isNotNilOrEmpty).to(beFalse())
+                    
+                    array = []
+                    expect(array.isNotNilOrEmpty).to(beFalse())
+                    
+                    array = [1, 2, 3, 4, 5]
+                    expect(array.isNotNilOrEmpty).to(beTrue())
+                }
+            }
+        }
     }
 }
+
+// swiftlint:enable discouraged_optional_collection redundant_optional_initialization

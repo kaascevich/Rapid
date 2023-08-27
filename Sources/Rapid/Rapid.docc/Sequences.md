@@ -11,6 +11,8 @@ Safely access collection elements, and filter sequences in more expressive ways.
 ### Emptiness
 
  - ``Swift/Collection/isNotEmpty``
+ - ``Swift/Optional/isNilOrEmpty``
+ - ``Swift/Optional/isNotNilOrEmpty``
 
 ### Counting
 
