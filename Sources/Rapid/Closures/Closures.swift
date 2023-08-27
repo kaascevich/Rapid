@@ -101,7 +101,7 @@
 
 /// Mutates a copy of the provided value.
 ///
-/// The `configure(_:_:)` method mutates a copy of the given value and
+/// The `configure(_:using:)` method mutates a copy of the given value and
 /// returns the result. It's useful for types that require properties to
 /// be configured, such as formatter components:
 ///
