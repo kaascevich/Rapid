@@ -51,6 +51,7 @@ Within Rapid, you will find:
  - <doc:Numbers>
  - <doc:Sequences>
  - <doc:ResultBuilders>
+ - <doc:Time>
 
 ### Closures
 

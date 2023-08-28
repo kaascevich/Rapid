@@ -5,6 +5,8 @@
  - `isBetween(_:)` now accepts a `RangeExpression` instead of only a `ClosedRange`
  - Replaced the `?!` operator's `ErrorType` with `some Error`
  - The `++`, `--`, `&++`, and `&--` operators have been marked as unavailable. They will be removed entirely in Rapid 3.
+ - Added `minutes(_:)`, `hours(_:)`, `days(_:)`, and `weeks(_:)` static methods to `Duration` 
+   - Each method has two overloads: one taking `some BinaryInteger`, and one taking a `Double`
 
 ## 1.3.0
 

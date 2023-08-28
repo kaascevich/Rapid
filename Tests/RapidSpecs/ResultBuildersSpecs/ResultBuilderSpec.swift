@@ -55,7 +55,7 @@ final class ResultBuilderSpec: QuickSpec {
         describe("the ArrayBuilder result builder") {
             it("creates an Array from a result builder") {
                 // Contrived? Yes. But it works.
-                let primes: [Int] = Array {
+                let primes = Array {
                     2; 3; 5; 7; 11
                     13; 17; 19; 23
                 }
