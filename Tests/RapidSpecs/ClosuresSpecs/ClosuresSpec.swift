@@ -69,5 +69,20 @@ final class ClosuresSpec: QuickSpec {
                 expect(formatter.allowsFloats).to(beTrue())
             }
         }
+        
+        describe("the mutate(_:using:) function") {
+            it("mutates a value directly") {
+                var formatter = NumberFormatter()
+                mutate(&formatter) {
+                    $0.numberStyle = .decimal
+                    $0.minimumFractionDigits = 2
+                    $0.allowsFloats = true
+                }
+                
+                expect(formatter.numberStyle).to(equal(.decimal))
+                expect(formatter.minimumFractionDigits).to(equal(2))
+                expect(formatter.allowsFloats).to(beTrue())
+            }
+        }
     }
 }

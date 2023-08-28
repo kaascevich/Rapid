@@ -48,6 +48,7 @@
 /// - ``run(with:do:)``
 /// - ``configure(_:using:)``
 /// - ``<-(_:_:)``
+/// - ``mutate(_:using:)``
 public func run<ReturnType>(
     closure: () throws -> ReturnType
 ) rethrows -> ReturnType {
@@ -85,6 +86,7 @@ public func run<ReturnType>(
 /// - ``run(closure:)``
 /// - ``configure(_:using:)``
 /// - ``<-(_:_:)``
+/// - ``mutate(_:using:)``
 public func run<Value>(
     with value: Value,
     do closure: (Value) throws -> Void
@@ -119,6 +121,7 @@ public func run<Value>(
 /// - ``run(closure:)``
 /// - ``run(with:do:)``
 /// - ``<-(_:_:)``
+/// - ``mutate(_:using:)``
 public func configure<Value>(
     _ value: Value,
     using closure: (inout Value) throws -> Void
@@ -155,9 +158,34 @@ infix operator <-
 /// - ``run(closure:)``
 /// - ``run(with:do:)``
 /// - ``configure(_:using:)``
+/// - ``mutate(_:using:)``
 public func <- <Value>(
     _ value: Value,
     closure: (inout Value) throws -> Void
 ) rethrows -> Value {
     try configure(value, using: closure)
+}
+
+// MARK: - Mutate
+
+/// Mutates the provided value directly.
+///
+/// The `mutate(_:using:)` method mutates the given value.
+///
+/// - Parameters:
+///   - value: Anything.
+///   - closure: The closure to execute. Receives a reference to
+///     `value`.
+///
+/// ## See Also
+///
+/// - ``run(closure:)``
+/// - ``run(with:do:)``
+/// - ``configure(_:using:)``
+/// - ``<-(_:_:)``
+public func mutate<Value>(
+    _ value: inout Value,
+    using closure: (inout Value) throws -> Void
+) rethrows {
+    try closure(&value)
 }

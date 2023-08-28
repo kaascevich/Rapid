@@ -58,6 +58,7 @@ Within Rapid, you will find:
  - ``run(closure:)``
  - ``run(with:do:)``
  - ``configure(_:using:)``
+ - ``mutate(_:using:)``
  - ``<-(_:_:)``
  - ``Swift/BinaryInteger/repeat(_:)``
 

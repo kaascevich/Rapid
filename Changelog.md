@@ -1,5 +1,9 @@
 # Changelog
 
+## Unreleased
+
+ - Added `mutate(_:using:)` function to mutate values directly
+
 ## 2.0.0
 
  - `isBetween(_:)` now accepts a `RangeExpression` instead of only a `ClosedRange`
