@@ -1,4 +1,4 @@
-// EquatableRangeSpec.swift
+// HashableRangeSpec.swift
 // Copyright © 2023 Kaleb A. Ascevich
 //
 // This package is free software: you can redistribute it and/or modify it
@@ -18,23 +18,23 @@ import Quick
 import Nimble
 @testable import Rapid
 
-final class EquableRangeSpec: QuickSpec {
+final class HashableRangeSpec: QuickSpec {
     override class func spec() {
         describe("PartialRangeFrom") {
-            it("conforms to Equatable") {
-                expect(5...).to(equal(5...))
+            it("conforms to Hashable") {
+                expect((5...).hashValue).to(equal(5.hashValue))
             }
         }
         
         describe("PartialRangeThrough") {
-            it("conforms to Equatable") {
-                expect(...5).to(equal(...5))
+            it("conforms to Hashable") {
+                expect((...2).hashValue).to(equal(2.hashValue))
             }
         }
         
         describe("PartialRangeUpTo") {
-            it("conforms to Equatable") {
-                expect(..<5).to(equal(..<5))
+            it("conforms to Hashable") {
+                expect((..<8).hashValue).to(equal(8.hashValue))
             }
         }
     }

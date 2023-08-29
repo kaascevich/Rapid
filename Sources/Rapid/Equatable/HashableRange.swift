@@ -1,4 +1,4 @@
-// EquatableRangeSpec.swift
+// HashableRange.swift
 // Copyright © 2023 Kaleb A. Ascevich
 //
 // This package is free software: you can redistribute it and/or modify it
@@ -14,28 +14,20 @@
 // You should have received a copy of the GNU General Public License along
 // with this package. If not, see https://www.gnu.org/licenses/.
 
-import Quick
-import Nimble
-@testable import Rapid
+extension PartialRangeFrom: Hashable where Bound: Hashable {
+    public func hash(into hasher: inout Hasher) {
+        hasher.combine(lowerBound)
+    }
+}
 
-final class EquableRangeSpec: QuickSpec {
-    override class func spec() {
-        describe("PartialRangeFrom") {
-            it("conforms to Equatable") {
-                expect(5...).to(equal(5...))
-            }
-        }
-        
-        describe("PartialRangeThrough") {
-            it("conforms to Equatable") {
-                expect(...5).to(equal(...5))
-            }
-        }
-        
-        describe("PartialRangeUpTo") {
-            it("conforms to Equatable") {
-                expect(..<5).to(equal(..<5))
-            }
-        }
+extension PartialRangeThrough: Hashable where Bound: Hashable {
+    public func hash(into hasher: inout Hasher) {
+        hasher.combine(upperBound)
+    }
+}
+
+extension PartialRangeUpTo: Hashable where Bound: Hashable {
+    public func hash(into hasher: inout Hasher) {
+        hasher.combine(upperBound)
     }
 }
