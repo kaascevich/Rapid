@@ -3,6 +3,7 @@
 ## Unreleased
 
  - Added `mutate(_:using:)` function to mutate values directly
+ - `PartialRangeFrom`, `PartialRangeThrough`, and `PartialRangeUpTo` now conform to `Equatable`
 
 ## 2.0.0
 

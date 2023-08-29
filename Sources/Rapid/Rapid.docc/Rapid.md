@@ -48,6 +48,7 @@ Within Rapid, you will find:
 
 ## Topics
 
+ - <doc:Conformances>
  - <doc:Numbers>
  - <doc:Sequences>
  - <doc:ResultBuilders>
