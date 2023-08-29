@@ -1,6 +1,6 @@
 # Changelog
 
-## Unreleased
+## 2.1.0
 
  - Added `mutate(_:using:)` function to mutate values directly
  - `PartialRangeFrom`, `PartialRangeThrough`, and `PartialRangeUpTo` now conform to `Equatable` `Hashable`, `CustomStringConvertible`, `CustomDebugStringConvertible`, and `CustomReflectable`
