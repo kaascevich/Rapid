@@ -92,6 +92,10 @@ Within Rapid, you will find:
  - ``Transformed``
  - ``Validated``
 
+### Type Erasure
+
+ - ``AnyEquatable``
+
 ### Other
 
  - ``<=>(_:_:)``
