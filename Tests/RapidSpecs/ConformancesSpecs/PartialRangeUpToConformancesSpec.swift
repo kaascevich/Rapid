@@ -1,4 +1,4 @@
-// EquatableRangeSpec.swift
+// PartialRangeUpToConformancesSpec.swift
 // Copyright © 2023 Kaleb A. Ascevich
 //
 // This package is free software: you can redistribute it and/or modify it
@@ -18,24 +18,24 @@ import Quick
 import Nimble
 @testable import Rapid
 
-final class EquableRangeSpec: QuickSpec {
+final class PartialRangeUpToConformancesSpec: QuickSpec {
     override class func spec() {
-        describe("PartialRangeFrom") {
-            it("conforms to Equatable") {
-                expect(5...).to(equal(5...))
-            }
+        let range = ..<5
+        
+        it("conforms to Equatable") {
+            expect(range).to(equal(range))
         }
         
-        describe("PartialRangeThrough") {
-            it("conforms to Equatable") {
-                expect(...5).to(equal(...5))
-            }
+        it("conforms to Hashable") {
+            expect(range.hashValue).to(equal(range.upperBound.hashValue))
         }
         
-        describe("PartialRangeUpTo") {
-            it("conforms to Equatable") {
-                expect(..<5).to(equal(..<5))
-            }
+        it("conforms to CustomStringConvertible") {
+            expect(range.description).to(equal("..<\(range.upperBound)"))
+        }
+        
+        it("conforms to CustomDebugStringConvertible") {
+            expect(range.debugDescription).to(equal("PartialRangeUpTo(..<\(range.upperBound))"))
         }
     }
 }

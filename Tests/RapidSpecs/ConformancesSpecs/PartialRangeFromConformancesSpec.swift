@@ -1,4 +1,4 @@
-// HashableRangeSpec.swift
+// PartialRangeFromConformancesSpec.swift
 // Copyright © 2023 Kaleb A. Ascevich
 //
 // This package is free software: you can redistribute it and/or modify it
@@ -18,24 +18,24 @@ import Quick
 import Nimble
 @testable import Rapid
 
-final class HashableRangeSpec: QuickSpec {
+final class PartialRangeFromConformancesSpec: QuickSpec {
     override class func spec() {
-        describe("PartialRangeFrom") {
-            it("conforms to Hashable") {
-                expect((5...).hashValue).to(equal(5.hashValue))
-            }
+        let range = 5...
+        
+        it("conforms to Equatable") {
+            expect(range).to(equal(range))
         }
         
-        describe("PartialRangeThrough") {
-            it("conforms to Hashable") {
-                expect((...2).hashValue).to(equal(2.hashValue))
-            }
+        it("conforms to Hashable") {
+            expect(range.hashValue).to(equal(range.lowerBound.hashValue))
         }
         
-        describe("PartialRangeUpTo") {
-            it("conforms to Hashable") {
-                expect((..<8).hashValue).to(equal(8.hashValue))
-            }
+        it("conforms to CustomStringConvertible") {
+            expect(range.description).to(equal("\(range.lowerBound)..."))
+        }
+        
+        it("conforms to CustomDebugStringConvertible") {
+            expect(range.debugDescription).to(equal("PartialRangeFrom(\(range.lowerBound)...)"))
         }
     }
 }
