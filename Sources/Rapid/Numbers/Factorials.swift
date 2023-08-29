@@ -37,9 +37,9 @@ public extension BinaryInteger where Stride: SignedInteger {
     ///
     /// - Precondition: `self >= 0`.
     func factorial() -> Self {
-        precondition(self >= .zero, "the factorial of \(self), a negative number, is not defined")
+        precondition(self ≥ .zero, "the factorial of \(self), a negative number, is not defined")
         
-        guard self != .zero else {
+        guard self.isNonzero else {
             return 1
         }
         
