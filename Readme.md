@@ -34,7 +34,7 @@ Within Rapid, you will find:
 
 ### Using in a Swift package
 
- 1. Add Rapid as a dependency for your package manifest:
+ 1. Add Rapid to your package manifest:
  
     ```swift
     .package(
