@@ -1,6 +1,6 @@
 # Changelog
 
-## Unreleased
+## 2.2.0
 
  - `CollectionOfOne` now conforms to `ExpressibleByArrayLiteral`
  - Added an `asInt` property and an `init(fromInt:)` initializer to `Bool`
