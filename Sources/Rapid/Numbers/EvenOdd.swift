@@ -27,10 +27,6 @@ public extension BinaryInteger {
     /// let oddNumber = -3
     /// // evenNumber.isEven == false
     /// ```
-    ///
-    /// ## See Also
-    ///
-    /// ``isOdd``
     var isEven: Bool {
         isMultiple(of: 2)
     }
@@ -47,10 +43,6 @@ public extension BinaryInteger {
     /// let evenNumber = -6
     /// // evenNumber.isOdd == false
     /// ```
-    ///
-    /// ## See Also
-    ///
-    /// ``isEven``
     var isOdd: Bool {
         !isEven
     }

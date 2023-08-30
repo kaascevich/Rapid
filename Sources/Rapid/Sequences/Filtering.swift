@@ -111,10 +111,6 @@ public extension Sequence {
     ///   should be included in the count.
     ///
     /// - Returns: The number of elements that satisfy `predicate`.
-    ///
-    /// ## See Also
-    ///
-    /// ``count(of:)-9tin5``
     func count(of predicate: (Element) throws -> Bool) rethrows -> Int {
         try filter(predicate).count
     }
@@ -136,10 +132,6 @@ public extension Sequence {
     /// - Parameter element: The element to count.
     ///
     /// - Returns: The number of times `element` appears in the sequence.
-    ///
-    /// ## See Also
-    ///
-    /// ``count(of:)-9ifmz``
     func count(of element: Element) -> Int where Element: Equatable {
         count { $0 == element }
     }

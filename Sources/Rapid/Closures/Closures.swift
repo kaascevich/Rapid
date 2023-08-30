@@ -42,13 +42,6 @@
 /// - Parameter closure: The closure to execute.
 ///
 /// - Returns: The closure's return value, if any.
-///
-/// ## See Also
-///
-/// - ``run(with:do:)``
-/// - ``configure(_:using:)``
-/// - ``<-(_:_:)``
-/// - ``mutate(_:using:)``
 public func run<ReturnType>(
     closure: () throws -> ReturnType
 ) rethrows -> ReturnType {
@@ -80,13 +73,6 @@ public func run<ReturnType>(
 /// - Parameters:
 ///   - value: Anything.
 ///   - closure: The closure to execute. Receives a copy of `value`.
-///
-/// ## See Also
-///
-/// - ``run(closure:)``
-/// - ``configure(_:using:)``
-/// - ``<-(_:_:)``
-/// - ``mutate(_:using:)``
 public func run<Value>(
     with value: Value,
     do closure: (Value) throws -> Void
@@ -115,13 +101,6 @@ public func run<Value>(
 ///     mutate.
 ///
 /// - Returns: The return value of the closure.
-///
-/// ## See Also
-///
-/// - ``run(closure:)``
-/// - ``run(with:do:)``
-/// - ``<-(_:_:)``
-/// - ``mutate(_:using:)``
 public func configure<Value>(
     _ value: Value,
     using closure: (inout Value) throws -> Void
@@ -152,13 +131,6 @@ infix operator <-
 ///     mutate.
 ///
 /// - Returns: The return value of the closure.
-///
-/// ## See Also
-///
-/// - ``run(closure:)``
-/// - ``run(with:do:)``
-/// - ``configure(_:using:)``
-/// - ``mutate(_:using:)``
 public func <- <Value>(
     _ value: Value,
     closure: (inout Value) throws -> Void
@@ -176,13 +148,6 @@ public func <- <Value>(
 ///   - value: Anything.
 ///   - closure: The closure to execute. Receives a reference to
 ///     `value`.
-///
-/// ## See Also
-///
-/// - ``run(closure:)``
-/// - ``run(with:do:)``
-/// - ``configure(_:using:)``
-/// - ``<-(_:_:)``
 public func mutate<Value>(
     _ value: inout Value,
     using closure: (inout Value) throws -> Void

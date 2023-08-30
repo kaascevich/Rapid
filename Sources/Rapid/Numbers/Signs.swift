@@ -21,10 +21,6 @@ public extension SignedNumeric where Self: Comparable {
     ///
     /// A number is positive if it compares greater than zero. Zero is
     /// neither negative nor positive.
-    ///
-    /// ## See Also
-    ///
-    /// ``isNegative``
     var isPositive: Bool {
         self > 0
     }
@@ -35,10 +31,6 @@ public extension SignedNumeric where Self: Comparable {
     ///
     /// A number is negative if it compares less than zero. Zero is
     /// neither negative nor positive.
-    ///
-    /// ## See Also
-    ///
-    /// ``isPositive``
     var isNegative: Bool {
         self < 0
     }

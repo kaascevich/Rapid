@@ -46,12 +46,6 @@ public extension Optional where Wrapped: Collection {
     /// it has a value, whether it does not contain any elements.
     ///
     /// - Complexity: O(1).
-    ///
-    /// ## See Also
-    ///
-    /// ``isNil``
-    /// ``isNotNil``
-    /// ``isNotNilOrEmpty``
     var isNilOrEmpty: Bool {
         self.isNil || self?.isEmpty == true
     }
@@ -60,12 +54,6 @@ public extension Optional where Wrapped: Collection {
     /// if so, whether it contains any elements.
     ///
     /// - Complexity: O(1).
-    ///
-    /// ## See Also
-    ///
-    /// ``isNil``
-    /// ``isNotNil``
-    /// ``isNilOrEmpty``
     var isNotNilOrEmpty: Bool {
         !isNilOrEmpty
     }
