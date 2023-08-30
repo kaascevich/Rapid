@@ -3,6 +3,7 @@
 ## Unreleased
 
  - `CollectionOfOne` now conforms to `ExpressibleByArrayLiteral`
+ - Added `asInt` property to `Bool`
  - Minor documentation improvements
 
 ## 2.1.1

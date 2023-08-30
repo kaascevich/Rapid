@@ -8,6 +8,10 @@ Work with Swift's numeric types in more expressive ways.
 
  - ``π``
 
+### Booleans
+
+ - ``Swift/Bool/asInt``
+
 ### Comparison to Zero
 
  - ``Swift/AdditiveArithmetic/isZero``
