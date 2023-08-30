@@ -1,5 +1,9 @@
 # Changelog
 
+## Unreleased
+
+ - `CollectionOfOne` now conforms to `ExpressibleByArrayLiteral`
+
 ## 2.1.1
 
  - `EmptyCollection` now conforms to `ExpressibleByArrayLiteral` and `ExpressibleByDictionaryLiteral`, with element types of `Never` to prevent use of non-empty literals
