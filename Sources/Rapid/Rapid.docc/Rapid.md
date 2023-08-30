@@ -96,6 +96,11 @@ Within Rapid, you will find:
 
  - ``AnyEquatable``
 
+### Type Aliases
+
+ - ``UnicodeScalarType``
+ - ``ExtendedGraphemeClusterType``
+
 ### Other
 
  - ``<=>(_:_:)``

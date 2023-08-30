@@ -3,6 +3,8 @@
 ## Unreleased
 
  - `CollectionOfOne` now conforms to `ExpressibleByArrayLiteral`
+ - The default type of Unicode scalar literals is now `Unicode.Scalar`
+ - The default type of extended grapheme cluster literals is now `Character`
 
 ## 2.1.1
 
