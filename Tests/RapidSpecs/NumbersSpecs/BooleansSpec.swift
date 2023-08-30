@@ -29,16 +29,10 @@ final class BooleansSpec: QuickSpec {
         
         describe("the init(fromInt:) initializer") {
             it("returns false if the value is 0, true otherwise") {
-                let expectedResults = [
-                    0: false,
-                    1: true,
-                    42: true,
-                    -1: true
-                ]
-                
-                for (value, result) in expectedResults {
-                    expect(Bool(fromInt: value)).to(equal(result))
-                }
+                expect(Bool(fromInt: 0)).to(beFalse())
+                expect(Bool(fromInt: 1)).to(beTrue())
+                expect(Bool(fromInt: 42)).to(beTrue())
+                expect(Bool(fromInt: -1)).to(beTrue())
             }
         }
     }
