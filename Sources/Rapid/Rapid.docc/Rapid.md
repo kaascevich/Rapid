@@ -49,6 +49,7 @@ Within Rapid, you will find:
 ## Topics
 
  - <doc:Conformances>
+ - <doc:Strings>
  - <doc:Numbers>
  - <doc:Sequences>
  - <doc:ResultBuilders>
@@ -80,12 +81,6 @@ Within Rapid, you will find:
  - ``Swift/Comparable/isBetween(_:)``
  - ``Swift/Comparable/clamped(to:)``
  - ``Swift/Comparable/clamp(to:)``
-
-### Strings
-
- - ``§(_:)``
- - ``Swift/String/*(_:_:)``
-- ``Swift/DefaultStringInterpolation/appendInterpolation(_:format:)``
 
 ### Property Wrappers
 

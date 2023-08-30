@@ -2,7 +2,7 @@
 
 ## Unreleased
 
- - Added `appendInterpolation(_:format:)` string interpolation method
+ - Added `appendInterpolation(_:format:)` and `appendInterpolation(_:if:)` string interpolation methods
 
 ## 2.2.0
 

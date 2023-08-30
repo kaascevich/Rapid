@@ -27,5 +27,12 @@ final class InterpolationSpec: QuickSpec {
                 expect(priceString).to(equal("Your total is $42.69."))
             }
         }
+        
+        describe("the (_:if:) string interpolation") {
+            it("only interpolates the value if the condition is true") {
+                expect("\("test", if: true)").to(equal("test"))
+                expect("\("test", if: false)").to(equal(""))
+            }
+        }
     }
 }
