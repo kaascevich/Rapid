@@ -14,21 +14,22 @@
 // You should have received a copy of the GNU General Public License along
 // with this package. If not, see https://www.gnu.org/licenses/.
 
-/// Automatically creates all result builder methods from a single
-/// `buildResult(from:)` method.
+/// Automatically creates all result builder methods from a
+/// `buildResult(from:)` method and (optionally) a `buildExpression(_:)`
+/// method..
 ///
 /// When creating a custom result builder type, consider conforming to
 /// `ResultBuilder` to remove boilerplate. Your type must implement
-/// a `buildResult(from:)` method that takes an array of components and
-/// returns the combined result of those components, as well as a
-/// `buildExpression(_:)` method that takes an expression and creates a
-/// component from it.
+/// a static ``buildResult(from:)`` method that takes an array of
+/// components and returns the combined result of those components, as
+/// well as a static ``buildExpression(_:)`` method that takes an
+/// expression and creates a component from it.
+///
+/// If the ``Expression`` and ``Component`` types are the same, you only need
+/// to implement ``buildResult(from:)``.
 ///
 /// - Important: The conforming type must still be annotated with the
 ///   `@resultBuilder` attribute to be used as a result builder.
-///
-/// If the `Expression` and `Component` types are the same, you only need
-/// to implement `buildResult(from:)`.
 ///
 /// ```swift
 /// @resultBuilder public enum StringBuilder: ResultBuilder {
@@ -41,18 +42,19 @@
 /// ```
 ///
 /// If your type requires specialized implementations of some builder
-/// methods, implement those as usual.
+/// methods, implement those as usual. Other methods will still be
+/// synthesized for you.
 ///
 /// ```swift
 /// public extension StringBuilder {
 ///     static func buildOptional(_ component: String?) -> String {
-///         let components = component.isNotNil ? [component!] : ["Nothing"]
-///         return buildResult(from: components)
+///         let newComponent = component ?? "Nothing"
+///         return buildResult(from: [newComponent])
 ///     }
 /// }
 /// ```
 ///
-/// Default implementations are provided for types whose `Component` type
+/// Default implementations are provided for types whose ``Component`` type
 /// conforms to `RangeReplaceableCollection`.
 ///
 /// ```swift
@@ -71,6 +73,7 @@
 /// - ``Expression``
 /// - ``Component``
 /// - ``buildResult(from:)``
+/// - ``buildExpression(_:)``
 public protocol ResultBuilder {
     /// The type to use when creating blocks.
     ///
