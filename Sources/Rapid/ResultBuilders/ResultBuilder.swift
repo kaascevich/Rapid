@@ -270,7 +270,7 @@ public extension String {
     /// ```swift
     /// let theAnswer = String {
     ///     "6 times 9 is "
-    ///     if 6 * 9 != 42 {
+    ///     if 6 * 9 ≠ 42 {
     ///         "not "
     ///     }
     ///     "42."
