@@ -51,18 +51,10 @@ Within Rapid, you will find:
  - <doc:Conformances>
  - <doc:Strings>
  - <doc:Numbers>
+ - <doc:Closures>
  - <doc:Sequences>
  - <doc:ResultBuilders>
  - <doc:Time>
-
-### Closures
-
- - ``run(closure:)``
- - ``run(with:do:)``
- - ``configure(_:using:)``
- - ``mutate(_:using:)``
- - ``<-(_:_:)``
- - ``Swift/BinaryInteger/repeat(_:)``
 
 ### Operator Aliases
 

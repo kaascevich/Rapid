@@ -6,10 +6,10 @@ Convert values to strings in whatever way you want.
 
 ### Operators
 
-- ``§(_:)``
-- ``Swift/String/*(_:_:)``
+ - ``§(_:)``
+ - ``Swift/String/*(_:_:)``
 
 ### String Interpolation
 
-- ``Swift/DefaultStringInterpolation/appendInterpolation(_:format:)``
-- ``Swift/DefaultStringInterpolation/appendInterpolation(_:if:)``
+ - ``Swift/DefaultStringInterpolation/appendInterpolation(_:format:)``
+ - ``Swift/DefaultStringInterpolation/appendInterpolation(_:if:)``
