@@ -1,5 +1,9 @@
 # Changelog
 
+## Unreleased
+
+ - Added `appendInterpolation(_:format:)` string interpolation method
+
 ## 2.2.0
 
  - `CollectionOfOne` now conforms to `ExpressibleByArrayLiteral`

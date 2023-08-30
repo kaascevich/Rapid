@@ -85,6 +85,7 @@ Within Rapid, you will find:
 
  - ``§(_:)``
  - ``Swift/String/*(_:_:)``
+- ``Swift/DefaultStringInterpolation/appendInterpolation(_:format:)``
 
 ### Property Wrappers
 
