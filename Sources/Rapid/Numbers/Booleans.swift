@@ -22,4 +22,15 @@ public extension Bool {
     var asInt: Int {
         if self { 1 } else { 0 }
     }
+    
+    /// Creates an instance from the given integer value.
+    ///
+    /// The result is `false` if `value` is `0`, and `true` for all other
+    /// values. This initializer is most useful when interfacing with legacy
+    /// C code.
+    ///
+    /// - Parameter value: An integer value.
+    init(fromInt value: some BinaryInteger) {
+        self = if value.isZero { false } else { true }
+    }
 }

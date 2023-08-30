@@ -20,10 +20,25 @@ import Nimble
 
 final class BooleansSpec: QuickSpec {
     override class func spec() {
-        describe("the asInt() method") {
-            it("returns 1 if the value is true, 0 otherwise") {
+        describe("the asInt property") {
+            it("is 1 if the value is true, 0 otherwise") {
                 expect(true.asInt).to(equal(1))
                 expect(false.asInt).to(equal(0))
+            }
+        }
+        
+        describe("the init(fromInt:) initializer") {
+            it("returns false if the value is 0, true otherwise") {
+                let expectedResults = [
+                    0: false,
+                    1: true,
+                    42: true,
+                    -1: true
+                ]
+                
+                for (value, result) in expectedResults {
+                    expect(Bool(fromInt: value)).to(equal(result))
+                }
             }
         }
     }

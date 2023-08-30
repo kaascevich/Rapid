@@ -11,6 +11,7 @@ Work with Swift's numeric types in more expressive ways.
 ### Booleans
 
  - ``Swift/Bool/asInt``
+ - ``Swift/Bool/init(fromInt:)``
 
 ### Comparison to Zero
 
