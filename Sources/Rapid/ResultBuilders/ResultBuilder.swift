@@ -148,7 +148,7 @@ public extension ResultBuilder {
     ///
     /// ```swift
     /// let string = String {
-    ///     if 42 % 2 == 0 {
+    ///     if 42.isMultiple(of: 2) {
     ///         "42 is even."
     ///     } else {
     ///         "42 is odd."
