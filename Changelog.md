@@ -5,6 +5,7 @@
  - Added `mutate(_:using:)` function to mutate values directly
  - `PartialRangeFrom`, `PartialRangeThrough`, and `PartialRangeUpTo` now conform to `Equatable` `Hashable`, `CustomStringConvertible`, `CustomDebugStringConvertible`, and `CustomReflectable`
  - Added `AnyEquatable`, a type-erased wrapper for `Equatable`
+ - `EmptyCollection` now conforms to `ExpressibleByArrayLiteral` and `ExpressibleByDictionaryLiteral`, with element types of `Never` to prevent use of non-empty literals
 
 ## 2.0.0
 
