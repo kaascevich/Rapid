@@ -3,6 +3,7 @@
 ## Unreleased
 
  - Added `appendInterpolation(_:format:)` and `appendInterpolation(_:if:)` string interpolation methods
+ - `SetAlgebra` now has `+`, `+=`, `-`, and `-=` operators
  - The package previously did not build on anything other than macOS. This has **hopefully** been fixed.
 
 ## 2.2.0

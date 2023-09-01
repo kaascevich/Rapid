@@ -4,6 +4,13 @@ Safely access collection elements, and filter sequences in more expressive ways.
 
 ## Topics
 
+### Sets
+
+ - ``Swift/SetAlgebra/+(_:_:)``
+ - ``Swift/SetAlgebra/+=(_:_:)``
+ - ``Swift/SetAlgebra/-(_:_:)``
+ - ``Swift/SetAlgebra/-=(_:_:)``
+
 ### Indexing
 
  - ``Swift/Collection/subscript(ifExists:)``
