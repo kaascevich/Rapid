@@ -18,6 +18,7 @@ import Quick
 import Nimble
 @testable import Rapid
 
+@available(iOS 16, tvOS 16, watchOS 9, *)
 final class DurationSpec: QuickSpec {
     override class func spec() {
         describe("the minutes(_:) methods") {
