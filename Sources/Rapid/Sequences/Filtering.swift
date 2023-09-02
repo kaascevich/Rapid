@@ -66,6 +66,18 @@ public extension Sequence {
     func last(where predicate: (Element) throws -> Bool) rethrows -> Element? {
         try reversed().first(where: predicate)
     }
+    
+    /// Returns an array containing the non-`nil` elements of this sequence.
+    ///
+    /// Use this method to concisely remove all `nil` elements from this
+    /// sequence.
+    ///
+    /// - Complexity: O(*n*), where *n* is the length of this sequence.
+    ///
+    /// - Returns: An array of the non-`nil` elements of the sequence.
+    func compacted<Value>() -> [Value] where Element == Value? {
+        compactMap { $0 }
+    }
 }
 
 public extension RangeReplaceableCollection where Element: Equatable {

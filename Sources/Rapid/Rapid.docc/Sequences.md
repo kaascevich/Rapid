@@ -30,6 +30,7 @@ Safely access collection elements, and filter sequences in more expressive ways.
 
  - ``Swift/Sequence/noneSatisfy(_:)``
  - ``Swift/Sequence/last(where:)``
+ - ``Swift/Sequence/compacted()``
  - ``Swift/RangeReplaceableCollection/removeAll(occurrencesOf:)``
 
 ### Sorting

@@ -52,6 +52,13 @@ final class FilteringSpec: QuickSpec {
             }
         }
         
+        describe("the compacted() method") {
+            it("removes all nil elements") {
+                let numbers = [nil, 2, 3, nil, 5]
+                expect(numbers.compacted()).to(equal([2, 3, 5]))
+            }
+        }
+        
         describe("the removeAll(occurrencesOf:) method") {
             it("removes all elements equal to the given element") {
                 var numbers = [5, 6, 7, 8, 7, 6, 5]
