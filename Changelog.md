@@ -4,7 +4,8 @@
 
  - Added `appendInterpolation(_:format:)` and `appendInterpolation(_:if:)` string interpolation methods
  - `SetAlgebra` now has `+`, `+=`, `-`, and `-=` operators
- - Added `~=` operator for `Error`
+ - Added `~=` operators for `Error` and `KeyPath`
+ - Added `sorted(by:)` and `sorted(by:using:)` methods to `Sequence`
  - The package previously did not build on anything other than macOS. This has **hopefully** been fixed.
 
 ## 2.2.0

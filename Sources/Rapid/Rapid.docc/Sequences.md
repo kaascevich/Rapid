@@ -23,11 +23,16 @@ Safely access collection elements, and filter sequences in more expressive ways.
 
 ### Counting
 
-- ``Swift/Sequence/count(of:)-9tin5``
-- ``Swift/Sequence/count(of:)-9ifmz``
+ - ``Swift/Sequence/count(of:)-9tin5``
+ - ``Swift/Sequence/count(of:)-9ifmz``
 
 ### Filtering
 
-- ``Swift/Sequence/noneSatisfy(_:)``
-- ``Swift/Sequence/last(where:)``
-- ``Swift/RangeReplaceableCollection/removeAll(occurrencesOf:)``
+ - ``Swift/Sequence/noneSatisfy(_:)``
+ - ``Swift/Sequence/last(where:)``
+ - ``Swift/RangeReplaceableCollection/removeAll(occurrencesOf:)``
+
+### Sorting
+
+ - ``Swift/Sequence/sorted(by:)``
+ - ``Swift/Sequence/sorted(by:using:)``

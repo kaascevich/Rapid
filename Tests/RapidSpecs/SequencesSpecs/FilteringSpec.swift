@@ -77,5 +77,23 @@ final class FilteringSpec: QuickSpec {
                 }
             }
         }
+        
+        describe("the sorted(by:) methods") {
+            describe("the version that only takes a key path") {
+                it("sorts the sequence based on the given property") {
+                    let students = ["Peter", "Kofi", "Abigail", "Akosua", "Eve"]
+                    let sortedStudents = students.sorted(by: \.count)
+                    expect(sortedStudents).to(equal(["Eve", "Kofi", "Peter", "Akosua", "Abigail"]))
+                }
+            }
+            
+            describe("the version that also takes a predicate") {
+                it("returns the number of times the element appears") {
+                    let students = ["Peter", "Kofi", "Abigail", "Akosua", "Eve"]
+                    let sortedStudents = students.sorted(by: \.count, using: >)
+                    expect(sortedStudents).to(equal(["Abigail", "Akosua", "Peter", "Kofi", "Eve"]))
+                }
+            }
+        }
     }
 }
