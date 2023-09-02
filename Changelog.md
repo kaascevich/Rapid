@@ -3,6 +3,7 @@
 ## Unreleased
 
  - Added `~=` operator for `Regex`
+ - Added the `!!` operator for calling a never-returning function when optional unwrapping fails
 
 ## 2.3.0
 

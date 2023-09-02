@@ -67,6 +67,7 @@ Within Rapid, you will find:
  - ``Swift/Optional/isNil``
  - ``Swift/Optional/isNotNil``
  - ``Swift/Optional/?!(_:_:)``
+ - ``Swift/Optional/!!(_:_:)``
 
 ### Comparisons
 

@@ -14,7 +14,8 @@
 // You should have received a copy of the GNU General Public License along
 // with this package. If not, see https://www.gnu.org/licenses/.
 
-infix operator ?!
+infix operator ?!: NilCoalescingPrecedence
+infix operator !!: NilCoalescingPrecedence
 
 public extension Optional {
     /// Performs a throwing nil-coalescing operation, returning the wrapped
@@ -67,5 +68,33 @@ public extension Optional {
         } else {
             throw error()
         }
+    }
+    
+    /// Performs a forced nil-coalescing operation, returning the wrapped
+    /// value of an `Optional` instance or calling a never-returning
+    /// function.
+    ///
+    /// A forced nil-coalescing operation unwraps the left-hand side if it
+    /// has a value, and calls the right-hand side -- a function that nwver
+    /// returns -- otherwise. The result of this operation will have the
+    /// non-optional type of the left-hand side's `Wrapped` type.
+    ///
+    /// This operator uses short-circuit evaluation: `optional` is checked
+    /// first, and `error` is evaluated only if `optional` is `nil`.
+    ///
+    /// - Parameters:
+    ///   - optional: An optional value.
+    ///   - error: A function that never returns.
+    ///
+    /// - Returns: The unwrapped value of `optional`.
+    static func !! (
+        optional: Self,
+        error: @autoclosure () -> Never
+    ) -> Wrapped {
+        if let optional {
+            return optional
+        } else {
+            error()
+    }
     }
 }

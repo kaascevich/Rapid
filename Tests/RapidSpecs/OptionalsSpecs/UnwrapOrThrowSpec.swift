@@ -48,5 +48,19 @@ final class UnwrapOrThrowSpec: QuickSpec {
                 expect(getErrorWasCalled).to(beTrue())
             }
         }
+        
+        describe("the !! operator") {
+            it("returns the unwrapped value if it exists") {
+                expect(
+                    Int("100") !! fatalError("The input is invalid!")
+                ).to(equal(100))
+            }
+            
+            it("calls the never-returning function if the value is nil") {
+                expect(
+                    Int("invalid-input") !! fatalError("The input is invalid!")
+                ).to(throwAssertion())
+            }
+        }
     }
 }
