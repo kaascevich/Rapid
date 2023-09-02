@@ -76,6 +76,9 @@ let package = Package(
                     package: "Nimble"
                 )
             ],
+            swiftSettings: [
+                .enableUpcomingFeature("BareSlashRegexLiterals")
+            ], 
             plugins: [
                 .plugin(
                     name: "SwiftLint",

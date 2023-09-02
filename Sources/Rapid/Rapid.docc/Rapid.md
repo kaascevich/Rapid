@@ -88,6 +88,7 @@ Within Rapid, you will find:
 
  - ``Swift/Error/~=(_:_:)``
  - ``Swift/KeyPath/~=(_:_:)``
+ - ``_StringProcessing/Regex/~=(_:_:)``
 
 ### Other
 

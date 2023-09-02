@@ -42,7 +42,7 @@ public extension Error where Self: Equatable {
     ///
     /// - Parameters:
     ///   - error: An error.
-    ///   - other: Another error to match against `pattern`.
+    ///   - other: Another error to match against `error`.
     ///
     /// - Returns: Whether the two errors match.
     static func ~= (error: Self, other: some Error) -> Bool {
@@ -62,12 +62,52 @@ public extension KeyPath where Value == Bool {
     /// for pattern matching.
     ///
     /// - Parameters:
-    ///   - pattern: Anything.
     ///   - keyPath: A key path referencing a `Bool` value.
+    ///   - value: Anything.
     ///
     /// - Returns: Whether the property referenced by `keyPath` is `true`
     ///   for `value`.
     static func ~= (keyPath: KeyPath, value: Root) -> Bool {
         value[keyPath: keyPath] == true
+    }
+}
+
+// MARK: - Regular Expressions
+
+@available(iOS 16, macOS 13, tvOS 16, watchOS 9, *)
+public extension Regex {
+    /// Returns a Boolean value indicating whether a regex matches the
+    /// given string in its entirety.
+    ///
+    /// You can use the pattern-matching operator (`~=`) to test whether
+    /// a regular expression matches the entire string you're matching
+    /// against. The following example shows matching a regular expression
+    /// that only matches digits, with different candidate strings.
+    ///
+    /// ```swift
+    /// switch "2022" {
+    ///     case /[0-9]+/: print("Match!")
+    ///     default: print("No match.")
+    /// }
+    /// // Prints "Match!"
+    ///
+    /// switch "The year is 2022." {
+    ///     case /[0-9]+/: print("Match!")
+    ///     default: print("No match.")
+    /// }
+    /// // Prints "No match."
+    /// ```
+    ///
+    /// If `regex` includes a transformation closure that throws an error,
+    /// and it does so when matching, this operator returns `false`.
+    ///
+    /// - Parameters:
+    ///   - regex: A regular expression.
+    ///   - string: The string to match `regex` against.
+    ///
+    /// - Returns: `true`, if `regex` successfully matches the entirety
+    ///   of `string`; otherwise, `false`.
+    static func ~= (regex: Self, string: String) -> Bool {
+        (try? regex.wholeMatch(in: string)).isNotNil
     }
 }

@@ -56,5 +56,21 @@ final class PatternMatchingSpec: QuickSpec {
                 expect(sign).to(equal("negative"))
             }
         }
+        
+        describe("regular expression pattern matching") {
+            it("only matches if the regex matches the entire string") {
+                let digitsOnly = switch "2022" {
+                    case /[0-9]+/: "Match!"
+                    default: "No match."
+                }
+                expect(digitsOnly).to(equal("Match!"))
+                
+                let digitsAndMore = switch "The year is 2022." {
+                    case /[0-9]+/: "Match!"
+                    default: "No match."
+                }
+                expect(digitsAndMore).to(equal("No match."))
+            }
+        }
     }
 }
