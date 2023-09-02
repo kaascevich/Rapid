@@ -75,7 +75,7 @@ public func run<ReturnType>(
 ///   - closure: The closure to execute. Receives a copy of `value`.
 public func run<Value>(
     with value: Value,
-    do closure: (Value) throws -> Void
+    do closure: (Value) throws -> Nothing
 ) rethrows {
     try closure(value)
 }
@@ -103,7 +103,7 @@ public func run<Value>(
 /// - Returns: The return value of the closure.
 public func configure<Value>(
     _ value: Value,
-    using closure: (inout Value) throws -> Void
+    using closure: (inout Value) throws -> Nothing
 ) rethrows -> Value {
     var copy = value
     try closure(&copy)
@@ -133,7 +133,7 @@ infix operator <-
 /// - Returns: The return value of the closure.
 public func <- <Value>(
     _ value: Value,
-    closure: (inout Value) throws -> Void
+    closure: (inout Value) throws -> Nothing
 ) rethrows -> Value {
     try configure(value, using: closure)
 }
@@ -150,7 +150,7 @@ public func <- <Value>(
 ///     `value`.
 public func mutate<Value>(
     _ value: inout Value,
-    using closure: (inout Value) throws -> Void
+    using closure: (inout Value) throws -> Nothing
 ) rethrows {
     try closure(&value)
 }

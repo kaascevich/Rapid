@@ -91,6 +91,11 @@ Within Rapid, you will find:
  - ``Swift/KeyPath/~=(_:_:)``
  - ``_StringProcessing/Regex/~=(_:_:)``
 
+### Type Aliases
+
+ - ``AnyType``
+ - ``Nothing``
+
 ### Other
 
  - ``<=>(_:_:)``
