@@ -1,6 +1,6 @@
 # Changelog
 
-## Unreleased
+## 2.3.0
 
  - Added `appendInterpolation(_:format:)` and `appendInterpolation(_:if:)` string interpolation methods
  - `SetAlgebra` now has `+`, `+=`, `-`, and `-=` operators
