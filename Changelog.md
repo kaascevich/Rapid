@@ -1,12 +1,18 @@
 # Changelog
 
-## Unreleased
+## 3.0.0
 
- - Added `~=` operator for `Regex`
- - Added the `!!` operator for calling a never-returning function when optional unwrapping fails
- - Added `AnyType` and `Nothing` typealiases for `Any.Type` and `Void`, respectively
- - Added `sum()` and `product()` methods to `Numeric` sequences
- - Added `compacted()` method to `Sequence`
+### Additions
+
+ - `~=` operator for `Regex`
+ - `!!` operator for calling a never-returning function when optional unwrapping fails
+ - `AnyType` and `Nothing` typealiases for `Any.Type` and `Void`, respectively
+ - `sum()` and `product()` methods for `Numeric` sequences
+ - `compacted()` method for `Sequence`
+ 
+### Removals
+
+ - The `++`, `--`, `&++`, and `&--` operators have been removed
 
 ## 2.3.0
 
