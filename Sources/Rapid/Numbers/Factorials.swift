@@ -43,6 +43,6 @@ public extension BinaryInteger where Stride: SignedInteger {
             return 1
         }
         
-        return (1...self).reduce(1, *)
+        return (1...self).product()
     }
 }

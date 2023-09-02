@@ -5,6 +5,7 @@
  - Added `~=` operator for `Regex`
  - Added the `!!` operator for calling a never-returning function when optional unwrapping fails
  - Added `AnyType` and `Nothing` typealiases for `Any.Type` and `Void`, respectively
+ - Added `sum()` and `product()` methods
 
 ## 2.3.0
 

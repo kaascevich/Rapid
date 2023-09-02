@@ -36,3 +36,8 @@ Safely access collection elements, and filter sequences in more expressive ways.
 
  - ``Swift/Sequence/sorted(by:)``
  - ``Swift/Sequence/sorted(by:using:)``
+
+### Reducing
+
+ - ``Swift/Sequence/sum()``
+ - ``Swift/Sequence/product()``
