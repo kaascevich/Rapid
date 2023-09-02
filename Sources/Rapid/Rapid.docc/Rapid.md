@@ -84,6 +84,10 @@ Within Rapid, you will find:
 
  - ``AnyEquatable``
 
+### Pattern Matching
+
+ - ``Swift/Error/~=(_:_:)``
+
 ### Other
 
  - ``<=>(_:_:)``
