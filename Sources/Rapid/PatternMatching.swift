@@ -41,11 +41,33 @@ public extension Error {
     /// ```
     ///
     /// - Parameters:
-    ///   - pattern: An error.
-    ///   - error: Another error to match against `pattern`.
+    ///   - error: An error.
+    ///   - other: Another error to match against `pattern`.
     ///
     /// - Returns: Whether the two errors match.
-    static func ~= <Other: Error & Equatable>(pattern: Other, error: Self) -> Bool {
-        (error as? Other) == pattern
+    static func ~= <Other: Error & Equatable>(error: Self, other: Other) -> Bool {
+        (error as? Other) == other
+    }
+}
+
+// MARK: - Key Path Booleans
+
+public extension KeyPath where Value == Bool {
+    /// Returns a Boolean value indicating whether the property referenced
+    /// by a key path is `true` for a value.
+    ///
+    /// You can use the pattern-matching operator (`~=`) to test whether a
+    /// property referenced by a key path is `true` for a value. The
+    /// pattern-matching operator is used internally in `case` statements
+    /// for pattern matching.
+    ///
+    /// - Parameters:
+    ///   - pattern: Anything.
+    ///   - keyPath: A key path referencing a `Bool` value.
+    ///
+    /// - Returns: Whether the property referenced by `keyPath` is `true`
+    ///   for `value`.
+    static func ~= (keyPath: KeyPath, value: Root) -> Bool {
+        value[keyPath: keyPath] == true
     }
 }

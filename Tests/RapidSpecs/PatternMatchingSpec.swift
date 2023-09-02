@@ -45,5 +45,16 @@ final class PatternMatchingSpec: QuickSpec {
                 expect(handle(error)).to(equal("unauthorized"))
             }
         }
+        
+        describe("Boolean key path matching") {
+            it("allows switching on values based on their Boolean properties") {
+                let sign = switch -64 {
+                    case \.isPositive: "positive"
+                    case \.isNegative: "negative"
+                    default: "other"
+                }
+                expect(sign).to(equal("negative"))
+            }
+        }
     }
 }

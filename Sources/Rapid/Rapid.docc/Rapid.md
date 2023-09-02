@@ -87,6 +87,7 @@ Within Rapid, you will find:
 ### Pattern Matching
 
  - ``Swift/Error/~=(_:_:)``
+ - ``Swift/KeyPath/~=(_:_:)``
 
 ### Other
 
