@@ -16,7 +16,7 @@
 
 // MARK: - Errors
 
-public extension Error {
+public extension Error where Self: Equatable {
     /// Returns a Boolean value indicating whether an error is equal to
     /// another error.
     ///
@@ -45,8 +45,8 @@ public extension Error {
     ///   - other: Another error to match against `pattern`.
     ///
     /// - Returns: Whether the two errors match.
-    static func ~= <Other: Error & Equatable>(error: Self, other: Other) -> Bool {
-        (error as? Other) == other
+    static func ~= (error: Self, other: some Error) -> Bool {
+        error == (other as? Self)
     }
 }
 
