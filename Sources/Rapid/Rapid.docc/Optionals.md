@@ -8,6 +8,8 @@ Work with optionals in ways that won't make you tear your hair out.
 
  - ``Swift/Optional/isNil``
  - ``Swift/Optional/isNotNil``
+ - ``Swift/Optional/isNilOrEmpty``
+ - ``Swift/Optional/isNotNilOrEmpty``
 
 ### Unwrap or Die
 
