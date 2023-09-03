@@ -29,6 +29,11 @@ Work with Swift's numeric types in more expressive ways.
  - ``Swift/SignedNumeric/isNegative``
  - ``Swift/SignedNumeric/absoluteValue``
 
+### Powers
+
+ - ``Swift/BinaryFloatingPoint/**(_:_:)``
+ - ``Swift/BinaryFloatingPoint/**=(_:_:)``
+
 ### Other
 
  - ``Swift/BinaryInteger/factorial()``

@@ -9,6 +9,7 @@
  - `AnyType` and `Nothing` typealiases for `Any.Type` and `Void`, respectively
  - `sum()` and `product()` methods for `Numeric` sequences
  - `compacted()` method for `Sequence`
+ - `**` and `**=` operators
  
 ### Removals
 
