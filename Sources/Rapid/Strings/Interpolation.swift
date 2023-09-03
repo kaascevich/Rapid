@@ -14,8 +14,11 @@
 // You should have received a copy of the GNU General Public License along
 // with this package. If not, see https://www.gnu.org/licenses/.
 
+#if canImport(Foundation)
+
 import Foundation
 
+@available(iOS 15, macOS 12, tvOS 15, watchOS 8, *)
 public extension String.StringInterpolation {
     /// Formats the given value and interpolates it into the string literal
     /// being created.
@@ -29,11 +32,14 @@ public extension String.StringInterpolation {
     /// - Parameters:
     ///   - value: The value to format and interpolate.
     ///   - format: A format style to format `value` with.
-    @available(iOS 15, macOS 12, tvOS 15, watchOS 8, *)
     mutating func appendInterpolation<Style: FormatStyle>(_ value: Style.FormatInput, format formatStyle: Style) {
         appendInterpolation(formatStyle.format(value))
     }
+}
+
+#endif
     
+public extension String.StringInterpolation {
     /// Interpolates the given value into the string literal being created
     /// if the provided condition is `true`.
     ///

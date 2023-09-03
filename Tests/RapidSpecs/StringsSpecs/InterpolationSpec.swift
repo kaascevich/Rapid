@@ -14,13 +14,17 @@
 // You should have received a copy of the GNU General Public License along
 // with this package. If not, see https://www.gnu.org/licenses/.
 
+#if canImport(Foundation)
 import Foundation
+#endif
+
 import Quick
 import Nimble
 @testable import Rapid
 
 final class InterpolationSpec: QuickSpec {
     override class func spec() {
+        #if canImport(Foundation)
         if #available(iOS 15, tvOS 15, watchOS 9, *) {
             describe("the (_:format:) string interpolation") {
                 it("formats a value") {
@@ -29,6 +33,7 @@ final class InterpolationSpec: QuickSpec {
                 }
             }
         }
+        #endif
         
         describe("the (_:if:) string interpolation") {
             it("only interpolates the value if the condition is true") {
