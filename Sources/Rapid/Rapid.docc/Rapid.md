@@ -55,13 +55,9 @@ Within Rapid, you will find:
  - <doc:Closures>
  - <doc:Sequences>
  - <doc:ResultBuilders>
+ - <doc:PatternMatching>
  - <doc:Time>
-
-### Operator Aliases
-
- - ``Swift/Equatable/≠(_:_:)``
- - ``Swift/Comparable/≥(_:_:)``
- - ``Swift/Comparable/≤(_:_:)``
+ - <doc:OperatorAliases>
 
 ### Comparisons
 
@@ -78,12 +74,6 @@ Within Rapid, you will find:
 ### Type Erasure
 
  - ``AnyEquatable``
-
-### Pattern Matching
-
- - ``Swift/Error/~=(_:_:)``
- - ``Swift/KeyPath/~=(_:_:)``
- - ``_StringProcessing/Regex/~=(_:_:)``
 
 ### Type Aliases
 
