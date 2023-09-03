@@ -51,6 +51,7 @@ Within Rapid, you will find:
  - <doc:Conformances>
  - <doc:Strings>
  - <doc:Numbers>
+ - <doc:Optionals>
  - <doc:Closures>
  - <doc:Sequences>
  - <doc:ResultBuilders>
@@ -61,13 +62,6 @@ Within Rapid, you will find:
  - ``Swift/Equatable/≠(_:_:)``
  - ``Swift/Comparable/≥(_:_:)``
  - ``Swift/Comparable/≤(_:_:)``
-
-### Optionals
-
- - ``Swift/Optional/isNil``
- - ``Swift/Optional/isNotNil``
- - ``Swift/Optional/?!(_:_:)``
- - ``Swift/Optional/!!(_:_:)``
 
 ### Comparisons
 
