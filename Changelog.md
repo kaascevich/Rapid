@@ -13,7 +13,11 @@
  
 ### Removals
 
- - The `++`, `--`, `&++`, and `&--` operators have been removed
+ - `++`, `--`, `&++`, and `&--` operators
+ 
+### Other
+
+ - Yet another attempt has been made to get this thing to build on anything other than macOS
 
 ## 2.3.0
 

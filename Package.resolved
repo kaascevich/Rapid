@@ -23,8 +23,8 @@
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/Quick/Nimble.git",
       "state" : {
-        "revision" : "f552a16f434eef1f18b62985172489f41d37a18e",
-        "version" : "12.2.0"
+        "branch" : "main",
+        "revision" : "76fe8d364f2fbaa99708f4a9136aeb440a8a30b2"
       }
     },
     {
@@ -41,8 +41,8 @@
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/lukepistrol/SwiftLintPlugin.git",
       "state" : {
-        "revision" : "b1090ecd269dddd96bda0df24ca3f1aa78f33578",
-        "version" : "0.52.4"
+        "branch" : "main",
+        "revision" : "e5d50965b575eaaabe20ab35c807fe950683a88b"
       }
     }
   ],

@@ -30,17 +30,12 @@ let package = Package(
         .visionOS(.v1)
     ],
     products: [
-        .library(
-            name: "Rapid",
-            targets: [
-                "Rapid"
-            ]
-        )
+        .library(name: "Rapid", targets: ["Rapid"])
     ],
     dependencies: [
         .package(
             url: "https://github.com/lukepistrol/SwiftLintPlugin.git",
-            .upToNextMajor(from: Version(0, 52, 4))
+            branch: "main"
         ),
         .package(
             url: "https://github.com/Quick/Quick.git",
@@ -48,43 +43,18 @@ let package = Package(
         ),
         .package(
             url: "https://github.com/Quick/Nimble.git",
-            from: Version(12, 0, 0)
+            branch: "main"
         )
     ],
     targets: [
-        .target(
-            name: "Rapid",
-            plugins: [
-                .plugin(
-                    name: "SwiftLint",
-                    package: "SwiftLintPlugin"
-                )
-            ]
-        ),
+        .target(name: "Rapid"),
         .testTarget(
             name: "RapidSpecs",
-            dependencies: [
-                .target(
-                    name: "Rapid"
-                ),
-                .product(
-                    name: "Quick",
-                    package: "Quick"
-                ),
-                .product(
-                    name: "Nimble",
-                    package: "Nimble"
-                )
-            ],
+            dependencies: ["Rapid", "Quick", "Nimble"],
             swiftSettings: [
                 .enableUpcomingFeature("BareSlashRegexLiterals")
-            ], 
-            plugins: [
-                .plugin(
-                    name: "SwiftLint",
-                    package: "SwiftLintPlugin"
-                )
             ]
         )
     ]
 )
+
