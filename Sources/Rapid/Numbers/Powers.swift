@@ -38,7 +38,7 @@ public extension Double {
         pow(base, exponent)
     }
     
-    /// Raisesa a number to the given power and assigns the result.
+    /// Raises a number to the given power and assigns the result.
     ///
     /// - Parameters:
     ///   - base: A number.
