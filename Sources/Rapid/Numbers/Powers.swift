@@ -26,7 +26,7 @@ precedencegroup PowerPrecedence {
 infix operator **: PowerPrecedence
 infix operator **=: AssignmentPrecedence
 
-public extension BinaryFloatingPoint {
+public extension Double {
     /// Returns a number raised to a given power.
     ///
     /// - Parameters:
@@ -35,8 +35,7 @@ public extension BinaryFloatingPoint {
     ///
     /// - Returns: The result of raising `base` to `exponent`.
     static func ** (base: Self, exponent: Self) -> Self {
-        let base = Double(base), exponent = Double(exponent)
-        return Self(pow(base, exponent))
+        pow(base, exponent)
     }
     
     /// Raisesa a number to the given power and assigns the result.
