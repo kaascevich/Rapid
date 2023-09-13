@@ -33,10 +33,10 @@ let package = Package(
         .library(name: "Rapid", targets: ["Rapid"])
     ],
     dependencies: [
-        .package(
-            url: "https://github.com/lukepistrol/SwiftLintPlugin.git",
-            branch: "main"
-        ),
+//        .package(
+//            url: "https://github.com/lukepistrol/SwiftLintPlugin.git",
+//            branch: "main"
+//        ),
         .package(
             url: "https://github.com/Quick/Quick.git",
             branch: "main"
