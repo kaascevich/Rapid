@@ -20,7 +20,7 @@ import Foundation
 
 precedencegroup PowerPrecedence {
     higherThan: MultiplicationPrecedence
-    associativity: left
+    associativity: right
 }
 
 infix operator **: PowerPrecedence
