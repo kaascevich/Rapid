@@ -18,6 +18,7 @@
 ### Other
 
  - Yet another attempt has been made to get this thing to build on anything other than macOS
+   - This involves temporarily disabling the SwiftLint plugin
 
 ## 2.3.0
 
