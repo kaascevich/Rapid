@@ -95,6 +95,6 @@ public extension Optional {
             return optional
         } else {
             error()
-    }
+        }
     }
 }
