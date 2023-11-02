@@ -110,7 +110,8 @@ public extension ResultBuilder {
     ///
     /// ```swift
     /// let string = String {
-    ///     "Hello, World!"
+    ///     "Hello, "
+    ///     "World!"
     /// }
     /// // string == "Hello, World!"
     /// ```
@@ -127,9 +128,7 @@ public extension ResultBuilder {
     ///
     /// ```swift
     /// let string = String {
-    ///     for i in 1...3 {
-    ///         §i
-    ///     }
+    ///     for i in 1...3 { §i }
     /// }
     /// // string == "123"
     /// ```
