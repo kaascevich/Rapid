@@ -16,7 +16,7 @@
 
 /// Automatically creates all result builder methods from a
 /// `buildResult(from:)` method and (optionally) a `buildExpression(_:)`
-/// method..
+/// method.
 ///
 /// When creating a custom result builder type, consider conforming to
 /// `ResultBuilder` to remove boilerplate. Your type must implement
