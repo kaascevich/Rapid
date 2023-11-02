@@ -18,11 +18,11 @@ infix operator ?!: NilCoalescingPrecedence
 infix operator !!: NilCoalescingPrecedence
 
 public extension Optional {
-    /// Performs a throwing nil-coalescing operation, returning the wrapped
+    /// Performs a throwing `nil`-coalescing operation, returning the wrapped
     /// value of an `Optional` instance or throwing an error.
     ///
-    /// A throwing nil-coalescing operation unwraps the left-hand side if it
-    /// has a value, and throws the right-hand side as an error otherwise.
+    /// A throwing `nil`-coalescing operation unwraps the left-hand side if
+    /// it has a value, and throws the right-hand side as an error otherwise.
     /// The result of this operation will have the non-optional type of the
     /// left-hand side's `Wrapped` type.
     ///
@@ -70,12 +70,12 @@ public extension Optional {
         }
     }
     
-    /// Performs a forced nil-coalescing operation, returning the wrapped
+    /// Performs a forced `nil`-coalescing operation, returning the wrapped
     /// value of an `Optional` instance or calling a never-returning
     /// function.
     ///
-    /// A forced nil-coalescing operation unwraps the left-hand side if it
-    /// has a value, and calls the right-hand side -- a function that nwver
+    /// A forced `nil`-coalescing operation unwraps the left-hand side if it
+    /// has a value, and calls the right-hand side -- a function that never
     /// returns -- otherwise. The result of this operation will have the
     /// non-optional type of the left-hand side's `Wrapped` type.
     ///
@@ -86,7 +86,8 @@ public extension Optional {
     ///   - optional: An optional value.
     ///   - error: A function that never returns.
     ///
-    /// - Returns: The unwrapped value of `optional`.
+    /// - Returns: The unwrapped value of `optional`. If `optional` is `nil`,
+    ///   this operator never returns.
     static func !! (
         optional: Self,
         error: @autoclosure () -> Never
