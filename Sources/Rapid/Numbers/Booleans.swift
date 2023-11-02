@@ -19,9 +19,7 @@ public extension Bool {
     ///
     /// This property evaluates to `1` if this value is `true`, and `0`
     /// otherwise. It's most useful when interfacing with legacy C code.
-    var asInt: Int {
-        if self { 1 } else { 0 }
-    }
+    var asInt: Int { self ? 1 : 0 }
     
     /// Creates an instance from the given integer value.
     ///
@@ -30,7 +28,5 @@ public extension Bool {
     /// C code.
     ///
     /// - Parameter value: An integer value.
-    init(fromInt value: some BinaryInteger) {
-        self = if value.isZero { false } else { true }
-    }
+    init(fromInt value: some BinaryInteger) { self = value.isNonzero }
 }
