@@ -14,6 +14,7 @@
 // You should have received a copy of the GNU General Public License along
 // with this package. If not, see https://www.gnu.org/licenses/.
 
+// TODO: Figure out how to make this work without Foundation
 #if canImport(Foundation)
 
 import Foundation
