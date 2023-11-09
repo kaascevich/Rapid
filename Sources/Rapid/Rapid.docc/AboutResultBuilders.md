@@ -18,7 +18,7 @@ protocol Drawable {
 struct Line: Drawable {
     var elements: [Drawable]
     func draw() -> String {
-        elements.map { $0.draw() }.joined(separator: "")
+        elements.map(\.draw).joined()
     }
 }
 
@@ -34,7 +34,7 @@ struct Space: Drawable {
 
 struct Stars: Drawable {
     var length: Int
-    func draw() -> String { String(repeating: "*", count: length) }
+    func draw() -> String { .init(repeating: "*", count: length) }
 }
 
 struct AllCaps: Drawable {
@@ -48,36 +48,30 @@ The `Drawable` protocol defines the requirement for something that can be drawn,
 It's possible to make a drawing with these types by calling their initializers:
 
 ```swift
-let name: String? = "Ravi Patel"
+let name: _? = "Ravi Patel"
 let manualDrawing = Line(elements: [
     Stars(length: 3),
     Text("Hello"),
     Space(),
-    AllCaps(content: Text((name ?? "World") + "!")),
+    AllCaps(content: Text("\(name ?? "World")!")),
     Stars(length: 2)
 ])
 print(manualDrawing.draw())
 // Prints "***Hello RAVI PATEL!**"
 ```
 
-This code works, but it's a little awkward. The deeply nested parentheses after `AllCaps` are hard to read. The fallback logic to use "World" when `name` is `nil` has to be done inline using the `??` operator, which would be difficult with anything more complex. If you needed to include switches or `for` loops to build up part of the drawing, there's no way to do that. A result builder lets you rewrite code like this so that it looks like normal Swift code.
+This code works, but it's a little awkward. The deeply nested parentheses after `AllCaps` are hard to read. The fallback logic to use `"World"` when `name` is `nil` has to be done inline using the `??` operator, which would be difficult with anything more complex. If you needed to include switches or `for` loops to build up part of the drawing, there's no way to do that. A result builder lets you rewrite code like this so that it looks like normal Swift code.
 
 To define a result builder, you write the `@resultBuilder` attribute on a type declaration. For example, this code defines a result builder called `DrawingBuilder`, which lets you use a declarative syntax to describe a drawing:
 
 ```swift
-@resultBuilder
-struct DrawingBuilder {
+@resultBuilder struct DrawingBuilder {
     static func buildBlock(_ components: Drawable...) -> Drawable {
         Line(elements: components)
     }
 
-    static func buildEither(first: Drawable) -> Drawable {
-        first
-    }
-
-    static func buildEither(second: Drawable) -> Drawable {
-        second
-    }
+    static func buildEither(first:  Drawable) -> Drawable { first  }
+    static func buildEither(second: Drawable) -> Drawable { second }
 }
 ```
 
@@ -101,7 +95,7 @@ func makeGreeting(for name: String? = nil) -> Drawable {
         Space()
         caps {
             if let name = name {
-                Text(name + "!")
+                Text("\(name)!")
             } else {
                 Text("World!")
             }
@@ -126,7 +120,7 @@ The `makeGreeting(for:)` function takes a `name` parameter and uses it to draw a
 let capsDrawing = caps {
     let partialDrawing: Drawable
     if let name = name {
-        let text = Text(name + "!")
+        let text = Text("\(name)!")
         partialDrawing = DrawingBuilder.buildEither(first: text)
     } else {
         let text = Text("World!")
