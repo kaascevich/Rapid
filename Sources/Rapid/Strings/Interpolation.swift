@@ -56,10 +56,7 @@ public extension String.StringInterpolation {
     /// - Parameters:
     ///   - value: The value to interpolate if `condition` is `true`.
     ///   - condition: A Boolean condition.
-    mutating func appendInterpolation(_ value: @autoclosure () -> StringLiteralType, if condition: Bool) {
-        guard condition else {
-            return
-        }
-        appendLiteral(value())
+    mutating func appendInterpolation<T>(_ value: @autoclosure () -> T, if condition: Bool) {
+        if condition { appendInterpolation(value()) }
     }
 }
