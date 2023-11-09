@@ -31,6 +31,6 @@ extension CollectionOfOne: ExpressibleByArrayLiteral {
     public init(arrayLiteral elements: Element...) {
         precondition(elements.count == 1, "CollectionOfOne must be instantiated with a single-element array literal")
         
-        self.init(elements[0])
+        self.init(elements.first!)
     }
 }
