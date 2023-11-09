@@ -48,10 +48,10 @@ extension EmptyCollection: ExpressibleByDictionaryLiteral {
     /// `Never` is uninhabited and therefore can't be instantiated.
     ///
     /// ```swift
-    /// let nothing: EmptyCollection<Int> = [:]
+    /// let nothing: EmptyCollection<(Int, Int)> = [:]
     ///
     /// // Throws 2 compiler errors - cannot convert 'Int' to 'Never'
-    /// let something: EmptyCollection<Int> = [42: 69]
+    /// let something: EmptyCollection<(Int, Int)> = [42: 69]
     /// ```
     ///
     /// - Parameter elements: An empty dictionary literal.
