@@ -10,6 +10,7 @@
  - `sum()` and `product()` methods for `Numeric` sequences
  - `compacted()` method for `Sequence`
  - `**` and `**=` operators
+ - `ExpressibleByEmptyArrayLiteral` and `ExpressibleByEmptyDictionaryLiteral` protocols
  
 ### Removals
 

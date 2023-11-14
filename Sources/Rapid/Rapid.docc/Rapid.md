@@ -58,6 +58,7 @@ Within Rapid, you will find:
  - <doc:PatternMatching>
  - <doc:Time>
  - <doc:OperatorAliases>
+ - <doc:Protocols>
 
 ### Comparisons
 

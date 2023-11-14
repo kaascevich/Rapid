@@ -14,7 +14,7 @@
 // You should have received a copy of the GNU General Public License along
 // with this package. If not, see https://www.gnu.org/licenses/.
 
-extension EmptyCollection: ExpressibleByArrayLiteral {
+extension EmptyCollection: ExpressibleByEmptyArrayLiteral {
     /// Creates an instance with an empty array literal.
     ///
     /// The array literal type is defined as `Never` to prevent accidental
@@ -29,18 +29,12 @@ extension EmptyCollection: ExpressibleByArrayLiteral {
     /// ```
     ///
     /// - Parameter elements: An empty array literal.
-    public init(arrayLiteral elements: Never...) {
-        // We're using an assert instead of a precondition because the
-        // compiler shouldn't let us create a literal with elements
-        // anyway, since Never is uninhabited. That is, this is the
-        // epitome of internal sanity checks.
-        assert(elements.isEmpty, "array literal with elements cannot be used to create an EmptyCollection")
-        
+    public init(emptyArrayLiteral: Nothing) {
         self.init()
     }
 }
 
-extension EmptyCollection: ExpressibleByDictionaryLiteral {
+extension EmptyCollection: ExpressibleByEmptyDictionaryLiteral {
     /// Creates an instance with an empty dictionary literal.
     ///
     /// The dictionary literal type is defined as `(Never, Never)` to
@@ -55,13 +49,7 @@ extension EmptyCollection: ExpressibleByDictionaryLiteral {
     /// ```
     ///
     /// - Parameter elements: An empty dictionary literal.
-    public init(dictionaryLiteral elements: (Never, Never)...) {
-        // We're using an assert instead of a precondition because the
-        // compiler shouldn't let us create a literal with elements
-        // anyway, since Never is uninhabited. That is, this is the
-        // epitome of internal sanity checks.
-        assert(elements.isEmpty, "dictionary literal with elements cannot be used to create an EmptyCollection")
-        
+    public init(emptyDictionaryLiteral: Nothing) {
         self.init()
     }
 }

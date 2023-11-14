@@ -31,8 +31,8 @@ Work with Swift's numeric types in more expressive ways.
 
 ### Powers
 
- - ``Swift/BinaryFloatingPoint/**(_:_:)``
- - ``Swift/BinaryFloatingPoint/**=(_:_:)``
+ - ``Swift/Double/**(_:_:)``
+ - ``Swift/Double/**=(_:_:)``
 
 ### Other
 
