@@ -25,7 +25,7 @@ public extension String {
   ///
   /// - Returns: A new string representing `repeatedValue` repeated
   ///   `count` times.
-  static func * (_ repeatedValue: Self, count: Int) -> Self {
-    Self(repeating: repeatedValue, count: count)
+  static func * (_ repeatedValue: Self, count: UInt) -> Self {
+    Self(repeating: repeatedValue, count: Int(count))
   }
 }

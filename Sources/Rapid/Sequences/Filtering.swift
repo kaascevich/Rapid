@@ -95,6 +95,30 @@ public extension RangeReplaceableCollection where Element: Equatable {
 // MARK: - Counting
 
 public extension Sequence {
+  /// The number of elements in the sequence that satisfy the given predicate.
+  ///
+  /// In this example, `count(of:)` is used to count the number of names shorter
+  /// than five characters.
+  ///
+  /// ```swift
+  /// let cast = ["Vivien", "Marlon", "Kim", "Karl"]
+  /// let numberOfShortNames = cast.count { $0.count < 5 }
+  /// print(numberOfShortNames)
+  /// // Prints "2"
+  /// ```
+  ///
+  /// - Complexity: O(2*n*), where *n* is the length of the sequence.
+  ///
+  /// - Parameter predicate: A closure that takes an element of the sequence as
+  ///   its argument and returns a Boolean value indicating whether the element
+  ///   should be included in the count.
+  ///
+  /// - Returns: The number of elements that satisfy `predicate`.
+  @available(*, deprecated, renamed: "count(where:)")
+  func count(of predicate: (Element) throws -> Bool) rethrows -> Int {
+    try filter(predicate).count
+  }
+  
   /// Returns the number of times the given element appears in the sequence.
   ///
   /// In this example, `count(of:)` is used to count the number of times the
@@ -114,7 +138,7 @@ public extension Sequence {
   ///
   /// - Returns: The number of times `element` appears in the sequence.
   func count(of element: Element) -> Int where Element: Equatable {
-    count { $0 == element }
+    count(where: { $0 == element })
   }
 }
 

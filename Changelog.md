@@ -1,5 +1,32 @@
 # Changelog
 
+## 4.0.0
+
+Hello, I still exist! Sorry for not updating for so long... school 😔
+
+This update is primarily to bring Rapid up-to-date with all the fancy-schmancy newness of Swift 6.
+
+### Updates
+
+- Updated `?!` operator with typed `throws`
+
+### Deprecations
+
+- There's now a `count(where:)` method in the standard library, rendering one of Rapid's `count(of:)` methods obsolete. This method has thus been deprecated, and will be removed in Rapid 4.
+  - `count(where:)` should work as a drop-in replacement for your projects -- and if you were using trailing closures, you might not even have to update your code at all!
+  - The overload of `count(of:)` that takes an element instead of a predicate was kept, since the standard library doesn't have a direct equivalent to it (yet).
+
+### Breaking Changes
+
+- Changed the `count` parameter of `String.*(_:_:)` to be a `UInt` instead of an `Int`
+
+### Other
+
+- Changed license from the GNU GPL v3 to the MIT License
+  - What this practically means is that, from this version (3.1.0) onwards, Rapid can now legally be used in software that isn't open source (as well as some other things that stem from or alongside this). No existing users should be affected by this change.
+- General documentation polish
+- Migrated tests from Quick/Nimble to swift-testing
+
 ## 3.0.0
 
 ### Additions

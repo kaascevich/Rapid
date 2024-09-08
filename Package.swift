@@ -24,14 +24,6 @@ let package = Package(
   ],
   dependencies: [
     .package(
-      url: "https://github.com/Quick/Quick.git",
-      branch: "main"
-    ),
-    .package(
-      url: "https://github.com/Quick/Nimble.git",
-      branch: "main"
-    ),
-    .package(
       url: "https://github.com/apple/swift-testing.git",
       branch: "main"
     )
@@ -40,9 +32,9 @@ let package = Package(
     .target(name: "Rapid"),
     .testTarget(
       name: "RapidSpecs",
-      dependencies: ["Rapid", "Quick", "Nimble"],
-      swiftSettings: [
-        .enableUpcomingFeature("BareSlashRegexLiterals")
+      dependencies: [
+        "Rapid",
+        .product(name: "Testing", package: "swift-testing")
       ]
     )
   ]
