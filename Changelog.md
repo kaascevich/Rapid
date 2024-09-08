@@ -1,10 +1,20 @@
 # Changelog
 
-## 4.0.0
+## 3.0.0
 
 Hello, I still exist! Sorry for not updating for so long... school 😔
 
-This update is primarily to bring Rapid up-to-date with all the fancy-schmancy newness of Swift 6.
+A bunch of this update is dedicated to bringing Rapid up-to-date with all the fancy-schmancy newness of Swift 6.
+
+### Additions
+
+- `~=` operator for `Regex`
+- `!!` operator for calling a never-returning function when optional unwrapping fails
+- `AnyType` and `Nothing` typealiases for `Any.Type` and `Void`, respectively
+- `sum()` and `product()` methods for `Numeric` sequences
+- `compacted()` method for `Sequence`
+- `**` and `**=` operators
+- `ExpressibleByEmptyArrayLiteral` and `ExpressibleByEmptyDictionaryLiteral` protocols
 
 ### Updates
 
@@ -15,6 +25,10 @@ This update is primarily to bring Rapid up-to-date with all the fancy-schmancy n
 - There's now a `count(where:)` method in the standard library, rendering one of Rapid's `count(of:)` methods obsolete. This method has thus been deprecated, and will be removed in Rapid 4.
   - `count(where:)` should work as a drop-in replacement for your projects -- and if you were using trailing closures, you might not even have to update your code at all!
   - The overload of `count(of:)` that takes an element instead of a predicate was kept, since the standard library doesn't have a direct equivalent to it (yet).
+ 
+### Removals
+
+- `++`, `--`, `&++`, and `&--` operators
 
 ### Breaking Changes
 
@@ -26,27 +40,6 @@ This update is primarily to bring Rapid up-to-date with all the fancy-schmancy n
   - What this practically means is that, from this version (3.1.0) onwards, Rapid can now legally be used in software that isn't open source (as well as some other things that stem from or alongside this). No existing users should be affected by this change.
 - General documentation polish
 - Migrated tests from Quick/Nimble to swift-testing
-
-## 3.0.0
-
-### Additions
-
-- `~=` operator for `Regex`
-- `!!` operator for calling a never-returning function when optional unwrapping fails
-- `AnyType` and `Nothing` typealiases for `Any.Type` and `Void`, respectively
-- `sum()` and `product()` methods for `Numeric` sequences
-- `compacted()` method for `Sequence`
-- `**` and `**=` operators
-- `ExpressibleByEmptyArrayLiteral` and `ExpressibleByEmptyDictionaryLiteral` protocols
- 
-### Removals
-
-- `++`, `--`, `&++`, and `&--` operators
- 
-### Other
-
-- Yet another attempt has been made to get this thing to build on anything other than macOS
-  - This involves temporarily disabling the SwiftLint plugin
 
 ## 2.3.0
 
