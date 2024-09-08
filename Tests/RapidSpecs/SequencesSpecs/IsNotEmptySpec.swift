@@ -103,5 +103,3 @@ final class IsNotEmptySpec: QuickSpec {
     }
   }
 }
-
-// swiftlint:enable discouraged_optional_collection redundant_optional_initialization

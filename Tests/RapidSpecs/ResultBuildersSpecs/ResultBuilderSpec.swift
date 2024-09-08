@@ -18,7 +18,6 @@ import Quick
 import Nimble
 @testable import Rapid
 
-// swiftlint:disable cyclomatic_complexity
 final class ResultBuilderSpec: QuickSpec {
   override class func spec() {
     describe("the StringBuilder result builder") {
@@ -82,4 +81,3 @@ final class ResultBuilderSpec: QuickSpec {
     }
   }
 }
-// swiftlint:enable cyclomatic_complexity
