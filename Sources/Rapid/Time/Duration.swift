@@ -109,7 +109,7 @@ public extension Duration {
   /// let d: Duration = .weeks(56)
   /// ```
   ///
-  /// - Parameter days: A number of weeks.
+  /// - Parameter weeks: A number of weeks.
   ///
   /// - Returns: A `Duration` representing the given number of weeks.
   static func weeks(_ weeks: some BinaryInteger) -> Self {

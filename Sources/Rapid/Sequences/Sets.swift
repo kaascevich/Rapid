@@ -122,8 +122,6 @@ public extension SetAlgebra {
   /// - Parameters:
   ///   - lhs: A set.
   ///   - rhs: Another set of the same type.
-  ///
-  /// - Returns: A new set.
   static func -= (lhs: inout Self, rhs: Self) {
     lhs.subtract(rhs)
   }
