@@ -87,7 +87,7 @@ public extension RangeReplaceableCollection where Element: Equatable {
     /// particular value. The order of the remaining elements is preserved.
     /// This example removes all the sixes from an array of numbers:
     ///
-    /// ````swift
+    /// ```swift
     /// var numbers = [5, 6, 7, 8, 7, 6, 5]
     /// numbers.removeAll(occurrencesOf: 6)
     /// // numbers == [5, 7, 8, 7, 5]
