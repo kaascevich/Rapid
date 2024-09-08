@@ -14,7 +14,7 @@
 // You should have received a copy of the GNU General Public License along
 // with this package. If not, see https://www.gnu.org/licenses/.
 
-extension PartialRangeThrough: Equatable {
+extension PartialRangeThrough: @retroactive Equatable {
     /// Returns a Boolean value indicating whether two partial ranges are
     /// equal.
     ///
@@ -36,27 +36,27 @@ extension PartialRangeThrough: Equatable {
     }
 }
 
-extension PartialRangeThrough: Hashable where Bound: Hashable {
+extension PartialRangeThrough: @retroactive Hashable where Bound: Hashable {
     public func hash(into hasher: inout Hasher) {
         hasher.combine(upperBound)
     }
 }
 
-extension PartialRangeThrough: CustomStringConvertible {
+extension PartialRangeThrough: @retroactive CustomStringConvertible {
     /// A textual representation of the range.
     public var description: String {
         "...\(upperBound)"
     }
 }
 
-extension PartialRangeThrough: CustomDebugStringConvertible {
+extension PartialRangeThrough: @retroactive CustomDebugStringConvertible {
     /// A textual representation of the range, suitable for debugging.
     public var debugDescription: String {
         "PartialRangeThrough(...\(String(reflecting: upperBound)))"
     }
 }
 
-extension PartialRangeThrough: CustomReflectable {
+extension PartialRangeThrough: @retroactive CustomReflectable {
     public var customMirror: Mirror {
         Mirror(self, children: ["upperBound": upperBound])
     }

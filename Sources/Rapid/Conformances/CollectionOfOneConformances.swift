@@ -14,7 +14,7 @@
 // You should have received a copy of the GNU General Public License along
 // with this package. If not, see https://www.gnu.org/licenses/.
 
-extension CollectionOfOne: ExpressibleByArrayLiteral {
+extension CollectionOfOne: @retroactive ExpressibleByArrayLiteral {
     /// Creates an instance with a single-element array literal.
     ///
     /// ```swift

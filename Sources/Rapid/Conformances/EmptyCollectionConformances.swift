@@ -14,6 +14,7 @@
 // You should have received a copy of the GNU General Public License along
 // with this package. If not, see https://www.gnu.org/licenses/.
 
+extension EmptyCollection: @retroactive ExpressibleByArrayLiteral {}
 extension EmptyCollection: ExpressibleByEmptyArrayLiteral {
     /// Creates an instance with an empty array literal.
     ///
@@ -34,6 +35,7 @@ extension EmptyCollection: ExpressibleByEmptyArrayLiteral {
     }
 }
 
+extension EmptyCollection: @retroactive ExpressibleByDictionaryLiteral {}
 extension EmptyCollection: ExpressibleByEmptyDictionaryLiteral {
     /// Creates an instance with an empty dictionary literal.
     ///

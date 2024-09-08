@@ -14,7 +14,7 @@
 // You should have received a copy of the GNU General Public License along
 // with this package. If not, see https://www.gnu.org/licenses/.
 
-extension PartialRangeFrom: Equatable {
+extension PartialRangeFrom: @retroactive Equatable {
     /// Returns a Boolean value indicating whether two partial ranges are
     /// equal.
     ///
@@ -36,27 +36,27 @@ extension PartialRangeFrom: Equatable {
     }
 }
 
-extension PartialRangeFrom: Hashable where Bound: Hashable {
+extension PartialRangeFrom: @retroactive Hashable where Bound: Hashable {
     public func hash(into hasher: inout Hasher) {
         hasher.combine(lowerBound)
     }
 }
 
-extension PartialRangeFrom: CustomStringConvertible {
+extension PartialRangeFrom: @retroactive CustomStringConvertible {
     /// A textual representation of the range.
     public var description: String {
         "\(lowerBound)..."
     }
 }
 
-extension PartialRangeFrom: CustomDebugStringConvertible {
+extension PartialRangeFrom: @retroactive CustomDebugStringConvertible {
     /// A textual representation of the range, suitable for debugging.
     public var debugDescription: String {
         "PartialRangeFrom(\(String(reflecting: lowerBound))...)"
     }
 }
 
-extension PartialRangeFrom: CustomReflectable {
+extension PartialRangeFrom: @retroactive CustomReflectable {
     public var customMirror: Mirror {
         Mirror(self, children: ["lowerBound": lowerBound])
     }

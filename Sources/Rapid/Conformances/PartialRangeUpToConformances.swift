@@ -14,7 +14,7 @@
 // You should have received a copy of the GNU General Public License along
 // with this package. If not, see https://www.gnu.org/licenses/.
 
-extension PartialRangeUpTo: Equatable {
+extension PartialRangeUpTo: @retroactive Equatable {
     /// Returns a Boolean value indicating whether two partial ranges are
     /// equal.
     ///
@@ -36,27 +36,27 @@ extension PartialRangeUpTo: Equatable {
     }
 }
 
-extension PartialRangeUpTo: Hashable where Bound: Hashable {
+extension PartialRangeUpTo: @retroactive Hashable where Bound: Hashable {
     public func hash(into hasher: inout Hasher) {
         hasher.combine(upperBound)
     }
 }
 
-extension PartialRangeUpTo: CustomStringConvertible {
+extension PartialRangeUpTo: @retroactive CustomStringConvertible {
     /// A textual representation of the range.
     public var description: String {
         "..<\(upperBound)"
     }
 }
 
-extension PartialRangeUpTo: CustomDebugStringConvertible {
+extension PartialRangeUpTo: @retroactive CustomDebugStringConvertible {
     /// A textual representation of the range, suitable for debugging.
     public var debugDescription: String {
         "PartialRangeUpTo(..<\(String(reflecting: upperBound)))"
     }
 }
 
-extension PartialRangeUpTo: CustomReflectable {
+extension PartialRangeUpTo: @retroactive CustomReflectable {
     public var customMirror: Mirror {
         Mirror(self, children: ["upperBound": upperBound])
     }
