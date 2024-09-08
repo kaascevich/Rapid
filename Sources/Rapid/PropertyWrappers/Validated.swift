@@ -31,8 +31,7 @@
 /// value = 29    // value == 7
 /// value = 9     // value == 9
 /// ```
-@propertyWrapper
-public struct Validated<Value> {
+@propertyWrapper public struct Validated<Value> {
     /// A function type that validates a value.
     public typealias Validator = (Value) -> Bool
     

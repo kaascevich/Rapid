@@ -31,7 +31,7 @@ public extension String.StringInterpolation {
     ///
     /// - Parameters:
     ///   - value: The value to format and interpolate.
-    ///   - format: A format style to format `value` with.
+    ///   - formatStyle: A format style to format `value` with.
     mutating func appendInterpolation<Style: FormatStyle>(_ value: Style.FormatInput, format formatStyle: Style) {
         appendInterpolation(formatStyle.format(value))
     }
