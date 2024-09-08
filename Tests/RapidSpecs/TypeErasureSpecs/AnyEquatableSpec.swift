@@ -19,19 +19,19 @@ import Nimble
 @testable import Rapid
 
 final class AnyEquatableSpec: QuickSpec {
-    override class func spec() {
-        describe("the AnyEquatable type-erased structure") {
-            it("hides the actual type of an Equatable value") {
-                let something = AnyEquatable(47)
-                let theSameThing = AnyEquatable(47)
-                
-                let anotherThing = AnyEquatable(13)
-                let aDifferentThingEntirely = AnyEquatable("I'm an Int, I swear")
-                
-                expect(something).to(equal(theSameThing))
-                expect(something).toNot(equal(anotherThing))
-                expect(something).toNot(equal(aDifferentThingEntirely))
-            }
-        }
+  override class func spec() {
+    describe("the AnyEquatable type-erased structure") {
+      it("hides the actual type of an Equatable value") {
+        let something = AnyEquatable(47)
+        let theSameThing = AnyEquatable(47)
+        
+        let anotherThing = AnyEquatable(13)
+        let aDifferentThingEntirely = AnyEquatable("I'm an Int, I swear")
+        
+        expect(something).to(equal(theSameThing))
+        expect(something).toNot(equal(anotherThing))
+        expect(something).toNot(equal(aDifferentThingEntirely))
+      }
     }
+  }
 }

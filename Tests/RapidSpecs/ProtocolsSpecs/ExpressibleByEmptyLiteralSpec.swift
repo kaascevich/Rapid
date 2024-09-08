@@ -19,29 +19,29 @@ import Nimble
 @testable import Rapid
 
 final class ExpressibleByEmptyLiteralSpec: QuickSpec {
-    override class func spec() {
-        describe("the ExpressibleByEmptyArrayLiteral protocol") {
-            struct EmptyArrayLiteralMock: ExpressibleByEmptyArrayLiteral {
-                init(emptyArrayLiteral: Nothing) { }
-            }
-            
-            it("only allows initialization with an empty literal") {
-                // There isn't much we can do beyond this, since we can't really
-                // test compile-time guarantees.
-                let _: EmptyArrayLiteralMock = []
-            }
-        }
-        
-        describe("the ExpressibleByEmptyDictionaryLiteral protocol") {
-            struct EmptyDictionaryLiteralMock: ExpressibleByEmptyDictionaryLiteral {
-                init(emptyDictionaryLiteral: Nothing) { }
-            }
-            
-            it("only allows initialization with an empty literal") {
-                // There isn't much we can do beyond this, since we can't really
-                // test compile-time guarantees.
-                let _: EmptyDictionaryLiteralMock = [:]
-            }
-        }
+  override class func spec() {
+    describe("the ExpressibleByEmptyArrayLiteral protocol") {
+      struct EmptyArrayLiteralMock: ExpressibleByEmptyArrayLiteral {
+        init(emptyArrayLiteral: Nothing) { }
+      }
+      
+      it("only allows initialization with an empty literal") {
+        // There isn't much we can do beyond this, since we can't really
+        // test compile-time guarantees.
+        let _: EmptyArrayLiteralMock = []
+      }
     }
+    
+    describe("the ExpressibleByEmptyDictionaryLiteral protocol") {
+      struct EmptyDictionaryLiteralMock: ExpressibleByEmptyDictionaryLiteral {
+        init(emptyDictionaryLiteral: Nothing) { }
+      }
+      
+      it("only allows initialization with an empty literal") {
+        // There isn't much we can do beyond this, since we can't really
+        // test compile-time guarantees.
+        let _: EmptyDictionaryLiteralMock = [:]
+      }
+    }
+  }
 }

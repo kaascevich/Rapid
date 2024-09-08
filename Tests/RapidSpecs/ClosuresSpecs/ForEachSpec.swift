@@ -19,15 +19,15 @@ import Nimble
 @testable import Rapid
 
 final class ForEachSpec: QuickSpec {
-    override class func spec() {
-        describe("the repeat(_:) method") {
-            it("runs a closure multiple times") {
-                var string = ""
-                5.repeat { number in
-                    string.append(String(number))
-                }
-                expect(string).to(equal("01234"))
-            }
+  override class func spec() {
+    describe("the repeat(_:) method") {
+      it("runs a closure multiple times") {
+        var string = ""
+        5.repeat { number in
+          string.append(String(number))
         }
+        expect(string).to(equal("01234"))
+      }
     }
+  }
 }

@@ -19,15 +19,15 @@ import Nimble
 @testable import Rapid
 
 final class RepetitionSpec: QuickSpec {
-    override class func spec() {
-        describe("the * operator when used with strings") {
-            it("creates a String repeated the specified number of times") {
-                expect("hello" * 3).to(equal("hellohellohello"))
-            }
-            
-            it("fails if the count is negative") {
-                expect("error" * -13).to(throwAssertion())
-            }
-        }
+  override class func spec() {
+    describe("the * operator when used with strings") {
+      it("creates a String repeated the specified number of times") {
+        expect("hello" * 3).to(equal("hellohellohello"))
+      }
+      
+      it("fails if the count is negative") {
+        expect("error" * -13).to(throwAssertion())
+      }
     }
+  }
 }

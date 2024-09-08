@@ -19,17 +19,17 @@ import Nimble
 @testable import Rapid
 
 final class SumSpec: QuickSpec {
-    override class func spec() {
-        describe("the sum() method") {
-            it("returns the sum of the elements") {
-                expect((1...10).sum()).to(equal(55))
-            }
-        }
-        
-        describe("the product() method") {
-            it("returns the product of the elements") {
-                expect((1...5).product()).to(equal(120))
-            }
-        }
+  override class func spec() {
+    describe("the sum() method") {
+      it("returns the sum of the elements") {
+        expect((1...10).sum()).to(equal(55))
+      }
     }
+    
+    describe("the product() method") {
+      it("returns the product of the elements") {
+        expect((1...5).product()).to(equal(120))
+      }
+    }
+  }
 }

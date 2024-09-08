@@ -6,34 +6,34 @@ Work with Swift's numeric types in more expressive ways.
 
 ### Constants
 
- - ``π``
+- ``π``
 
 ### Booleans
 
- - ``Swift/Bool/asInt``
- - ``Swift/Bool/init(fromInt:)``
+- ``Swift/Bool/asInt``
+- ``Swift/Bool/init(fromInt:)``
 
 ### Comparison to Zero
 
- - ``Swift/AdditiveArithmetic/isZero``
- - ``Swift/AdditiveArithmetic/isNonzero``
+- ``Swift/AdditiveArithmetic/isZero``
+- ``Swift/AdditiveArithmetic/isNonzero``
 
 ### Evenness and Oddness
 
- - ``Swift/BinaryInteger/isEven``
- - ``Swift/BinaryInteger/isOdd``
+- ``Swift/BinaryInteger/isEven``
+- ``Swift/BinaryInteger/isOdd``
 
 ### Signs
 
- - ``Swift/SignedNumeric/isPositive``
- - ``Swift/SignedNumeric/isNegative``
- - ``Swift/SignedNumeric/absoluteValue``
+- ``Swift/SignedNumeric/isPositive``
+- ``Swift/SignedNumeric/isNegative``
+- ``Swift/SignedNumeric/absoluteValue``
 
 ### Powers
 
- - ``Swift/Double/**(_:_:)``
- - ``Swift/Double/**=(_:_:)``
+- ``Swift/Double/**(_:_:)``
+- ``Swift/Double/**=(_:_:)``
 
 ### Other
 
- - ``Swift/BinaryInteger/factorial()``
+- ``Swift/BinaryInteger/factorial()``

@@ -38,7 +38,7 @@ prefix operator §
 ///
 /// ```swift
 /// struct Point {
-///     let x: Int, y: Int
+///   let x: Int, y: Int
 /// }
 ///
 /// let p = Point(x: 21, y: 30)
@@ -51,9 +51,9 @@ prefix operator §
 ///
 /// ```swift
 /// extension Point: CustomStringConvertible {
-///     var description: String {
-///         return "(\(x), \(y))"
-///     }
+///   var description: String {
+///     return "(\(x), \(y))"
+///   }
 /// }
 ///
 /// print(§p)
@@ -68,5 +68,5 @@ prefix operator §
 ///
 /// - Returns: A string representing `instance`.
 public prefix func § (_ instance: Any) -> String {
-    String(describing: instance)
+  String(describing: instance)
 }

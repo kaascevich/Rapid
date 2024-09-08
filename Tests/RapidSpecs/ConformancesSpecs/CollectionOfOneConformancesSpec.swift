@@ -19,15 +19,15 @@ import Nimble
 @testable import Rapid
 
 final class CollectionOfOneConformancesSpec: QuickSpec {
-    override class func spec() {
-        describe("CollectionOfOne's conformance to ExpressibleByArrayLiteral") {
-            it("only allows a literal with one element") {
-                let oneElement: CollectionOfOne = [42]
-                expect(oneElement[0]).to(equal(42))
-                
-                expect([] as CollectionOfOne).to(throwAssertion())
-                expect([42, 69] as CollectionOfOne).to(throwAssertion())
-            }
-        }
+  override class func spec() {
+    describe("CollectionOfOne's conformance to ExpressibleByArrayLiteral") {
+      it("only allows a literal with one element") {
+        let oneElement: CollectionOfOne = [42]
+        expect(oneElement[0]).to(equal(42))
+        
+        expect([] as CollectionOfOne).to(throwAssertion())
+        expect([42, 69] as CollectionOfOne).to(throwAssertion())
+      }
     }
+  }
 }

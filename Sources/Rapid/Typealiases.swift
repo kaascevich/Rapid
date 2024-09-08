@@ -31,7 +31,7 @@ public typealias AnyType = Any.Type
 /// ```swift
 /// // No return type declared:
 /// func logMessage(_ s: String) {
-///     print("Message: \(s)")
+///   print("Message: \(s)")
 /// }
 ///
 /// let logger: (String) -> Nothing = logMessage

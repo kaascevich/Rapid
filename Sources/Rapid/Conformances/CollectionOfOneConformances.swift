@@ -15,22 +15,22 @@
 // with this package. If not, see https://www.gnu.org/licenses/.
 
 extension CollectionOfOne: @retroactive ExpressibleByArrayLiteral {
-    /// Creates an instance with a single-element array literal.
-    ///
-    /// ```swift
-    /// let oneElement: CollectionOfOne<Int> = [42]
-    ///
-    /// // Fatal errors: CollectionOfOne must be instantiated with a single-element array literal
-    /// let noElements: CollectionOfOne<Int> = []
-    /// let twoElements: CollectionOfOne<Int> = [42, 69]
-    /// ```
-    ///
-    /// - Parameter elements: An array literal with one element.
-    ///
-    /// - Precondition: `elements.count == 1`.
-    public init(arrayLiteral elements: Element...) {
-        precondition(elements.count == 1, "CollectionOfOne must be instantiated with a single-element array literal")
-        
-        self.init(elements.first!)
-    }
+  /// Creates an instance with a single-element array literal.
+  ///
+  /// ```swift
+  /// let oneElement: CollectionOfOne<Int> = [42]
+  ///
+  /// // Fatal errors: CollectionOfOne must be instantiated with a single-element array literal
+  /// let noElements: CollectionOfOne<Int> = []
+  /// let twoElements: CollectionOfOne<Int> = [42, 69]
+  /// ```
+  ///
+  /// - Parameter elements: An array literal with one element.
+  ///
+  /// - Precondition: `elements.count == 1`.
+  public init(arrayLiteral elements: Element...) {
+    precondition(elements.count == 1, "CollectionOfOne must be instantiated with a single-element array literal")
+    
+    self.init(elements.first!)
+  }
 }

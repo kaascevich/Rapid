@@ -12,34 +12,34 @@ The code below defines a few types for drawing on a single line using stars and 
 
 ```swift
 protocol Drawable {
-    func draw() -> String
+  func draw() -> String
 }
 
 struct Line: Drawable {
-    var elements: [Drawable]
-    func draw() -> String {
-        elements.map(\.draw).joined()
-    }
+  var elements: [Drawable]
+  func draw() -> String {
+    elements.map(\.draw).joined()
+  }
 }
 
 struct Text: Drawable {
-    var content: String
-    init(_ content: String) { self.content = content }
-    func draw() -> String { content }
+  var content: String
+  init(_ content: String) { self.content = content }
+  func draw() -> String { content }
 }
 
 struct Space: Drawable {
-    func draw() -> String { " " }
+  func draw() -> String { " " }
 }
 
 struct Stars: Drawable {
-    var length: Int
-    func draw() -> String { .init(repeating: "*", count: length) }
+  var length: Int
+  func draw() -> String { .init(repeating: "*", count: length) }
 }
 
 struct AllCaps: Drawable {
-    var content: Drawable
-    func draw() -> String { content.draw().uppercased() }
+  var content: Drawable
+  func draw() -> String { content.draw().uppercased() }
 }
 ```
 
@@ -50,11 +50,11 @@ It's possible to make a drawing with these types by calling their initializers:
 ```swift
 let name: _? = "Ravi Patel"
 let manualDrawing = Line(elements: [
-    Stars(length: 3),
-    Text("Hello"),
-    Space(),
-    AllCaps(content: Text("\(name ?? "World")!")),
-    Stars(length: 2)
+  Stars(length: 3),
+  Text("Hello"),
+  Space(),
+  AllCaps(content: Text("\(name ?? "World")!")),
+  Stars(length: 2)
 ])
 print(manualDrawing.draw())
 // Prints "***Hello RAVI PATEL!**"
@@ -66,12 +66,12 @@ To define a result builder, you write the `@resultBuilder` attribute on a type d
 
 ```swift
 @resultBuilder struct DrawingBuilder {
-    static func buildBlock(_ components: Drawable...) -> Drawable {
-        Line(elements: components)
-    }
+  static func buildBlock(_ components: Drawable...) -> Drawable {
+    Line(elements: components)
+  }
 
-    static func buildEither(first:  Drawable) -> Drawable { first  }
-    static func buildEither(second: Drawable) -> Drawable { second }
+  static func buildEither(first:  Drawable) -> Drawable { first  }
+  static func buildEither(second: Drawable) -> Drawable { second }
 }
 ```
 
@@ -81,28 +81,28 @@ You can apply the `@DrawingBuilder` attribute to a function's parameter, which t
 
 ```swift
 func draw(@DrawingBuilder content: () -> Drawable) -> Drawable {
-    content()
+  content()
 }
 
 func caps(@DrawingBuilder content: () -> Drawable) -> Drawable {
-    AllCaps(content: content())
+  AllCaps(content: content())
 }
 
 func makeGreeting(for name: String? = nil) -> Drawable {
-    let greeting = draw {
-        Stars(length: 3)
-        Text("Hello")
-        Space()
-        caps {
-            if let name = name {
-                Text("\(name)!")
-            } else {
-                Text("World!")
-            }
-        }
-        Stars(length: 2)
+  let greeting = draw {
+    Stars(length: 3)
+    Text("Hello")
+    Space()
+    caps {
+      if let name = name {
+        Text("\(name)!")
+      } else {
+        Text("World!")
+      }
     }
-    return greeting
+    Stars(length: 2)
+  }
+  return greeting
 }
 
 let genericGreeting = makeGreeting()
@@ -118,15 +118,15 @@ The `makeGreeting(for:)` function takes a `name` parameter and uses it to draw a
 
 ```swift
 let capsDrawing = caps {
-    let partialDrawing: Drawable
-    if let name = name {
-        let text = Text("\(name)!")
-        partialDrawing = DrawingBuilder.buildEither(first: text)
-    } else {
-        let text = Text("World!")
-        partialDrawing = DrawingBuilder.buildEither(second: text)
-    }
-    return partialDrawing
+  let partialDrawing: Drawable
+  if let name = name {
+    let text = Text("\(name)!")
+    partialDrawing = DrawingBuilder.buildEither(first: text)
+  } else {
+    let text = Text("World!")
+    partialDrawing = DrawingBuilder.buildEither(second: text)
+  }
+  return partialDrawing
 }
 ```
 
@@ -136,16 +136,16 @@ To add support for writing `for` loops in the special drawing syntax, add a `bui
 
 ```swift
 extension DrawingBuilder {
-    static func buildArray(_ components: [Drawable]) -> Drawable {
-        Line(elements: components)
-    }
+  static func buildArray(_ components: [Drawable]) -> Drawable {
+    Line(elements: components)
+  }
 }
 let manyStars = draw {
-    Text("Stars:")
-    for length in 1...3 {
-        Space()
-        Stars(length: length)
-    }
+  Text("Stars:")
+  for length in 1...3 {
+    Space()
+    Stars(length: length)
+  }
 }
 ```
 

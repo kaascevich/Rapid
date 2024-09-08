@@ -20,37 +20,37 @@
 import PackageDescription
 
 let package = Package(
-    name: "Rapid",
-    platforms: [
-        .macOS(.v10_15),
-        .iOS(.v13),
-        .watchOS(.v6),
-        .tvOS(.v13),
-        .macCatalyst(.v13),
-        .visionOS(.v1)
-    ],
-    products: [
-        .library(name: "Rapid", targets: ["Rapid"])
-    ],
-    dependencies: [
-        .package(
-            url: "https://github.com/Quick/Quick.git",
-            branch: "main"
-        ),
-        .package(
-            url: "https://github.com/Quick/Nimble.git",
-            branch: "main"
-        )
-    ],
-    targets: [
-        .target(name: "Rapid"),
-        .testTarget(
-            name: "RapidSpecs",
-            dependencies: ["Rapid", "Quick", "Nimble"],
-            swiftSettings: [
-                .enableUpcomingFeature("BareSlashRegexLiterals")
-            ]
-        )
-    ]
+  name: "Rapid",
+  platforms: [
+    .macOS(.v10_15),
+    .iOS(.v13),
+    .watchOS(.v6),
+    .tvOS(.v13),
+    .macCatalyst(.v13),
+    .visionOS(.v1)
+  ],
+  products: [
+    .library(name: "Rapid", targets: ["Rapid"])
+  ],
+  dependencies: [
+    .package(
+      url: "https://github.com/Quick/Quick.git",
+      branch: "main"
+    ),
+    .package(
+      url: "https://github.com/Quick/Nimble.git",
+      branch: "main"
+    )
+  ],
+  targets: [
+    .target(name: "Rapid"),
+    .testTarget(
+      name: "RapidSpecs",
+      dependencies: ["Rapid", "Quick", "Nimble"],
+      swiftSettings: [
+        .enableUpcomingFeature("BareSlashRegexLiterals")
+      ]
+    )
+  ]
 )
 

@@ -6,15 +6,15 @@ Concisely write code that uses a specific value.
 
 ### Running Code
 
- - ``run(closure:)``
- - ``run(with:do:)``
+- ``run(closure:)``
+- ``run(with:do:)``
 
 ### Mutating Values
 
- - ``configure(_:using:)``
- - ``<-(_:_:)``
- - ``mutate(_:using:)``
+- ``configure(_:using:)``
+- ``<-(_:_:)``
+- ``mutate(_:using:)``
 
 ### Repetition
 
- - ``Swift/BinaryInteger/repeat(_:)``
+- ``Swift/BinaryInteger/repeat(_:)``

@@ -19,11 +19,11 @@ import Nimble
 @testable import Rapid
 
 final class ConstantsSpec: QuickSpec {
-    override class func spec() {
-        describe("the π constant") {
-            it("is equal to Double.pi") {
-                expect(π).to(equal(Double.pi))
-            }
-        }
+  override class func spec() {
+    describe("the π constant") {
+      it("is equal to Double.pi") {
+        expect(π).to(equal(Double.pi))
+      }
     }
+  }
 }

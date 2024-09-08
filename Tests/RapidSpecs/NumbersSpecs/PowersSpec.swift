@@ -21,21 +21,21 @@ import Nimble
 @testable import Rapid
 
 final class PowersSpec: QuickSpec {
-    override class func spec() {
-        describe("the ** operator") {
-            it("raises the first value to the second") {
-                expect(6 ** 3).to(equal(216))
-            }
-        }
-        
-        describe("the **= operator") {
-            it("raises the first value to the second and assigns the result") {
-                var x = 3.0
-                x **= 5
-                expect(x).to(equal(243))
-            }
-        }
+  override class func spec() {
+    describe("the ** operator") {
+      it("raises the first value to the second") {
+        expect(6 ** 3).to(equal(216))
+      }
     }
+    
+    describe("the **= operator") {
+      it("raises the first value to the second and assigns the result") {
+        var x = 3.0
+        x **= 5
+        expect(x).to(equal(243))
+      }
+    }
+  }
 }
 
 #endif

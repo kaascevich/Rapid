@@ -23,23 +23,23 @@ import Nimble
 @testable import Rapid
 
 final class InterpolationSpec: QuickSpec {
-    override class func spec() {
-        #if canImport(Foundation)
-        if #available(iOS 15, tvOS 15, watchOS 9, *) {
-            describe("the (_:format:) string interpolation") {
-                it("formats a value") {
-                    let priceString = "Your total is \(42.6921, format: .currency(code: "USD"))."
-                    expect(priceString).to(equal("Your total is $42.69."))
-                }
-            }
+  override class func spec() {
+    #if canImport(Foundation)
+    if #available(iOS 15, tvOS 15, watchOS 9, *) {
+      describe("the (_:format:) string interpolation") {
+        it("formats a value") {
+          let priceString = "Your total is \(42.6921, format: .currency(code: "USD"))."
+          expect(priceString).to(equal("Your total is $42.69."))
         }
-        #endif
-        
-        describe("the (_:if:) string interpolation") {
-            it("only interpolates the value if the condition is true") {
-                expect("\("test", if: true)").to(equal("test"))
-                expect("\("test", if: false)").to(equal(""))
-            }
-        }
+      }
     }
+    #endif
+    
+    describe("the (_:if:) string interpolation") {
+      it("only interpolates the value if the condition is true") {
+        expect("\("test", if: true)").to(equal("test"))
+        expect("\("test", if: false)").to(equal(""))
+      }
+    }
+  }
 }

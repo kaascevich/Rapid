@@ -19,19 +19,19 @@ import Nimble
 @testable import Rapid
 
 final class EmptyCollectionConformancesSpec: QuickSpec {
-    override class func spec() {
-        describe("EmptyCollection's conformance to ExpressibleByEmptyArrayLiteral") {
-            it("only allows an empty literal") {
-                // If this compiles, we're good to go.
-                let _: EmptyCollection<Int> = [] // adding an element should throw a compiler error
-            }
-        }
-        
-        describe("EmptyCollection's conformance to ExpressibleByEmptyDictionaryLiteral") {
-            it("only allows an empty literal") {
-                // If this compiles, we're good to go.
-                let _: EmptyCollection<Int> = [:] // adding an element should throw a compiler error
-            }
-        }
+  override class func spec() {
+    describe("EmptyCollection's conformance to ExpressibleByEmptyArrayLiteral") {
+      it("only allows an empty literal") {
+        // If this compiles, we're good to go.
+        let _: EmptyCollection<Int> = [] // adding an element should throw a compiler error
+      }
     }
+    
+    describe("EmptyCollection's conformance to ExpressibleByEmptyDictionaryLiteral") {
+      it("only allows an empty literal") {
+        // If this compiles, we're good to go.
+        let _: EmptyCollection<Int> = [:] // adding an element should throw a compiler error
+      }
+    }
+  }
 }

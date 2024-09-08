@@ -20,13 +20,13 @@
 /// a compile-time guarantee that the literal is indeed empty, since `Never`
 /// is uninhabited and therefore can't be instantiated.
 public protocol ExpressibleByEmptyArrayLiteral: ExpressibleByArrayLiteral {
-    init(emptyArrayLiteral: Nothing)
+  init(emptyArrayLiteral: Nothing)
 }
 
 public extension ExpressibleByEmptyArrayLiteral {
-    init(arrayLiteral _: Never...) {
-        self.init(emptyArrayLiteral: ())
-    }
+  init(arrayLiteral _: Never...) {
+    self.init(emptyArrayLiteral: ())
+  }
 }
 
 /// A type that can be initialized using an empty dictionary literal.
@@ -35,11 +35,11 @@ public extension ExpressibleByEmptyArrayLiteral {
 /// provides a compile-time guarantee that the literal is indeed empty, since
 /// `Never` is uninhabited and therefore can't be instantiated.
 public protocol ExpressibleByEmptyDictionaryLiteral: ExpressibleByDictionaryLiteral {
-    init(emptyDictionaryLiteral: Nothing)
+  init(emptyDictionaryLiteral: Nothing)
 }
 
 public extension ExpressibleByEmptyDictionaryLiteral {
-    init(dictionaryLiteral _: (Never, Never)...) {
-        self.init(emptyDictionaryLiteral: ())
-    }
+  init(dictionaryLiteral _: (Never, Never)...) {
+    self.init(emptyDictionaryLiteral: ())
+  }
 }

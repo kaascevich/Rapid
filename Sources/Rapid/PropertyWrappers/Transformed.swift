@@ -25,34 +25,33 @@
 ///
 /// value = -346  // value == 346
 /// ```
-@propertyWrapper
-public struct Transformed<Value> {
-    /// A function type that transforms a value.
-    public typealias Transform = (Value) -> Value
-    
-    /// The wrapped value.
-    ///
-    /// On mutation, this property is set to the result of calling
-    /// ``transform`` with the new value.
-    public var wrappedValue: Value {
-        didSet {
-            wrappedValue = transform(wrappedValue)
-        }
+@propertyWrapper public struct Transformed<Value> {
+  /// A function type that transforms a value.
+  public typealias Transform = (Value) -> Value
+  
+  /// The wrapped value.
+  ///
+  /// On mutation, this property is set to the result of calling
+  /// ``transform`` with the new value.
+  public var wrappedValue: Value {
+    didSet {
+      wrappedValue = transform(wrappedValue)
     }
-    
-    /// The transformation to apply to the wrapped value.
-    ///
-    /// When mutated, the wrapped value is set to the result of calling
-    /// this function with the new value.
-    public var transform: Transform
-    
-    /// Creates a new instance.
-    ///
-    /// - Parameters:
-    ///   - wrappedValue: The wrapped value.
-    ///   - transform: The transformation to apply to the wrapped value.
-    public init(wrappedValue: Value, with transform: @escaping Transform) {
-        self.transform = transform
-        self.wrappedValue = transform(wrappedValue)
-    }
+  }
+  
+  /// The transformation to apply to the wrapped value.
+  ///
+  /// When mutated, the wrapped value is set to the result of calling
+  /// this function with the new value.
+  public var transform: Transform
+  
+  /// Creates a new instance.
+  ///
+  /// - Parameters:
+  ///   - wrappedValue: The wrapped value.
+  ///   - transform: The transformation to apply to the wrapped value.
+  public init(wrappedValue: Value, with transform: @escaping Transform) {
+    self.transform = transform
+    self.wrappedValue = transform(wrappedValue)
+  }
 }

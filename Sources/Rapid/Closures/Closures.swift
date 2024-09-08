@@ -23,7 +23,7 @@
 ///
 /// ```swift
 /// let something = {
-///     // ...statements...
+///   // ...statements...
 /// }()
 /// ```
 ///
@@ -31,7 +31,7 @@
 ///
 /// ```swift
 /// let something = run {
-///     // ...statements...
+///   // ...statements...
 /// }
 /// ```
 ///
@@ -43,9 +43,9 @@
 ///
 /// - Returns: The closure's return value, if any.
 public func run<ReturnType>(
-    closure: () throws -> ReturnType
+  closure: () throws -> ReturnType
 ) rethrows -> ReturnType {
-    try closure()
+  try closure()
 }
 
 /// Executes a closure, passing it a copy of the provided value.
@@ -56,9 +56,9 @@ public func run<ReturnType>(
 ///
 /// ```swift
 /// run(with: editor) {
-///     $0.click()
-///     $0.typeKey("a", modifierFlags: .command)
-///     $0.typeKey(.delete, modifierFlags: [])
+///   $0.click()
+///   $0.typeKey("a", modifierFlags: .command)
+///   $0.typeKey(.delete, modifierFlags: [])
 /// }
 /// ```
 ///
@@ -74,10 +74,10 @@ public func run<ReturnType>(
 ///   - value: Anything.
 ///   - closure: The closure to execute. Receives a copy of `value`.
 public func run<Value>(
-    with value: Value,
-    do closure: (Value) throws -> Nothing
+  with value: Value,
+  do closure: (Value) throws -> Nothing
 ) rethrows {
-    try closure(value)
+  try closure(value)
 }
 
 // MARK: - Configure
@@ -90,8 +90,8 @@ public func run<Value>(
 ///
 /// ```swift
 /// let components = configure(PersonNameComponents()) {
-///     $0.givenName = "John"
-///     $0.familyName = "Appleseed"
+///   $0.givenName = "John"
+///   $0.familyName = "Appleseed"
 /// }
 /// ```
 ///
@@ -102,12 +102,12 @@ public func run<Value>(
 ///
 /// - Returns: The return value of the closure.
 public func configure<Value>(
-    _ value: Value,
-    using closure: (inout Value) throws -> Nothing
+  _ value: Value,
+  using closure: (inout Value) throws -> Nothing
 ) rethrows -> Value {
-    var copy = value
-    try closure(&copy)
-    return copy
+  var copy = value
+  try closure(&copy)
+  return copy
 }
 
 infix operator <-
@@ -120,8 +120,8 @@ infix operator <-
 ///
 /// ```swift
 /// let components = PersonNameComponents() <- {
-///     $0.givenName = "John"
-///     $0.familyName = "Appleseed"
+///   $0.givenName = "John"
+///   $0.familyName = "Appleseed"
 /// }
 /// ```
 ///
@@ -132,10 +132,10 @@ infix operator <-
 ///
 /// - Returns: The return value of the closure.
 public func <- <Value>(
-    _ value: Value,
-    closure: (inout Value) throws -> Nothing
+  _ value: Value,
+  closure: (inout Value) throws -> Nothing
 ) rethrows -> Value {
-    try configure(value, using: closure)
+  try configure(value, using: closure)
 }
 
 // MARK: - Mutate
@@ -149,8 +149,8 @@ public func <- <Value>(
 ///   - closure: The closure to execute. Receives a reference to
 ///     `value`.
 public func mutate<Value>(
-    _ value: inout Value,
-    using closure: (inout Value) throws -> Nothing
+  _ value: inout Value,
+  using closure: (inout Value) throws -> Nothing
 ) rethrows {
-    try closure(&value)
+  try closure(&value)
 }

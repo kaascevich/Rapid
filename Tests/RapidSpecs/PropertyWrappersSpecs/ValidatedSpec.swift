@@ -19,21 +19,21 @@ import Nimble
 @testable import Rapid
 
 final class ValidatedSpec: QuickSpec {
-    override class func spec() {
-        describe("the @Validated property wrapper") {
-            it("only allows mutations if they pass validation") {
-                func isInRange(value: Int) -> Bool {
-                    (5...10).contains(value)
-                }
-                
-                @Validated(if: isInRange) var value = 7
-                
-                value = 29
-                expect(value).to(equal(7))
-                
-                value = 9
-                expect(value).to(equal(9))
-            }
+  override class func spec() {
+    describe("the @Validated property wrapper") {
+      it("only allows mutations if they pass validation") {
+        func isInRange(value: Int) -> Bool {
+          (5...10).contains(value)
         }
+        
+        @Validated(if: isInRange) var value = 7
+        
+        value = 29
+        expect(value).to(equal(7))
+        
+        value = 9
+        expect(value).to(equal(9))
+      }
     }
+  }
 }

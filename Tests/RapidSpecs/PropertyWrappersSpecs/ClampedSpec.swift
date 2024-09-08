@@ -19,20 +19,20 @@ import Nimble
 @testable import Rapid
 
 final class ClampedSpec: QuickSpec {
-    override class func spec() {
-        describe("the @Clamped property wrapper") {
-            it("clamps the value to the given range") {
-                @Clamped(to: 3...15) var value = 7
-                
-                value = 22
-                expect(value).to(equal(15))
-                
-                value = -4
-                expect(value).to(equal(3))
-                
-                value = 9
-                expect(value).to(equal(9))
-            }
-        }
+  override class func spec() {
+    describe("the @Clamped property wrapper") {
+      it("clamps the value to the given range") {
+        @Clamped(to: 3...15) var value = 7
+        
+        value = 22
+        expect(value).to(equal(15))
+        
+        value = -4
+        expect(value).to(equal(3))
+        
+        value = 9
+        expect(value).to(equal(9))
+      }
     }
+  }
 }

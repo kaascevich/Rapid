@@ -19,24 +19,24 @@ import Nimble
 @testable import Rapid
 
 final class SafeAccessSpec: QuickSpec {
-    override class func spec() {
-        describe("the (safe:) subscript") {
-            let streets = ["Adams", "Bryant", "Channing", "Douglas", "Evarts"]
-            
-            it("returns the value at that index if it exists") {
-                let validStreet = streets[ifExists: 1]
-                expect(validStreet).to(equal("Bryant"))
-            }
-            
-            it("returns nil if the value at that index does not exist") {
-                let invalidStreet = streets[ifExists: 7]
-                expect(invalidStreet).to(beNil())
-            }
-            
-            it("returns nil if passed the end index") {
-                let invalidStreet = streets[ifExists: streets.endIndex]
-                expect(invalidStreet).to(beNil())
-            }
-        }
+  override class func spec() {
+    describe("the (safe:) subscript") {
+      let streets = ["Adams", "Bryant", "Channing", "Douglas", "Evarts"]
+      
+      it("returns the value at that index if it exists") {
+        let validStreet = streets[ifExists: 1]
+        expect(validStreet).to(equal("Bryant"))
+      }
+      
+      it("returns nil if the value at that index does not exist") {
+        let invalidStreet = streets[ifExists: 7]
+        expect(invalidStreet).to(beNil())
+      }
+      
+      it("returns nil if passed the end index") {
+        let invalidStreet = streets[ifExists: streets.endIndex]
+        expect(invalidStreet).to(beNil())
+      }
     }
+  }
 }

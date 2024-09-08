@@ -19,16 +19,16 @@ import Nimble
 @testable import Rapid
 
 final class SwapSpec: QuickSpec {
-    override class func spec() {
-        describe("the <=> operator") {
-            it("swaps two values") {
-                var fortyTwo = 42
-                var sixtyNine = 69
-                fortyTwo <=> sixtyNine
-                
-                expect(fortyTwo).to(equal(69))
-                expect(sixtyNine).to(equal(42))
-            }
-        }
+  override class func spec() {
+    describe("the <=> operator") {
+      it("swaps two values") {
+        var fortyTwo = 42
+        var sixtyNine = 69
+        fortyTwo <=> sixtyNine
+        
+        expect(fortyTwo).to(equal(69))
+        expect(sixtyNine).to(equal(42))
+      }
     }
+  }
 }

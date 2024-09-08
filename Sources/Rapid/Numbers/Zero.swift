@@ -15,11 +15,11 @@
 // with this package. If not, see https://www.gnu.org/licenses/.
 
 public extension AdditiveArithmetic {
-    /// A Boolean value indicating whether this value is equal to the zero
-    /// value.
-    var isZero: Bool { self == .zero }
-    
-    /// A Boolean value indicating whether this value is not equal to the
-    /// zero value.
-    var isNonzero: Bool { !isZero }
+  /// A Boolean value indicating whether this value is equal to the zero
+  /// value.
+  var isZero: Bool { self == .zero }
+  
+  /// A Boolean value indicating whether this value is not equal to the
+  /// zero value.
+  var isNonzero: Bool { !isZero }
 }
