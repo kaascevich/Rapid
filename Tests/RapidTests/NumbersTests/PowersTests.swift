@@ -11,14 +11,14 @@ import Testing
 @testable import Rapid
 
 @Suite struct PowersTests {
-  /// The `**(base:exponent:)` operator raises the first value to the second.
-  @Test("**(base:exponent:)") func power() {
+  /// The `**(_:_:)` operator raises the first value to the second.
+  @Test("**(_:_:)") func power() {
     #expect(6 ** 3 == 216)
   }
   
-  /// The `**=(base:exponent:)` operator raises the first value to the second
-  /// and assigns the result.
-  @Test("**=(base:exponent:)") func powerAssignment() {
+  /// The `**=(_:_:)` operator raises the first value to the second and
+  /// assigns the result.
+  @Test("**=(_:_:)") func powerAssignment() {
     var x = 3.0
     x **= 5
     #expect(x == 243)
