@@ -25,16 +25,21 @@ let package = Package(
   dependencies: [
     .package(
       url: "https://github.com/apple/swift-testing.git",
-      branch: "main"
+      from: "0.12.0"
+    ),
+    .package(
+      url: "https://github.com/mattgallagher/CwlPreconditionTesting.git",
+      from: "2.0.0"
     )
   ],
   targets: [
     .target(name: "Rapid"),
     .testTarget(
-      name: "RapidSpecs",
+      name: "RapidTests",
       dependencies: [
         "Rapid",
-        .product(name: "Testing", package: "swift-testing")
+        .product(name: "Testing", package: "swift-testing"),
+        "CwlPreconditionTesting"
       ]
     )
   ]

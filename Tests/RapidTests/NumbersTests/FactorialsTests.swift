@@ -5,6 +5,7 @@
 // directory of this repository for more information. If this file is missing,
 // the license can also be found at <https://opensource.org/license/mit>.
 
+import CwlPreconditionTesting
 import Testing
 @testable import Rapid
 
@@ -21,7 +22,6 @@ import Testing
   
   /// The `factorial()` method asserts when the value is negative.
   @Test("factorial() <- negative") func factorialNegative() {
-    // TODO: Figure out how to test assertions with the Testing framework
-//    expect((-4).factorial()).to(throwAssertion())
+    #expect(catchBadInstruction { _ = (-4).factorial() } != nil)
   }
 }

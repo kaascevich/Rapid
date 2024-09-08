@@ -5,6 +5,7 @@
 // directory of this repository for more information. If this file is missing,
 // the license can also be found at <https://opensource.org/license/mit>.
 
+import CwlPreconditionTesting
 import Testing
 @testable import Rapid
 
@@ -38,13 +39,12 @@ import Testing
     }
     
     /// The `!!(optional:error:)` operator calls the never-returning function
-    /// if the value is
-    /// `nil`.
+    /// if the value is `nil`.
     @Test("!!(optional:error:) -> fail")
     func forcedCoalesceFail() throws {
-      // TODO: Figure out how to test assertions with the Testing framework
-//      expect(Int("invalid-input") !! fatalError("The input is invalid!"))
-//        .to(throwAssertion())
+      #expect(catchBadInstruction {
+        _ = Int("invalid-input") !! fatalError("The input is invalid!")
+      } != nil)
     }
   }
 }
