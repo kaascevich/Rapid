@@ -1,21 +1,11 @@
-// swift-tools-version: 5.9
-// The swift-tools-version declares the minimum version of Swift required to build this package.
+// swift-tools-version: 6.0
 
 // Package.swift
-// Copyright © 2023 Kaleb A. Ascevich
+// Copyright © 2024 Kaleb A. Ascevich
 //
-// This package is free software: you can redistribute it and/or modify it
-// under the terms of the GNU General Public License as published by the
-// Free Software Foundation, either version 3 of the License, or (at your
-// option) any later version.
-//
-// This package is distributed in the hope that it will be useful, but WITHOUT
-// ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or
-// FITNESS FOR A PARTICULAR PURPOSE. See the GNU General Public License
-// for more details.
-//
-// You should have received a copy of the GNU General Public License along
-// with this package. If not, see https://www.gnu.org/licenses/.
+// This project is licensed under the MIT license; see `License.md` in the root
+// directory of this repository for more information. If this file is missing,
+// the license can also be found at <https://opensource.org/license/mit>.
 
 import PackageDescription
 
@@ -39,6 +29,10 @@ let package = Package(
     ),
     .package(
       url: "https://github.com/Quick/Nimble.git",
+      branch: "main"
+    ),
+    .package(
+      url: "https://github.com/apple/swift-testing.git",
       branch: "main"
     )
   ],
