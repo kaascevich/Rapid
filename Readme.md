@@ -11,7 +11,7 @@ A host of utilities to make Swift Swiftier.
 - [Using Rapid](#using-rapid)
   - [Using in a Swift Package](#using-in-a-swift-package)
   - [Using in an Xcode project](#using-in-an-xcode-project)
-- [Documentation?](#documentation)
+- [Documentation](#documentation)
 - [Changelog](/Changelog.md)
 - [License](/License.md)
  
@@ -59,13 +59,6 @@ Within Rapid, you will find:
 3. Click *Add Package*.
 4. Choose the target you want to add Rapid to, and then click *Add Package* again.
 
-## Documentation?
+## Documentation
 
-I've documented everything to the best of my ability. However, due to an issue with the Swift Package Index, you'll need to build it yourself for now.
-
-To do that:
-1. Open Xcode, and choose *Integrate* → *Clone...* (or *Source Control* → *Clone...* on Xcode 14 or earlier).
-2. [Copy this link](https://github.com/kaascevich/Rapid.git), paste it into the search bar, and click *Clone*.
-3. Once Xcode completes package resolution, choose *Product* → *Build Documentation* or hit ⌃⇧⌘D.
-4. Wait for the build to finish. When it's done, the documentation window will open.
-5. At the very top of the sidebar, expand *Rapid*, and then expand the *Rapid* under that.
+I've documented everything to the best of my ability. ~~However, due to an issue with the Swift Package Index, you'll need to build it yourself for now.~~ **Dunno when they fixed it, but they did! You can find it [here](https://swiftpackageindex.com/kaascevich/Rapid/main/documentation/rapid).**
