@@ -193,16 +193,15 @@ public extension ResultBuilder {
         buildResult(from: [component])
     }
     
-    /// If declared, this will be called on the partial result of an
-    /// `if #available` block to allow the result builder to erase type
-    /// information.
+    /// Called on the partial result of an `if #available` block to allow the
+    /// result builder to erase type information.
     ///
     /// ```swift
     /// let string = String {
-    ///     if #available(macOS 14, *) {
-    ///         "macOS Sonoma"
+    ///     if #available(macOS 15, *) {
+    ///         "macOS Sequoia"
     ///     } else {
-    ///         "An older version"
+    ///         "Some other version"
     ///     }
     /// }
     /// ```
