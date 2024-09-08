@@ -28,7 +28,10 @@ public extension BinaryInteger where Stride: SignedInteger {
   ///
   /// - Precondition: `self ≥ 0`.
   func factorial() -> Self {
-    precondition(self ≥ 0, "the factorial of \(self), a negative number, is not defined")
+    precondition(
+      self ≥ 0,
+      "the factorial of \(self), a negative number, is not defined"
+    )
     
     return isZero ? 1 : (1...self).product()
   }

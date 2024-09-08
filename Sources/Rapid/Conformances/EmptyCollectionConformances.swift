@@ -19,9 +19,7 @@ extension EmptyCollection: ExpressibleByEmptyArrayLiteral {
   /// // Throws a compiler error - cannot convert 'Int' to 'Never'
   /// let something: EmptyCollection<Int> = [42]
   /// ```
-  ///
-  /// - Parameter elements: An empty array literal.
-  public init(emptyArrayLiteral: Nothing) {
+  public init(emptyArrayLiteral _: Nothing) {
     self.init()
   }
 }
@@ -40,9 +38,7 @@ extension EmptyCollection: ExpressibleByEmptyDictionaryLiteral {
   /// // Throws 2 compiler errors - cannot convert 'Int' to 'Never'
   /// let something: EmptyCollection<(Int, Int)> = [42: 69]
   /// ```
-  ///
-  /// - Parameter elements: An empty dictionary literal.
-  public init(emptyDictionaryLiteral: Nothing) {
+  public init(emptyDictionaryLiteral _: Nothing) {
     self.init()
   }
 }

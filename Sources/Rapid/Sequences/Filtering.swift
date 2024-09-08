@@ -116,7 +116,7 @@ public extension Sequence {
   /// - Returns: The number of elements that satisfy `predicate`.
   @available(*, deprecated, renamed: "count(where:)")
   func count(of predicate: (Element) throws -> Bool) rethrows -> Int {
-    try filter(predicate).count
+    try count(where: predicate)
   }
   
   /// Returns the number of times the given element appears in the sequence.
@@ -207,7 +207,10 @@ public extension Sequence {
   ///     `false`.
   ///
   /// - Returns: An array of the sequence's elements, sorted by `keyPath`.
-  func sorted<T>(by keyPath: KeyPath<Element, T>, using areInIncreasingOrder: (T, T) throws -> Bool) rethrows -> [Element] {
+  func sorted<T>(
+    by keyPath: KeyPath<Element, T>,
+    using areInIncreasingOrder: (T, T) throws -> Bool
+  ) rethrows -> [Element] {
     try sorted { try areInIncreasingOrder($0[keyPath: keyPath], $1[keyPath: keyPath]) }
   }
 }
