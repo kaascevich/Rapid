@@ -104,40 +104,18 @@ public extension RangeReplaceableCollection where Element: Equatable {
 // MARK: - Counting
 
 public extension Sequence {
-    /// The number of elements in the sequence that satisfy the given predicate.
-    ///
-    /// In this example, `count(of:)` is used to count the number of names shorter
-    /// than five characters.
-    ///
-    /// ```swift
-    /// let cast = ["Vivien", "Marlon", "Kim", "Karl"]
-    /// let numberOfShortNames = cast.count { $0.count < 5 }
-    /// print(numberOfShortNames)
-    /// // Prints "2"
-    /// ```
-    ///
-    /// - Complexity: O(2*n*), where *n* is the length of the sequence.
-    ///
-    /// - Parameter predicate: A closure that takes an element of the sequence as
-    ///   its argument and returns a Boolean value indicating whether the element
-    ///   should be included in the count.
-    ///
-    /// - Returns: The number of elements that satisfy `predicate`.
-    func count(of predicate: (Element) throws -> Bool) rethrows -> Int {
-        try filter(predicate).count
-    }
-    
-    /// The number of times the given element appears in the sequence.
+    /// Returns the number of times the given element appears in the sequence.
     ///
     /// In this example, `count(of:)` is used to count the number of times the
-    /// number `4` occurs in the array.
+    /// string `"duck"` occurs in `birds`.
     ///
     /// ```swift
-    /// let cast = [5, 4, 9, 3, 6, 4, 1, 4, 3]
-    /// let numberOfFours = cast.count(of: 4)
-    /// print(numberOfFours)
-    /// // Prints "3"
+    /// let birds = ["duck", "duck", "duck", "duck", "goose"]
+    /// let duckCount = birds.count(of: "duck")
+    /// // duckCount == 4
     /// ```
+    ///
+    /// - Precondition: The sequence must be finite.
     ///
     /// - Complexity: O(2*n*), where *n* is the length of the sequence.
     ///
