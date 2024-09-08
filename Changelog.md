@@ -37,7 +37,7 @@ A bunch of this update is dedicated to bringing Rapid up-to-date with all the fa
 ### Other
 
 - Changed license from the GNU GPL v3 to the MIT License
-  - What this practically means is that, from this version (3.1.0) onwards, Rapid can now legally be used in software that isn't open source (as well as some other things that stem from or alongside this). No existing users should be affected by this change.
+  - What this practically means is that, from this version (3.0.0) onwards, Rapid can now legally be used in software that isn't open source (as well as some other things that stem from or alongside this). No existing users should be affected by this change.
 - General documentation polish
 - Migrated tests from Quick/Nimble to swift-testing
 
