@@ -1,9 +1,17 @@
-// Transformed.swift
-// Copyright © 2024 Kaleb A. Ascevich
+// This file is part of BrainflipKit.
+// Copyright © 2024-2025 Kaleb A. Ascevich
 //
-// This project is licensed under the MIT license; see `License.md` in the root
-// directory of this repository for more information. If this file is missing,
-// the license can also be found at <https://opensource.org/license/mit>.
+// BrainflipKit is free software: you can redistribute it and/or modify it under
+// the terms of the GNU Affero General Public License (GNU AGPL) as published by
+// the Free Software Foundation, either version 3 of the License, or (at your
+// option) any later version.
+//
+// BrainflipKit is distributed in the hope that it will be useful, but WITHOUT
+// ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS
+// FOR A PARTICULAR PURPOSE. See the GNU AGPL for more details.
+//
+// You should have received a copy of the GNU AGPL along with BrainflipKit. If
+// not, see <https://www.gnu.org/licenses/>.
 
 /// A property wrapper that applies a transformation to the wrapped value.
 ///
@@ -19,7 +27,7 @@
 @propertyWrapper public struct Transformed<Value> {
   /// A function type that transforms a value.
   public typealias Transform = (Value) -> Value
-  
+
   /// The wrapped value.
   ///
   /// On mutation, this property is set to the result of calling
@@ -29,13 +37,13 @@
       wrappedValue = transform(wrappedValue)
     }
   }
-  
+
   /// The transformation to apply to the wrapped value.
   ///
   /// When mutated, the wrapped value is set to the result of calling
   /// this function with the new value.
   public var transform: Transform
-  
+
   /// Creates a new instance.
   ///
   /// - Parameters:

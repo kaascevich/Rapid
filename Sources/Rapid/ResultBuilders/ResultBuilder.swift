@@ -1,9 +1,17 @@
-// ResultBuilder.swift
-// Copyright © 2024 Kaleb A. Ascevich
+// This file is part of BrainflipKit.
+// Copyright © 2024-2025 Kaleb A. Ascevich
 //
-// This project is licensed under the MIT license; see `License.md` in the root
-// directory of this repository for more information. If this file is missing,
-// the license can also be found at <https://opensource.org/license/mit>.
+// BrainflipKit is free software: you can redistribute it and/or modify it under
+// the terms of the GNU Affero General Public License (GNU AGPL) as published by
+// the Free Software Foundation, either version 3 of the License, or (at your
+// option) any later version.
+//
+// BrainflipKit is distributed in the hope that it will be useful, but WITHOUT
+// ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS
+// FOR A PARTICULAR PURPOSE. See the GNU AGPL for more details.
+//
+// You should have received a copy of the GNU AGPL along with BrainflipKit. If
+// not, see <https://www.gnu.org/licenses/>.
 
 /// Automatically creates all result builder methods from a
 /// `buildResult(from:)` method and (optionally) a `buildExpression(_:)`
@@ -72,21 +80,21 @@ public protocol ResultBuilder {
   ///
   /// <doc:/documentation/Rapid/ResultBuilder/Component>
   associatedtype Expression
-  
+
   /// The type to use for building results.
   ///
   /// ## See Also
   ///
   /// ``Expression``
   associatedtype Component = Expression
-  
+
   /// Builds a result from an array of components.
   ///
   /// - Parameter components: The components to build the result from.
   ///
   /// - Returns: The result of combining all the components.
   static func buildResult(from components: [Component]) -> Component
-  
+
   /// Builds a component from an expression.
   ///
   /// - Parameter expression: The expression to build the component from.
@@ -113,7 +121,7 @@ public extension ResultBuilder {
   static func buildBlock(_ components: Component...) -> Component {
     buildResult(from: components)
   }
-  
+
   /// Enables support for `for`-`in` loops in a result builder by
   /// combining the results of all iterations into a single result.
   ///
@@ -131,7 +139,7 @@ public extension ResultBuilder {
   static func buildArray(_ components: [Component]) -> Component {
     buildResult(from: components)
   }
-  
+
   /// With ``buildEither(second:)``, enables support for `if`-`else` and
   /// `switch` statements by folding conditional results into a single
   /// result.
@@ -157,7 +165,7 @@ public extension ResultBuilder {
   static func buildEither(first component: Component) -> Component {
     buildResult(from: [component])
   }
-  
+
   /// With ``buildEither(first:)``, enables support for `if`-`else` and
   /// `switch` statements by folding conditional results into a single
   /// result.
@@ -183,7 +191,7 @@ public extension ResultBuilder {
   static func buildEither(second component: Component) -> Component {
     buildResult(from: [component])
   }
-  
+
   /// Called on the partial result of an `if #available` block to allow the
   /// result builder to erase type information.
   ///
@@ -203,7 +211,7 @@ public extension ResultBuilder {
   static func buildLimitedAvailability(_ component: Component) -> Component {
     buildResult(from: [component])
   }
-  
+
   /// Enables support for `if` statements that do not have an `else`.
   ///
   /// ```swift
@@ -240,7 +248,7 @@ public extension ResultBuilder where Component: RangeReplaceableCollection {
   static func buildResult(from components: [Component]) -> Component {
     components.reduce(.init(), +)
   }
-  
+
   static func buildExpression(_ expression: Component.Element) -> Component {
     Component([expression])
   }
@@ -253,7 +261,7 @@ public extension String {
   @resultBuilder enum Builder: ResultBuilder {
     public typealias Expression = String
   }
-  
+
   /// Creates a new instance from a `String.Builder`.
   ///
   /// ```swift
@@ -282,7 +290,7 @@ public extension Array {
     public typealias Expression = Element
     public typealias Component = [Element]
   }
-  
+
   /// Creates a new instance from an `Array.Builder`.
   ///
   /// - Parameter arrayBuilder: An `Array.Builder` result builder.

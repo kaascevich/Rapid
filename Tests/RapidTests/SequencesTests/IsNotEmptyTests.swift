@@ -1,9 +1,17 @@
-// IsNotEmptyTests.swift
-// Copyright © 2024 Kaleb A. Ascevich
+// This file is part of BrainflipKit.
+// Copyright © 2024-2025 Kaleb A. Ascevich
 //
-// This project is licensed under the MIT license; see `License.md` in the root
-// directory of this repository for more information. If this file is missing,
-// the license can also be found at <https://opensource.org/license/mit>.
+// BrainflipKit is free software: you can redistribute it and/or modify it under
+// the terms of the GNU Affero General Public License (GNU AGPL) as published by
+// the Free Software Foundation, either version 3 of the License, or (at your
+// option) any later version.
+//
+// BrainflipKit is distributed in the hope that it will be useful, but WITHOUT
+// ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS
+// FOR A PARTICULAR PURPOSE. See the GNU AGPL for more details.
+//
+// You should have received a copy of the GNU AGPL along with BrainflipKit. If
+// not, see <https://www.gnu.org/licenses/>.
 
 import Testing
 @testable import Rapid
@@ -14,14 +22,14 @@ import Testing
   @Test("isNotEmpty") func isNotEmpty() {
     #expect([1, 2, 3, 4, 5].isNotEmpty)
     #expect(![].isNotEmpty)
-    
+
     #expect(["one": 1, "two": 2].isNotEmpty)
     #expect(![:].isNotEmpty)
-    
+
     #expect("a string".isNotEmpty)
     #expect(!"".isNotEmpty)
   }
-  
+
   /// The `isNilOrEmpty` property is `true` if the collection is `nil` or
   /// empty, `false` otherwise.
   @Test("isNilOrEmpty") func isNilOrEmpty() {
@@ -29,18 +37,18 @@ import Testing
     array = nil;             #expect(array.isNilOrEmpty)
     array = [];              #expect(array.isNilOrEmpty)
     array = [1, 2, 3, 4, 5]; #expect(!array.isNilOrEmpty)
-    
+
     var dictionary: [String: Int]?
     dictionary = nil;        #expect(dictionary.isNilOrEmpty)
     dictionary = [:];        #expect(dictionary.isNilOrEmpty)
     dictionary = ["one": 1]; #expect(!dictionary.isNilOrEmpty)
-    
+
     var string: String?
     string = nil;        #expect(string.isNilOrEmpty)
     string = "";         #expect(string.isNilOrEmpty)
     string = "a string"; #expect(!string.isNilOrEmpty)
   }
-  
+
   /// The `isNotNilOrEmpty` property is `false` if the collection is `nil` or
   /// empty, `true` otherwise.
   @Test("isNotNilOrEmpty") func isNotNilOrEmpty() {
@@ -48,12 +56,12 @@ import Testing
     array = [1, 2, 3, 4, 5]; #expect(array.isNotNilOrEmpty)
     array = nil;             #expect(!array.isNotNilOrEmpty)
     array = [];              #expect(!array.isNotNilOrEmpty)
-    
+
     var dictionary: [String: Int]?
     dictionary = ["one": 1]; #expect(dictionary.isNotNilOrEmpty)
     dictionary = nil;        #expect(!dictionary.isNotNilOrEmpty)
     dictionary = [:];        #expect(!dictionary.isNotNilOrEmpty)
-    
+
     var string: String?
     string = "a string"; #expect(string.isNotNilOrEmpty)
     string = nil;        #expect(!string.isNotNilOrEmpty)

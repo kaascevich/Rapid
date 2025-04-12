@@ -1,9 +1,17 @@
-// Booleans.swift
-// Copyright © 2024 Kaleb A. Ascevich
+// This file is part of BrainflipKit.
+// Copyright © 2024-2025 Kaleb A. Ascevich
 //
-// This project is licensed under the MIT license; see `License.md` in the root
-// directory of this repository for more information. If this file is missing,
-// the license can also be found at <https://opensource.org/license/mit>.
+// BrainflipKit is free software: you can redistribute it and/or modify it under
+// the terms of the GNU Affero General Public License (GNU AGPL) as published by
+// the Free Software Foundation, either version 3 of the License, or (at your
+// option) any later version.
+//
+// BrainflipKit is distributed in the hope that it will be useful, but WITHOUT
+// ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS
+// FOR A PARTICULAR PURPOSE. See the GNU AGPL for more details.
+//
+// You should have received a copy of the GNU AGPL along with BrainflipKit. If
+// not, see <https://www.gnu.org/licenses/>.
 
 public extension Bool {
   /// An integer representation of this value.
@@ -11,7 +19,7 @@ public extension Bool {
   /// This property evaluates to `1` if this value is `true`, and `0`
   /// otherwise. It's most useful when interfacing with legacy C code.
   var asInt: Int { self ? 1 : 0 }
-  
+
   /// Creates an instance from the given integer value.
   ///
   /// The result is `false` if `value` is `0`, and `true` for all other

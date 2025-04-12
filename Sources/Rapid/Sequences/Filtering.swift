@@ -1,9 +1,17 @@
-// Filtering.swift
-// Copyright © 2024 Kaleb A. Ascevich
+// This file is part of BrainflipKit.
+// Copyright © 2024-2025 Kaleb A. Ascevich
 //
-// This project is licensed under the MIT license; see `License.md` in the root
-// directory of this repository for more information. If this file is missing,
-// the license can also be found at <https://opensource.org/license/mit>.
+// BrainflipKit is free software: you can redistribute it and/or modify it under
+// the terms of the GNU Affero General Public License (GNU AGPL) as published by
+// the Free Software Foundation, either version 3 of the License, or (at your
+// option) any later version.
+//
+// BrainflipKit is distributed in the hope that it will be useful, but WITHOUT
+// ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS
+// FOR A PARTICULAR PURPOSE. See the GNU AGPL for more details.
+//
+// You should have received a copy of the GNU AGPL along with BrainflipKit. If
+// not, see <https://www.gnu.org/licenses/>.
 
 public extension Sequence {
   /// Returns a Boolean value indicating whether no elements of a sequence
@@ -31,7 +39,7 @@ public extension Sequence {
   func noneSatisfy(_ predicate: (Element) throws -> Bool) rethrows -> Bool {
     try allSatisfy { try !predicate($0) }
   }
-  
+
   /// Returns the last element of the sequence that satisfies the given
   /// predicate.
   ///
@@ -57,7 +65,7 @@ public extension Sequence {
   func last(where predicate: (Element) throws -> Bool) rethrows -> Element? {
     try reversed().first(where: predicate)
   }
-  
+
   /// Returns an array containing the non-`nil` elements of this sequence.
   ///
   /// Use this method to concisely remove all `nil` elements from this
@@ -118,7 +126,7 @@ public extension Sequence {
   func count(of predicate: (Element) throws -> Bool) rethrows -> Int {
     try count(where: predicate)
   }
-  
+
   /// Returns the number of times the given element appears in the sequence.
   ///
   /// In this example, `count(of:)` is used to count the number of times the
@@ -165,7 +173,7 @@ public extension Sequence {
   func sorted<T: Comparable>(by keyPath: KeyPath<Element, T>) -> [Element] {
     sorted { $0[keyPath: keyPath] < $1[keyPath: keyPath] }
   }
-  
+
   /// Returns the elements of the sequence, sorted by the given property, using
   /// the given predicate as the comparison between elements.
   ///

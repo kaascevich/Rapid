@@ -1,9 +1,17 @@
-// ClampTests.swift
-// Copyright © 2024 Kaleb A. Ascevich
+// This file is part of BrainflipKit.
+// Copyright © 2024-2025 Kaleb A. Ascevich
 //
-// This project is licensed under the MIT license; see `License.md` in the root
-// directory of this repository for more information. If this file is missing,
-// the license can also be found at <https://opensource.org/license/mit>.
+// BrainflipKit is free software: you can redistribute it and/or modify it under
+// the terms of the GNU Affero General Public License (GNU AGPL) as published by
+// the Free Software Foundation, either version 3 of the License, or (at your
+// option) any later version.
+//
+// BrainflipKit is distributed in the hope that it will be useful, but WITHOUT
+// ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS
+// FOR A PARTICULAR PURPOSE. See the GNU AGPL for more details.
+//
+// You should have received a copy of the GNU AGPL along with BrainflipKit. If
+// not, see <https://www.gnu.org/licenses/>.
 
 import Testing
 @testable import Rapid
@@ -16,7 +24,7 @@ import Testing
       #expect(7.clamped(to: 6...12) == 7)
       #expect(0.32.clamped(to: 0.31...0.33) == 0.32)
     }
-    
+
     /// The `clamped(to:)` method clamps the value if it is not in the given
     /// range.
     @Test("clamped(to:) <- not in range") func clampedToNotInRange() {
@@ -24,7 +32,7 @@ import Testing
       #expect("e".clamped(to: "a"..."d") == "d")
     }
   }
-  
+
   @Suite struct ClampToTests {
     /// The `clamp(to:)` method does not change the value if it is in the given
     /// range.
@@ -32,19 +40,19 @@ import Testing
       var seven = 7
       seven.clamp(to: 6...12)
       #expect(seven == 7)
-      
+
       var point32 = 0.32
       point32.clamp(to: 0.31...0.33)
       #expect(point32 == 0.32)
     }
-    
+
     /// The `clamp(to:)` method clamps the value if it is not in the given
     /// range.
     @Test("clamp(to:) <- not in range") func clampToNotInRange() {
       var one = 1
       one.clamp(to: 5...7)
       #expect(one == 5)
-      
+
       var e = "e"
       e.clamp(to: "a"..."d")
       #expect(e == "d")
