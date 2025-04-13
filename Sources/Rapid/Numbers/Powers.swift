@@ -16,7 +16,7 @@
 // TODO: Figure out how to make this work without Foundation
 #if canImport(Foundation)
 
-import Foundation
+import func Foundation.pow
 
 precedencegroup PowerPrecedence {
   higherThan: MultiplicationPrecedence

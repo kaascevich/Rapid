@@ -13,7 +13,7 @@
 // You should have received a copy of the GNU AGPL along with Rapid. If not, see
 // <https://www.gnu.org/licenses/>.
 
-import CwlPreconditionTesting
+import func CwlPreconditionTesting.catchBadInstruction
 import Testing
 
 @testable import Rapid

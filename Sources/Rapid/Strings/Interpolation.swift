@@ -15,7 +15,7 @@
 
 #if canImport(Foundation)
 
-import Foundation
+import protocol Foundation.FormatStyle
 
 @available(iOS 15, macOS 12, tvOS 15, watchOS 8, *)
 public extension String.StringInterpolation {
