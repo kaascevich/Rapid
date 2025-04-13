@@ -1,5 +1,11 @@
 # Changelog
 
+## 3.1.0
+
+### Additions
+
+- Added `??=(_:_:)` nil-coalescing assignment operator
+
 ## 3.0.1
 
 Hi, I'm back (again)!

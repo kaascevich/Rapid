@@ -11,6 +11,10 @@ Work with optionals in ways that won't make you tear your hair out.
 - ``Swift/Optional/isNilOrEmpty``
 - ``Swift/Optional/isNotNilOrEmpty``
 
+### Nil Coalescing
+
+- ``Swift/Optional/??=(_:_:)``
+
 ### Unwrap or Die
 
 - ``Swift/Optional/?!(_:_:)``

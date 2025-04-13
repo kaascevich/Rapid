@@ -99,6 +99,10 @@ public extension Regex {
   /// If `regex` includes a transformation closure that throws an error, and it
   /// does so when matching, this operator returns `false`.
   ///
+  /// - Note: In most cases, you should use the `wholeMatch(in:)` method to test
+  ///   whether a regex matches an entire string. The pattern-matching operator
+  ///   is primarily intended to enable `case` statement pattern matching.
+  ///
   /// - Parameters:
   ///   - regex: A regular expression.
   ///   - string: The string to match `regex` against.
