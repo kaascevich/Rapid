@@ -21,7 +21,6 @@ disabled_rules:
   - comma # more annoying than helpful when aligning code
   - identifier_name # doesn't play well with custom operators
   - line_length
-  - open_brace
   - todo # annoying
   - vertical_parameter_alignment_on_call # doesn't play well with trailing closures
 
