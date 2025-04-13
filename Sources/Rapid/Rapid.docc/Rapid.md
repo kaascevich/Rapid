@@ -30,21 +30,21 @@ Within Rapid, you will find:
 
 1. Add Rapid to your package manifest:
 
-```swift
-.package(
-  url: "https://codeberg.org/kaascevich/Rapid.git",
-  branch: "main",
-)
-```
+   ```swift
+   .package(
+     url: "https://codeberg.org/kaascevich/Rapid.git",
+     from: "3.0.0",
+   )
+   ```
 
 2. Add Rapid as a dependency for each of your targets:
 
-```swift
-.product(
-  name: "Rapid",
-  package: "Rapid",
-)
-```
+   ```swift
+   .product(
+     name: "Rapid",
+     package: "Rapid",
+   )
+   ```
 
 ### Using in an Xcode project
 

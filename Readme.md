@@ -2,8 +2,8 @@
 
 ![swift compatibility] ![platform compatibility]
 
-[swift compatibility]: https://img.shields.io/endpoint?url=https%3A%2F%2Fswiftpackageindex.com%2Fapi%2Fpackages%2Fkaascevich%2FRapid%2Fbadge%3Ftype%3Dswift-versions
-[platform compatibility]: https://img.shields.io/endpoint?url=https%3A%2F%2Fswiftpackageindex.com%2Fapi%2Fpackages%2Fkaascevich%2FRapid%2Fbadge%3Ftype%3Dplatforms
+[swift compatibility]: https://img.shields.io/endpoint?url=https://swiftpackageindex.com/api/packages/kaascevich/Rapid/badge?type=swift-versions
+[platform compatibility]: https://img.shields.io/endpoint?url=https://swiftpackageindex.com/api/packages/kaascevich/Rapid/badge?type=platforms
 
 A host of utilities to make Swift Swiftier.
 
@@ -14,6 +14,7 @@ A host of utilities to make Swift Swiftier.
 - [Documentation](#documentation)
 - [Changelog](/Changelog.md)
 - [License](/License.md)
+- [Code of Conduct](/Code%20of%20Conduct.md)
 
 ## What's this about?
 
@@ -44,7 +45,7 @@ Within Rapid, you will find:
    ```swift
    .package(
      url: "https://codeberg.org/kaascevich/Rapid.git",
-     branch: "main",
+     from: "3.0.0",
    )
    ```
 
