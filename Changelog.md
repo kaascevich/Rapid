@@ -1,8 +1,11 @@
 # Changelog
 
-## 3.0.1
+## 3.1.0
 
 - Switched the license (again) to the GNU Affero GPL
+- Updated to Swift 6.1
+- Removed explicit dependency on `swift-testing` as it's now included with the
+  toolchain
 
 ## 3.0.0
 

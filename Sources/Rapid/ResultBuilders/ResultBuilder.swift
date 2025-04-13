@@ -1,17 +1,17 @@
-// This file is part of BrainflipKit.
+// This file is part of Rapid.
 // Copyright © 2024-2025 Kaleb A. Ascevich
 //
-// BrainflipKit is free software: you can redistribute it and/or modify it under
-// the terms of the GNU Affero General Public License (GNU AGPL) as published by
-// the Free Software Foundation, either version 3 of the License, or (at your
+// Rapid is free software: you can redistribute it and/or modify it under the
+// terms of the GNU Affero General Public License (GNU AGPL) as published by the
+// Free Software Foundation, either version 3 of the License, or (at your
 // option) any later version.
 //
-// BrainflipKit is distributed in the hope that it will be useful, but WITHOUT
-// ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS
-// FOR A PARTICULAR PURPOSE. See the GNU AGPL for more details.
+// Rapid is distributed in the hope that it will be useful, but WITHOUT ANY
+// WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR
+// A PARTICULAR PURPOSE. See the GNU AGPL for more details.
 //
-// You should have received a copy of the GNU AGPL along with BrainflipKit. If
-// not, see <https://www.gnu.org/licenses/>.
+// You should have received a copy of the GNU AGPL along with Rapid. If not, see
+// <https://www.gnu.org/licenses/>.
 
 /// Automatically creates all result builder methods from a `buildResult(from:)`
 /// method and (optionally) a `buildExpression(_:)` method.
@@ -232,6 +232,11 @@ public extension ResultBuilder {
 }
 
 public extension ResultBuilder where Component == Expression {
+  /// Builds a component from an expression.
+  ///
+  /// - Parameter expression: The expression to build the component from.
+  ///
+  /// - Returns: A component created from the expression.
   static func buildExpression(_ expression: Expression) -> Component {
     expression
   }
@@ -240,10 +245,20 @@ public extension ResultBuilder where Component == Expression {
 // MARK: - RangeReplaceableCollection Conformances
 
 public extension ResultBuilder where Component: RangeReplaceableCollection {
+  /// Builds a result from an array of components.
+  ///
+  /// - Parameter components: The components to build the result from.
+  ///
+  /// - Returns: The result of combining all the components.
   static func buildResult(from components: [Component]) -> Component {
     components.reduce(.init(), +)
   }
 
+  /// Builds a component from an expression.
+  ///
+  /// - Parameter expression: The expression to build the component from.
+  ///
+  /// - Returns: A component created from the expression.
   static func buildExpression(_ expression: Component.Element) -> Component {
     Component([expression])
   }
