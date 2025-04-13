@@ -4,13 +4,19 @@
 
 Hi, I'm back (again)!
 
-This time, it's pretty much just a minor modernization update.
+You may have noticed that Rapid is now hosted on Codeberg. I've decided to
+migrate my projects away from GitHub for a number of reasons, chief among them
+being that GitHub itself is not free and open source software.
+
+> I _am_ planning on mirroring Rapid to GitHub at some point to keep its listing
+> on the Swift Package Index up-to-date, but Codeberg is Rapid's new home.
+
+Aside from that, this is pretty much just a minor modernization update.
 
 - Switched the license (again) to the GNU Affero GPL
 - Updated to Swift 6.1
 - Removed explicit dependency on `swift-testing` as it's now included with the
   toolchain
-- Set up SwiftLint
 
 ## 3.0.0
 
