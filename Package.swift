@@ -35,6 +35,10 @@ let package = Package(
       url: "https://github.com/mattgallagher/CwlPreconditionTesting.git",
       from: "2.2.2",
     ),
+    .package(
+      url: "https://github.com/swiftlang/swift-docc-plugin",
+      from: "1.4.3",
+    ),
   ],
   targets: [
     .target(name: "Rapid"),
