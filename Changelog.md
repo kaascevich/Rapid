@@ -1,11 +1,16 @@
 # Changelog
 
-## 3.1.0
+## 3.0.1
+
+Hi, I'm back (again)!
+
+This time, it's pretty much just a minor modernization update.
 
 - Switched the license (again) to the GNU Affero GPL
 - Updated to Swift 6.1
 - Removed explicit dependency on `swift-testing` as it's now included with the
   toolchain
+- Set up SwiftLint
 
 ## 3.0.0
 
