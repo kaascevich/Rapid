@@ -14,6 +14,7 @@
 // not, see <https://www.gnu.org/licenses/>.
 
 import Testing
+
 @testable import Rapid
 
 @Suite struct EmptyCollectionConformancesTests {
@@ -22,7 +23,7 @@ import Testing
   @Test("EmptyCollection+ExpressibleByEmptyArrayLiteral")
   func emptyCollectionEmptyArrayLiteral() {
     // If this compiles, we're good to go.
-    let _: EmptyCollection<Int> = [] // adding an element should throw a compiler error
+    let _: EmptyCollection<Int> = []  // adding an element should throw a compiler error
   }
 
   /// `EmptyCollection`'s conformance to `ExpressibleByEmptyDictionaryLiteral`
@@ -30,6 +31,6 @@ import Testing
   @Test("EmptyCollection+ExpressibleByEmptyDictionaryLiteral")
   func emptyCollectionEmptyDictionaryLiteral() {
     // If this compiles, we're good to go.
-    let _: EmptyCollection<Int> = [:] // adding an element should throw a compiler error
+    let _: EmptyCollection<Int> = [:]  // adding an element should throw a compiler error
   }
 }

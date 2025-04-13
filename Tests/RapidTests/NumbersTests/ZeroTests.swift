@@ -14,6 +14,7 @@
 // not, see <https://www.gnu.org/licenses/>.
 
 import Testing
+
 @testable import Rapid
 
 @Suite struct ZeroTests {
@@ -29,6 +30,7 @@ import Testing
       #expect(!(-5).isZero)
     }
   }
+
   @Suite struct IsNonzeroTests {
     /// The `isNonzero` property is `false` is the value is zero.
     @Test("isNonzero -> true") func isNonzeroFalse() {
@@ -41,5 +43,4 @@ import Testing
       #expect((-5).isNonzero)
     }
   }
-
 }

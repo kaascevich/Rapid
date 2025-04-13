@@ -17,16 +17,16 @@
 /// A metatype that can contain any other metatype.
 public typealias AnyType = Any.Type
 
-/// The return type of functions that don’t explicitly specify a return
-/// type, that is, an empty tuple `()`.
+/// The return type of functions that don’t explicitly specify a return type,
+/// that is, an empty tuple `()`.
 ///
-/// When declaring a function or method, you don’t need to specify a return
-/// type if no value will be returned. However, the type of a function,
-/// method, or closure always includes a return type, which is `Nothing`
-/// if otherwise unspecified.
+/// When declaring a function or method, you don’t need to specify a return type
+/// if no value will be returned. However, the type of a function, method, or
+/// closure always includes a return type, which is `Nothing` if otherwise
+/// unspecified.
 ///
-/// Use `Nothing` or an empty tuple as the return type when declaring a
-/// closure, function, or method that doesn’t return a value.
+/// Use `Nothing` or an empty tuple as the return type when declaring a closure,
+/// function, or method that doesn’t return a value.
 ///
 /// ```swift
 /// // No return type declared:

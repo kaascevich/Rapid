@@ -14,6 +14,7 @@
 // not, see <https://www.gnu.org/licenses/>.
 
 import Testing
+
 @testable import Rapid
 
 @Suite struct SetsTests {
@@ -54,8 +55,8 @@ import Testing
       #expect(nonNeighbors == ["Diana", "Chris", "Alicia"])
     }
 
-    /// The `Set.-=(_:_:)` operator subtracts the second set from the first set ans
-    /// assigns the result.
+    /// The `Set.-=(_:_:)` operator subtracts the second set from the first set
+    /// and assigns the result.
     @Test("Set.-=(_:_:)") func setSubtractAssign() {
       var employees: Set = ["Alicia", "Bethany", "Chris", "Diana", "Eric"]
       let neighbors: Set = ["Bethany", "Eric", "Forlani", "Greta"]

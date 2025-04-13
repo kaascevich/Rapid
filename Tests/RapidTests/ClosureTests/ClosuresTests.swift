@@ -15,6 +15,7 @@
 
 import Foundation
 import Testing
+
 @testable import Rapid
 
 @Suite struct ClosuresTests {

@@ -18,8 +18,8 @@ infix operator <=>: AssignmentPrecedence
 /// Exchanges the values of the two operands.
 ///
 /// The two operands must not alias each other. To swap two elements of a
-/// mutable collection, use the `swapAt(_:_:)` method of that collection
-/// instead of this operator.
+/// mutable collection, use the `swapAt(_:_:)` method of that collection instead
+/// of this operator.
 ///
 /// - Parameters:
 ///   - a: The first value to swap.

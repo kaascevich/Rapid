@@ -15,16 +15,15 @@
 
 /// A property wrapper that clamps a value to the provided range.
 ///
-/// For example, you can use `@Clamped` to only allow numbers between 3
-/// and 15.
+/// For example, you can use `@Clamped` to only allow numbers between 3 and 15.
 ///
 /// ```swift
 /// @Clamped(to: 3...15)
-/// var value = 7 // value == 7
+/// var value = 7  // value == 7
 ///
-/// value = 22    // value == 15
-/// value = -4    // value == 3
-/// value = 9     // value == 9
+/// value = 22     // value == 15
+/// value = -4     // value == 3
+/// value = 9      // value == 9
 /// ```
 @propertyWrapper public struct Clamped<Value: Comparable> {
   /// The wrapped value.

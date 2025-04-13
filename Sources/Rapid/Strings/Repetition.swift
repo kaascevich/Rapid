@@ -14,11 +14,11 @@
 // not, see <https://www.gnu.org/licenses/>.
 
 public extension String {
-  /// Creates a new string representing the given string repeated the
-  /// specified number of times.
+  /// Creates a new string representing the given string repeated the specified
+  /// number of times.
   ///
-  /// For example, you can use this operator to create a string with ten
-  /// `"ab"` strings in a row.
+  /// For example, you can use this operator to create a string with ten `"ab"`
+  /// strings in a row.
   ///
   /// ```swift
   /// let s = "ab" * 10
@@ -28,11 +28,11 @@ public extension String {
   ///
   /// - Parameters:
   ///   - repeatedValue: The string to repeat.
-  ///   - count: The number of times to repeat `repeatedValue` in the
-  ///     resulting string.
+  ///   - count: The number of times to repeat `repeatedValue` in the resulting
+  ///     string.
   ///
-  /// - Returns: A new string representing `repeatedValue` repeated
-  ///   `count` times.
+  /// - Returns: A new string representing `repeatedValue` repeated `count`
+  ///   times.
   static func * (_ repeatedValue: Self, count: UInt) -> Self {
     Self(repeating: repeatedValue, count: Int(count))
   }

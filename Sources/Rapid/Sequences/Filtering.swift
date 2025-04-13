@@ -17,8 +17,8 @@ public extension Sequence {
   /// Returns a Boolean value indicating whether no elements of a sequence
   /// satisfy a given predicate.
   ///
-  /// The following code uses this method to test whether none of the names
-  /// in an array have fewer than five characters:
+  /// The following code uses this method to test whether none of the names in
+  /// an array have fewer than five characters:
   ///
   /// ```swift
   /// let names = ["Sofia", "Camilla", "Martina", "Mateo", "Nicolás"]
@@ -30,9 +30,9 @@ public extension Sequence {
   ///
   /// - Complexity: O(*n*), where *n* is the length of the sequence.
   ///
-  /// - Parameter predicate: A closure that takes an element of the sequence
-  ///   as its argument and returns a Boolean value that indicates whether
-  ///   the passed element satisfies a condition.
+  /// - Parameter predicate: A closure that takes an element of the sequence as
+  ///   its argument and returns a Boolean value that indicates whether the
+  ///   passed element satisfies a condition.
   ///
   /// - Returns: `true` if the sequence contains no elements that satisfy
   ///   `predicate`; otherwise, `false`.
@@ -60,16 +60,15 @@ public extension Sequence {
   ///   its argument and returns a Boolean value indicating whether the element
   ///   is a match.
   ///
-  /// - Returns: The last element of the sequence that satisfies `predicate`,
-  ///   or `nil` if there is no element that satisfies `predicate`.
+  /// - Returns: The last element of the sequence that satisfies `predicate`, or
+  ///   `nil` if there is no element that satisfies `predicate`.
   func last(where predicate: (Element) throws -> Bool) rethrows -> Element? {
     try reversed().first(where: predicate)
   }
 
   /// Returns an array containing the non-`nil` elements of this sequence.
   ///
-  /// Use this method to concisely remove all `nil` elements from this
-  /// sequence.
+  /// Use this method to concisely remove all `nil` elements from this sequence.
   ///
   /// - Complexity: O(*n*), where *n* is the length of this sequence.
   ///
@@ -83,8 +82,8 @@ public extension RangeReplaceableCollection where Element: Equatable {
   /// Removes all the elements that equal the given value.
   ///
   /// Use this method to remove every element in a collection equal to a
-  /// particular value. The order of the remaining elements is preserved.
-  /// This example removes all the sixes from an array of numbers:
+  /// particular value. The order of the remaining elements is preserved. This
+  /// example removes all the sixes from an array of numbers:
   ///
   /// ```swift
   /// var numbers = [5, 6, 7, 8, 7, 6, 5]
@@ -155,9 +154,9 @@ public extension Sequence {
 public extension Sequence {
   /// Returns the elements of the sequence, sorted by the given property.
   ///
-  /// You can sort any sequence of elements with a property that conforms
-  /// to the `Comparable` protocol by calling this method. Elements are sorted
-  /// in ascending order.
+  /// You can sort any sequence of elements with a property that conforms to the
+  /// `Comparable` protocol by calling this method. Elements are sorted in
+  /// ascending order.
   ///
   /// To sort the elements of your sequence in descending order, pass the
   /// greater-than operator (`>`) to the ``sorted(by:using:)`` method.
@@ -185,7 +184,8 @@ public extension Sequence {
   ///
   /// You also use this method to sort elements that conform to the `Comparable`
   /// protocol in descending order. To sort your sequence in descending order,
-  /// pass the greater-than operator (`>`) as the `areInIncreasingOrder` parameter.
+  /// pass the greater-than operator (`>`) as the `areInIncreasingOrder`
+  /// parameter.
   ///
   /// Calling the related ``sorted(by:)`` method is equivalent to calling this
   /// method and passing the less-than operator (`<`) as the predicate.
@@ -194,9 +194,9 @@ public extension Sequence {
   /// for any elements a, b, and c, the following conditions must hold:
   ///
   /// - `areInIncreasingOrder(a, a)` is always `false`. (Irreflexivity)
-  /// - If `areInIncreasingOrder(a, b)` and `areInIncreasingOrder(b, c)` are both
-  ///   `true`, then `areInIncreasingOrder(a, c)` is also `true`. (Transitive
-  ///   comparability)
+  /// - If `areInIncreasingOrder(a, b)` and `areInIncreasingOrder(b, c)` are
+  ///   both `true`, then `areInIncreasingOrder(a, c)` is also `true`.
+  ///   (Transitive comparability)
   /// - Two elements are *incomparable* if neither is ordered before the other
   ///   according to the predicate. If a and b are incomparable, and b and c are
   ///   incomparable, then a and c are also incomparable. (Transitive
@@ -217,8 +217,10 @@ public extension Sequence {
   /// - Returns: An array of the sequence's elements, sorted by `keyPath`.
   func sorted<T>(
     by keyPath: KeyPath<Element, T>,
-    using areInIncreasingOrder: (T, T) throws -> Bool
+    using areInIncreasingOrder: (T, T) throws -> Bool,
   ) rethrows -> [Element] {
-    try sorted { try areInIncreasingOrder($0[keyPath: keyPath], $1[keyPath: keyPath]) }
+    try sorted {
+      try areInIncreasingOrder($0[keyPath: keyPath], $1[keyPath: keyPath])
+    }
   }
 }

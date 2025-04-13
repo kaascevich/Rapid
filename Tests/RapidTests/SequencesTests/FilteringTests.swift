@@ -14,6 +14,7 @@
 // not, see <https://www.gnu.org/licenses/>.
 
 import Testing
+
 @testable import Rapid
 
 @Suite struct FilteringTests {
@@ -69,8 +70,7 @@ import Testing
   }
 
   @Suite struct SortedByTests {
-    /// The `sorted(by:)` method sorts the sequence based on the given
-    /// property.
+    /// The `sorted(by:)` method sorts the sequence based on the given property.
     @Test("sorted(by:)") func sortedBy() {
       let students = ["Peter", "Kofi", "Abigail", "Akosua", "Eve"]
       let sortedStudents = students.sorted(by: \.count)

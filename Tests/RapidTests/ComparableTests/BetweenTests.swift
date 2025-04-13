@@ -14,11 +14,11 @@
 // not, see <https://www.gnu.org/licenses/>.
 
 import Testing
+
 @testable import Rapid
 
 @Suite struct BetweenTests {
-  /// The `isBetween(_:)` method returns `true` if the range contains the
-  /// value.
+  /// The `isBetween(_:)` method returns `true` if the range contains the value.
   @Test("isBetween(_:) -> true") func isBetweenTrue() {
     #expect(7.isBetween(6...12))
     #expect(0.32.isBetween(0.31...0.33))

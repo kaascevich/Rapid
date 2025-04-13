@@ -18,6 +18,7 @@ import Foundation
 #endif
 
 import Testing
+
 @testable import Rapid
 
 @Suite struct InterpolationTests {

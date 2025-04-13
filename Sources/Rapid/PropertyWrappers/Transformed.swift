@@ -15,14 +15,14 @@
 
 /// A property wrapper that applies a transformation to the wrapped value.
 ///
-/// For example, you can use `@Transform` to automatically negate a value
-/// upon assigning it.
+/// For example, you can use `@Transform` to automatically negate a value upon
+/// assigning it.
 ///
 /// ```swift
 /// @Transformed(with: -)
-/// var value = 5 // value == -5
+/// var value = 5  // value == -5
 ///
-/// value = -346  // value == 346
+/// value = -346   // value == 346
 /// ```
 @propertyWrapper public struct Transformed<Value> {
   /// A function type that transforms a value.
@@ -30,8 +30,8 @@
 
   /// The wrapped value.
   ///
-  /// On mutation, this property is set to the result of calling
-  /// ``transform`` with the new value.
+  /// On mutation, this property is set to the result of calling ``transform``
+  /// with the new value.
   public var wrappedValue: Value {
     didSet {
       wrappedValue = transform(wrappedValue)
@@ -40,8 +40,8 @@
 
   /// The transformation to apply to the wrapped value.
   ///
-  /// When mutated, the wrapped value is set to the result of calling
-  /// this function with the new value.
+  /// When mutated, the wrapped value is set to the result of calling this
+  /// function with the new value.
   public var transform: Transform
 
   /// Creates a new instance.

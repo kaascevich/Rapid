@@ -14,15 +14,14 @@
 // not, see <https://www.gnu.org/licenses/>.
 
 extension PartialRangeFrom: @retroactive Equatable {
-  /// Returns a Boolean value indicating whether two partial ranges are
-  /// equal.
+  /// Returns a Boolean value indicating whether two partial ranges are equal.
   ///
   /// Two partial ranges are equal when they have the same lower bounds.
   ///
   /// ```swift
   /// let x = 5...
-  /// print(x == 5...)  // Prints "true"
-  /// print(x == 10...) // Prints "false"
+  /// print(x == 5...)   // Prints "true"
+  /// print(x == 10...)  // Prints "false"
   /// ```
   ///
   /// - Parameters:

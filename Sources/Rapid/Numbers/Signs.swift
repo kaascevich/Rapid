@@ -18,17 +18,21 @@ public extension SignedNumeric where Self: Comparable {
 
   /// A Boolean value indicating whether this value is positive.
   ///
-  /// A number is positive if it compares greater than zero. Zero is
-  /// neither negative nor positive.
-  var isPositive: Bool { self > 0 }
+  /// A number is positive if it compares greater than zero. Zero is neither
+  /// negative nor positive.
+  var isPositive: Bool {
+    self > 0
+  }
 
   // MARK: - Negativity
 
   /// A Boolean value indicating whether this value is negative.
   ///
-  /// A number is negative if it compares less than zero. Zero is
-  /// neither negative nor positive.
-  var isNegative: Bool { self < 0 }
+  /// A number is negative if it compares less than zero. Zero is neither
+  /// negative nor positive.
+  var isNegative: Bool {
+    self < 0
+  }
 
   // MARK: - Absolute Value
 
@@ -44,5 +48,7 @@ public extension SignedNumeric where Self: Comparable {
   /// let y = x.absoluteValue
   /// // Overflow error
   /// ```
-  var absoluteValue: Self { abs(self) }
+  var absoluteValue: Self {
+    abs(self)
+  }
 }

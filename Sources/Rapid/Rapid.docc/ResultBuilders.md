@@ -1,10 +1,11 @@
 # Result Builders
 
 Create collections using the elegance of result builders.
+[An introduction to result builders.][intro]
+
+[intro]: https://docs.swift.org/swift-book/documentation/the-swift-programming-language/advancedoperators#Result-Builders
 
 ## Topics
-
-- <doc:AboutResultBuilders>
 
 ### Creating a Result Builder
 

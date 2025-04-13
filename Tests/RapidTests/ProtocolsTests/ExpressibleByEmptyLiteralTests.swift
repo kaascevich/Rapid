@@ -14,6 +14,7 @@
 // not, see <https://www.gnu.org/licenses/>.
 
 import Testing
+
 @testable import Rapid
 
 @Suite struct ExpressibleByEmptyLiteralTests {
@@ -25,8 +26,8 @@ import Testing
       init(emptyArrayLiteral: Nothing) { }
     }
 
-    // There isn't much we can do beyond this, since we can't really
-    // test compile-time guarantees.
+    // There isn't much we can do beyond this, since we can't really test
+    // compile-time guarantees.
     let _: EmptyArrayLiteralMock = []
   }
 
@@ -38,8 +39,8 @@ import Testing
       init(emptyDictionaryLiteral: Nothing) { }
     }
 
-    // There isn't much we can do beyond this, since we can't really
-    // test compile-time guarantees.
+    // There isn't much we can do beyond this, since we can't really test
+    // compile-time guarantees.
     let _: EmptyDictionaryLiteralMock = [:]
   }
 }

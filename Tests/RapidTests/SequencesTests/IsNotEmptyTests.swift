@@ -14,6 +14,7 @@
 // not, see <https://www.gnu.org/licenses/>.
 
 import Testing
+
 @testable import Rapid
 
 @Suite struct IsNotEmptyTests {
@@ -30,8 +31,8 @@ import Testing
     #expect(!"".isNotEmpty)
   }
 
-  /// The `isNilOrEmpty` property is `true` if the collection is `nil` or
-  /// empty, `false` otherwise.
+  /// The `isNilOrEmpty` property is `true` if the collection is `nil` or empty,
+  /// `false` otherwise.
   @Test("isNilOrEmpty") func isNilOrEmpty() {
     var array: [Int]?
     array = nil;             #expect(array.isNilOrEmpty)

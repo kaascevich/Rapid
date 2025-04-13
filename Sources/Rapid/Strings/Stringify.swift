@@ -18,17 +18,16 @@ prefix operator §
 /// Creates a string representing the given value.
 ///
 /// Use this operator to convert an instance of any type to its preferred
-/// representation as a `String` instance. The `§` operator creates the
-/// string representation of `instance` in one of the following ways,
-/// depending on its protocol conformance:
+/// representation as a `String` instance. The `§` operator creates the string
+/// representation of `instance` in one of the following ways, depending on its
+/// protocol conformance:
 ///
-/// - If `instance` conforms to the `TextOutputStreamable` protocol, the
-///   result is obtained by calling `instance.write(to: s)` on an empty
-///   string `s`.
+/// - If `instance` conforms to the `TextOutputStreamable` protocol, the result
+///   is obtained by calling `instance.write(to: s)` on an empty string `s`.
 /// - If `instance` conforms to the `CustomStringConvertible` protocol, the
 ///   result is `instance.description`.
-/// - If `instance` conforms to the `CustomDebugStringConvertible` protocol,
-///   the result is `instance.debugDescription`.
+/// - If `instance` conforms to the `CustomDebugStringConvertible` protocol, the
+///   result is `instance.debugDescription`.
 /// - An unspecified result is supplied automatically by the Swift standard
 ///   library.
 ///
@@ -59,11 +58,9 @@ prefix operator §
 /// // Prints "(21, 30)"
 /// ```
 ///
-/// With US English keyboard layouts, the `§` character can be typed using
-/// ⌥6.
+/// With US English keyboard layouts, the `§` character can be typed using ⌥6.
 ///
-/// - Parameter instance: The value for which to create a string
-///   representation.
+/// - Parameter instance: The value for which to create a string representation.
 ///
 /// - Returns: A string representing `instance`.
 public prefix func § (_ instance: Any) -> String {

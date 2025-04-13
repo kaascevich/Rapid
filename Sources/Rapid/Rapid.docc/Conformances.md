@@ -1,6 +1,7 @@
 # Conformances
 
-Standard library protocol conformances that should've been there in the first place.
+Standard library protocol conformances that should've been there in the first
+place.
 
 ## Topics
 

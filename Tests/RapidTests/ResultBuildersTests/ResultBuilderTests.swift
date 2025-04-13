@@ -14,13 +14,13 @@
 // not, see <https://www.gnu.org/licenses/>.
 
 import Testing
+
 @testable import Rapid
 
 @Suite struct ResultBuilderTests {
-  /// The `StringBuilder` result builder creates a String from a result
-  /// builder.
+  /// The `StringBuilder` result builder creates a String from a result builder.
   @Test("StringBuilder") func stringBuilder() {
-    let notTrue = false // bypassing the "will never be executed" warning
+    let notTrue = false  // bypassing the "will never be executed" warning
     let randomThings = String {
       "hello"
       if true { "yes" }
@@ -38,7 +38,7 @@ import Testing
 
   /// The `ArrayBuilder` result builder creates an Array from a result builder.
   @Test("ArrayBuilder") func arrayBuilder() {
-    let notTrue = false // bypassing the "will never be executed" warning
+    let notTrue = false  // bypassing the "will never be executed" warning
     let randomThings = Array {
       "hello"
       if true { "yes" }

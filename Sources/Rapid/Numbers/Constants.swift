@@ -17,8 +17,8 @@
 ///
 /// When measuring an angle in radians, π is equivalent to a half-turn.
 ///
-/// This value is rounded toward zero to keep user computations with angles
-/// from inadvertently ending up in the wrong quadrant.
+/// This value is rounded toward zero to keep user computations with angles from
+/// inadvertently ending up in the wrong quadrant.
 ///
 /// ```swift
 /// print(π)

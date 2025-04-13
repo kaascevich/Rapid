@@ -14,11 +14,12 @@
 // not, see <https://www.gnu.org/licenses/>.
 
 import Testing
+
 @testable import Rapid
 
 @Suite struct AliasesTests {
-  /// The `≠(_:_:)` operator returns `true` if the values are not equal,
-  /// `false` otherwise.
+  /// The `≠(_:_:)` operator returns `true` if the values are not equal, `false`
+  /// otherwise.
   @Test("≠(_:_:)") func notEqual() {
     #expect(8 ≠ 4)
     #expect("hi" ≠ "bye")

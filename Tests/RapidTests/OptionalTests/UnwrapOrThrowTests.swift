@@ -15,6 +15,7 @@
 
 import CwlPreconditionTesting
 import Testing
+
 @testable import Rapid
 
 @Suite struct UnwrapOrThrowTests {

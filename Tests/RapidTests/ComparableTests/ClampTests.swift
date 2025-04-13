@@ -14,12 +14,12 @@
 // not, see <https://www.gnu.org/licenses/>.
 
 import Testing
+
 @testable import Rapid
 
 @Suite struct ClampTests {
   @Suite struct ClampedToTests {
-    /// The `clamped(to:)` method returns the value if it is in the given
-    /// range.
+    /// The `clamped(to:)` method returns the value if it is in the given range.
     @Test("clamped(to:) <- in range") func clampedToInRange() {
       #expect(7.clamped(to: 6...12) == 7)
       #expect(0.32.clamped(to: 0.31...0.33) == 0.32)

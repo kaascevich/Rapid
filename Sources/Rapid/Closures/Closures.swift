@@ -17,8 +17,8 @@
 
 /// Runs a closure as an expression.
 ///
-/// This is a more elegant way of creating a self-executing closure. Instead
-/// of doing something like this...
+/// This is a more elegant way of creating a self-executing closure. Instead of
+/// doing something like this...
 ///
 /// ```swift
 /// let something = {
@@ -34,15 +34,14 @@
 /// }
 /// ```
 ///
-/// - Note: Don't overuse this. If you're not returning a value, and just
-///   want to execute code in a separate scope, use Swift's `do` keyword
-///   instead.
+/// - Note: Don't overuse this. If you're not returning a value, and just want
+///   to execute code in a separate scope, use Swift's `do` keyword instead.
 ///
 /// - Parameter closure: The closure to execute.
 ///
 /// - Returns: The closure's return value, if any.
 public func run<ReturnType>(
-  closure: () throws -> ReturnType
+  closure: () throws -> ReturnType,
 ) rethrows -> ReturnType {
   try closure()
 }
@@ -50,8 +49,7 @@ public func run<ReturnType>(
 /// Executes a closure, passing it a copy of the provided value.
 ///
 /// The `run(with:do:)` method is useful when you need to perform several
-/// operations involving a specific value. For instance, the following
-/// code:
+/// operations involving a specific value. For instance, the following code:
 ///
 /// ```swift
 /// run(with: editor) {
@@ -74,7 +72,7 @@ public func run<ReturnType>(
 ///   - closure: The closure to execute. Receives a copy of `value`.
 public func run<Value>(
   with value: Value,
-  do closure: (Value) throws -> Nothing
+  do closure: (Value) throws -> Nothing,
 ) rethrows {
   try closure(value)
 }
@@ -84,8 +82,8 @@ public func run<Value>(
 /// Mutates a copy of the provided value.
 ///
 /// The `configure(_:using:)` method mutates a copy of the given value and
-/// returns the result. It's useful for types that require properties to
-/// be configured, such as formatter components:
+/// returns the result. It's useful for types that require properties to be
+/// configured, such as formatter components:
 ///
 /// ```swift
 /// let components = configure(PersonNameComponents()) {
@@ -96,13 +94,12 @@ public func run<Value>(
 ///
 /// - Parameters:
 ///   - value: Anything.
-///   - closure: The closure to execute. Receives a copy of `value` to
-///     mutate.
+///   - closure: The closure to execute. Receives a copy of `value` to mutate.
 ///
 /// - Returns: The return value of the closure.
 public func configure<Value>(
   _ value: Value,
-  using closure: (inout Value) throws -> Nothing
+  using closure: (inout Value) throws -> Nothing,
 ) rethrows -> Value {
   var copy = value
   try closure(&copy)
@@ -113,9 +110,9 @@ infix operator <-
 
 /// Mutates a copy of the provided value.
 ///
-/// The `<-` operator mutates a copy of the given value and returns the
-/// result. It's useful for types that require properties to be configured,
-/// such as formatter components:
+/// The `<-` operator mutates a copy of the given value and returns the result.
+/// It's useful for types that require properties to be configured, such as
+/// formatter components:
 ///
 /// ```swift
 /// let components = PersonNameComponents() <- {
@@ -126,13 +123,12 @@ infix operator <-
 ///
 /// - Parameters:
 ///   - value: Anything.
-///   - closure: The closure to execute. Receives a copy of `value` to
-///     mutate.
+///   - closure: The closure to execute. Receives a copy of `value` to mutate.
 ///
 /// - Returns: The return value of the closure.
 public func <- <Value>(
   _ value: Value,
-  closure: (inout Value) throws -> Nothing
+  closure: (inout Value) throws -> Nothing,
 ) rethrows -> Value {
   try configure(value, using: closure)
 }
@@ -145,11 +141,10 @@ public func <- <Value>(
 ///
 /// - Parameters:
 ///   - value: Anything.
-///   - closure: The closure to execute. Receives a reference to
-///     `value`.
+///   - closure: The closure to execute. Receives a reference to `value`.
 public func mutate<Value>(
   _ value: inout Value,
-  using closure: (inout Value) throws -> Nothing
+  using closure: (inout Value) throws -> Nothing,
 ) rethrows {
   try closure(&value)
 }

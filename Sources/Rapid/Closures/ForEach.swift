@@ -14,8 +14,8 @@
 // not, see <https://www.gnu.org/licenses/>.
 
 public extension BinaryInteger where Stride: SignedInteger {
-  /// Calls the given closure `self` times in the same order as a
-  /// `for`-`in` loop.
+  /// Calls the given closure `self` times in the same order as a `for`-`in`
+  /// loop.
   ///
   /// The two loops in the following example produce the same output:
   ///
@@ -44,7 +44,8 @@ public extension BinaryInteger where Stride: SignedInteger {
   ///    the current call to `body`, not from any outer scope, and won't skip
   ///    subsequent calls.
   ///
-  /// - Parameter body: A closure that takes an instance of `Self` as a parameter.
+  /// - Parameter body: A closure that takes an instance of `Self` as a
+  ///   parameter.
   func `repeat`(_ body: (Self) throws -> Nothing) rethrows {
     try (0..<self).forEach(body)
   }

@@ -15,11 +15,12 @@
 
 import CwlPreconditionTesting
 import Testing
+
 @testable import Rapid
 
 @Suite struct CollectionOfOneConformancesTests {
-  /// `CollectionOfOne`'s conformance to `ExpressibleByArrayLiteral` only
-  /// allows a literal with one element.
+  /// `CollectionOfOne`'s conformance to `ExpressibleByArrayLiteral` only allows
+  /// a literal with one element.
   @Test("CollectionOfOne+ExpressibleByArrayLiteral")
   func collectionOfOneArrayLiteral() {
     let oneElement: CollectionOfOne = [42]

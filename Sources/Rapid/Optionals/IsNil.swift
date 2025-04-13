@@ -14,10 +14,13 @@
 // not, see <https://www.gnu.org/licenses/>.
 
 public extension Optional {
-  /// A Boolean value indicating whether this optional does not contain a
-  /// value.
-  var isNil: Bool { self == nil }
+  /// A Boolean value indicating whether this optional does not contain a value.
+  var isNil: Bool {
+    self == nil
+  }
 
   /// A Boolean value indicating whether this optional contains a value.
-  var isNotNil: Bool { !isNil }
+  var isNotNil: Bool {
+    !isNil
+  }
 }

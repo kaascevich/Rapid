@@ -16,8 +16,8 @@
 /// A type that can be initialized using an empty array literal.
 ///
 /// An empty array literal always has an element type of `Never`. This provides
-/// a compile-time guarantee that the literal is indeed empty, since `Never`
-/// is uninhabited and therefore can't be instantiated.
+/// a compile-time guarantee that the literal is indeed empty, since `Never` is
+/// uninhabited and therefore can't be instantiated.
 public protocol ExpressibleByEmptyArrayLiteral: ExpressibleByArrayLiteral {
   init(emptyArrayLiteral: Nothing)
 }

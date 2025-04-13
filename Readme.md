@@ -43,7 +43,7 @@ Within Rapid, you will find:
 
    ```swift
    .package(
-     url: "https://github.com/kaascevich/Rapid.git",
+     url: "https://codeberg.org/kaascevich/Rapid.git",
      branch: "main",
    )
    ```

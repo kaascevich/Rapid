@@ -13,19 +13,18 @@
 // You should have received a copy of the GNU AGPL along with BrainflipKit. If
 // not, see <https://www.gnu.org/licenses/>.
 
-/// Automatically creates all result builder methods from a
-/// `buildResult(from:)` method and (optionally) a `buildExpression(_:)`
-/// method.
+/// Automatically creates all result builder methods from a `buildResult(from:)`
+/// method and (optionally) a `buildExpression(_:)` method.
 ///
 /// When creating a custom result builder type, consider conforming to
-/// `ResultBuilder` to remove boilerplate. Your type must implement
-/// a static ``buildResult(from:)`` method that takes an array of
-/// components and returns the combined result of those components, as
-/// well as a static ``buildExpression(_:)`` method that takes an
-/// expression and creates a component from it.
+/// `ResultBuilder` to remove boilerplate. Your type must implement a static
+/// ``buildResult(from:)`` method that takes an array of components and returns
+/// the combined result of those components, as well as a static
+/// ``buildExpression(_:)`` method that takes an expression and creates a
+/// component from it.
 ///
-/// If the ``Expression`` and ``Component`` types are the same, you only need
-/// to implement ``buildResult(from:)``.
+/// If the ``Expression`` and ``Component`` types are the same, you only need to
+/// implement ``buildResult(from:)``.
 ///
 /// - Important: The conforming type must still be annotated with the
 ///   `@resultBuilder` attribute to be used as a result builder.
@@ -40,9 +39,8 @@
 /// }
 /// ```
 ///
-/// If your type requires specialized implementations of some builder
-/// methods, implement those as usual. Other methods will still be
-/// synthesized for you.
+/// If your type requires specialized implementations of some builder methods,
+/// implement those as usual. Other methods will still be synthesized for you.
 ///
 /// ```swift
 /// public extension StringBuilder {
@@ -104,8 +102,8 @@ public protocol ResultBuilder {
 }
 
 public extension ResultBuilder {
-  /// Required by every result builder to build combined results from
-  /// statement blocks.
+  /// Required by every result builder to build combined results from statement
+  /// blocks.
   ///
   /// ```swift
   /// let string = String {
@@ -122,8 +120,8 @@ public extension ResultBuilder {
     buildResult(from: components)
   }
 
-  /// Enables support for `for`-`in` loops in a result builder by
-  /// combining the results of all iterations into a single result.
+  /// Enables support for `for`-`in` loops in a result builder by combining the
+  /// results of all iterations into a single result.
   ///
   /// ```swift
   /// let string = String {
@@ -132,8 +130,7 @@ public extension ResultBuilder {
   /// // string == "123"
   /// ```
   ///
-  /// - Parameter components: An array of components to build the result
-  ///   from.
+  /// - Parameter components: An array of components to build the result from.
   ///
   /// - Returns: The result of combining all the components.
   static func buildArray(_ components: [Component]) -> Component {
@@ -141,8 +138,7 @@ public extension ResultBuilder {
   }
 
   /// With ``buildEither(second:)``, enables support for `if`-`else` and
-  /// `switch` statements by folding conditional results into a single
-  /// result.
+  /// `switch` statements by folding conditional results into a single result.
   ///
   /// ```swift
   /// let string = String {
@@ -166,9 +162,8 @@ public extension ResultBuilder {
     buildResult(from: [component])
   }
 
-  /// With ``buildEither(first:)``, enables support for `if`-`else` and
-  /// `switch` statements by folding conditional results into a single
-  /// result.
+  /// With ``buildEither(first:)``, enables support for `if`-`else` and `switch`
+  /// statements by folding conditional results into a single result.
   ///
   /// ```swift
   /// let string = String {
@@ -225,8 +220,8 @@ public extension ResultBuilder {
   ///
   /// - Parameter component: A component.
   ///
-  /// - Returns: The `component` parameter, if it isn't `nil`; otherwise,
-  ///   an empty result.
+  /// - Returns: The `component` parameter, if it isn't `nil`; otherwise,  an
+  ///   empty result.
   static func buildOptional(_ component: Component?) -> Component {
     if let component {
       buildResult(from: [component])

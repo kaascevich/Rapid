@@ -16,11 +16,11 @@
 public extension BinaryInteger where Stride: SignedInteger {
   /// Returns the factorial of this value.
   ///
-  /// The factorial is calculated by multiplying every number between
-  /// `1` and `self`, inclusive. By convention, `0.factorial()` is `1`.
+  /// The factorial is calculated by multiplying every number between `1` and
+  /// `self`, inclusive. By convention, `0.factorial()` is `1`.
   ///
-  /// - Important: Negative factorials are not defined; attempting to
-  ///   calculate one will result in a runtime error.
+  /// - Important: Negative factorials are not defined; attempting to calculate
+  ///   one will result in a runtime error.
   ///
   /// ```swift
   /// print(6.factorial())
@@ -38,9 +38,9 @@ public extension BinaryInteger where Stride: SignedInteger {
   func factorial() -> Self {
     precondition(
       self ≥ 0,
-      "the factorial of \(self), a negative number, is not defined"
+      "the factorial of \(self), a negative number, is not defined",
     )
 
-    return isZero ? 1 : (1...self).product()
+    return if isZero { 1 } else { (1...self).product() }
   }
 }

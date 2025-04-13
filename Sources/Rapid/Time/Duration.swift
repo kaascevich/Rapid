@@ -31,9 +31,8 @@ public extension Duration {
     seconds(minutes * 60)
   }
 
-  /// Construct a `Duration` given a number of minutes represented as a
-  /// `Double` by converting the value into the closest attosecond scale
-  /// value.
+  /// Construct a `Duration` given a number of minutes represented as a `Double`
+  /// by converting the value into the closest attosecond scale value.
   ///
   /// ```swift
   /// let d: Duration = .minutes(20.73)
@@ -62,9 +61,8 @@ public extension Duration {
     minutes(hours * 60)
   }
 
-  /// Construct a `Duration` given a number of hours represented as a
-  /// `Double` by converting the value into the closest attosecond scale
-  /// value.
+  /// Construct a `Duration` given a number of hours represented as a `Double`
+  /// by converting the value into the closest attosecond scale value.
   ///
   /// ```swift
   /// let d: Duration = .hours(70.8)
@@ -93,9 +91,8 @@ public extension Duration {
     hours(days * 24)
   }
 
-  /// Construct a `Duration` given a number of days represented as a
-  /// `Double` by converting the value into the closest attosecond scale
-  /// value.
+  /// Construct a `Duration` given a number of days represented as a `Double` by
+  /// converting the value into the closest attosecond scale value.
   ///
   /// ```swift
   /// let d: Duration = .days(32.54)
@@ -124,9 +121,8 @@ public extension Duration {
     days(weeks * 7)
   }
 
-  /// Construct a `Duration` given a number of weeks represented as a
-  /// `Double` by converting the value into the closest attosecond scale
-  /// value.
+  /// Construct a `Duration` given a number of weeks represented as a `Double`
+  /// by converting the value into the closest attosecond scale value.
   ///
   /// ```swift
   /// let d: Duration = .weeks(48.23)

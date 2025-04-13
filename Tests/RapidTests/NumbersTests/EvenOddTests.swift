@@ -14,6 +14,7 @@
 // not, see <https://www.gnu.org/licenses/>.
 
 import Testing
+
 @testable import Rapid
 
 @Suite struct EvenOddTests {
@@ -24,6 +25,7 @@ import Testing
       #expect((-6).isEven)
       #expect(0.isEven)
     }
+
     /// The `isEven` property is `false` if the value is odd.
     @Test("isEven -> false") func isEvenFalse() {
       #expect(!3.isEven)
@@ -37,6 +39,7 @@ import Testing
       #expect(3.isOdd)
       #expect((-3).isOdd)
     }
+
     /// The `isEven` property is `false` if the value is even or zero.
     @Test("isOdd -> false") func isOddFalse() {
       #expect(!6.isOdd)

@@ -13,11 +13,11 @@
 // You should have received a copy of the GNU AGPL along with BrainflipKit. If
 // not, see <https://www.gnu.org/licenses/>.
 
-/// A property wrapper that rejects a new value if it does not pass a
-/// validation check.
+/// A property wrapper that rejects a new value if it does not pass a validation
+/// check.
 ///
-/// For example, you can use `@Validated` to only allow numbers contained
-/// within a range.
+/// For example, you can use `@Validated` to only allow numbers contained within
+/// a range.
 ///
 /// ```swift
 /// func isInRange(value: Int) -> Bool {
@@ -25,10 +25,10 @@
 /// }
 ///
 /// @Validated(if: isInRange)
-/// var value = 7 // value == 7
+/// var value = 7  // value == 7
 ///
-/// value = 29    // value == 7
-/// value = 9     // value == 9
+/// value = 29     // value == 7
+/// value = 9      // value == 9
 /// ```
 @propertyWrapper public struct Validated<Value> {
   /// A function type that validates a value.
@@ -36,8 +36,8 @@
 
   /// The wrapped value.
   ///
-  /// On mutation, this property is reverted to the old value if
-  /// calling `validator` with this property returns `false`.
+  /// On mutation, this property is reverted to the old value if calling
+  /// `validator` with this property returns `false`.
   public var wrappedValue: Value {
     didSet {
       if !validator(wrappedValue) {
@@ -48,8 +48,8 @@
 
   /// Validates the provided value.
   ///
-  /// This function should return `true` if the value is valid and
-  /// should be kept, and `false` otherwise.
+  /// This function should return `true` if the value is valid and should be
+  /// kept, and `false` otherwise.
   public var validator: Validator
 
   /// Creates a new instance.
@@ -62,7 +62,10 @@
   public init(wrappedValue: Value, if validator: @escaping Validator) {
     self.validator = validator
 
-    precondition(validator(wrappedValue), "initial value of \(wrappedValue) is invalid")
+    precondition(
+      validator(wrappedValue),
+      "initial value of \(wrappedValue) is invalid",
+    )
     self.wrappedValue = wrappedValue
   }
 }
