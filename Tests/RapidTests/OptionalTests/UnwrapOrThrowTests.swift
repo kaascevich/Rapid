@@ -20,8 +20,6 @@ import Testing
 
 @Suite enum UnwrapOrThrowTests {
   @Suite struct ThrowingCoalesceTests {
-    enum SomeError: Error { case ohNo }
-
     /// The `?!(optional:error:)` operator returns the unwrapped value if it
     /// exists.
     @Test("?!(optional:error:) -> success")
@@ -33,7 +31,7 @@ import Testing
     /// `nil`.
     @Test("?!(optional:error:) -> fail")
     func throwingCoalesceFail() throws {
-      #expect(throws: SomeError.self) {
+      #expect(throws: SomeError.ohNo) {
         try Int("invalid-input") ?! SomeError.ohNo
       }
     }

@@ -19,33 +19,61 @@ import Testing
 
 @Suite struct FilteringTests {
   @Suite struct NoneSatisfyTests {
+    let names = ["Sofia", "Camilla", "Martina", "Mateo", "Nicolás"]
+    let emptyNames: [String] = []
+
     /// The `noneSatisfy(_:)` method returns `true` if none of the elements
     /// satisfy the condition.
     @Test("noneSatisfy(_:) -> true") func noneSatisfyTrue() {
-      let names = ["Sofia", "Camilla", "Martina", "Mateo", "Nicolás"]
       #expect(names.noneSatisfy { $0.count < 5 })
     }
 
     /// The `noneSatisfy(_:)` method returns `false` if at least one of the
     /// elements satisfies the condition.
     @Test("noneSatisfy(_:) -> false") func noneSatisfyFalse() {
-      let names = ["Sofia", "Camilla", "Martina", "Mateo", "Nick"]
-      #expect(!names.noneSatisfy { $0.count < 5 })
+      #expect(!names.noneSatisfy { $0.count > 3 })
     }
 
     /// The `noneSatisfy(_:)` method returns `true` if the collection is empty.
     @Test("noneSatisfy(_:) <- empty") func noneSatisfyEmpty() {
-      let names: [String] = []
-      #expect(names.noneSatisfy { $0.count < 5 })
+      #expect(emptyNames.noneSatisfy { $0.count < 5 })
+    }
+
+    /// The `noneSatisfy(_:)` method rethrows any thrown error.
+    @Test("noneSatisfy(_:) -> throws") func noneSatisfyThrows() {
+      #expect(throws: SomeError.ohNo) {
+        _ = try names.noneSatisfy {
+          throw SomeError.ohNo
+          return $0.count < 5
+        }
+      }
     }
   }
 
-  /// The `last(where:)` method returns the last element that satisfies the
-  /// predicate, or `nil` if there is no such element.
-  @Test("last(where:)") func lastWhere() {
+  @Suite struct LastWhereTests {
     let numbers = [3, 7, 4, -2, 9, -6, 10, 1]
-    #expect(numbers.last(where: \.isNegative) == -6)
-    #expect(numbers.last { $0 == 0 } == nil)
+
+    /// The `last(where:)` method returns the last element that satisfies the
+    /// predicate.
+    @Test("last(where:) -> success") func lastWhereSuccess() {
+      #expect(numbers.last(where: \.isNegative) == -6)
+    }
+
+    /// The `last(where:)` method returns `nil` if no elements satisfy the
+    /// predicate.
+    @Test("last(where:) -> failure") func lastWhereFailure() {
+      #expect(numbers.last { $0 == 0 } == nil)
+    }
+
+    /// The `last(where:)` method rethrows any thrown error.
+    @Test("last(where:) -> throws") func lastWhereThrows() {
+      #expect(throws: SomeError.ohNo) {
+        _ = try numbers.last {
+          throw SomeError.ohNo
+          return $0 == 0
+        }
+      }
+    }
   }
 
   /// The `compacted()` method removes all `nil` elements.
@@ -70,9 +98,10 @@ import Testing
   }
 
   @Suite struct SortedByTests {
+    let students = ["Peter", "Kofi", "Abigail", "Akosua", "Eve"]
+
     /// The `sorted(by:)` method sorts the sequence based on the given property.
     @Test("sorted(by:)") func sortedBy() {
-      let students = ["Peter", "Kofi", "Abigail", "Akosua", "Eve"]
       let sortedStudents = students.sorted(by: \.count)
       #expect(sortedStudents == ["Eve", "Kofi", "Peter", "Akosua", "Abigail"])
     }
@@ -80,9 +109,18 @@ import Testing
     /// The `sorted(by:using:)` method sorts the sequence based on the given
     /// property, using the given comparator function to order the elements.
     @Test("sorted(by:using:)") func sortedByUsing() {
-      let students = ["Peter", "Kofi", "Abigail", "Akosua", "Eve"]
       let sortedStudents = students.sorted(by: \.count, using: >)
       #expect(sortedStudents == ["Abigail", "Akosua", "Peter", "Kofi", "Eve"])
+    }
+
+    /// The `sorted(by:using:)` method rethrows any thrown error.
+    @Test("sorted(by:using:) -> throws") func sortedByUsingThrows() {
+      #expect(throws: SomeError.ohNo) {
+        _ = try students.sorted(by: \.count) {
+          throw SomeError.ohNo
+          return $0 > $1
+        }
+      }
     }
   }
 }
