@@ -23,7 +23,7 @@ import Testing
   @Test("ExpressibleByEmptyArrayLiteral")
   func expressibleByEmptyArrayLiteral() {
     struct EmptyArrayLiteralMock: ExpressibleByEmptyArrayLiteral {
-      init(emptyArrayLiteral _: Nothing) { }
+      init(emptyArrayLiteral _: Void) { }
     }
 
     // There isn't much we can do beyond this, since we can't really test
@@ -36,7 +36,7 @@ import Testing
   @Test("ExpressibleByEmptyDictionaryLiteral")
   func expressibleByEmptyDictionaryLiteral() {
     struct EmptyDictionaryLiteralMock: ExpressibleByEmptyDictionaryLiteral {
-      init(emptyDictionaryLiteral _: Nothing) { }
+      init(emptyDictionaryLiteral _: Void) { }
     }
 
     // There isn't much we can do beyond this, since we can't really test

@@ -15,6 +15,7 @@
 // <https://www.gnu.org/licenses/>.
 
 /// A metatype that can contain any other metatype.
+@available(*, deprecated, renamed: "Any.Type")
 public typealias AnyType = Any.Type
 
 /// The return type of functions that don’t explicitly specify a return type,
@@ -38,4 +39,5 @@ public typealias AnyType = Any.Type
 /// logger("This is a void function")
 /// // Prints "Message: This is a void function"
 /// ```
+@available(*, deprecated, renamed: "Void")
 public typealias Nothing = Void

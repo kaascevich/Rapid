@@ -72,7 +72,7 @@
 ///   - closure: The closure to execute. Receives a copy of `value`.
 @inlinable public func run<Value: ~Copyable, E: Error>(
   with value: borrowing Value,
-  do closure: (borrowing Value) throws(E) -> Nothing,
+  do closure: (borrowing Value) throws(E) -> Void,
 ) throws(E) {
   try closure(value)
 }
@@ -99,7 +99,7 @@
 /// - Returns: The return value of the closure.
 @inlinable public func configure<Value: ~Copyable, E: Error>(
   _ value: consuming Value,
-  using closure: (inout Value) throws(E) -> Nothing,
+  using closure: (inout Value) throws(E) -> Void,
 ) throws(E) -> Value {
   var copy = value
   try closure(&copy)
@@ -128,7 +128,7 @@ infix operator <-
 /// - Returns: The return value of the closure.
 @inlinable public func <- <Value: ~Copyable, E: Error>(
   _ value: consuming Value,
-  closure: (inout Value) throws(E) -> Nothing,
+  closure: (inout Value) throws(E) -> Void,
 ) throws(E) -> Value {
   try configure(value, using: closure)
 }
@@ -144,7 +144,7 @@ infix operator <-
 ///   - closure: The closure to execute. Receives a reference to `value`.
 @inlinable public func mutate<Value: ~Copyable, E: Error>(
   _ value: inout Value,
-  using closure: (inout Value) throws(E) -> Nothing,
+  using closure: (inout Value) throws(E) -> Void,
 ) throws(E) {
   try closure(&value)
 }

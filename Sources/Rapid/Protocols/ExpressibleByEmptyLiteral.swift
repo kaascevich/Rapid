@@ -20,7 +20,7 @@
 /// uninhabited and therefore can't be instantiated.
 public protocol ExpressibleByEmptyArrayLiteral: ExpressibleByArrayLiteral {
   /// Creates an instance.
-  init(emptyArrayLiteral: Nothing)
+  init(emptyArrayLiteral: Void)
 }
 
 public extension ExpressibleByEmptyArrayLiteral {
@@ -37,7 +37,7 @@ public extension ExpressibleByEmptyArrayLiteral {
 /// `Never` is uninhabited and therefore can't be instantiated.
 public protocol ExpressibleByEmptyDictionaryLiteral: ExpressibleByDictionaryLiteral {
   /// Creates an instance.
-  init(emptyDictionaryLiteral: Nothing)
+  init(emptyDictionaryLiteral: Void)
 }
 
 public extension ExpressibleByEmptyDictionaryLiteral {

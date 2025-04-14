@@ -1,6 +1,6 @@
 # Changelog
 
-## 3.1.0
+## 4.0.0
 
 ### Additions
 
@@ -13,6 +13,12 @@
 - Re-added `@inlinable` to many declarations
   - This time, _only_ declarations with implementations that are extremely
     unlikely to change in the future
+
+### Deprecations
+
+- Deprecated `AnyType` and `Nothing` typealiases
+  - Let's be honest here, there wasn't really any good reason for these to exist
+    in the first place
 
 ## 3.0.1
 
