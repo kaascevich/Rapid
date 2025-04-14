@@ -14,7 +14,7 @@
 // <https://www.gnu.org/licenses/>.
 
 import func CwlPreconditionTesting.catchBadInstruction
-import RapidTests
+import TestHelpers
 import Testing
 
 @testable import Rapid

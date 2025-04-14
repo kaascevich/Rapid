@@ -35,7 +35,10 @@ let targets = [
 ]
 
 func rapidTestTarget(_ name: String) -> Target {
-  .testTarget(name: "\(name)Tests", dependencies: ["RapidTests"])
+  .testTarget(
+    name: "\(name)Tests",
+    dependencies: ["Rapid", "TestHelpers", "CwlPreconditionTesting"],
+  )
 }
 
 let package = Package(
@@ -63,9 +66,6 @@ let package = Package(
   ],
   targets: targets.map(rapidTestTarget) + [
     .target(name: "Rapid"),
-    .testTarget(
-      name: "RapidTests",
-      dependencies: ["Rapid", "CwlPreconditionTesting"]
-    ),
+    .target(name: "TestHelpers"),
   ],
 )
