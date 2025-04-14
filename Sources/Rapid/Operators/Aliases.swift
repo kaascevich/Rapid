@@ -28,7 +28,7 @@ public extension Equatable {
   ///   - rhs: Another value to compare.
   ///
   /// - Returns: Whether the two values are not equal.
-  static func ≠ (lhs: Self, rhs: Self) -> Bool {
+  @inlinable static func ≠ (lhs: Self, rhs: Self) -> Bool {
     lhs != rhs
   }
 }
@@ -47,7 +47,7 @@ public extension Comparable {
   ///   - rhs: Another value to compare.
   ///
   /// - Returns: Whether the first value is less than or equal to the second.
-  static func ≤ (lhs: Self, rhs: Self) -> Bool {
+  @inlinable static func ≤ (lhs: Self, rhs: Self) -> Bool {
     lhs <= rhs
   }
 
@@ -59,7 +59,7 @@ public extension Comparable {
   ///   - rhs: Another value to compare.
   ///
   /// - Returns: Whether the first value is greater than or equal to the second.
-  static func ≥ (lhs: Self, rhs: Self) -> Bool {
+  @inlinable static func ≥ (lhs: Self, rhs: Self) -> Bool {
     lhs >= rhs
   }
 }

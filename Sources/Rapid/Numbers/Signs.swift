@@ -20,7 +20,7 @@ public extension SignedNumeric where Self: Comparable {
   ///
   /// A number is positive if it compares greater than zero. Zero is neither
   /// negative nor positive.
-  var isPositive: Bool {
+  @inlinable var isPositive: Bool {
     self > 0
   }
 
@@ -30,7 +30,7 @@ public extension SignedNumeric where Self: Comparable {
   ///
   /// A number is negative if it compares less than zero. Zero is neither
   /// negative nor positive.
-  var isNegative: Bool {
+  @inlinable var isNegative: Bool {
     self < 0
   }
 
@@ -48,7 +48,7 @@ public extension SignedNumeric where Self: Comparable {
   /// let y = x.absoluteValue
   /// // Overflow error
   /// ```
-  var absoluteValue: Self {
+  @inlinable var absoluteValue: Self {
     abs(self)
   }
 }

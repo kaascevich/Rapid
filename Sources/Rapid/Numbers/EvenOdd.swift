@@ -42,7 +42,7 @@ public extension BinaryInteger {
   /// let evenNumber = -6
   /// // evenNumber.isOdd == false
   /// ```
-  var isOdd: Bool {
+  @inlinable var isOdd: Bool {
     !isEven
   }
 }

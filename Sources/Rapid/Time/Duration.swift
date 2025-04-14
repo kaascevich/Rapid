@@ -27,7 +27,7 @@ public extension Duration {
   /// - Parameter minutes: A number of minutes.
   ///
   /// - Returns: A `Duration` representing the given number of minutes.
-  static func minutes(_ minutes: some BinaryInteger) -> Self {
+  @inlinable static func minutes(_ minutes: some BinaryInteger) -> Self {
     seconds(minutes * 60)
   }
 
@@ -41,7 +41,7 @@ public extension Duration {
   /// - Parameter minutes: A number of minutes.
   ///
   /// - Returns: A `Duration` representing the given number of minutes.
-  static func minutes(_ minutes: Double) -> Self {
+  @inlinable static func minutes(_ minutes: Double) -> Self {
     seconds(minutes * 60)
   }
 
@@ -57,7 +57,7 @@ public extension Duration {
   /// - Parameter hours: A number of hours.
   ///
   /// - Returns: A `Duration` representing the given number of hours.
-  static func hours(_ hours: some BinaryInteger) -> Self {
+  @inlinable static func hours(_ hours: some BinaryInteger) -> Self {
     minutes(hours * 60)
   }
 
@@ -71,7 +71,7 @@ public extension Duration {
   /// - Parameter hours: A number of hours.
   ///
   /// - Returns: A `Duration` representing the given number of hours.
-  static func hours(_ hours: Double) -> Self {
+  @inlinable static func hours(_ hours: Double) -> Self {
     minutes(hours * 60)
   }
 
@@ -87,7 +87,7 @@ public extension Duration {
   /// - Parameter days: A number of days.
   ///
   /// - Returns: A `Duration` representing the given number of days.
-  static func days(_ days: some BinaryInteger) -> Self {
+  @inlinable static func days(_ days: some BinaryInteger) -> Self {
     hours(days * 24)
   }
 
@@ -101,7 +101,7 @@ public extension Duration {
   /// - Parameter days: A number of days.
   ///
   /// - Returns: A `Duration` representing the given number of days.
-  static func days(_ days: Double) -> Self {
+  @inlinable static func days(_ days: Double) -> Self {
     hours(days * 24)
   }
 
@@ -117,7 +117,7 @@ public extension Duration {
   /// - Parameter weeks: A number of weeks.
   ///
   /// - Returns: A `Duration` representing the given number of weeks.
-  static func weeks(_ weeks: some BinaryInteger) -> Self {
+  @inlinable static func weeks(_ weeks: some BinaryInteger) -> Self {
     days(weeks * 7)
   }
 
@@ -131,7 +131,7 @@ public extension Duration {
   /// - Parameter weeks: A number of weeks.
   ///
   /// - Returns: A `Duration` representing the given number of weeks.
-  static func weeks(_ weeks: Double) -> Self {
+  @inlinable static func weeks(_ weeks: Double) -> Self {
     days(weeks * 7)
   }
 }

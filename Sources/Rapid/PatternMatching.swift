@@ -43,7 +43,7 @@ public extension Error where Self: Equatable {
   ///   - other: Another error to match against `error`.
   ///
   /// - Returns: Whether the two errors match.
-  static func ~= (error: Self, other: some Error) -> Bool {
+  @inlinable static func ~= (error: Self, other: some Error) -> Bool {
     error == (other as? Self)
   }
 }
@@ -65,7 +65,7 @@ public extension KeyPath where Value == Bool {
   ///
   /// - Returns: Whether the property referenced by `keyPath` is `true` for
   ///   `value`.
-  static func ~= (keyPath: KeyPath, value: Root) -> Bool {
+  @inlinable static func ~= (keyPath: KeyPath, value: Root) -> Bool {
     value[keyPath: keyPath] == true
   }
 }

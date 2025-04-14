@@ -48,7 +48,7 @@ public extension SetAlgebra {
   ///   - rhs: Another set of the same type.
   ///
   /// - Returns: A new set with the unique elements of `lhs` and `rhs`.
-  static func + (lhs: Self, rhs: Self) -> Self {
+  @inlinable static func + (lhs: Self, rhs: Self) -> Self {
     lhs.union(rhs)
   }
 
@@ -82,7 +82,7 @@ public extension SetAlgebra {
   /// - Parameters:
   ///   - lhs: A set.
   ///   - rhs: Another set of the same type.
-  static func += (lhs: inout Self, rhs: Self) {
+  @inlinable static func += (lhs: inout Self, rhs: Self) {
     lhs.formUnion(rhs)
   }
 }
@@ -109,7 +109,7 @@ public extension SetAlgebra {
   ///   - rhs: Another set of the same type.
   ///
   /// - Returns: A new set.
-  static func - (lhs: Self, rhs: Self) -> Self {
+  @inlinable static func - (lhs: Self, rhs: Self) -> Self {
     lhs.subtracting(rhs)
   }
 
@@ -130,7 +130,7 @@ public extension SetAlgebra {
   /// - Parameters:
   ///   - lhs: A set.
   ///   - rhs: Another set of the same type.
-  static func -= (lhs: inout Self, rhs: Self) {
+  @inlinable static func -= (lhs: inout Self, rhs: Self) {
     lhs.subtract(rhs)
   }
 }

@@ -33,7 +33,7 @@ public extension Collection {
   /// ```
   ///
   /// - Complexity: O(1).
-  var isNotEmpty: Bool {
+  @inlinable var isNotEmpty: Bool {
     !isEmpty
   }
 }
@@ -45,7 +45,7 @@ public extension Optional where Wrapped: Collection {
   /// value, whether it does not contain any elements.
   ///
   /// - Complexity: O(1).
-  var isNilOrEmpty: Bool {
+  @inlinable var isNilOrEmpty: Bool {
     self.isNil || self?.isEmpty == true
   }
 
@@ -53,7 +53,7 @@ public extension Optional where Wrapped: Collection {
   /// whether it contains any elements.
   ///
   /// - Complexity: O(1).
-  var isNotNilOrEmpty: Bool {
+  @inlinable var isNotNilOrEmpty: Bool {
     !isNilOrEmpty
   }
 }

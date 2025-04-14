@@ -40,7 +40,7 @@
 /// - Parameter closure: The closure to execute.
 ///
 /// - Returns: The closure's return value, if any.
-public func run<ReturnType, E: Error>(
+@inlinable public func run<ReturnType, E: Error>(
   closure: () throws(E) -> ReturnType,
 ) throws(E) -> ReturnType {
   try closure()
@@ -70,7 +70,7 @@ public func run<ReturnType, E: Error>(
 /// - Parameters:
 ///   - value: Anything.
 ///   - closure: The closure to execute. Receives a copy of `value`.
-public func run<Value, E: Error>(
+@inlinable public func run<Value, E: Error>(
   with value: Value,
   do closure: (Value) throws(E) -> Nothing,
 ) throws(E) {
@@ -97,7 +97,7 @@ public func run<Value, E: Error>(
 ///   - closure: The closure to execute. Receives a copy of `value` to mutate.
 ///
 /// - Returns: The return value of the closure.
-public func configure<Value, E: Error>(
+@inlinable public func configure<Value, E: Error>(
   _ value: Value,
   using closure: (inout Value) throws(E) -> Nothing,
 ) throws(E) -> Value {
@@ -126,7 +126,7 @@ infix operator <-
 ///   - closure: The closure to execute. Receives a copy of `value` to mutate.
 ///
 /// - Returns: The return value of the closure.
-public func <- <Value, E: Error>(
+@inlinable public func <- <Value, E: Error>(
   _ value: Value,
   closure: (inout Value) throws(E) -> Nothing,
 ) throws(E) -> Value {
@@ -142,7 +142,7 @@ public func <- <Value, E: Error>(
 /// - Parameters:
 ///   - value: Anything.
 ///   - closure: The closure to execute. Receives a reference to `value`.
-public func mutate<Value, E: Error>(
+@inlinable public func mutate<Value, E: Error>(
   _ value: inout Value,
   using closure: (inout Value) throws(E) -> Nothing,
 ) throws(E) {

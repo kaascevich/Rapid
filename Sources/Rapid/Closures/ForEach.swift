@@ -46,7 +46,9 @@ public extension BinaryInteger where Stride: SignedInteger {
   ///
   /// - Parameter body: A closure that takes an instance of `Self` as a
   ///   parameter.
-  func `repeat`<E: Error>(_ body: (Self) throws(E) -> Nothing) throws(E) {
+  @inlinable func `repeat`<E: Error>(
+    _ body: (Self) throws(E) -> Nothing,
+  ) throws(E) {
     for index in 0..<self {
       try body(index)
     }

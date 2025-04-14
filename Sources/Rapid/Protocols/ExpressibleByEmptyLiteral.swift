@@ -25,7 +25,7 @@ public protocol ExpressibleByEmptyArrayLiteral: ExpressibleByArrayLiteral {
 
 public extension ExpressibleByEmptyArrayLiteral {
   /// Creates an instance.
-  init(arrayLiteral _: Never...) {
+  @inlinable init(arrayLiteral _: Never...) {
     self.init(emptyArrayLiteral: ())
   }
 }
@@ -42,7 +42,7 @@ public protocol ExpressibleByEmptyDictionaryLiteral: ExpressibleByDictionaryLite
 
 public extension ExpressibleByEmptyDictionaryLiteral {
   /// Creates an instance.
-  init(dictionaryLiteral _: (Never, Never)...) {
+  @inlinable init(dictionaryLiteral _: (Never, Never)...) {
     self.init(emptyDictionaryLiteral: ())
   }
 }

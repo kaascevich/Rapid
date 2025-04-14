@@ -43,7 +43,7 @@ public extension Double {
   /// - Parameters:
   ///   - base: A number.
   ///   - exponent: Another number.
-  static func **= (base: inout Self, exponent: Self) {
+  @inlinable static func **= (base: inout Self, exponent: Self) {
     base = base ** exponent
   }
 }

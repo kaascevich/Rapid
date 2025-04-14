@@ -26,7 +26,7 @@ public extension Comparable {
   /// - Parameter range: A closed range.
   ///
   /// - Returns: `self`, clamped to `range`.
-  func clamped(to range: ClosedRange<Self>) -> Self {
+  @inlinable func clamped(to range: ClosedRange<Self>) -> Self {
     if self > range.upperBound {
       range.upperBound
     } else if self < range.lowerBound {
@@ -48,7 +48,7 @@ public extension Comparable {
   /// ```
   ///
   /// - Parameter range: A closed range.
-  mutating func clamp(to range: ClosedRange<Self>) {
+  @inlinable mutating func clamp(to range: ClosedRange<Self>) {
     self = clamped(to: range)
   }
 }

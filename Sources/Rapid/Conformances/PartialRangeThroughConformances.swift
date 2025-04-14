@@ -29,13 +29,13 @@ extension PartialRangeThrough: @retroactive Equatable {
   ///   - rhs: Another range to compare.
   ///
   /// - Returns: Whether the two ranges are equal.
-  public static func == (lhs: Self, rhs: Self) -> Bool {
+  @inlinable public static func == (lhs: Self, rhs: Self) -> Bool {
     lhs.upperBound == rhs.upperBound
   }
 }
 
 extension PartialRangeThrough: @retroactive Hashable where Bound: Hashable {
-  public func hash(into hasher: inout Hasher) {
+  @inlinable public func hash(into hasher: inout Hasher) {
     hasher.combine(upperBound)
   }
 }

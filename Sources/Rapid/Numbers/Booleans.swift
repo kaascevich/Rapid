@@ -18,7 +18,7 @@ public extension Bool {
   ///
   /// This property evaluates to `1` if this value is `true`, and `0` otherwise.
   /// It's most useful when interfacing with legacy C code.
-  var asInt: Int {
+  @inlinable var asInt: Int {
     if self { 1 } else { 0 }
   }
 
@@ -28,7 +28,7 @@ public extension Bool {
   /// This initializer is most useful when interfacing with legacy C code.
   ///
   /// - Parameter value: An integer value.
-  init(fromInt value: some BinaryInteger) {
+  @inlinable init(fromInt value: some BinaryInteger) {
     self = value.isNonzero
   }
 }

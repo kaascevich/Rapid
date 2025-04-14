@@ -15,12 +15,12 @@
 
 public extension Optional {
   /// A Boolean value indicating whether this optional does not contain a value.
-  var isNil: Bool {
+  @inlinable var isNil: Bool {
     self == nil
   }
 
   /// A Boolean value indicating whether this optional contains a value.
-  var isNotNil: Bool {
+  @inlinable var isNotNil: Bool {
     !isNil
   }
 }

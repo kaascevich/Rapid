@@ -28,7 +28,7 @@ public extension Comparable {
   ///
   /// - Returns: `true` if this value is contained within `range`; otherwise,
   ///   `false`.
-  func isBetween(_ range: some RangeExpression<Self>) -> Bool {
+  @inlinable func isBetween(_ range: some RangeExpression<Self>) -> Bool {
     range.contains(self)
   }
 }

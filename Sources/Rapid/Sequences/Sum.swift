@@ -24,7 +24,7 @@ public extension Sequence where Element: Numeric {
   ///
   /// - Returns: The sum of the sequence's elements. If the sequence has no
   ///   elements, the result is `0`.
-  func sum() -> Element {
+  @inlinable func sum() -> Element {
     reduce(.zero, +)
   }
 
@@ -38,7 +38,7 @@ public extension Sequence where Element: Numeric {
   ///
   /// - Returns: The product of the sequence's elements. If the sequence has no
   ///   elements, the result is `1`.
-  func product() -> Element {
+  @inlinable func product() -> Element {
     reduce(1, *)
   }
 }
