@@ -23,8 +23,8 @@ precedencegroup PowerPrecedence {
   associativity: right
 }
 
-infix operator **: PowerPrecedence
-infix operator **=: AssignmentPrecedence
+infix operator ** : PowerPrecedence
+infix operator **= : AssignmentPrecedence
 
 public extension Double {
   /// Returns a number raised to a given power.

@@ -34,9 +34,8 @@ import Testing
     /// The `run(closure:)` function rethrows any throws error.
     @Test("run(closure:) -> throws") func runClosureThrows() {
       #expect(throws: SomeError.ohNo) {
-        let _ = try run {
+        _ = try run {
           throw SomeError.ohNo
-          return 42
         }
       }
     }
@@ -77,11 +76,8 @@ import Testing
     /// The `configure(_:using:)` function rethrows any thrown error.
     @Test("configure(_:using:) -> throws") func configureUsingThrows() {
       #expect(throws: SomeError.ohNo) {
-        let _ = try configure(NumberFormatter()) {
-          $0.numberStyle = .decimal
-          $0.minimumFractionDigits = 2
+        _ = try configure(NumberFormatter()) { _ in
           throw SomeError.ohNo
-          $0.allowsFloats = true
         }
       }
     }
@@ -102,11 +98,8 @@ import Testing
     /// The `<-(_:closure:)` operator rethrows any thrown error.
     @Test("<-(_:closure:) -> throws") func configureUsingOperatorThrows() {
       #expect(throws: SomeError.ohNo) {
-        let _ = try NumberFormatter() <- {
-          $0.numberStyle = .decimal
-          $0.minimumFractionDigits = 2
+        _ = try NumberFormatter() <- { _ in
           throw SomeError.ohNo
-          $0.allowsFloats = true
         }
       }
     }
@@ -131,11 +124,8 @@ import Testing
     @Test("mutate(_:using:) -> throws") func mutateUsingThrows() {
       #expect(throws: SomeError.ohNo) {
         var formatter = NumberFormatter()
-        try mutate(&formatter) {
-          $0.numberStyle = .decimal
-          $0.minimumFractionDigits = 2
+        try mutate(&formatter) { _ in
           throw SomeError.ohNo
-          $0.allowsFloats = true
         }
       }
     }

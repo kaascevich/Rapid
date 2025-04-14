@@ -13,7 +13,7 @@
 // You should have received a copy of the GNU AGPL along with Rapid. If not, see
 // <https://www.gnu.org/licenses/>.
 
-infix operator ??=: AssignmentPrecedence
+infix operator ??= : AssignmentPrecedence
 
 public extension Optional {
   /// Assigns a default value to an `Optional` instance if it doesn't have a
@@ -51,7 +51,7 @@ public extension Optional {
   ///   - optional: An optional value.
   ///   - defaultValue: A value to use as a default. `defaultValue` is the same
   ///     type as the `Wrapped` type of `optional`.
-  static func ??=(
+  static func ??= (
     optional: inout Self,
     defaultValue: @autoclosure () -> Wrapped,
   ) {

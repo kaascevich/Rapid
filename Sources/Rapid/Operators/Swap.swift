@@ -13,7 +13,7 @@
 // You should have received a copy of the GNU AGPL along with Rapid. If not, see
 // <https://www.gnu.org/licenses/>.
 
-infix operator <=>: AssignmentPrecedence
+infix operator <=> : AssignmentPrecedence
 
 /// Exchanges the values of the two operands.
 ///
@@ -24,6 +24,9 @@ infix operator <=>: AssignmentPrecedence
 /// - Parameters:
 ///   - a: The first value to swap.
 ///   - b: The second value to swap.
-@inlinable public func <=> <Value>(_ a: inout Value, _ b: inout Value) {
-  swap(&a, &b)
+@inlinable public func <=> <Value: ~Copyable>(
+  lhs: inout Value,
+  rhs: inout Value,
+) {
+  swap(&lhs, &rhs)
 }

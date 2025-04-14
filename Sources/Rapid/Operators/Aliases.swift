@@ -15,7 +15,7 @@
 
 // MARK: - Not Equal To
 
-infix operator ≠: ComparisonPrecedence
+infix operator ≠ : ComparisonPrecedence
 
 public extension Equatable {
   /// Returns a Boolean value indicating whether two values are not equal.
@@ -35,8 +35,8 @@ public extension Equatable {
 
 // MARK: - Greater/Less Than or Equal To
 
-infix operator ≤: ComparisonPrecedence
-infix operator ≥: ComparisonPrecedence
+infix operator ≤ : ComparisonPrecedence
+infix operator ≥ : ComparisonPrecedence
 
 public extension Comparable {
   /// Returns a Boolean value indicating whether the value of the first argument

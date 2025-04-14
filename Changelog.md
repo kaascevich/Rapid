@@ -9,6 +9,9 @@
 ### Updates
 
 - Migrated several functions to use typed `throws` instead of `rethrows`
+- Re-added `@inlinable` to many declarations
+  - This time, _only_ declarations with implementations that are extremely
+    unlikely to change in the future
 
 ## 3.0.1
 

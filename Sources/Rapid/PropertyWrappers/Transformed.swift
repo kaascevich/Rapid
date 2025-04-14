@@ -28,13 +28,17 @@
   /// A function type that transforms a value.
   public typealias Transform = (Value) -> Value
 
+  /// The underlying value.
+  private var _wrappedValue: Value
+
   /// The wrapped value.
   ///
   /// On mutation, this property is set to the result of calling ``transform``
   /// with the new value.
   public var wrappedValue: Value {
-    didSet {
-      wrappedValue = transform(wrappedValue)
+    get { _wrappedValue }
+    set {
+      _wrappedValue = transform(newValue)
     }
   }
 
@@ -49,8 +53,11 @@
   /// - Parameters:
   ///   - wrappedValue: The wrapped value.
   ///   - transform: The transformation to apply to the wrapped value.
-  public init(wrappedValue: Value, with transform: @escaping Transform) {
+  public init(
+    wrappedValue: borrowing Value,
+    with transform: @escaping Transform,
+  ) {
     self.transform = transform
-    self.wrappedValue = transform(wrappedValue)
+    self._wrappedValue = transform(wrappedValue)
   }
 }

@@ -34,14 +34,18 @@
   /// A function type that validates a value.
   public typealias Validator = (Value) -> Bool
 
+  /// The underlying value.
+  private var _wrappedValue: Value
+
   /// The wrapped value.
   ///
   /// On mutation, this property is reverted to the old value if calling
   /// `validator` with this property returns `false`.
   public var wrappedValue: Value {
-    didSet {
-      if !validator(wrappedValue) {
-        wrappedValue = oldValue
+    get { _wrappedValue }
+    set {
+      if validator(newValue) {
+        _wrappedValue = newValue
       }
     }
   }
@@ -66,6 +70,6 @@
       validator(wrappedValue),
       "initial value of \(wrappedValue) is invalid",
     )
-    self.wrappedValue = wrappedValue
+    self._wrappedValue = wrappedValue
   }
 }

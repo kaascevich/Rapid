@@ -13,8 +13,8 @@
 // You should have received a copy of the GNU AGPL along with Rapid. If not, see
 // <https://www.gnu.org/licenses/>.
 
-infix operator ?!: NilCoalescingPrecedence
-infix operator !!: NilCoalescingPrecedence
+infix operator ?! : NilCoalescingPrecedence
+infix operator !! : NilCoalescingPrecedence
 
 public extension Optional {
   /// Performs a throwing `nil`-coalescing operation, returning the wrapped

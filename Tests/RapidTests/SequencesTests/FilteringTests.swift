@@ -42,10 +42,7 @@ import Testing
     /// The `noneSatisfy(_:)` method rethrows any thrown error.
     @Test("noneSatisfy(_:) -> throws") func noneSatisfyThrows() {
       #expect(throws: SomeError.ohNo) {
-        _ = try names.noneSatisfy {
-          throw SomeError.ohNo
-          return $0.count < 5
-        }
+        _ = try names.noneSatisfy { _ in throw SomeError.ohNo }
       }
     }
   }
@@ -68,10 +65,7 @@ import Testing
     /// The `last(where:)` method rethrows any thrown error.
     @Test("last(where:) -> throws") func lastWhereThrows() {
       #expect(throws: SomeError.ohNo) {
-        _ = try numbers.last {
-          throw SomeError.ohNo
-          return $0 == 0
-        }
+        _ = try numbers.last { _ in throw SomeError.ohNo }
       }
     }
   }
@@ -116,10 +110,7 @@ import Testing
     /// The `sorted(by:using:)` method rethrows any thrown error.
     @Test("sorted(by:using:) -> throws") func sortedByUsingThrows() {
       #expect(throws: SomeError.ohNo) {
-        _ = try students.sorted(by: \.count) {
-          throw SomeError.ohNo
-          return $0 > $1
-        }
+        _ = try students.sorted(by: \.count) { _, _ in throw SomeError.ohNo }
       }
     }
   }
