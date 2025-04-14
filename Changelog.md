@@ -9,6 +9,7 @@
 ### Updates
 
 - Migrated several functions to use typed `throws` instead of `rethrows`
+- Added support for `~Copyable` types to closure functions
 - Re-added `@inlinable` to many declarations
   - This time, _only_ declarations with implementations that are extremely
     unlikely to change in the future
