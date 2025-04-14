@@ -6,6 +6,10 @@
 
 - Added `??=(_:_:)` nil-coalescing assignment operator
 
+### Updates
+
+- Migrated several functions to use typed `throws` instead of `rethrows`
+
 ## 3.0.1
 
 Hi, I'm back (again)!

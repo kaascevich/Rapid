@@ -40,9 +40,9 @@
 /// - Parameter closure: The closure to execute.
 ///
 /// - Returns: The closure's return value, if any.
-public func run<ReturnType>(
-  closure: () throws -> ReturnType,
-) rethrows -> ReturnType {
+public func run<ReturnType, E: Error>(
+  closure: () throws(E) -> ReturnType,
+) throws(E) -> ReturnType {
   try closure()
 }
 
@@ -70,10 +70,10 @@ public func run<ReturnType>(
 /// - Parameters:
 ///   - value: Anything.
 ///   - closure: The closure to execute. Receives a copy of `value`.
-public func run<Value>(
+public func run<Value, E: Error>(
   with value: Value,
-  do closure: (Value) throws -> Nothing,
-) rethrows {
+  do closure: (Value) throws(E) -> Nothing,
+) throws(E) {
   try closure(value)
 }
 
@@ -97,10 +97,10 @@ public func run<Value>(
 ///   - closure: The closure to execute. Receives a copy of `value` to mutate.
 ///
 /// - Returns: The return value of the closure.
-public func configure<Value>(
+public func configure<Value, E: Error>(
   _ value: Value,
-  using closure: (inout Value) throws -> Nothing,
-) rethrows -> Value {
+  using closure: (inout Value) throws(E) -> Nothing,
+) throws(E) -> Value {
   var copy = value
   try closure(&copy)
   return copy
@@ -126,10 +126,10 @@ infix operator <-
 ///   - closure: The closure to execute. Receives a copy of `value` to mutate.
 ///
 /// - Returns: The return value of the closure.
-public func <- <Value>(
+public func <- <Value, E: Error>(
   _ value: Value,
-  closure: (inout Value) throws -> Nothing,
-) rethrows -> Value {
+  closure: (inout Value) throws(E) -> Nothing,
+) throws(E) -> Value {
   try configure(value, using: closure)
 }
 
@@ -142,9 +142,9 @@ public func <- <Value>(
 /// - Parameters:
 ///   - value: Anything.
 ///   - closure: The closure to execute. Receives a reference to `value`.
-public func mutate<Value>(
+public func mutate<Value, E: Error>(
   _ value: inout Value,
-  using closure: (inout Value) throws -> Nothing,
-) rethrows {
+  using closure: (inout Value) throws(E) -> Nothing,
+) throws(E) {
   try closure(&value)
 }

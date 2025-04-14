@@ -169,8 +169,8 @@ public extension Sequence {
   /// - Parameter keyPath: A key path to a property of `Element`.
   ///
   /// - Returns: An array of the sequence's elements, sorted by `keyPath`.
-  func sorted<T: Comparable>(by keyPath: KeyPath<Element, T>) -> [Element] {
-    sorted { $0[keyPath: keyPath] < $1[keyPath: keyPath] }
+  func sorted(by keyPath: KeyPath<Element, some Comparable>) -> [Element] {
+    sorted(by: keyPath, using: <)
   }
 
   /// Returns the elements of the sequence, sorted by the given property, using
