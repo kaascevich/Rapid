@@ -19,7 +19,8 @@ import Testing
 
 @Suite struct StringifyTests {
   /// The `§` operator returns the value's description.
-  @Test("§(_:)") func stringify() {
+  @Test("§(_:)")
+  func stringify() {
     let int = 6
     #expect(§int == "6")
 

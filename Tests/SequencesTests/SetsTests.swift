@@ -21,7 +21,8 @@ import Testing
   @Suite struct SetAddTests {
     /// The `Set.+(_:_:)` operator combines two sets. It keeps existing members
     /// in the event of conflicts.
-    @Test("Set.+(_:_:)") func setAdd() {
+    @Test("Set.+(_:_:)")
+    func setAdd() {
       let attendees: Set = ["Alicia", "Bethany", "Diana"]
       let visitors: Set = ["Marcia", "Nathaniel"]
       let attendeesAndVisitors = attendees + visitors
@@ -34,7 +35,8 @@ import Testing
 
     /// The `Set.+=(_:_:)` operator combines two sets and assigns the result. It
     /// keeps existing members in the event of conflicts.
-    @Test("Set.+=(_:_:)") func setAddAssign() {
+    @Test("Set.+=(_:_:)")
+    func setAddAssign() {
       var attendees: Set = ["Alicia", "Bethany", "Diana"]
       let visitors: Set = ["Marcia", "Nathaniel"]
       attendees += visitors
@@ -48,7 +50,8 @@ import Testing
 
   @Suite struct SetSubtractTests {
     /// The `Set.-(_:_:)` operator subtracts the second set from the first set.
-    @Test("Set.-(_:_:)") func setSubtract() {
+    @Test("Set.-(_:_:)")
+    func setSubtract() {
       let employees: Set = ["Alicia", "Bethany", "Chris", "Diana", "Eric"]
       let neighbors: Set = ["Bethany", "Eric", "Forlani", "Greta"]
       let nonNeighbors = employees - neighbors
@@ -57,7 +60,8 @@ import Testing
 
     /// The `Set.-=(_:_:)` operator subtracts the second set from the first set
     /// and assigns the result.
-    @Test("Set.-=(_:_:)") func setSubtractAssign() {
+    @Test("Set.-=(_:_:)")
+    func setSubtractAssign() {
       var employees: Set = ["Alicia", "Bethany", "Chris", "Diana", "Eric"]
       let neighbors: Set = ["Bethany", "Eric", "Forlani", "Greta"]
       employees -= neighbors

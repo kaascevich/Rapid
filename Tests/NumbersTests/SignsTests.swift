@@ -20,12 +20,14 @@ import Testing
 @Suite enum SignsTests {
   @Suite struct IsPositiveTests {
     /// The `isPositive` property is `true` if the value is positive.
-    @Test("isPositive -> true") func isPositiveTrue() {
+    @Test("isPositive -> true")
+    func isPositiveTrue() {
       #expect(42.isPositive)
     }
 
     /// The `isPositive` property is `false` if the value is negative or zero.
-    @Test("isPositive -> false") func isPositiveFalse() {
+    @Test("isPositive -> false")
+    func isPositiveFalse() {
       #expect(!(-69).isPositive)
       #expect(!0.isPositive)
     }
@@ -33,12 +35,14 @@ import Testing
 
   @Suite struct IsNegativeTests {
     /// The `isNegative` property is `true` if the value is negative.
-    @Test("isNegative -> true") func isNegativeTrue() {
+    @Test("isNegative -> true")
+    func isNegativeTrue() {
       #expect((-42).isNegative)
     }
 
     /// The `isNegative` property is `false` if the value is positive or zero.
-    @Test("isNegative -> false") func isNegativeFalse() {
+    @Test("isNegative -> false")
+    func isNegativeFalse() {
       #expect(!69.isNegative)
       #expect(!0.isNegative)
     }
@@ -47,18 +51,21 @@ import Testing
   @Suite struct AbsoluteValueTests {
     /// The `absoluteValue` property is the value itself when the value is
     /// positive.
-    @Test("absoluteValue <- positive") func absoluteValuePositive() {
+    @Test("absoluteValue <- positive")
+    func absoluteValuePositive() {
       #expect(42.absoluteValue == 42)
     }
 
     /// The `absoluteValue` property is the value's additive inverse when the
     /// value is negative.
-    @Test("absoluteValue <- negative") func absoluteValueNegative() {
+    @Test("absoluteValue <- negative")
+    func absoluteValueNegative() {
       #expect((-69).absoluteValue == 69)
     }
 
     /// The `absoluteValue` property is zero when the value is zero.
-    @Test("absoluteValue <- zero") func absoluteValueZero() {
+    @Test("absoluteValue <- zero")
+    func absoluteValueZero() {
       #expect(0.absoluteValue == 0)
     }
   }

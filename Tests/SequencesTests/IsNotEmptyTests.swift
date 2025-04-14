@@ -20,7 +20,8 @@ import Testing
 @Suite struct IsNotEmptyTests {
   /// The `isNotEmpty` property is `true` if the collection contains elements,
   /// `false` otherwise.
-  @Test("isNotEmpty") func isNotEmpty() {
+  @Test("isNotEmpty")
+  func isNotEmpty() {
     #expect([1, 2, 3, 4, 5].isNotEmpty)
     #expect(![].isNotEmpty)
 
@@ -33,7 +34,8 @@ import Testing
 
   /// The `isNilOrEmpty` property is `true` if the collection is `nil` or empty,
   /// `false` otherwise.
-  @Test("isNilOrEmpty") func isNilOrEmpty() {
+  @Test("isNilOrEmpty")
+  func isNilOrEmpty() {
     // swiftlint:disable discouraged_optional_collection
 
     var array: [Int]?
@@ -56,7 +58,8 @@ import Testing
 
   /// The `isNotNilOrEmpty` property is `false` if the collection is `nil` or
   /// empty, `true` otherwise.
-  @Test("isNotNilOrEmpty") func isNotNilOrEmpty() {
+  @Test("isNotNilOrEmpty")
+  func isNotNilOrEmpty() {
     // swiftlint:disable discouraged_optional_collection
 
     var array: [Int]?

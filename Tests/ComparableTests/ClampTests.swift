@@ -20,14 +20,16 @@ import Testing
 @Suite enum ClampTests {
   @Suite struct ClampedToTests {
     /// The `clamped(to:)` method returns the value if it is in the given range.
-    @Test("clamped(to:) <- in range") func clampedToInRange() {
+    @Test("clamped(to:) <- in range")
+    func clampedToInRange() {
       #expect(7.clamped(to: 6...12) == 7)
       #expect(0.32.clamped(to: 0.31...0.33) == 0.32)
     }
 
     /// The `clamped(to:)` method clamps the value if it is not in the given
     /// range.
-    @Test("clamped(to:) <- not in range") func clampedToNotInRange() {
+    @Test("clamped(to:) <- not in range")
+    func clampedToNotInRange() {
       #expect(1.clamped(to: 5...7) == 5)
       #expect("e".clamped(to: "a"..."d") == "d")
     }
@@ -36,7 +38,8 @@ import Testing
   @Suite struct ClampToTests {
     /// The `clamp(to:)` method does not change the value if it is in the given
     /// range.
-    @Test("clamp(to:) <- in range") func clampToInRange() {
+    @Test("clamp(to:) <- in range")
+    func clampToInRange() {
       var seven = 7
       seven.clamp(to: 6...12)
       #expect(seven == 7)
@@ -48,7 +51,8 @@ import Testing
 
     /// The `clamp(to:)` method clamps the value if it is not in the given
     /// range.
-    @Test("clamp(to:) <- not in range") func clampToNotInRange() {
+    @Test("clamp(to:) <- not in range")
+    func clampToNotInRange() {
       var one = 1
       one.clamp(to: 5...7)
       #expect(one == 5)

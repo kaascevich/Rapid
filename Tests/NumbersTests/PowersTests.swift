@@ -21,13 +21,15 @@ import Testing
 
 @Suite struct PowersTests {
   /// The `**(_:_:)` operator raises the first value to the second.
-  @Test("**(_:_:)") func power() {
+  @Test("**(_:_:)")
+  func power() {
     #expect(6 ** 3 == 216)
   }
 
   /// The `**=(_:_:)` operator raises the first value to the second and assigns
   /// the result.
-  @Test("**=(_:_:)") func powerAssignment() {
+  @Test("**=(_:_:)")
+  func powerAssignment() {
     var x = 3.0
     x **= 5
     #expect(x == 243)

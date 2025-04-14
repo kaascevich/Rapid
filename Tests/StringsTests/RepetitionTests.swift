@@ -20,7 +20,8 @@ import Testing
 @Suite struct RepetitionTests {
   /// The `*(_:_:)` operator, when used with strings, creates a `String`
   /// repeated the specified number of times.
-  @Test("*(_:_:)") func repetition() {
+  @Test("*(_:_:)")
+  func repetition() {
     #expect("hello" * 3 == "hellohellohello")
   }
 }

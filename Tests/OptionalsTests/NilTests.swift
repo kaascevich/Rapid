@@ -20,13 +20,15 @@ import Testing
 @Suite enum NilTests {
   @Suite struct IsNilTests {
     /// The `isNil` property is `true` if the optional is `nil`.
-    @Test("isNil -> true") func isNilTrue() {
+    @Test("isNil -> true")
+    func isNilTrue() {
       let int: Int? = nil
       #expect(int.isNil)
     }
 
     /// The `isNil` property is `false` if the optional has a value.
-    @Test("isNil -> false") func isNilFalse() {
+    @Test("isNil -> false")
+    func isNilFalse() {
       let int: Int? = 42
       #expect(!int.isNil)
     }
@@ -34,13 +36,15 @@ import Testing
 
   @Suite struct IsNotNilTests {
     /// The `isNotNil` property is `false` if the optional is `nil`.
-    @Test("isNotNil -> false") func isNotNilFalse() {
+    @Test("isNotNil -> false")
+    func isNotNilFalse() {
       let int: Int? = nil
       #expect(!int.isNotNil)
     }
 
     /// The `isNil` property is `true` if the optional has a value.
-    @Test("isNotNil -> true") func isNotNilTrue() {
+    @Test("isNotNil -> true")
+    func isNotNilTrue() {
       let int: Int? = 42
       #expect(int.isNotNil)
     }

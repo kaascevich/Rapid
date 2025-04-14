@@ -19,12 +19,14 @@ import Testing
 
 @Suite struct SumTests {
   /// The `sum()` method returns the sum of the elements.
-  @Test("sum()") func sum() {
+  @Test("sum()")
+  func sum() {
     #expect((1...10).sum() == 55)
   }
 
   /// The `product()` method returns the product of the elements.
-  @Test("product()") func product() {
+  @Test("product()")
+  func product() {
     #expect((1...5).product() == 120)
   }
 }

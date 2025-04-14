@@ -18,23 +18,24 @@
 import PackageDescription
 
 let targets = [
-  "ClosureTests",
-  "ComparableTests",
-  "ConformancesTests",
-  "NumbersTests",
-  "OperatorsTests",
-  "OptionalTests",
-  "PatternMatchingTests",
-  "ProtocolsTests",
-  "ResultBuildersTests",
-  "SequencesTests",
-  "StringsTests",
-  "TimeTests",
-  "TypeErasureTests",
+  "Closures",
+  "Comparable",
+  "Conformances",
+  "Numbers",
+  "Operators",
+  "Optionals",
+  "PatternMatching",
+  "PropertyWrappers",
+  "Protocols",
+  "ResultBuilders",
+  "Sequences",
+  "Strings",
+  "Time",
+  "TypeErasure",
 ]
 
 func rapidTestTarget(_ name: String) -> Target {
-  .testTarget(name: name, dependencies: ["RapidTests"])
+  .testTarget(name: "\(name)Tests", dependencies: ["RapidTests"])
 }
 
 let package = Package(

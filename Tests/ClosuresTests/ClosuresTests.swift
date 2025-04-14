@@ -14,7 +14,7 @@
 // <https://www.gnu.org/licenses/>.
 
 import Foundation
-import enum RapidTests.MockError
+import RapidTests
 import Testing
 
 @testable import Rapid
@@ -22,7 +22,8 @@ import Testing
 @Suite enum ClosuresTests {
   @Suite struct RunClosureTests {
     /// The `run(closure:)` function executes a closure.
-    @Test("run(closure:)") func runClosure() {
+    @Test("run(closure:)")
+    func runClosure() {
       let sixPlusOne = run {
         var six = 6
         six += 1
@@ -33,7 +34,8 @@ import Testing
     }
 
     /// The `run(closure:)` function rethrows any throws error.
-    @Test("run(closure:) -> throws") func runClosureThrows() {
+    @Test("run(closure:) -> throws", .tags(.rethrowing))
+    func runClosureThrows() {
       #expect(throws: MockError.bad) {
         _ = try run {
           throw MockError.bad
@@ -44,14 +46,16 @@ import Testing
 
   @Suite struct RunWithTests {
     /// The `run(with:do:)` function executes a closure, passing it the value.
-    @Test("run(with:do:)") func runWith() {
+    @Test("run(with:do:)")
+    func runWith() {
       run(with: 42) {
         #expect($0 == 42)
       }
     }
 
     /// The `run(with:do:)` function rethrows any thrown error.
-    @Test("run(with:do:) -> throws") func runWithThrows() {
+    @Test("run(with:do:) -> throws", .tags(.rethrowing))
+    func runWithThrows() {
       #expect(throws: MockError.bad) {
         try run(with: 42) { _ in
           throw MockError.bad
@@ -62,7 +66,8 @@ import Testing
 
   @Suite struct ConfigureUsingTests {
     /// The `configure(_:using:)` function mutates a copy of a value.
-    @Test("configure(_:using:)") func configureUsing() {
+    @Test("configure(_:using:)")
+    func configureUsing() {
       let formatter = configure(NumberFormatter()) {
         $0.numberStyle = .decimal
         $0.minimumFractionDigits = 2
@@ -75,7 +80,8 @@ import Testing
     }
 
     /// The `configure(_:using:)` function rethrows any thrown error.
-    @Test("configure(_:using:) -> throws") func configureUsingThrows() {
+    @Test("configure(_:using:) -> throws", .tags(.rethrowing))
+    func configureUsingThrows() {
       #expect(throws: MockError.bad) {
         _ = try configure(NumberFormatter()) { _ in
           throw MockError.bad
@@ -84,7 +90,8 @@ import Testing
     }
 
     /// The `<-(_:closure:)` operator mutates a copy of a value.
-    @Test("<-(_:closure:)") func configureUsingOperator() {
+    @Test("<-(_:closure:)")
+    func configureUsingOperator() {
       let formatter = NumberFormatter() <- {
         $0.numberStyle = .decimal
         $0.minimumFractionDigits = 2
@@ -97,7 +104,8 @@ import Testing
     }
 
     /// The `<-(_:closure:)` operator rethrows any thrown error.
-    @Test("<-(_:closure:) -> throws") func configureUsingOperatorThrows() {
+    @Test("<-(_:closure:) -> throws", .tags(.rethrowing))
+    func configureUsingOperatorThrows() {
       #expect(throws: MockError.bad) {
         _ = try NumberFormatter() <- { _ in
           throw MockError.bad
@@ -108,7 +116,8 @@ import Testing
 
   @Suite struct MutateUsingTests {
     /// The `mutate(_:using:)` function mutates a value directly.
-    @Test("mutate(_:using:)") func mutateUsing() {
+    @Test("mutate(_:using:)")
+    func mutateUsing() {
       var formatter = NumberFormatter()
       mutate(&formatter) {
         $0.numberStyle = .decimal
@@ -122,7 +131,8 @@ import Testing
     }
 
     /// The `mutate(_:using:)` function rethrows any thrown error.
-    @Test("mutate(_:using:) -> throws") func mutateUsingThrows() {
+    @Test("mutate(_:using:) -> throws", .tags(.rethrowing))
+    func mutateUsingThrows() {
       #expect(throws: MockError.bad) {
         var formatter = NumberFormatter()
         try mutate(&formatter) { _ in

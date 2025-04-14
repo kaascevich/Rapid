@@ -13,32 +13,30 @@
 // You should have received a copy of the GNU AGPL along with Rapid. If not, see
 // <https://www.gnu.org/licenses/>.
 
-import enum RapidTests.MockError
+import func CwlPreconditionTesting.catchBadInstruction
 import Testing
 
 @testable import Rapid
 
-@Suite struct ForEachTests {
-  /// The `repeat(_:)` method runs a closure multiple times.
-  @Test("repeat(_:)") func `repeat`() {
-    var string = ""
-    5.repeat { number in
-      string.append(String(number))
-    }
-    #expect(string == "01234")
+@Suite struct ValidatedTests {
+  /// The `@Validated` property wrapper only allows mutations if they pass
+  /// validation.
+  @Test("@Validated")
+  func validated() {
+    @Validated(if: (5...10).contains) var value = 7
+
+    value = 29
+    #expect(value == 7)
+
+    value = 9
+    #expect(value == 9)
   }
 
-  /// The `repeat(_:)` method rethrows any thrown error.
-  @Test("repeat(_:) -> throws") func repeatThrows() {
-    #expect(throws: MockError.bad) {
-      var string = ""
-      try 5.repeat { number in
-        string.append(String(number))
-
-        if number == 3 {
-          throw MockError.bad
-        }
-      }
-    }
+  /// The `@Validated` property wrapper traps if the initial value is not valid.
+  @Test("@Validated <- invalid")
+  func validatedInvalid() {
+    #expect(catchBadInstruction {
+      @Validated(if: (5...10).contains) var value = 3
+    } != nil)
   }
 }

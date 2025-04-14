@@ -20,7 +20,8 @@ import Testing
 @Suite struct PatternMatchingTests {
   /// The `Error.~=(_:_:)` operator removes the need for type casts when
   /// matching errors.
-  @Test("Error.~=(_:_:)") func errorPatternMatching() {
+  @Test("Error.~=(_:_:)")
+  func errorPatternMatching() {
     enum URLError: Error { case connectionLost, cannotLoad }
     enum HTTPError: Error { case unauthorized, notFound }
 
@@ -39,7 +40,8 @@ import Testing
 
   /// The `KeyPath<Bool>.~=(_:_:)` operator allows switching on values based on
   /// their Boolean properties.
-  @Test("KeyPath<Bool>.~=(_:_:)") func keyPathBoolPatternMatching() {
+  @Test("KeyPath<Bool>.~=(_:_:)")
+  func keyPathBoolPatternMatching() {
     let sign = switch -64 {
     case \.isPositive: "positive"
     case \.isNegative: "negative"
@@ -51,7 +53,8 @@ import Testing
   /// The `Regex.~=(_:_:)` operator only matches if the regex matches the
   /// entire string.
   @available(iOS 16, macOS 13, tvOS 16, watchOS 9, *)
-  @Test("Regex.~=(_:_:)") func regexPatternMatching() {
+  @Test("Regex.~=(_:_:)")
+  func regexPatternMatching() {
     let digitsOnly = switch "2022" {
     case /[0-9]+/: "Match!"
     default: "No match."

@@ -14,7 +14,7 @@
 // <https://www.gnu.org/licenses/>.
 
 import func CwlPreconditionTesting.catchBadInstruction
-import enum RapidTests.MockError
+import RapidTests
 import Testing
 
 @testable import Rapid

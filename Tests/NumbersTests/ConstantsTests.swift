@@ -19,7 +19,8 @@ import Testing
 
 @Suite struct ConstantsTests {
   /// The `π` constant is equal to `Double.pi`.
-  @Test("π") func pi() {
+  @Test("π")
+  func pi() {
     #expect(π == Double.pi)
   }
 }

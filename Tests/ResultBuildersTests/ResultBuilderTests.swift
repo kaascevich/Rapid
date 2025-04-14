@@ -19,7 +19,8 @@ import Testing
 
 @Suite struct ResultBuilderTests {
   /// The `StringBuilder` result builder creates a String from a result builder.
-  @Test("StringBuilder") func stringBuilder() {
+  @Test("StringBuilder")
+  func stringBuilder() {
     let notTrue = false  // bypassing the "will never be executed" warning
     let randomThings = String {
       "hello"
@@ -37,7 +38,8 @@ import Testing
   }
 
   /// The `ArrayBuilder` result builder creates an Array from a result builder.
-  @Test("ArrayBuilder") func arrayBuilder() {
+  @Test("ArrayBuilder")
+  func arrayBuilder() {
     let notTrue = false  // bypassing the "will never be executed" warning
     let randomThings = Array {
       "hello"

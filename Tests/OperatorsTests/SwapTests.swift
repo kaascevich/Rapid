@@ -19,7 +19,8 @@ import Testing
 
 @Suite struct SwapTests {
   /// The `<=>` operator swaps two values.
-  @Test("<=>(_:_:)") func swap() {
+  @Test("<=>(_:_:)")
+  func swap() {
     var fortyTwo = 42
     var sixtyNine = 69
     fortyTwo <=> sixtyNine

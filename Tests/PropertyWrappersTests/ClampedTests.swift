@@ -17,14 +17,19 @@ import Testing
 
 @testable import Rapid
 
-@Suite struct TransformedTests {
-  /// The `@Transformed` property wrapper transforms a value using the given
-  /// closure.
-  @Test("@Transformed") func transformed() {
-    @Transformed(with: -) var value = 5
-    #expect(value == -5)
+@Suite struct ClampedTests {
+  /// The `@Clamped` property wrapper clamps the value to the given range.
+  @Test("@Clamped")
+  func clamped() {
+    @Clamped(to: 3...15) var value = 7
 
-    value = -346
-    #expect(value == 346)
+    value = 22
+    #expect(value == 15)
+
+    value = -4
+    #expect(value == 3)
+
+    value = 9
+    #expect(value == 9)
   }
 }

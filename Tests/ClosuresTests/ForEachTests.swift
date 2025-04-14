@@ -13,24 +13,34 @@
 // You should have received a copy of the GNU AGPL along with Rapid. If not, see
 // <https://www.gnu.org/licenses/>.
 
+import RapidTests
 import Testing
 
 @testable import Rapid
 
-@Suite struct ValidatedTests {
-  /// The `@Validated` property wrapper only allows mutations if they pass
-  /// validation.
-  @Test("@Validated") func validated() {
-    func isInRange(value: Int) -> Bool {
-      (5...10).contains(value)
+@Suite struct ForEachTests {
+  /// The `repeat(_:)` method runs a closure multiple times.
+  @Test("repeat(_:)")
+  func `repeat`() {
+    var string = ""
+    5.repeat { number in
+      string.append(String(number))
     }
+    #expect(string == "01234")
+  }
 
-    @Validated(if: isInRange) var value = 7
+  /// The `repeat(_:)` method rethrows any thrown error.
+  @Test("repeat(_:) -> throws", .tags(.rethrowing))
+  func repeatThrows() {
+    #expect(throws: MockError.bad) {
+      var string = ""
+      try 5.repeat { number in
+        string.append(String(number))
 
-    value = 29
-    #expect(value == 7)
-
-    value = 9
-    #expect(value == 9)
+        if number == 3 {
+          throw MockError.bad
+        }
+      }
+    }
   }
 }

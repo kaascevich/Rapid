@@ -20,7 +20,8 @@ import Testing
 @Suite struct AnyEquatableTests {
   /// The `AnyEquatable` type-erased structure hides the actual type of an
   /// `Equatable` value.
-  @Test("AnyEquatable") func anyEquatable() {
+  @Test("AnyEquatable")
+  func anyEquatable() {
     let something = AnyEquatable(47)
     let theSameThing = AnyEquatable(47)
 
