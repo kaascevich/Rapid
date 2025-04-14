@@ -13,6 +13,7 @@
 // You should have received a copy of the GNU AGPL along with Rapid. If not, see
 // <https://www.gnu.org/licenses/>.
 
+import enum RapidTests.MockError
 import Testing
 
 @testable import Rapid
@@ -29,13 +30,13 @@ import Testing
 
   /// The `repeat(_:)` method rethrows any thrown error.
   @Test("repeat(_:) -> throws") func repeatThrows() {
-    #expect(throws: SomeError.ohNo) {
+    #expect(throws: MockError.bad) {
       var string = ""
       try 5.repeat { number in
         string.append(String(number))
 
         if number == 3 {
-          throw SomeError.ohNo
+          throw MockError.bad
         }
       }
     }

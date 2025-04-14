@@ -14,6 +14,7 @@
 // <https://www.gnu.org/licenses/>.
 
 import Foundation
+import enum RapidTests.MockError
 import Testing
 
 @testable import Rapid
@@ -33,9 +34,9 @@ import Testing
 
     /// The `run(closure:)` function rethrows any throws error.
     @Test("run(closure:) -> throws") func runClosureThrows() {
-      #expect(throws: SomeError.ohNo) {
+      #expect(throws: MockError.bad) {
         _ = try run {
-          throw SomeError.ohNo
+          throw MockError.bad
         }
       }
     }
@@ -51,9 +52,9 @@ import Testing
 
     /// The `run(with:do:)` function rethrows any thrown error.
     @Test("run(with:do:) -> throws") func runWithThrows() {
-      #expect(throws: SomeError.ohNo) {
+      #expect(throws: MockError.bad) {
         try run(with: 42) { _ in
-          throw SomeError.ohNo
+          throw MockError.bad
         }
       }
     }
@@ -75,9 +76,9 @@ import Testing
 
     /// The `configure(_:using:)` function rethrows any thrown error.
     @Test("configure(_:using:) -> throws") func configureUsingThrows() {
-      #expect(throws: SomeError.ohNo) {
+      #expect(throws: MockError.bad) {
         _ = try configure(NumberFormatter()) { _ in
-          throw SomeError.ohNo
+          throw MockError.bad
         }
       }
     }
@@ -97,9 +98,9 @@ import Testing
 
     /// The `<-(_:closure:)` operator rethrows any thrown error.
     @Test("<-(_:closure:) -> throws") func configureUsingOperatorThrows() {
-      #expect(throws: SomeError.ohNo) {
+      #expect(throws: MockError.bad) {
         _ = try NumberFormatter() <- { _ in
-          throw SomeError.ohNo
+          throw MockError.bad
         }
       }
     }
@@ -122,10 +123,10 @@ import Testing
 
     /// The `mutate(_:using:)` function rethrows any thrown error.
     @Test("mutate(_:using:) -> throws") func mutateUsingThrows() {
-      #expect(throws: SomeError.ohNo) {
+      #expect(throws: MockError.bad) {
         var formatter = NumberFormatter()
         try mutate(&formatter) { _ in
-          throw SomeError.ohNo
+          throw MockError.bad
         }
       }
     }

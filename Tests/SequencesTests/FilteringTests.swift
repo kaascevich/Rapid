@@ -13,6 +13,7 @@
 // You should have received a copy of the GNU AGPL along with Rapid. If not, see
 // <https://www.gnu.org/licenses/>.
 
+import enum RapidTests.MockError
 import Testing
 
 @testable import Rapid
@@ -41,8 +42,8 @@ import Testing
 
     /// The `noneSatisfy(_:)` method rethrows any thrown error.
     @Test("noneSatisfy(_:) -> throws") func noneSatisfyThrows() {
-      #expect(throws: SomeError.ohNo) {
-        _ = try names.noneSatisfy { _ in throw SomeError.ohNo }
+      #expect(throws: MockError.bad) {
+        _ = try names.noneSatisfy { _ in throw MockError.bad }
       }
     }
   }
@@ -64,8 +65,8 @@ import Testing
 
     /// The `last(where:)` method rethrows any thrown error.
     @Test("last(where:) -> throws") func lastWhereThrows() {
-      #expect(throws: SomeError.ohNo) {
-        _ = try numbers.last { _ in throw SomeError.ohNo }
+      #expect(throws: MockError.bad) {
+        _ = try numbers.last { _ in throw MockError.bad }
       }
     }
   }
@@ -109,8 +110,8 @@ import Testing
 
     /// The `sorted(by:using:)` method rethrows any thrown error.
     @Test("sorted(by:using:) -> throws") func sortedByUsingThrows() {
-      #expect(throws: SomeError.ohNo) {
-        _ = try students.sorted(by: \.count) { _, _ in throw SomeError.ohNo }
+      #expect(throws: MockError.bad) {
+        _ = try students.sorted(by: \.count) { _, _ in throw MockError.bad }
       }
     }
   }

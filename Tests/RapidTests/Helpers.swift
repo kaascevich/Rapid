@@ -13,4 +13,4 @@
 // You should have received a copy of the GNU AGPL along with Rapid. If not, see
 // <https://www.gnu.org/licenses/>.
 
-enum SomeError: Error, Equatable { case ohNo }
+package enum MockError: Error, Equatable { case bad }

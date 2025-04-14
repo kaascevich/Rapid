@@ -17,6 +17,26 @@
 
 import PackageDescription
 
+let targets = [
+  "ClosureTests",
+  "ComparableTests",
+  "ConformancesTests",
+  "NumbersTests",
+  "OperatorsTests",
+  "OptionalTests",
+  "PatternMatchingTests",
+  "ProtocolsTests",
+  "ResultBuildersTests",
+  "SequencesTests",
+  "StringsTests",
+  "TimeTests",
+  "TypeErasureTests",
+]
+
+func rapidTestTarget(_ name: String) -> Target {
+  .testTarget(name: name, dependencies: ["RapidTests"])
+}
+
 let package = Package(
   name: "Rapid",
   platforms: [
@@ -40,7 +60,7 @@ let package = Package(
       from: "1.4.3",
     ),
   ],
-  targets: [
+  targets: targets.map(rapidTestTarget) + [
     .target(name: "Rapid"),
     .testTarget(
       name: "RapidTests",

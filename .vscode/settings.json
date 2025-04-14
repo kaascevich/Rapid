@@ -1,6 +1,7 @@
 {
   "conventionalCommits.scopes": [
     "optionals",
-    "closures"
+    "closures",
+    "tests"
   ]
 }

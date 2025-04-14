@@ -14,6 +14,7 @@
 // <https://www.gnu.org/licenses/>.
 
 import func CwlPreconditionTesting.catchBadInstruction
+import enum RapidTests.MockError
 import Testing
 
 @testable import Rapid
@@ -24,15 +25,15 @@ import Testing
     /// exists.
     @Test("?!(optional:error:) -> success")
     func throwingCoalesceSuccess() throws {
-      #expect((try Int("100") ?! SomeError.ohNo) == 100)
+      #expect((try Int("100") ?! MockError.bad) == 100)
     }
 
     /// The `?!(optional:error:)` operator throws the error if the value is
     /// `nil`.
     @Test("?!(optional:error:) -> fail")
     func throwingCoalesceFail() throws {
-      #expect(throws: SomeError.ohNo) {
-        try Int("invalid-input") ?! SomeError.ohNo
+      #expect(throws: MockError.bad) {
+        try Int("invalid-input") ?! MockError.bad
       }
     }
   }
