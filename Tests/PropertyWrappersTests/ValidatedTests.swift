@@ -13,7 +13,7 @@
 // You should have received a copy of the GNU AGPL along with Rapid. If not, see
 // <https://www.gnu.org/licenses/>.
 
-import func CwlPreconditionTesting.catchBadInstruction
+import TestHelpers
 import Testing
 
 @testable import Rapid
@@ -33,10 +33,10 @@ import Testing
   }
 
   /// The `@Validated` property wrapper traps if the initial value is not valid.
-  @Test("@Validated <- invalid")
-  func validatedInvalid() {
-    #expect(catchBadInstruction {
+  @Test("@Validated <- invalid", .tags(.traps))
+  func validatedInvalid() async {
+    await #expect(crashes {
       @Validated(if: (5...10).contains) var value = 3
-    } != nil)
+    })
   }
 }

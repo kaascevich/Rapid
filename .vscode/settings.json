@@ -3,5 +3,6 @@
     "optionals",
     "closures",
     "tests"
-  ]
+  ],
+  "swift.sanitizer": "thread"
 }

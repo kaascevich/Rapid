@@ -13,25 +13,30 @@
 // You should have received a copy of the GNU AGPL along with Rapid. If not, see
 // <https://www.gnu.org/licenses/>.
 
+import TestHelpers
 import Testing
 
 @testable import Rapid
 
 @Suite struct BooleansTests {
   /// The `asInt` property is `1` if the value is `true`, `0` otherwise.
-  @Test("asInt")
-  func asInt() {
-    #expect(true.asInt == 1)
-    #expect(false.asInt == 0)
+  @Test("asInt", arguments: [
+    true: 1,
+    false: 0,
+  ])
+  func asInt(value: Bool, expected: Int) {
+    #expect(value.asInt == expected)
   }
 
   /// The `init(fromInt:)` initializer returns `false` if the value is `0`,
   /// `true` otherwise.
-  @Test("init(fromInt:)")
-  func initFromInt() {
-    #expect(Bool(fromInt: 0) == false)
-    #expect(Bool(fromInt: 1) == true)
-    #expect(Bool(fromInt: 42) == true)
-    #expect(Bool(fromInt: -1) == true)
+  @Test("init(fromInt:)", arguments: [
+    0: false,
+    1: true,
+    42: true,
+    -1: true,
+  ])
+  func initFromInt(value: Int, expected: Bool) {
+    #expect(Bool(fromInt: value) == expected)
   }
 }

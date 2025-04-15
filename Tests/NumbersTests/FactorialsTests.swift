@@ -13,7 +13,7 @@
 // You should have received a copy of the GNU AGPL along with Rapid. If not, see
 // <https://www.gnu.org/licenses/>.
 
-import func CwlPreconditionTesting.catchBadInstruction
+import TestHelpers
 import Testing
 
 @testable import Rapid
@@ -32,8 +32,10 @@ import Testing
   }
 
   /// The `factorial()` method asserts when the value is negative.
-  @Test("factorial() <- negative")
-  func factorialNegative() {
-    #expect(catchBadInstruction { _ = (-4).factorial() } != nil)
+  @Test("factorial() <- negative", .tags(.traps))
+  func factorialNegative() async {
+    await #expect(crashes {
+      _ = (-4).factorial()
+    })
   }
 }

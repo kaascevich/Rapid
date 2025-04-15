@@ -15,6 +15,7 @@
 
 #if canImport(Foundation)
 
+import TestHelpers
 import Testing
 
 @testable import Rapid

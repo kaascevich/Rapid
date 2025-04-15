@@ -13,6 +13,7 @@
 // You should have received a copy of the GNU AGPL along with Rapid. If not, see
 // <https://www.gnu.org/licenses/>.
 
+import TestHelpers
 import Testing
 
 @testable import Rapid
@@ -26,8 +27,8 @@ import Testing
       init(emptyArrayLiteral _: Void) { }
     }
 
-    // There isn't much we can do beyond this, since we can't really test
-    // compile-time guarantees.
+    // there isn't much we can do beyond this, since we can't really test
+    // compile-time guarantees
     let _: EmptyArrayLiteralMock = []
   }
 
@@ -39,8 +40,8 @@ import Testing
       init(emptyDictionaryLiteral _: Void) { }
     }
 
-    // There isn't much we can do beyond this, since we can't really test
-    // compile-time guarantees.
+    // there isn't much we can do beyond this, since we can't really test
+    // compile-time guarantees
     let _: EmptyDictionaryLiteralMock = [:]
   }
 }

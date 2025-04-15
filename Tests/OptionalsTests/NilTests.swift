@@ -13,40 +13,29 @@
 // You should have received a copy of the GNU AGPL along with Rapid. If not, see
 // <https://www.gnu.org/licenses/>.
 
+import TestHelpers
 import Testing
 
 @testable import Rapid
 
-@Suite enum NilTests {
-  @Suite struct IsNilTests {
-    /// The `isNil` property is `true` if the optional is `nil`.
-    @Test("isNil -> true")
-    func isNilTrue() {
-      let int: Int? = nil
-      #expect(int.isNil)
-    }
-
-    /// The `isNil` property is `false` if the optional has a value.
-    @Test("isNil -> false")
-    func isNilFalse() {
-      let int: Int? = 42
-      #expect(!int.isNil)
-    }
+@Suite struct NilTests {
+  /// The `isNil` property is `true` if the optional is `nil`, and `false`
+  /// otherwise.
+  @Test("isNil", arguments: [
+    nil: true,
+    42: false,
+  ])
+  func isNil(number: Int?, expected: Bool) {
+    #expect(number.isNil == expected)
   }
 
-  @Suite struct IsNotNilTests {
-    /// The `isNotNil` property is `false` if the optional is `nil`.
-    @Test("isNotNil -> false")
-    func isNotNilFalse() {
-      let int: Int? = nil
-      #expect(!int.isNotNil)
-    }
-
-    /// The `isNil` property is `true` if the optional has a value.
-    @Test("isNotNil -> true")
-    func isNotNilTrue() {
-      let int: Int? = 42
-      #expect(int.isNotNil)
-    }
+  /// The `isNotNil` property is `false` if the optional is `nil`, and `true`
+  /// otherwise.
+  @Test("isNotNil", arguments: [
+    nil: false,
+    42: true,
+  ])
+  func isNotNil(number: Int?, expected: Bool) {
+    #expect(number.isNotNil == expected)
   }
 }

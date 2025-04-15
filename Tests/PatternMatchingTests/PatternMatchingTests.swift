@@ -13,6 +13,7 @@
 // You should have received a copy of the GNU AGPL along with Rapid. If not, see
 // <https://www.gnu.org/licenses/>.
 
+import TestHelpers
 import Testing
 
 @testable import Rapid
@@ -34,8 +35,9 @@ import Testing
       }
     }
 
-    let error = HTTPError.unauthorized
-    #expect(handle(error) == "unauthorized")
+    #expect(handle(URLError.cannotLoad) == "url error")
+    #expect(handle(HTTPError.unauthorized) == "unauthorized")
+    #expect(handle(HTTPError.notFound) == "http error")
   }
 
   /// The `KeyPath<Bool>.~=(_:_:)` operator allows switching on values based on
@@ -55,16 +57,17 @@ import Testing
   @available(iOS 16, macOS 13, tvOS 16, watchOS 9, *)
   @Test("Regex.~=(_:_:)")
   func regexPatternMatching() {
-    let digitsOnly = switch "2022" {
-    case /[0-9]+/: "Match!"
-    default: "No match."
+    func testForMatch(of string: String) -> String {
+      switch string {
+      case /[0-9]+/: "Number!"
+      // this is deliberately incorrect, we don't need a proper email regex here
+      case /\w+@\w+\.\w+/: "Email!"
+      default: "No match."
+      }
     }
-    #expect(digitsOnly == "Match!")
 
-    let digitsAndMore = switch "The year is 2022." {
-    case /[0-9]+/: "Match!"
-    default: "No match."
-    }
-    #expect(digitsAndMore == "No match.")
+    #expect(testForMatch(of: "2022") == "Number!")
+    #expect(testForMatch(of: "me@you.us") == "Email!")
+    #expect(testForMatch(of: "The year is 2022.") == "No match.")
   }
 }

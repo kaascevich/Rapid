@@ -13,20 +13,29 @@
 // You should have received a copy of the GNU AGPL along with Rapid. If not, see
 // <https://www.gnu.org/licenses/>.
 
-import func CwlPreconditionTesting.catchBadInstruction
+import TestHelpers
 import Testing
 
 @testable import Rapid
 
 @Suite struct CollectionOfOneConformancesTests {
-  /// `CollectionOfOne`'s conformance to `ExpressibleByArrayLiteral` only allows
-  /// a literal with one element.
+  /// `CollectionOfOne`'s conformance to `ExpressibleByArrayLiteral` allows a
+  /// literal with one element.
   @Test("CollectionOfOne+ExpressibleByArrayLiteral")
   func collectionOfOneArrayLiteral() {
     let oneElement: CollectionOfOne = [42]
     #expect(oneElement[0] == 42)
+  }
 
-    #expect(catchBadInstruction { _ = [] as CollectionOfOne } != nil)
-    #expect(catchBadInstruction { _ = [42, 69] as CollectionOfOne } != nil)
+  /// `CollectionOfOne`'s conformance to `ExpressibleByArrayLiteral` does not
+  /// allow a literal with zero elements, or literals with two or more elements.
+  @Test("CollectionOfOne+ExpressibleByArrayLiteral <- invalid", .tags(.traps))
+  func collectionOfOneArrayLiteralInvalid() async {
+    await #expect(crashes {
+      _ = [] as CollectionOfOne
+    })
+    await #expect(crashes {
+      _ = [42, 69] as CollectionOfOne
+    })
   }
 }

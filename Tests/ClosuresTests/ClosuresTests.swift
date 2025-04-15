@@ -24,7 +24,7 @@ import Testing
     /// The `run(closure:)` function executes a closure.
     @Test("run(closure:)")
     func runClosure() {
-      let sixPlusOne = run {
+      let sixPlusOne: Int = run {
         var six = 6
         six += 1
         return six
@@ -33,8 +33,8 @@ import Testing
       #expect(sixPlusOne == 7)
     }
 
-    /// The `run(closure:)` function rethrows any throws error.
-    @Test("run(closure:) -> throws", .tags(.rethrowing))
+    /// The `run(closure:)` function rethrows any thrown error.
+    @Test("run(closure:) -> throws", .tags(.rethrows))
     func runClosureThrows() {
       #expect(throws: MockError.bad) {
         _ = try run {
@@ -54,7 +54,7 @@ import Testing
     }
 
     /// The `run(with:do:)` function rethrows any thrown error.
-    @Test("run(with:do:) -> throws", .tags(.rethrowing))
+    @Test("run(with:do:) -> throws", .tags(.rethrows))
     func runWithThrows() {
       #expect(throws: MockError.bad) {
         try run(with: 42) { _ in
@@ -68,7 +68,7 @@ import Testing
     /// The `configure(_:using:)` function mutates a copy of a value.
     @Test("configure(_:using:)")
     func configureUsing() {
-      let formatter = configure(NumberFormatter()) {
+      let formatter: NumberFormatter = configure(NumberFormatter()) {
         $0.numberStyle = .decimal
         $0.minimumFractionDigits = 2
         $0.allowsFloats = true
@@ -80,7 +80,7 @@ import Testing
     }
 
     /// The `configure(_:using:)` function rethrows any thrown error.
-    @Test("configure(_:using:) -> throws", .tags(.rethrowing))
+    @Test("configure(_:using:) -> throws", .tags(.rethrows))
     func configureUsingThrows() {
       #expect(throws: MockError.bad) {
         _ = try configure(NumberFormatter()) { _ in
@@ -92,7 +92,7 @@ import Testing
     /// The `<-(_:closure:)` operator mutates a copy of a value.
     @Test("<-(_:closure:)")
     func configureUsingOperator() {
-      let formatter = NumberFormatter() <- {
+      let formatter: NumberFormatter = NumberFormatter() <- {
         $0.numberStyle = .decimal
         $0.minimumFractionDigits = 2
         $0.allowsFloats = true
@@ -104,7 +104,7 @@ import Testing
     }
 
     /// The `<-(_:closure:)` operator rethrows any thrown error.
-    @Test("<-(_:closure:) -> throws", .tags(.rethrowing))
+    @Test("<-(_:closure:) -> throws", .tags(.rethrows))
     func configureUsingOperatorThrows() {
       #expect(throws: MockError.bad) {
         _ = try NumberFormatter() <- { _ in
@@ -131,7 +131,7 @@ import Testing
     }
 
     /// The `mutate(_:using:)` function rethrows any thrown error.
-    @Test("mutate(_:using:) -> throws", .tags(.rethrowing))
+    @Test("mutate(_:using:) -> throws", .tags(.rethrows))
     func mutateUsingThrows() {
       #expect(throws: MockError.bad) {
         var formatter = NumberFormatter()

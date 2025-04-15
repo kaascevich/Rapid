@@ -16,5 +16,6 @@
 import Testing
 
 package extension Tag {
-  @Tag static var rethrowing: Self
+  @Tag static var `rethrows`: Self
+  @Tag static var traps: Self
 }

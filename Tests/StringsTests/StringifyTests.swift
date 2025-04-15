@@ -13,6 +13,7 @@
 // You should have received a copy of the GNU AGPL along with Rapid. If not, see
 // <https://www.gnu.org/licenses/>.
 
+import TestHelpers
 import Testing
 
 @testable import Rapid
@@ -21,19 +22,10 @@ import Testing
   /// The `§` operator returns the value's description.
   @Test("§(_:)")
   func stringify() {
-    let int = 6
-    #expect(§int == "6")
-
-    let double = 3.14
-    #expect(§double == "3.14")
-
-    let string = "hello"
-    #expect(§string == "hello")
-
-    let array = [1, 2, 3]
-    #expect(§array == "[1, 2, 3]")
-
-    let bool = true
-    #expect(§bool == "true")
+    #expect(§6 == "6")
+    #expect(§3.14 == "3.14")
+    #expect(§"hello" == "hello")
+    #expect(§[1, 2, 3] == "[1, 2, 3]")
+    #expect(§true == "true")
   }
 }

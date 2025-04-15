@@ -13,6 +13,7 @@
 // You should have received a copy of the GNU AGPL along with Rapid. If not, see
 // <https://www.gnu.org/licenses/>.
 
+import TestHelpers
 import Testing
 
 @testable import Rapid
@@ -35,12 +36,12 @@ import Testing
   /// `PartialRangeUpTo` conforms to `CustomStringConvertible`.
   @Test("PartialRangeUpTo+CustomStringConvertible")
   func partialRangeUpToCustomStringConvertible() {
-    #expect(range.description == "..<\(range.upperBound)")
+    #expect(String(describing: range) == "..<\(range.upperBound)")
   }
 
   /// `PartialRangeUpTo` conforms to `CustomDebugStringConvertible`.
   @Test("PartialRangeUpTo+CustomDebugStringConvertible")
   func partialRangeUpToCustomDebugStringConvertible() {
-    #expect(range.debugDescription == "PartialRangeUpTo(..<\(range.upperBound))")
+    #expect(String(reflecting: range) == "PartialRangeUpTo(..<\(range.upperBound))")
   }
 }

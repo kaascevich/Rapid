@@ -13,42 +13,34 @@
 // You should have received a copy of the GNU AGPL along with Rapid. If not, see
 // <https://www.gnu.org/licenses/>.
 
+import TestHelpers
 import Testing
 
 @testable import Rapid
 
-@Suite enum EvenOddTests {
-  @Suite struct IsEvenTests {
-    /// The `isEven` property is `true` if the value is even or zero.
-    @Test("isEven -> true")
-    func isEvenTrue() {
-      #expect(6.isEven)
-      #expect((-6).isEven)
-      #expect(0.isEven)
-    }
-
-    /// The `isEven` property is `false` if the value is odd.
-    @Test("isEven -> false")
-    func isEvenFalse() {
-      #expect(!3.isEven)
-      #expect(!(-3).isEven)
-    }
+@Suite struct EvenOddTests {
+  /// The `isEven` property is `true` if the value is even or zero, and
+  /// `false` otherwise.
+  @Test("isEven", arguments: [
+    6: true,
+    -6: true,
+    0: true,
+    3: false,
+    -3: false,
+  ])
+  func isEven(number: Int, expected: Bool) {
+    #expect(number.isEven == expected)
   }
 
-  @Suite struct IsOddTests {
-    /// The `isOdd` property is `true` if the value is odd.
-    @Test("isOdd -> true")
-    func isOddTrue() {
-      #expect(3.isOdd)
-      #expect((-3).isOdd)
-    }
-
-    /// The `isEven` property is `false` if the value is even or zero.
-    @Test("isOdd -> false")
-    func isOddFalse() {
-      #expect(!6.isOdd)
-      #expect(!(-6).isOdd)
-      #expect(!0.isOdd)
-    }
+  /// The `isOdd` property is `true` if the value is odd, and `false` otherwise.
+  @Test("isOdd", arguments: [
+    3: true,
+    -3: true,
+    6: false,
+    -6: false,
+    0: false,
+  ])
+  func isOdd(number: Int, expected: Bool) {
+    #expect(number.isOdd == expected)
   }
 }

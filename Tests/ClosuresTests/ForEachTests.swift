@@ -23,23 +23,18 @@ import Testing
   @Test("repeat(_:)")
   func `repeat`() {
     var string = ""
-    5.repeat { number in
+    5.repeat { (number: Int) in
       string.append(String(number))
     }
     #expect(string == "01234")
   }
 
   /// The `repeat(_:)` method rethrows any thrown error.
-  @Test("repeat(_:) -> throws", .tags(.rethrowing))
+  @Test("repeat(_:) -> throws", .tags(.rethrows))
   func repeatThrows() {
     #expect(throws: MockError.bad) {
-      var string = ""
-      try 5.repeat { number in
-        string.append(String(number))
-
-        if number == 3 {
-          throw MockError.bad
-        }
+      try 5.repeat { _ in
+        throw MockError.bad
       }
     }
   }

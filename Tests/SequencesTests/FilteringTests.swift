@@ -44,7 +44,7 @@ import Testing
     }
 
     /// The `noneSatisfy(_:)` method rethrows any thrown error.
-    @Test("noneSatisfy(_:) -> throws", .tags(.rethrowing))
+    @Test("noneSatisfy(_:) -> throws", .tags(.rethrows))
     func noneSatisfyThrows() {
       #expect(throws: MockError.bad) {
         _ = try names.noneSatisfy { _ in throw MockError.bad }
@@ -70,7 +70,7 @@ import Testing
     }
 
     /// The `last(where:)` method rethrows any thrown error.
-    @Test("last(where:) -> throws", .tags(.rethrowing))
+    @Test("last(where:) -> throws", .tags(.rethrows))
     func lastWhereThrows() {
       #expect(throws: MockError.bad) {
         _ = try numbers.last { _ in throw MockError.bad }
@@ -98,8 +98,7 @@ import Testing
   @Test("count(of:)")
   func countOf() {
     let numbers = [5, 4, 9, 3, 6, 4, 1, 4, 3]
-    let numberOfFours = numbers.count(of: 4)
-    #expect(numberOfFours == 3)
+    #expect(numbers.count(of: 4) == 3)
   }
 
   @Suite struct SortedByTests {
@@ -121,7 +120,7 @@ import Testing
     }
 
     /// The `sorted(by:using:)` method rethrows any thrown error.
-    @Test("sorted(by:using:) -> throws", .tags(.rethrowing))
+    @Test("sorted(by:using:) -> throws", .tags(.rethrows))
     func sortedByUsingThrows() {
       #expect(throws: MockError.bad) {
         _ = try students.sorted(by: \.count) { _, _ in throw MockError.bad }

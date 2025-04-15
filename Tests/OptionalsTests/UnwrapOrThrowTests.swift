@@ -13,7 +13,6 @@
 // You should have received a copy of the GNU AGPL along with Rapid. If not, see
 // <https://www.gnu.org/licenses/>.
 
-import func CwlPreconditionTesting.catchBadInstruction
 import TestHelpers
 import Testing
 
@@ -24,14 +23,14 @@ import Testing
     /// The `?!(optional:error:)` operator returns the unwrapped value if it
     /// exists.
     @Test("?!(optional:error:) -> success")
-    func throwingCoalesceSuccess() throws {
-      #expect((try Int("100") ?! MockError.bad) == 100)
+    func throwingCoalesceSuccess() {
+      #expect((try? Int("100") ?! MockError.bad) == 100)
     }
 
     /// The `?!(optional:error:)` operator throws the error if the value is
     /// `nil`.
     @Test("?!(optional:error:) -> fail")
-    func throwingCoalesceFail() throws {
+    func throwingCoalesceFail() {
       #expect(throws: MockError.bad) {
         try Int("invalid-input") ?! MockError.bad
       }
@@ -42,17 +41,17 @@ import Testing
     /// The `!(optional:error:)!` operator returns the unwrapped value if it
     /// exists.
     @Test("!!(optional:error:) -> success")
-    func forcedCoalesceSuccess() throws {
+    func forcedCoalesceSuccess() {
       #expect((Int("100") !! fatalError("The input is invalid!")) == 100)
     }
 
     /// The `!!(optional:error:)` operator calls the never-returning function
     /// if the value is `nil`.
-    @Test("!!(optional:error:) -> fail")
-    func forcedCoalesceFail() throws {
-      #expect(catchBadInstruction {
+    @Test("!!(optional:error:) -> fail", .tags(.traps))
+    func forcedCoalesceFail() async {
+      await #expect(crashes {
         _ = Int("invalid-input") !! fatalError("The input is invalid!")
-      } != nil)
+      })
     }
   }
 }

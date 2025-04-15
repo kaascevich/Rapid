@@ -13,60 +13,42 @@
 // You should have received a copy of the GNU AGPL along with Rapid. If not, see
 // <https://www.gnu.org/licenses/>.
 
+import TestHelpers
 import Testing
 
 @testable import Rapid
 
-@Suite enum SignsTests {
-  @Suite struct IsPositiveTests {
-    /// The `isPositive` property is `true` if the value is positive.
-    @Test("isPositive -> true")
-    func isPositiveTrue() {
-      #expect(42.isPositive)
-    }
-
-    /// The `isPositive` property is `false` if the value is negative or zero.
-    @Test("isPositive -> false")
-    func isPositiveFalse() {
-      #expect(!(-69).isPositive)
-      #expect(!0.isPositive)
-    }
+@Suite struct SignsTests {
+  /// The `isPositive` property is `true` if the value is positive, and `false`
+  /// otherwise.
+  @Test("isPositive", arguments: [
+    42: true,
+    -69: false,
+    0: false,
+  ])
+  func isPositive(number: Int, expected: Bool) {
+    #expect(number.isPositive == expected)
   }
 
-  @Suite struct IsNegativeTests {
-    /// The `isNegative` property is `true` if the value is negative.
-    @Test("isNegative -> true")
-    func isNegativeTrue() {
-      #expect((-42).isNegative)
-    }
-
-    /// The `isNegative` property is `false` if the value is positive or zero.
-    @Test("isNegative -> false")
-    func isNegativeFalse() {
-      #expect(!69.isNegative)
-      #expect(!0.isNegative)
-    }
+  /// The `isNegative` property is `true` if the value is negative, and `false`
+  /// otherwise.
+  @Test("isNegative", arguments: [
+    42: false,
+    -69: true,
+    0: false,
+  ])
+  func isNegative(number: Int, expected: Bool) {
+    #expect(number.isNegative == expected)
   }
 
-  @Suite struct AbsoluteValueTests {
-    /// The `absoluteValue` property is the value itself when the value is
-    /// positive.
-    @Test("absoluteValue <- positive")
-    func absoluteValuePositive() {
-      #expect(42.absoluteValue == 42)
-    }
-
-    /// The `absoluteValue` property is the value's additive inverse when the
-    /// value is negative.
-    @Test("absoluteValue <- negative")
-    func absoluteValueNegative() {
-      #expect((-69).absoluteValue == 69)
-    }
-
-    /// The `absoluteValue` property is zero when the value is zero.
-    @Test("absoluteValue <- zero")
-    func absoluteValueZero() {
-      #expect(0.absoluteValue == 0)
-    }
+  /// The `absoluteValue` property is the value itself when the value is
+  /// positive or zero, and its additive inverse when it is negative.
+  @Test("absoluteValue", arguments: [
+    42: 42,
+    -69: 69,
+    0: 0,
+  ])
+  func absoluteValue(number: Int, expected: Int) {
+    #expect(number.absoluteValue == expected)
   }
 }
