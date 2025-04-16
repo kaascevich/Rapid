@@ -23,6 +23,7 @@ import Testing
   @Test("isBetween(_:) -> true")
   func isBetweenTrue() {
     #expect(7.isBetween(6...12))
+    #expect("G".isBetween("A"..."Z"))
     #expect(0.32.isBetween(0.31...0.33))
   }
 
@@ -31,7 +32,7 @@ import Testing
   @Test("isBetween(_:) -> false")
   func isBetweenFalse() {
     #expect(!1.isBetween(5...7))
-    #expect(!"e".isBetween("a"..."d"))
+    #expect(!"f".isBetween("a"..."d"))
     #expect(!69.isBetween(42..<69))
   }
 }

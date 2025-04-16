@@ -24,6 +24,7 @@ import Testing
     @Test("clamped(to:) <- in range")
     func clampedToInRange() {
       #expect(7.clamped(to: 6...12) == 7)
+      #expect("G".clamped(to: "A"..."Z") == "G")
       #expect(0.32.clamped(to: 0.31...0.33) == 0.32)
     }
 
@@ -32,7 +33,7 @@ import Testing
     @Test("clamped(to:) <- not in range")
     func clampedToNotInRange() {
       #expect(1.clamped(to: 5...7) == 5)
-      #expect("e".clamped(to: "a"..."d") == "d")
+      #expect("f".clamped(to: "a"..."d") == "d")
     }
   }
 
@@ -44,6 +45,10 @@ import Testing
       var seven = 7
       seven.clamp(to: 6...12)
       #expect(seven == 7)
+
+      var capitalG: Character = "G"
+      capitalG.clamp(to: "A"..."Z")
+      #expect(capitalG == "G")
 
       var point32 = 0.32
       point32.clamp(to: 0.31...0.33)
