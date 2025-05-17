@@ -21,7 +21,7 @@
 public struct AnyEquatable: Equatable {
   /// The value wrapped by this instance.
   ///
-  /// The base property can be cast back to its original type using one of the
+  /// The `base` property can be cast back to its original type using one of the
   /// type casting operators (`as?` or `as!`).
   ///
   /// ```swift
