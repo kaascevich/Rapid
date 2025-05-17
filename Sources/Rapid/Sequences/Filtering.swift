@@ -51,7 +51,16 @@ public extension Sequence {
     compactMap(\.self)
   }
 
-  @available(*, deprecated, message: "Use the standard library version on 'BidirectionalCollection' instead")
+  /// Returns the last element of the sequence that satisfies the given
+  /// predicate.
+  ///
+  /// @DeprecationSummary {
+  ///   Use the standard library version on `BidirectionalCollection` instead.
+  /// }
+  @available(
+    *, deprecated,
+    message: "use the standard library version on 'BidirectionalCollection' instead"
+  )
   func last(where predicate: (Element) throws -> Bool) rethrows -> Element? {
     try reversed().first(where: predicate)
   }

@@ -16,7 +16,16 @@
 // MARK: - Errors
 
 public extension Error where Self: Equatable {
-  @available(*, deprecated, message: "Manually cast to the appropriate type instead")
+  /// Returns a Boolean value indicating whether an error is equal to another
+  /// error.
+  ///
+  /// @DeprecationSummary {
+  ///   Manually cast `other` to the appropriate type instead.
+  /// }
+  @available(
+    *, deprecated,
+    message: "manually cast to the appropriate type instead"
+  )
   @inlinable static func ~= (error: Self, other: some Error) -> Bool {
     error == (other as? Self)
   }

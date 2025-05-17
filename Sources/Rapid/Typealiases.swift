@@ -14,8 +14,19 @@
 // You should have received a copy of the GNU AGPL along with Rapid. If not, see
 // <https://www.gnu.org/licenses/>.
 
-@available(*, deprecated, renamed: "Any.Type", message: "Use 'Any.Type' instead")
+/// A metatype that can contain any other metatype.
+///
+/// @DeprecationSummary {
+///   Use `Any.Type` instead.
+/// }
+@available(*, deprecated, renamed: "Any.Type", message: "use 'Any.Type' instead")
 public typealias AnyType = Any.Type
 
-@available(*, deprecated, renamed: "Void", message: "Use 'Void' instead")
+/// The return type of functions that don’t explicitly specify a return type,
+/// that is, an empty tuple `()`.
+///
+/// @DeprecationSummary {
+///   Use `Void` instead.
+/// }
+@available(*, deprecated, renamed: "Void", message: "use 'Void' instead")
 public typealias Nothing = Void
