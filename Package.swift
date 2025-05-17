@@ -21,6 +21,7 @@ let targets = [
   "Closures",
   "Comparable",
   "Conformances",
+  "Functional",
   "Numbers",
   "Operators",
   "Optionals",

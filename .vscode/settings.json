@@ -2,7 +2,8 @@
   "conventionalCommits.scopes": [
     "optionals",
     "closures",
-    "tests"
+    "tests",
+    "functional"
   ],
   "swift.sanitizer": "thread"
 }
