@@ -52,32 +52,6 @@ import Testing
     }
   }
 
-  @Suite struct LastWhereTests {
-    let numbers = [3, 7, 4, -2, 9, -6, 10, 1]
-
-    /// The `last(where:)` method returns the last element that satisfies the
-    /// predicate.
-    @Test("last(where:) -> success")
-    func lastWhereSuccess() {
-      #expect(numbers.last(where: \.isNegative) == -6)
-    }
-
-    /// The `last(where:)` method returns `nil` if no elements satisfy the
-    /// predicate.
-    @Test("last(where:) -> failure")
-    func lastWhereFailure() {
-      #expect(numbers.last { $0 == 0 } == nil)
-    }
-
-    /// The `last(where:)` method rethrows any thrown error.
-    @Test("last(where:) -> throws", .tags(.rethrows))
-    func lastWhereThrows() {
-      #expect(throws: MockError.bad) {
-        _ = try numbers.last { _ in throw MockError.bad }
-      }
-    }
-  }
-
   /// The `compacted()` method removes all `nil` elements.
   @Test("compacted()")
   func compacted() {

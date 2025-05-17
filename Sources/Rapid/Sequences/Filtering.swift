@@ -62,6 +62,7 @@ public extension Sequence {
   ///
   /// - Returns: The last element of the sequence that satisfies `predicate`, or
   ///   `nil` if there is no element that satisfies `predicate`.
+  @available(*, deprecated, message: "use the standard library version on 'BidirectionalCollection' instead")
   func last(where predicate: (Element) throws -> Bool) rethrows -> Element? {
     try reversed().first(where: predicate)
   }
