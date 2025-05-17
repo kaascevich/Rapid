@@ -5,7 +5,8 @@
     "tests",
     "functional",
     "sequences",
-    "protocols"
+    "protocols",
+    "typeErasure"
   ],
   "swift.sanitizer": "thread"
 }

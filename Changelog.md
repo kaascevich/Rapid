@@ -5,20 +5,35 @@
 ### Additions
 
 - Added `??=(_:_:)` nil-coalescing assignment operator
+- Added `|>(_:_:)` function piping operator
 
 ### Updates
 
 - Migrated several functions to use typed `throws` instead of `rethrows`
-- Added support for `~Copyable` types to closure functions
+- Added support for `~Copyable` and `~Escapable` types where feasible
 - Re-added `@inlinable` to many declarations
-  - This time, _only_ declarations with implementations that are extremely
-    unlikely to change in the future
+  - This time, _only_ declarations with implementations that are _exceedingly_
+    unlikely to change in the future (i.e. exceedingly simple implementations)
 
 ### Deprecations
 
 - Deprecated `AnyType` and `Nothing` typealiases
   - Let's be honest here, there wasn't really any good reason for these to exist
     in the first place
+- Deprecated `last(where:)` in favor of the standard library implementation on
+  `BidirectionalCollection`
+  - This will break code that uses this method on a type that conforms to
+    `Sequence` but not `BidirectionalCollection`, but this is unlikely in
+    practice
+
+
+### Removals
+
+- Removed version of `count(of:)` method that takes a closure
+  - The new `count(where:)` method in the standard library should work as a
+    drop-in replacement
+  - The version that takes an element is still available, since the standard
+    library doesn't yet have a replacement for it
 
 ## 3.0.1
 
@@ -26,10 +41,11 @@ Hi, I'm back (again)!
 
 You may have noticed that Rapid is now hosted on Codeberg. I've decided to
 migrate my projects away from GitHub for a number of reasons, chief among them
-being that GitHub itself is not free and open source software.
+being that GitHub itself is neither free (as in freedom) nor open source.
 
 > I _am_ planning on mirroring Rapid to GitHub at some point to keep its listing
-> on the Swift Package Index up-to-date, but Codeberg is Rapid's new home.
+> on the Swift Package Index up-to-date, but Codeberg is Rapid's official new
+> home.
 
 Aside from that, this is pretty much just a minor modernization update.
 
