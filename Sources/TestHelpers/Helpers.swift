@@ -23,21 +23,20 @@ import func CwlPreconditionTesting.catchBadInstruction
 /// `false` instead.
 ///
 /// If the block throws a Swift error during execution, this function returns
-/// `true`.
+/// `false`.
 ///
 /// - Warning: **Do _not_ call this function outside of a testing context.**
 ///
-///   This function calls `CwlPreconditionTesting.catchBadInstruction(in:)` to
-///   check for crashes; that function uses Objective-C exceptions internally.
-///   The vast majority of Swift and Objective-C functions are _not_
-///   exception-safe; therefore, calling this function outside of a testing
-///   context is **undefined behavior**.
+///   This function calls `CwlPreconditionTesting.catchBadInstruction(in:)`,
+///   which uses Objective-C exceptions internally. The vast majority of Swift
+///   and Objective-C code is _not_ exception-safe; therefore, calling this
+///   outside of a testing context is **undefined behavior**.
 ///
 /// - Parameter block: A block to run.
 ///
 /// - Returns: `true` if the block crashed during execution; otherwise, `false`.
-@MainActor package func crashes(_ block: @escaping () throws -> Void) -> Bool {
-  catchBadInstruction {
+@MainActor public func crashes(_ block: @escaping () throws -> Void) -> Bool {
+  nil != catchBadInstruction {
     do {
       try block()
     } catch {
@@ -45,9 +44,9 @@ import func CwlPreconditionTesting.catchBadInstruction
       // sucessfully in this case
       return
     }
-  } != nil
+  }
 }
 
 // MARK: Mocks
 
-package enum MockError: Error, Equatable { case bad }
+public enum MockError: Error, Equatable { case bad }
