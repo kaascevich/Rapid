@@ -30,18 +30,26 @@ import Testing
   /// `PartialRangeFrom` conforms to `Hashable`.
   @Test("PartialRangeFrom+Hashable")
   func partialRangeFromHashable() {
-    #expect(range.hashValue == range.lowerBound.hashValue)
+    #expect(range.hashValue == 5.hashValue)
   }
 
   /// `PartialRangeFrom` conforms to `CustomStringConvertible`.
   @Test("PartialRangeFrom+CustomStringConvertible")
   func partialRangeFromCustomStringConvertible() {
-    #expect(String(describing: range) == "\(range.lowerBound)...")
+    #expect(String(describing: range) == "5...")
   }
 
   /// `PartialRangeFrom` conforms to `CustomDebugStringConvertible`.
   @Test("PartialRangeFrom+CustomDebugStringConvertible")
   func partialRangeFromCustomDebugStringConvertible() {
-    #expect(String(reflecting: range) == "PartialRangeFrom(\(range.lowerBound)...)")
+    #expect(String(reflecting: range) == "PartialRangeFrom(5...)")
+  }
+
+  /// `PartialRangeFrom` conforms to `CustomReflectable`.
+  @Test("PartialRangeFrom+CustomReflectable")
+  func partialRangeFromCustomReflectable() {
+    let mirror = Mirror(reflecting: range)
+    #expect(mirror.children.first?.label == "lowerBound")
+    #expect(mirror.children.first?.value as? Int == 5)
   }
 }

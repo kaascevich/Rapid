@@ -6,7 +6,8 @@
     "functional",
     "sequences",
     "protocols",
-    "typeErasure"
+    "typeErasure",
+    "patternMatching"
   ],
   "swift.sanitizer": "thread"
 }

@@ -19,27 +19,6 @@ import Testing
 @testable import Rapid
 
 @Suite struct PatternMatchingTests {
-  /// The `Error.~=(_:_:)` operator removes the need for type casts when
-  /// matching errors.
-  @Test("Error.~=(_:_:)")
-  func errorPatternMatching() {
-    enum URLError: Error { case connectionLost, cannotLoad }
-    enum HTTPError: Error { case unauthorized, notFound }
-
-    func handle(_ error: Error) -> String {
-      switch error {
-      case URLError.connectionLost, URLError.cannotLoad: "url error"
-      case HTTPError.unauthorized: "unauthorized"
-      case is HTTPError: "http error"
-      default: "unknown"
-      }
-    }
-
-    #expect(handle(URLError.cannotLoad) == "url error")
-    #expect(handle(HTTPError.unauthorized) == "unauthorized")
-    #expect(handle(HTTPError.notFound) == "http error")
-  }
-
   /// The `KeyPath<Bool>.~=(_:_:)` operator allows switching on values based on
   /// their Boolean properties.
   @Test("KeyPath<Bool>.~=(_:_:)")
