@@ -40,6 +40,17 @@ public extension Sequence {
     try allSatisfy { try !predicate($0) }
   }
 
+  /// Returns an array containing the non-`nil` elements of this sequence.
+  ///
+  /// Use this method to concisely remove all `nil` elements from this sequence.
+  ///
+  /// - Complexity: O(*n*), where *n* is the length of this sequence.
+  ///
+  /// - Returns: An array of the non-`nil` elements of the sequence.
+  func compacted<Value>() -> [Value] where Element == Value? {
+    compactMap(\.self)
+  }
+
   /// Returns the last element of the sequence that satisfies the given
   /// predicate.
   ///
@@ -65,17 +76,6 @@ public extension Sequence {
   @available(*, deprecated, message: "use the standard library version on 'BidirectionalCollection' instead")
   func last(where predicate: (Element) throws -> Bool) rethrows -> Element? {
     try reversed().first(where: predicate)
-  }
-
-  /// Returns an array containing the non-`nil` elements of this sequence.
-  ///
-  /// Use this method to concisely remove all `nil` elements from this sequence.
-  ///
-  /// - Complexity: O(*n*), where *n* is the length of this sequence.
-  ///
-  /// - Returns: An array of the non-`nil` elements of the sequence.
-  func compacted<Value>() -> [Value] where Element == Value? {
-    compactMap(\.self)
   }
 }
 
@@ -103,30 +103,6 @@ public extension RangeReplaceableCollection where Element: Equatable {
 // MARK: - Counting
 
 public extension Sequence {
-  /// The number of elements in the sequence that satisfy the given predicate.
-  ///
-  /// In this example, `count(of:)` is used to count the number of names shorter
-  /// than five characters.
-  ///
-  /// ```swift
-  /// let cast = ["Vivien", "Marlon", "Kim", "Karl"]
-  /// let numberOfShortNames = cast.count { $0.count < 5 }
-  /// print(numberOfShortNames)
-  /// // Prints "2"
-  /// ```
-  ///
-  /// - Complexity: O(2*n*), where *n* is the length of the sequence.
-  ///
-  /// - Parameter predicate: A closure that takes an element of the sequence as
-  ///   its argument and returns a Boolean value indicating whether the element
-  ///   should be included in the count.
-  ///
-  /// - Returns: The number of elements that satisfy `predicate`.
-  @available(*, deprecated, renamed: "count(where:)")
-  func count(of predicate: (Element) throws -> Bool) rethrows -> Int {
-    try count(where: predicate)
-  }
-
   /// Returns the number of times the given element appears in the sequence.
   ///
   /// In this example, `count(of:)` is used to count the number of times the
