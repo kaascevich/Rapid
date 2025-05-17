@@ -25,7 +25,8 @@
   - This will break code that uses this method on a type that conforms to
     `Sequence` but not `BidirectionalCollection`, but this is unlikely in
     practice
-
+- Deprecated `~=(_:_:)` overload on `Error`
+  - It, uh... never actually worked in the first place
 
 ### Removals
 

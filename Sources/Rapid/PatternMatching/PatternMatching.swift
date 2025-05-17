@@ -16,33 +16,7 @@
 // MARK: - Errors
 
 public extension Error where Self: Equatable {
-  /// Returns a Boolean value indicating whether an error is equal to another
-  /// error.
-  ///
-  /// You can use the pattern-matching operator (`~=`) to test whether an error
-  /// equals another error. The pattern-matching operator is used internally in
-  /// `case` statements for pattern matching. The following example implicitly
-  /// uses the `~=` operator to test whether an error is an HTTP error:
-  ///
-  /// ```swift
-  /// enum HTTPError: Error {
-  ///   case unauthorized, notFound
-  /// }
-  ///
-  /// func handle(_ error: Error) -> String {
-  ///   switch error {
-  ///     case HTTPError.unauthorized: "Unauthorized"
-  ///     case is HTTPError: "HTTP Error"
-  ///     default: "Unknown Error"
-  ///   }
-  /// }
-  /// ```
-  ///
-  /// - Parameters:
-  ///   - error: An error.
-  ///   - other: Another error to match against `error`.
-  ///
-  /// - Returns: Whether the two errors match.
+  @available(*, deprecated, message: "Manually cast to the appropriate type instead")
   @inlinable static func ~= (error: Self, other: some Error) -> Bool {
     error == (other as? Self)
   }
