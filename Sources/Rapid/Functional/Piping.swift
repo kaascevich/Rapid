@@ -27,9 +27,13 @@ infix operator |> : FunctionPipePrecedence
 ///   - argument: The argument to pass to `function`.
 ///
 /// - Returns: The return value of `function` when passed `argument`.
-@inlinable public func |> <ArgumentType, ReturnType>(
-  argument: ArgumentType,
-  function: (ArgumentType) throws -> ReturnType,
-) rethrows -> ReturnType {
+@inlinable public func |> <
+  ArgumentType: ~Copyable & ~Escapable,
+  ReturnType: ~Copyable & ~Escapable,
+  E: Error,
+>(
+  argument: consuming ArgumentType,
+  function: (consuming ArgumentType) throws(E) -> ReturnType,
+) throws(E) -> ReturnType {
   try function(argument)
 }

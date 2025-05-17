@@ -13,7 +13,7 @@
 // You should have received a copy of the GNU AGPL along with Rapid. If not, see
 // <https://www.gnu.org/licenses/>.
 
-public extension Optional {
+public extension Optional where Wrapped: ~Copyable {
   /// A Boolean value indicating whether this optional does not contain a value.
   @inlinable var isNil: Bool {
     self == nil

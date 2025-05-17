@@ -66,7 +66,10 @@ let package = Package(
     ),
   ],
   targets: targets.map(rapidTestTarget) + [
-    .target(name: "Rapid"),
+    .target(
+      name: "Rapid",
+      swiftSettings: [.enableExperimentalFeature("LifetimeDependence")],
+    ),
     .target(name: "TestHelpers", dependencies: ["CwlPreconditionTesting"]),
   ],
 )

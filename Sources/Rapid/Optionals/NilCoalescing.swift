@@ -15,7 +15,7 @@
 
 infix operator ??= : AssignmentPrecedence
 
-public extension Optional {
+public extension Optional where Wrapped: ~Copyable {
   /// Assigns a default value to an `Optional` instance if it doesn't have a
   /// value.
   ///

@@ -40,8 +40,8 @@
 /// - Parameter closure: The closure to execute.
 ///
 /// - Returns: The closure's return value, if any.
-@inlinable public func run<ReturnType: ~Copyable, E: Error>(
-  closure: () throws(E) -> ReturnType,
+@inlinable public func run<ReturnType: ~Copyable & ~Escapable, E: Error>(
+  closure: borrowing () throws(E) -> ReturnType,
 ) throws(E) -> ReturnType {
   try closure()
 }
@@ -70,7 +70,7 @@
 /// - Parameters:
 ///   - value: Anything.
 ///   - closure: The closure to execute. Receives a copy of `value`.
-@inlinable public func run<Value: ~Copyable, E: Error>(
+@inlinable public func run<Value: ~Copyable & ~Escapable, E: Error>(
   with value: borrowing Value,
   do closure: (borrowing Value) throws(E) -> Void,
 ) throws(E) {
@@ -97,7 +97,7 @@
 ///   - closure: The closure to execute. Receives a copy of `value` to mutate.
 ///
 /// - Returns: The return value of the closure.
-@inlinable public func configure<Value: ~Copyable, E: Error>(
+@inlinable public func configure<Value: ~Copyable & ~Escapable, E: Error>(
   _ value: consuming Value,
   using closure: (inout Value) throws(E) -> Void,
 ) throws(E) -> Value {
@@ -126,7 +126,7 @@ infix operator <-
 ///   - closure: The closure to execute. Receives a copy of `value` to mutate.
 ///
 /// - Returns: The return value of the closure.
-@inlinable public func <- <Value: ~Copyable, E: Error>(
+@inlinable public func <- <Value: ~Copyable & ~Escapable, E: Error>(
   _ value: consuming Value,
   closure: (inout Value) throws(E) -> Void,
 ) throws(E) -> Value {
@@ -142,7 +142,7 @@ infix operator <-
 /// - Parameters:
 ///   - value: Anything.
 ///   - closure: The closure to execute. Receives a reference to `value`.
-@inlinable public func mutate<Value: ~Copyable, E: Error>(
+@inlinable public func mutate<Value: ~Copyable & ~Escapable, E: Error>(
   _ value: inout Value,
   using closure: (inout Value) throws(E) -> Void,
 ) throws(E) {

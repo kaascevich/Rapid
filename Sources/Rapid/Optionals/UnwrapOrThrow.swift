@@ -16,7 +16,7 @@
 infix operator ?! : NilCoalescingPrecedence
 infix operator !! : NilCoalescingPrecedence
 
-public extension Optional {
+public extension Optional where Wrapped: ~Copyable {
   /// Performs a throwing `nil`-coalescing operation, returning the wrapped
   /// value of an `Optional` instance or throwing an error.
   ///
@@ -58,7 +58,7 @@ public extension Optional {
   ///
   /// - Throws: `error` if `optional` is `nil`.
   static func ?! <E: Error>(
-    optional: Self,
+    optional: consuming Self,
     error: @autoclosure () -> E,
   ) throws(E) -> Wrapped {
     if let optional {
@@ -86,7 +86,7 @@ public extension Optional {
   /// - Returns: The unwrapped value of `optional`. If `optional` is `nil`, this
   ///   operator never returns.
   static func !! (
-    optional: Self,
+    optional: consuming Self,
     error: @autoclosure () -> Never,
   ) -> Wrapped {
     if let optional {

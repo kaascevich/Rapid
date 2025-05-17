@@ -24,21 +24,17 @@
 ///
 /// value = -346   // value == 346
 /// ```
-@propertyWrapper public struct Transformed<Value> {
+@propertyWrapper public struct Transformed<Value: ~Copyable & ~Escapable>: ~Copyable, ~Escapable {
   /// A function type that transforms a value.
-  public typealias Transform = (Value) -> Value
-
-  /// The underlying value.
-  private var _wrappedValue: Value
+  public typealias Transform = (borrowing Value) -> Value
 
   /// The wrapped value.
   ///
   /// On mutation, this property is set to the result of calling ``transform``
   /// with the new value.
   public var wrappedValue: Value {
-    get { _wrappedValue }
-    set {
-      _wrappedValue = transform(newValue)
+    didSet {
+      wrappedValue = transform(wrappedValue)
     }
   }
 
@@ -54,10 +50,13 @@
   ///   - wrappedValue: The wrapped value.
   ///   - transform: The transformation to apply to the wrapped value.
   public init(
-    wrappedValue: borrowing Value,
+    wrappedValue: consuming Value,
     with transform: @escaping Transform,
   ) {
     self.transform = transform
-    self._wrappedValue = transform(wrappedValue)
+    self.wrappedValue = transform(wrappedValue)
   }
 }
+
+extension Transformed: Copyable where Value: Copyable { }
+extension Transformed: Escapable where Value: Escapable { }

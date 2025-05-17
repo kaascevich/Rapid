@@ -3,7 +3,8 @@
     "optionals",
     "closures",
     "tests",
-    "functional"
+    "functional",
+    "sequences"
   ],
   "swift.sanitizer": "thread"
 }

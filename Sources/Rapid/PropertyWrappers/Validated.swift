@@ -32,20 +32,16 @@
 /// ```
 @propertyWrapper public struct Validated<Value> {
   /// A function type that validates a value.
-  public typealias Validator = (Value) -> Bool
-
-  /// The underlying value.
-  private var _wrappedValue: Value
+  public typealias Validator = (borrowing Value) -> Bool
 
   /// The wrapped value.
   ///
   /// On mutation, this property is reverted to the old value if calling
   /// `validator` with this property returns `false`.
   public var wrappedValue: Value {
-    get { _wrappedValue }
-    set {
-      if validator(newValue) {
-        _wrappedValue = newValue
+    didSet {
+      if !validator(wrappedValue) {
+        wrappedValue = oldValue
       }
     }
   }
@@ -63,13 +59,13 @@
   ///   - validator: A closure that validates a value.
   ///
   /// - Precondition: `validator(wrappedValue) == true`.
-  public init(wrappedValue: Value, if validator: @escaping Validator) {
+  public init(
+    wrappedValue: consuming Value,
+    if validator: @escaping Validator
+  ) {
     self.validator = validator
 
-    precondition(
-      validator(wrappedValue),
-      "initial value of \(wrappedValue) is invalid",
-    )
-    self._wrappedValue = wrappedValue
+    precondition(validator(wrappedValue), "initial value is invalid")
+    self.wrappedValue = wrappedValue
   }
 }
