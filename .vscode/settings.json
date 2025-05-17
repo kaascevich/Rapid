@@ -4,7 +4,8 @@
     "closures",
     "tests",
     "functional",
-    "sequences"
+    "sequences",
+    "protocols"
   ],
   "swift.sanitizer": "thread"
 }
