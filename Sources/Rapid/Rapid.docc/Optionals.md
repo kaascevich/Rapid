@@ -15,7 +15,7 @@ Work with optionals in ways that won't make you tear your hair out.
 
 - ``Swift/Optional/??=(_:_:)``
 
-### Unwrap or Die
+### Unwrap or Throw
 
 - ``Swift/Optional/?!(_:_:)``
 - ``Swift/Optional/!!(_:_:)``

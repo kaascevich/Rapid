@@ -22,8 +22,8 @@ infix operator <=> : AssignmentPrecedence
 /// of this operator.
 ///
 /// - Parameters:
-///   - a: The first value to swap.
-///   - b: The second value to swap.
+///   - lhs: The first value to swap.
+///   - rhs: The second value to swap.
 @inlinable public func <=> <Value: ~Copyable>(
   lhs: inout Value,
   rhs: inout Value,

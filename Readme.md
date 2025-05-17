@@ -29,7 +29,6 @@ Within Rapid, you will find:
 - Global constants for commonly used values, such as `π` for `Double.pi`
 - Computed properties to simplify common comparisons, such as `isNil` or
   `isNotEmpty`
-- Inverted versions of methods, such as `last(where:)` or `noneSatisfy(_:)`
 - Syntactic sugar for working on specific values, such as `configure(_:_:)` or
   `run(with:do:)`
 - Methods and subscripts that return `nil` instead of crashing when invalid
@@ -45,7 +44,7 @@ Within Rapid, you will find:
    ```swift
    .package(
      url: "https://codeberg.org/kaascevich/Rapid.git",
-     from: "3.0.0",
+     from: "4.0.0",
    )
    ```
 

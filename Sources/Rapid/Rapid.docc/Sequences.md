@@ -21,7 +21,7 @@ Safely access collection elements, and filter sequences in more expressive ways.
 
 ### Counting
 
-- ``Swift/Sequence/count(of:)-9tin5``
+- ``Swift/Sequence/count(of:)``
 
 ### Filtering
 

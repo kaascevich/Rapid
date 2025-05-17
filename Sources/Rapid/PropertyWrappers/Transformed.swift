@@ -15,7 +15,7 @@
 
 /// A property wrapper that applies a transformation to the wrapped value.
 ///
-/// For example, you can use `@Transform` to automatically negate a value upon
+/// For example, you can use `@Transformed` to automatically negate a value upon
 /// assigning it.
 ///
 /// ```swift

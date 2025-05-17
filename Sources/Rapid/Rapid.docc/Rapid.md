@@ -16,8 +16,6 @@ Within Rapid, you will find:
 - Global constants for commonly used values, such as ``π`` for `Double.pi`
 - Computed properties to simplify common comparisons, such as
   ``Swift/Optional/isNil`` or ``Swift/Collection/isNotEmpty``
-- Inverted versions of methods, such as ``Swift/Sequence/last(where:)`` or
-  ``Swift/Sequence/noneSatisfy(_:)``
 - Syntactic sugar for working on specific values, such as
   ``configure(_:using:)`` or ``run(with:do:)``
 - Methods and subscripts that return `nil` instead of crashing when invalid
@@ -33,7 +31,7 @@ Within Rapid, you will find:
    ```swift
    .package(
      url: "https://codeberg.org/kaascevich/Rapid.git",
-     from: "3.0.0",
+     from: "4.0.0",
    )
    ```
 
@@ -57,39 +55,43 @@ Within Rapid, you will find:
 
 ## Topics
 
- - <doc:Conformances>
- - <doc:Strings>
- - <doc:Numbers>
- - <doc:Optionals>
- - <doc:Closures>
- - <doc:Sequences>
- - <doc:ResultBuilders>
- - <doc:PatternMatching>
- - <doc:Time>
- - <doc:OperatorAliases>
- - <doc:Protocols>
+- <doc:Conformances>
+- <doc:Strings>
+- <doc:Numbers>
+- <doc:Optionals>
+- <doc:Closures>
+- <doc:Sequences>
+- <doc:ResultBuilders>
+- <doc:PatternMatching>
+- <doc:Time>
+- <doc:OperatorAliases>
+- <doc:Protocols>
 
 ### Comparisons
 
- - ``Swift/Comparable/isBetween(_:)``
- - ``Swift/Comparable/clamped(to:)``
- - ``Swift/Comparable/clamp(to:)``
+- ``Swift/Comparable/isBetween(_:)``
+- ``Swift/Comparable/clamped(to:)``
+- ``Swift/Comparable/clamp(to:)``
 
 ### Property Wrappers
 
- - ``Clamped``
- - ``Transformed``
- - ``Validated``
+- ``Clamped``
+- ``Transformed``
+- ``Validated``
+
+### Functions
+
+- ``|>(_:_:)``
 
 ### Type Erasure
 
- - ``AnyEquatable``
-
-### Type Aliases
-
- - ``AnyType``
- - ``Nothing``
+- ``AnyEquatable``
 
 ### Other
 
- - ``<=>(_:_:)``
+- ``<=>(_:_:)``
+
+### Type Aliases
+
+- ``AnyType``
+- ``Nothing``
