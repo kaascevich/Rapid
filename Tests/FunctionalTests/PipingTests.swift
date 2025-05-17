@@ -19,13 +19,13 @@ import Testing
 @testable import Rapid
 
 @Suite struct PipingTests {
-  func addThree(_ number: Int) -> Int {
+  func addThree(to number: Int) -> Int {
     number + 3
   }
   func double(_ number: Int) -> Int {
     number * 2
   }
-  func uhOh(_ number: Int) throws -> Int {
+  func uhOh(_: Int) throws -> Int {
     throw MockError.bad
   }
 
@@ -44,7 +44,7 @@ import Testing
   }
 
   /// The `|>(argument:function:)` rethrows any thrown error.
-  @Test("|>(argument:function:) -> throws")
+  @Test("|>(argument:function:) -> throws", .tags(.rethrows))
   func rightwardsPipeThrows() {
     #expect(throws: MockError.bad) {
       _ = try 5 |> uhOh
