@@ -31,7 +31,7 @@ Within Rapid, you will find:
    ```swift
    .package(
      url: "https://codeberg.org/kaascevich/Rapid.git",
-     from: "4.0.0",
+     from: "4.0.0"
    )
    ```
 
@@ -40,7 +40,7 @@ Within Rapid, you will find:
    ```swift
    .product(
      name: "Rapid",
-     package: "Rapid",
+     package: "Rapid"
    )
    ```
 
@@ -90,8 +90,3 @@ Within Rapid, you will find:
 ### Other
 
 - ``<=>(_:_:)``
-
-### Type Aliases
-
-- ``AnyType``
-- ``Nothing``

@@ -4,10 +4,6 @@ Make your `switch` statements look spectacular.
 
 ## Topics
 
-### Errors
-
-- ``Swift/Error/~=(_:_:)``
-
 ### Key Paths
 
 - ``Swift/KeyPath/~=(_:_:)``

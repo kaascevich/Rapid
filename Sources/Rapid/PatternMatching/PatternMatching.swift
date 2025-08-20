@@ -8,11 +8,13 @@ public extension Error where Self: Equatable {
   /// error.
   ///
   /// @DeprecationSummary {
-  ///   Manually cast `other` to the appropriate type instead.
+  ///   Manually cast `other` to the appropriate type instead. **This operator
+  ///   never worked correctly in the first place, so any existing usage is
+  ///   likely to be a bug.**
   /// }
   @available(
     *, deprecated,
-    message: "manually cast to the appropriate type instead"
+    message: "manually cast to the appropriate type instead; this operator never worked properlyy"
   )
   @inlinable static func ~= (error: Self, other: some Error) -> Bool {
     error == (other as? Self)
