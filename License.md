@@ -547,25 +547,25 @@ as a result of your choosing to follow a later version.
 
 ### 15. Disclaimer of Warranty
 
-**There is _no warranty_ for the program, to the extent permitted by applicable
-law. Except when otherwise stated in writing the copyright holders and/or other
-parties provide the program "as is" _without warranty of any kind_, either
-expressed or implied, including, but not limited to, the implied warranties of
-merchantability and fitness for a particular purpose. The entire risk as to the
-quality and performance of the program is with you. Should the program prove
-defective, you assume the cost of all necessary servicing, repair or
-correction.**
+**THERE IS NO WARRANTY FOR THE PROGRAM, TO THE EXTENT PERMITTED BY APPLICABLE
+LAW. EXCEPT WHEN OTHERWISE STATED IN WRITING THE COPYRIGHT HOLDERS AND/OR OTHER
+PARTIES PROVIDE THE PROGRAM "AS IS" WITHOUT WARRANTY OF ANY KIND, EITHER
+EXPRESSED OR IMPLIED, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF
+MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE. THE ENTIRE RISK AS TO THE
+QUALITY AND PERFORMANCE OF THE PROGRAM IS WITH YOU. SHOULD THE PROGRAM PROVE
+DEFECTIVE, YOU ASSUME THE COST OF ALL NECESSARY SERVICING, REPAIR OR
+CORRECTION.**
 
 ### 16. Limitation of Liability
 
-**_In no event_ unless required by applicable law or agreed to in writing will
-any copyright holder, or any other party who modifies and/or conveys the program
-as permitted above, be liable to you for damages, including any general,
-special, incidental or consequential damages arising out of the use or inability
-to use the program (including but not limited to loss of data or data being
-rendered inaccurate or losses sustained by you or thirs parties or a failure of
-the program to operate with any other programs), _even if_ such holder or other
-party has been advised of the possibility of such damages.**
+**IN NO EVENT UNLESS REQUIRED BY APPLICABLE LAW OR AGREED TO IN WRITING WILL
+ANY COPYRIGHT HOLDER, OR ANY OTHER PARTY WHO MODIFIES AND/OR CONVEYS THE PROGRAM
+AS PERMITTED ABOVE, BE LIABLE TO YOU FOR DAMAGES, INCLUDING ANY GENERAL,
+SPECIAL, INCIDENTAL OR CONSEQUENTIAL DAMAGES ARISING OUT OF THE USE OR INABILITY
+TO USE THE PROGRAM (INCLUDING BUT NOT LIMITED TO LOSS OF DATA OR DATA BEING
+RENDERED INACCURATE OR LOSSES SUSTAINED BY YOU OR THIRD PARTIES OR A FAILURE OF
+THE PROGRAM TO OPERATE WITH ANY OTHER PROGRAMS), EVEN IF SUCH HOLDER OR OTHER
+PARTY HAS BEEN ADVISED OF THE POSSIBILITY OF SUCH DAMAGES.**
 
 ### 17. Interpretation of Sections [15][section 15] and [16][section 16]
 
@@ -574,48 +574,6 @@ be given local legal effect according to their terms, reviewing courts shall
 apply local law that most closely approximates an absolute waiver of all civil
 liability in connection with the Program, unless a warranty or assumption of
 liability accompanies a copy of the Program in return for a fee.
-
-## How to Apply These Terms to Your New Programs
-
-If you develop a new program, and you want it to be of the greatest possible use
-to the public, the best way to achieve this is to make it free software which
-everyone can redistribute and change under these terms.
-
-To do so, attach the following notices to the program. It is safest to attach
-them to the start of each source file to most effectively state the exclusion of
-warranty; and each file should have at least the "copyright" line and a pointer
-to where the full notice is found.
-
-```text
-{brief description of the program}
-Copyright © {year} {name of author}
-
-This program is free software: you can redistribute it and/or modify it under
-the terms of the GNU Affero General Public License as published by the Free
-Software Foundation, either version 3 of the License, or (at your option) any
-later version.
-
-This program is distributed in the hope that it will be useful, but WITHOUT ANY
-WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A
-PARTICULAR PURPOSE. See the GNU Affero General Public License for more details.
-
-You should have received a copy of the GNU Affero General Public License along
-with this program. If not, see <https://www.gnu.org/licenses/>.
-```
-
-Also add information on how to contact you by electronic and paper mail.
-
-If your software can interact with users remotely through a computer network,
-you should also make sure that it provides a way for users to get its source.
-For example, if your program is a web application, its interface could display
-a "Source" link that leads users to an archive of the code. There are many ways
-you could offer source, and different solutions will be better for different
-programs; see [section 13] for the specific requirements.
-
-You should also get your employer (if you work as a programmer) or school, if
-any, to sign a "copyright disclaimer" for the program, if necessary. For more
-information on this, and how to apply and follow the GNU AGPL, see
-<https://www.gnu.org/licenses/>.
 
 [section 4]: #4-conveying-verbatim-copies
 [section 5]: #5-conveying-modified-source-versions
