@@ -44,7 +44,7 @@ Within Rapid, you will find:
    ```swift
    .package(
      url: "https://codeberg.org/kaascevich/Rapid.git",
-     from: "4.0.0",
+     from: "4.0.0"
    )
    ```
 
@@ -53,7 +53,7 @@ Within Rapid, you will find:
    ```swift
    .product(
      name: "Rapid",
-     package: "Rapid",
+     package: "Rapid"
    )
    ```
 

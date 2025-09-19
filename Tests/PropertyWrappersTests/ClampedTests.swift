@@ -1,4 +1,4 @@
-// Copyright © 2024-2025 Kaleb A. Ascevich
+// SPDX-FileCopyrightText: 2024 Kaleb A. Ascevich
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
 import TestHelpers
@@ -8,8 +8,7 @@ import Testing
 
 @Suite struct ClampedTests {
   /// The `@Clamped` property wrapper clamps the value to the given range.
-  @Test("@Clamped")
-  func clamped() {
+  @Test func `@Clamped`() {
     @Clamped(to: 3...15) var value = 7
 
     value = 22

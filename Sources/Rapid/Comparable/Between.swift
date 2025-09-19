@@ -1,7 +1,7 @@
-// Copyright © 2024-2025 Kaleb A. Ascevich
+// SPDX-FileCopyrightText: 2024 Kaleb A. Ascevich
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
-public extension Comparable {
+extension Comparable {
   /// Returns a Boolean value indicating whether this value is in the provided
   /// range.
   ///
@@ -16,7 +16,8 @@ public extension Comparable {
   ///
   /// - Returns: `true` if this value is contained within `range`; otherwise,
   ///   `false`.
-  @inlinable func isBetween(_ range: some RangeExpression<Self>) -> Bool {
+  @inlinable
+  public func isBetween(_ range: some RangeExpression<Self>) -> Bool {
     range.contains(self)
   }
 }

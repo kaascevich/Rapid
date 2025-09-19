@@ -1,7 +1,7 @@
-// Copyright © 2024-2025 Kaleb A. Ascevich
+// SPDX-FileCopyrightText: 2024 Kaleb A. Ascevich
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
-public extension Collection {
+extension Collection {
   /// A Boolean value indicating whether the collection is not empty.
   ///
   /// When you need to check whether your collection is not empty, use the
@@ -21,19 +21,21 @@ public extension Collection {
   /// ```
   ///
   /// - Complexity: O(1).
-  @inlinable var isNotEmpty: Bool {
+  @inlinable
+  public var isNotEmpty: Bool {
     !isEmpty
   }
 }
 
 // MARK: - Nil or Empty
 
-public extension Optional where Wrapped: Collection {
+extension Optional where Wrapped: Collection {
   /// A Boolean value indicating whether this optional is `nil` or, if it has a
   /// value, whether it does not contain any elements.
   ///
   /// - Complexity: O(1).
-  @inlinable var isNilOrEmpty: Bool {
+  @inlinable
+  public var isNilOrEmpty: Bool {
     self.isNil || self?.isEmpty == true
   }
 
@@ -41,7 +43,8 @@ public extension Optional where Wrapped: Collection {
   /// whether it contains any elements.
   ///
   /// - Complexity: O(1).
-  @inlinable var isNotNilOrEmpty: Bool {
+  @inlinable
+  public var isNotNilOrEmpty: Bool {
     !isNilOrEmpty
   }
 }

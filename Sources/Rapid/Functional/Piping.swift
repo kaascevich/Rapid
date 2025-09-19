@@ -1,4 +1,4 @@
-// Copyright © 2024-2025 Kaleb A. Ascevich
+// SPDX-FileCopyrightText: 2024 Kaleb A. Ascevich
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
 precedencegroup FunctionPipePrecedence {
@@ -15,9 +15,10 @@ infix operator |> : FunctionPipePrecedence
 ///   - argument: The argument to pass to `function`.
 ///
 /// - Returns: The return value of `function` when passed `argument`.
-@inlinable public func |> <
+@inlinable
+public func |> <
   ArgumentType: ~Copyable & ~Escapable,
-  ReturnType: ~Copyable & ~Escapable,
+  ReturnType: ~Copyable,
   E: Error,
 >(
   argument: consuming ArgumentType,

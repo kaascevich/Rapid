@@ -1,4 +1,4 @@
-// Copyright © 2024-2025 Kaleb A. Ascevich
+// SPDX-FileCopyrightText: 2024 Kaleb A. Ascevich
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
 import TestHelpers
@@ -9,27 +9,26 @@ import Testing
 @Suite struct ExpressibleByEmptyLiteralTests {
   /// The `ExpressibleByEmptyArrayLiteral` protocol only allows initialization
   /// with an empty literal.
-  @Test("ExpressibleByEmptyArrayLiteral")
-  func expressibleByEmptyArrayLiteral() {
+  @Test func `ExpressibleByEmptyArrayLiteral`() {
     struct EmptyArrayLiteralMock: ExpressibleByEmptyArrayLiteral {
-      init(emptyArrayLiteral _: Void) { }
+      init(emptyArrayLiteral _: Void) {}
     }
 
-    // there isn't much we can do beyond this, since we can't really test
-    // compile-time guarantees
     let _: EmptyArrayLiteralMock = []
+    #expect(EmptyArrayLiteralMock.ArrayLiteralElement.self == Never.self)
   }
 
   /// The `ExpressibleByEmptyDictionaryLiteral` protocol only allows
   /// initialization with an empty literal.
-  @Test("ExpressibleByEmptyDictionaryLiteral")
-  func expressibleByEmptyDictionaryLiteral() {
+  @Test func `ExpressibleByEmptyDictionaryLiteral`() {
     struct EmptyDictionaryLiteralMock: ExpressibleByEmptyDictionaryLiteral {
-      init(emptyDictionaryLiteral _: Void) { }
+      init(emptyDictionaryLiteral _: Void) {}
     }
 
     // there isn't much we can do beyond this, since we can't really test
     // compile-time guarantees
     let _: EmptyDictionaryLiteralMock = [:]
+    #expect(EmptyDictionaryLiteralMock.Key.self == Never.self)
+    #expect(EmptyDictionaryLiteralMock.Value.self == Never.self)
   }
 }

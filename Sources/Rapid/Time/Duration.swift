@@ -1,8 +1,8 @@
-// Copyright © 2024-2025 Kaleb A. Ascevich
+// SPDX-FileCopyrightText: 2024 Kaleb A. Ascevich
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
 @available(iOS 16, macOS 13, tvOS 16, watchOS 9, *)
-public extension Duration {
+extension Duration {
   // MARK: - Minutes
 
   /// Construct a `Duration` given a number of minutes represented as a
@@ -15,7 +15,8 @@ public extension Duration {
   /// - Parameter minutes: A number of minutes.
   ///
   /// - Returns: A `Duration` representing the given number of minutes.
-  @inlinable static func minutes(_ minutes: some BinaryInteger) -> Self {
+  @inlinable
+  public static func minutes(_ minutes: some BinaryInteger) -> Self {
     seconds(minutes * 60)
   }
 
@@ -29,7 +30,8 @@ public extension Duration {
   /// - Parameter minutes: A number of minutes.
   ///
   /// - Returns: A `Duration` representing the given number of minutes.
-  @inlinable static func minutes(_ minutes: Double) -> Self {
+  @inlinable
+  public static func minutes(_ minutes: Double) -> Self {
     seconds(minutes * 60)
   }
 
@@ -45,7 +47,8 @@ public extension Duration {
   /// - Parameter hours: A number of hours.
   ///
   /// - Returns: A `Duration` representing the given number of hours.
-  @inlinable static func hours(_ hours: some BinaryInteger) -> Self {
+  @inlinable
+  public static func hours(_ hours: some BinaryInteger) -> Self {
     minutes(hours * 60)
   }
 
@@ -59,7 +62,8 @@ public extension Duration {
   /// - Parameter hours: A number of hours.
   ///
   /// - Returns: A `Duration` representing the given number of hours.
-  @inlinable static func hours(_ hours: Double) -> Self {
+  @inlinable
+  public static func hours(_ hours: Double) -> Self {
     minutes(hours * 60)
   }
 
@@ -75,7 +79,8 @@ public extension Duration {
   /// - Parameter days: A number of days.
   ///
   /// - Returns: A `Duration` representing the given number of days.
-  @inlinable static func days(_ days: some BinaryInteger) -> Self {
+  @inlinable
+  public static func days(_ days: some BinaryInteger) -> Self {
     hours(days * 24)
   }
 
@@ -89,7 +94,8 @@ public extension Duration {
   /// - Parameter days: A number of days.
   ///
   /// - Returns: A `Duration` representing the given number of days.
-  @inlinable static func days(_ days: Double) -> Self {
+  @inlinable
+  public static func days(_ days: Double) -> Self {
     hours(days * 24)
   }
 
@@ -105,7 +111,8 @@ public extension Duration {
   /// - Parameter weeks: A number of weeks.
   ///
   /// - Returns: A `Duration` representing the given number of weeks.
-  @inlinable static func weeks(_ weeks: some BinaryInteger) -> Self {
+  @inlinable
+  public static func weeks(_ weeks: some BinaryInteger) -> Self {
     days(weeks * 7)
   }
 
@@ -119,7 +126,8 @@ public extension Duration {
   /// - Parameter weeks: A number of weeks.
   ///
   /// - Returns: A `Duration` representing the given number of weeks.
-  @inlinable static func weeks(_ weeks: Double) -> Self {
+  @inlinable
+  public static func weeks(_ weeks: Double) -> Self {
     days(weeks * 7)
   }
 }

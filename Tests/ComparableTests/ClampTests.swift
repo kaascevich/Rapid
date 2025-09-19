@@ -1,4 +1,4 @@
-// Copyright © 2024-2025 Kaleb A. Ascevich
+// SPDX-FileCopyrightText: 2024 Kaleb A. Ascevich
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
 import TestHelpers
@@ -9,8 +9,7 @@ import Testing
 @Suite enum ClampTests {
   @Suite struct ClampedToTests {
     /// The `clamped(to:)` method returns the value if it is in the given range.
-    @Test("clamped(to:) <- in range")
-    func clampedToInRange() {
+    @Test func `clamped(to:) <- in range`() {
       #expect(7.clamped(to: 6...12) == 7)
       #expect("G".clamped(to: "A"..."Z") == "G")
       #expect(0.32.clamped(to: 0.31...0.33) == 0.32)
@@ -18,8 +17,7 @@ import Testing
 
     /// The `clamped(to:)` method clamps the value if it is not in the given
     /// range.
-    @Test("clamped(to:) <- not in range")
-    func clampedToNotInRange() {
+    @Test func `clamped(to:) <- not in range`() {
       #expect(1.clamped(to: 5...7) == 5)
       #expect("f".clamped(to: "a"..."d") == "d")
     }
@@ -28,8 +26,7 @@ import Testing
   @Suite struct ClampToTests {
     /// The `clamp(to:)` method does not change the value if it is in the given
     /// range.
-    @Test("clamp(to:) <- in range")
-    func clampToInRange() {
+    @Test func `clamp(to:) <- in range`() {
       var seven = 7
       seven.clamp(to: 6...12)
       #expect(seven == 7)
@@ -45,8 +42,7 @@ import Testing
 
     /// The `clamp(to:)` method clamps the value if it is not in the given
     /// range.
-    @Test("clamp(to:) <- not in range")
-    func clampToNotInRange() {
+    @Test func `clamp(to:) <- not in range`() {
       var one = 1
       one.clamp(to: 5...7)
       #expect(one == 5)

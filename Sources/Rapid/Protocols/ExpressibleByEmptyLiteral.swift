@@ -1,4 +1,4 @@
-// Copyright © 2024-2025 Kaleb A. Ascevich
+// SPDX-FileCopyrightText: 2024 Kaleb A. Ascevich
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
 /// A type that can be initialized using an empty array literal.
@@ -11,9 +11,10 @@ public protocol ExpressibleByEmptyArrayLiteral: ExpressibleByArrayLiteral {
   init(emptyArrayLiteral _: Void)
 }
 
-public extension ExpressibleByEmptyArrayLiteral {
+extension ExpressibleByEmptyArrayLiteral {
   /// Creates an instance.
-  @inlinable init(arrayLiteral _: Never...) {
+  @inlinable
+  public init(arrayLiteral _: Never...) {
     self.init(emptyArrayLiteral: ())
   }
 }
@@ -23,14 +24,17 @@ public extension ExpressibleByEmptyArrayLiteral {
 /// An empty dictionary literal (`[:]`) always has element types of `Never`.
 /// This provides a compile-time guarantee that the literal is indeed empty,
 /// since `Never` is uninhabited and therefore can't be instantiated.
-public protocol ExpressibleByEmptyDictionaryLiteral: ExpressibleByDictionaryLiteral {
+public protocol ExpressibleByEmptyDictionaryLiteral:
+  ExpressibleByDictionaryLiteral
+{
   /// Creates an instance.
   init(emptyDictionaryLiteral _: Void)
 }
 
-public extension ExpressibleByEmptyDictionaryLiteral {
+extension ExpressibleByEmptyDictionaryLiteral {
   /// Creates an instance.
-  @inlinable init(dictionaryLiteral _: (Never, Never)...) {
+  @inlinable
+  public init(dictionaryLiteral _: (Never, Never)...) {
     self.init(emptyDictionaryLiteral: ())
   }
 }

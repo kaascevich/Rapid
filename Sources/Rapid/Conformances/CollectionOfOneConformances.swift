@@ -1,4 +1,4 @@
-// Copyright © 2024-2025 Kaleb A. Ascevich
+// SPDX-FileCopyrightText: 2024 Kaleb A. Ascevich
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
 extension CollectionOfOne: @retroactive ExpressibleByArrayLiteral {
@@ -20,7 +20,7 @@ extension CollectionOfOne: @retroactive ExpressibleByArrayLiteral {
       elements.count == 1,
       """
       CollectionOfOne must be instantiated with a single-element array literal
-      """,
+      """
     )
 
     self.init(elements.first!)

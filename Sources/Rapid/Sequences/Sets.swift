@@ -1,9 +1,9 @@
-// Copyright © 2024-2025 Kaleb A. Ascevich
+// SPDX-FileCopyrightText: 2024 Kaleb A. Ascevich
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
 // MARK: - Addition
 
-public extension SetAlgebra {
+extension SetAlgebra {
   /// Returns a new set with the elements of both of the given sets.
   ///
   /// In the following example, the `attendeesAndVisitors` set is made up of the
@@ -36,7 +36,8 @@ public extension SetAlgebra {
   ///   - rhs: Another set of the same type.
   ///
   /// - Returns: A new set with the unique elements of `lhs` and `rhs`.
-  @inlinable static func + (lhs: Self, rhs: Self) -> Self {
+  @inlinable
+  public static func + (lhs: Self, rhs: Self) -> Self {
     lhs.union(rhs)
   }
 
@@ -70,14 +71,15 @@ public extension SetAlgebra {
   /// - Parameters:
   ///   - lhs: A set.
   ///   - rhs: Another set of the same type.
-  @inlinable static func += (lhs: inout Self, rhs: Self) {
+  @inlinable
+  public static func += (lhs: inout Self, rhs: Self) {
     lhs.formUnion(rhs)
   }
 }
 
 // MARK: - Subtraction
 
-public extension SetAlgebra {
+extension SetAlgebra {
   /// Returns a new set the elements of the first set that do not occur in the
   /// second set.
   ///
@@ -97,7 +99,8 @@ public extension SetAlgebra {
   ///   - rhs: Another set of the same type.
   ///
   /// - Returns: A new set.
-  @inlinable static func - (lhs: Self, rhs: Self) -> Self {
+  @inlinable
+  public static func - (lhs: Self, rhs: Self) -> Self {
     lhs.subtracting(rhs)
   }
 
@@ -118,7 +121,8 @@ public extension SetAlgebra {
   /// - Parameters:
   ///   - lhs: A set.
   ///   - rhs: Another set of the same type.
-  @inlinable static func -= (lhs: inout Self, rhs: Self) {
+  @inlinable
+  public static func -= (lhs: inout Self, rhs: Self) {
     lhs.subtract(rhs)
   }
 }

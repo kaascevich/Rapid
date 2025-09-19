@@ -1,4 +1,4 @@
-// Copyright © 2024-2025 Kaleb A. Ascevich
+// SPDX-FileCopyrightText: 2024 Kaleb A. Ascevich
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
 import TestHelpers
@@ -10,8 +10,7 @@ import Testing
   let notTrue = false  // bypassing the "will never be executed" warning
 
   /// The `StringBuilder` result builder creates a String from a result builder.
-  @Test("StringBuilder")
-  func stringBuilder() {
+  @Test func `StringBuilder`() {
     let randomThings = String {
       "hello"
 
@@ -33,8 +32,7 @@ import Testing
   }
 
   /// The `ArrayBuilder` result builder creates an Array from a result builder.
-  @Test("ArrayBuilder")
-  func arrayBuilder() {
+  @Test func `ArrayBuilder`() {
     let randomThings = Array {
       "hello"
 

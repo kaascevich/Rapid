@@ -1,4 +1,4 @@
-// Copyright © 2024-2025 Kaleb A. Ascevich
+// SPDX-FileCopyrightText: 2024 Kaleb A. Ascevich
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
 /// Automatically creates all result builder methods from a `buildResult(from:)`
@@ -89,7 +89,7 @@ public protocol ResultBuilder {
   static func buildExpression(_ expression: Expression) -> Component
 }
 
-public extension ResultBuilder {
+extension ResultBuilder {
   /// Required by every result builder to build combined results from statement
   /// blocks.
   ///
@@ -104,7 +104,7 @@ public extension ResultBuilder {
   /// - Parameter components: The components to build the result from.
   ///
   /// - Returns: The result of combining all the components.
-  static func buildBlock(_ components: Component...) -> Component {
+  public static func buildBlock(_ components: Component...) -> Component {
     buildResult(from: components)
   }
 
@@ -121,7 +121,7 @@ public extension ResultBuilder {
   /// - Parameter components: An array of components to build the result from.
   ///
   /// - Returns: The result of combining all the components.
-  static func buildArray(_ components: [Component]) -> Component {
+  public static func buildArray(_ components: [Component]) -> Component {
     buildResult(from: components)
   }
 
@@ -146,7 +146,7 @@ public extension ResultBuilder {
   /// ## See Also
   ///
   /// - ``buildEither(second:)``
-  static func buildEither(first component: Component) -> Component {
+  public static func buildEither(first component: Component) -> Component {
     buildResult(from: [component])
   }
 
@@ -171,7 +171,7 @@ public extension ResultBuilder {
   /// ## See Also
   ///
   /// - ``buildEither(first:)``
-  static func buildEither(second component: Component) -> Component {
+  public static func buildEither(second component: Component) -> Component {
     buildResult(from: [component])
   }
 
@@ -191,7 +191,9 @@ public extension ResultBuilder {
   /// - Parameter component: A component.
   ///
   /// - Returns: The `component` parameter.
-  static func buildLimitedAvailability(_ component: Component) -> Component {
+  public static func buildLimitedAvailability(_ component: Component)
+    -> Component
+  {
     buildResult(from: [component])
   }
 
@@ -210,7 +212,7 @@ public extension ResultBuilder {
   ///
   /// - Returns: The `component` parameter, if it isn't `nil`; otherwise,  an
   ///   empty result.
-  static func buildOptional(_ component: Component?) -> Component {
+  public static func buildOptional(_ component: Component?) -> Component {
     if let component {
       buildResult(from: [component])
     } else {
@@ -219,26 +221,26 @@ public extension ResultBuilder {
   }
 }
 
-public extension ResultBuilder where Component == Expression {
+extension ResultBuilder where Component == Expression {
   /// Builds a component from an expression.
   ///
   /// - Parameter expression: The expression to build the component from.
   ///
   /// - Returns: A component created from the expression.
-  static func buildExpression(_ expression: Expression) -> Component {
+  public static func buildExpression(_ expression: Expression) -> Component {
     expression
   }
 }
 
 // MARK: - RangeReplaceableCollection Conformances
 
-public extension ResultBuilder where Component: RangeReplaceableCollection {
+extension ResultBuilder where Component: RangeReplaceableCollection {
   /// Builds a result from an array of components.
   ///
   /// - Parameter components: The components to build the result from.
   ///
   /// - Returns: The result of combining all the components.
-  static func buildResult(from components: [Component]) -> Component {
+  public static func buildResult(from components: [Component]) -> Component {
     components.reduce(.init(), +)
   }
 
@@ -247,16 +249,19 @@ public extension ResultBuilder where Component: RangeReplaceableCollection {
   /// - Parameter expression: The expression to build the component from.
   ///
   /// - Returns: A component created from the expression.
-  static func buildExpression(_ expression: Component.Element) -> Component {
+  public static func buildExpression(
+    _ expression: Component.Element
+  ) -> Component {
     Component([expression])
   }
 }
 
 // MARK: - StringBuilder
 
-public extension String {
+extension String {
   /// Creates a `String` using a result builder.
-  @resultBuilder enum Builder: ResultBuilder {
+  @resultBuilder
+  public enum Builder: ResultBuilder {
     public typealias Expression = String
   }
 
@@ -275,16 +280,17 @@ public extension String {
   /// ```
   ///
   /// - Parameter stringBuilder: A `String.Builder` result builder.
-  init(@Builder stringBuilder: () throws -> String) rethrows {
+  public init(@Builder stringBuilder: () throws -> String) rethrows {
     self = try stringBuilder()
   }
 }
 
 // MARK: - ArrayBuilder
 
-public extension Array {
+extension Array {
   /// Creates an `Array` using a result builder.
-  @resultBuilder enum Builder: ResultBuilder {
+  @resultBuilder
+  public enum Builder: ResultBuilder {
     public typealias Expression = Element
     public typealias Component = [Element]
   }
@@ -292,7 +298,7 @@ public extension Array {
   /// Creates a new instance from an `Array.Builder`.
   ///
   /// - Parameter arrayBuilder: An `Array.Builder` result builder.
-  init(@Builder arrayBuilder: () throws -> [Element]) rethrows {
+  public init(@Builder arrayBuilder: () throws -> [Element]) rethrows {
     self = try arrayBuilder()
   }
 }

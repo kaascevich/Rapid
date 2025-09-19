@@ -1,4 +1,4 @@
-// Copyright © 2024-2025 Kaleb A. Ascevich
+// SPDX-FileCopyrightText: 2024 Kaleb A. Ascevich
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
 // MARK: - Run
@@ -28,8 +28,9 @@
 /// - Parameter closure: The closure to execute.
 ///
 /// - Returns: The closure's return value, if any.
-@inlinable public func run<ReturnType: ~Copyable & ~Escapable, E: Error>(
-  closure: borrowing () throws(E) -> ReturnType,
+@inlinable
+public func run<ReturnType: ~Copyable, E: Error>(
+  closure: borrowing () throws(E) -> ReturnType
 ) throws(E) -> ReturnType {
   try closure()
 }
@@ -58,9 +59,10 @@
 /// - Parameters:
 ///   - value: Anything.
 ///   - closure: The closure to execute. Receives a copy of `value`.
-@inlinable public func run<Value: ~Copyable & ~Escapable, E: Error>(
+@inlinable
+public func run<Value: ~Copyable & ~Escapable, E: Error>(
   with value: borrowing Value,
-  do closure: (borrowing Value) throws(E) -> Void,
+  do closure: (borrowing Value) throws(E) -> Void
 ) throws(E) {
   try closure(value)
 }
@@ -85,9 +87,10 @@
 ///   - closure: The closure to execute. Receives a copy of `value` to mutate.
 ///
 /// - Returns: The return value of the closure.
-@inlinable public func configure<Value: ~Copyable & ~Escapable, E: Error>(
+@inlinable @_lifetime(copy value)
+public func configure<Value: ~Copyable & ~Escapable, E: Error>(
   _ value: consuming Value,
-  using closure: (inout Value) throws(E) -> Void,
+  using closure: (inout Value) throws(E) -> Void
 ) throws(E) -> Value {
   var copy = value
   try closure(&copy)
@@ -114,9 +117,10 @@ infix operator <-
 ///   - closure: The closure to execute. Receives a copy of `value` to mutate.
 ///
 /// - Returns: The return value of the closure.
-@inlinable public func <- <Value: ~Copyable & ~Escapable, E: Error>(
+@inlinable @_lifetime(copy value)
+public func <- <Value: ~Copyable & ~Escapable, E: Error>(
   _ value: consuming Value,
-  closure: (inout Value) throws(E) -> Void,
+  closure: (inout Value) throws(E) -> Void
 ) throws(E) -> Value {
   try configure(value, using: closure)
 }
@@ -130,9 +134,10 @@ infix operator <-
 /// - Parameters:
 ///   - value: Anything.
 ///   - closure: The closure to execute. Receives a reference to `value`.
-@inlinable public func mutate<Value: ~Copyable & ~Escapable, E: Error>(
+@inlinable
+public func mutate<Value: ~Copyable & ~Escapable, E: Error>(
   _ value: inout Value,
-  using closure: (inout Value) throws(E) -> Void,
+  using closure: (inout Value) throws(E) -> Void
 ) throws(E) {
   try closure(&value)
 }

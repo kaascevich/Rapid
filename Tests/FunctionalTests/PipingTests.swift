@@ -1,4 +1,4 @@
-// Copyright © 2024-2025 Kaleb A. Ascevich
+// SPDX-FileCopyrightText: 2024 Kaleb A. Ascevich
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
 import TestHelpers
@@ -19,21 +19,18 @@ import Testing
 
   /// The `|>(argument:function:)` operator calls `function` with `argument`
   /// and returns the result.
-  @Test("|>(argument:function:)")
-  func rightwardsPipe() {
+  @Test func `|>(argument:function:)`() {
     #expect(5 |> double == 10)
   }
 
   /// The `|>(argument:function:)` operator is left-associative.
-  @Test("|>(argument:function:) <- associativity")
-  func rightwardsPipeAssociativity() {
+  @Test func `|>(argument:function:) <- associativity`() {
     #expect(5 |> double |> addThree == 13)
     #expect(5 |> addThree |> double == 16)
   }
 
   /// The `|>(argument:function:)` rethrows any thrown error.
-  @Test("|>(argument:function:) -> throws", .tags(.rethrows))
-  func rightwardsPipeThrows() {
+  @Test(.tags(.rethrows)) func `|>(argument:function:) -> throws`() {
     #expect(throws: MockError.bad) {
       _ = try 5 |> uhOh
     }

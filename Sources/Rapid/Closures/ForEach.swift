@@ -1,7 +1,7 @@
-// Copyright © 2024-2025 Kaleb A. Ascevich
+// SPDX-FileCopyrightText: 2024 Kaleb A. Ascevich
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
-public extension BinaryInteger where Stride: SignedInteger {
+extension BinaryInteger where Stride: SignedInteger {
   /// Calls the given closure `self` times in the same order as a `for`-`in`
   /// loop.
   ///
@@ -34,8 +34,9 @@ public extension BinaryInteger where Stride: SignedInteger {
   ///
   /// - Parameter body: A closure that takes an instance of `Self` as a
   ///   parameter.
-  @inlinable func `repeat`<E: Error>(
-    _ body: (Self) throws(E) -> Void,
+  @inlinable
+  public func `repeat`<E: Error>(
+    _ body: (Self) throws(E) -> Void
   ) throws(E) {
     for index in 0..<self {
       try body(index)

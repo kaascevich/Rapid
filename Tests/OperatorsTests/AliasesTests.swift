@@ -1,4 +1,4 @@
-// Copyright © 2024-2025 Kaleb A. Ascevich
+// SPDX-FileCopyrightText: 2024 Kaleb A. Ascevich
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
 import TestHelpers
@@ -9,8 +9,7 @@ import Testing
 @Suite struct AliasesTests {
   /// The `≠(_:_:)` operator returns `true` if the values are not equal, `false`
   /// otherwise.
-  @Test("≠(_:_:)")
-  func notEqual() {
+  @Test func `≠(_:_:)`() {
     #expect(8 ≠ 4)
     #expect("hi" ≠ "bye")
 
@@ -20,8 +19,7 @@ import Testing
 
   /// The `≤(_:_:)` operator returns `true` if the first value is less than or
   /// equal to the second, `false` otherwise.
-  @Test("≤(_:_:)")
-  func lessThanOrEqualTo() {
+  @Test func `≤(_:_:)`() {
     #expect(42 ≤ 69)
     #expect("a" ≤ "b")
 
@@ -34,8 +32,7 @@ import Testing
 
   /// The `≥(_:_:)` operator returns `true` if the first value is greater than
   /// or equal to the second, `false` otherwise.
-  @Test("≥(_:_:)")
-  func greaterThanOrEqualTo() {
+  @Test func `≥(_:_:)`() {
     #expect(69 ≥ 42)
     #expect("b" ≥ "a")
 

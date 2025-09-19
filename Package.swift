@@ -1,6 +1,6 @@
-// swift-tools-version: 6.1
+// swift-tools-version: 6.2
 
-// Copyright © 2024-2025 Kaleb A. Ascevich
+// SPDX-FileCopyrightText: 2024 Kaleb A. Ascevich
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
 import PackageDescription
@@ -23,41 +23,41 @@ let targets = [
   "TypeErasure",
 ]
 
-func rapidTestTarget(_ name: String) -> Target {
-  .testTarget(
-    name: "\(name)Tests",
-    dependencies: ["Rapid", "TestHelpers"],
-  )
-}
+let swiftFeatures: [SwiftSetting] = [
+  "LifetimeDependence",
+  "Lifetimes",
+].map { .enableExperimentalFeature($0) }
+
+let swiftSettings =
+  swiftFeatures + [
+    .swiftLanguageMode(.v6),
+    .strictMemorySafety(),
+  ]
 
 let package = Package(
   name: "Rapid",
-  platforms: [
-    .macOS(.v10_15),
-    .iOS(.v13),
-    .watchOS(.v6),
-    .tvOS(.v13),
-    .macCatalyst(.v13),
-    .visionOS(.v1),
-  ],
   products: [
-    .library(name: "Rapid", targets: ["Rapid"]),
+    .library(name: "Rapid", targets: ["Rapid"])
   ],
   dependencies: [
     .package(
-      url: "https://github.com/mattgallagher/CwlPreconditionTesting.git",
-      from: "2.2.2",
-    ),
-    .package(
       url: "https://github.com/swiftlang/swift-docc-plugin",
-      from: "1.4.3",
+      from: "1.4.3"
     ),
   ],
-  targets: targets.map(rapidTestTarget) + [
+  targets: [
     .target(
       name: "Rapid",
-      swiftSettings: [.enableExperimentalFeature("LifetimeDependence")],
+      swiftSettings: swiftSettings
     ),
-    .target(name: "TestHelpers", dependencies: ["CwlPreconditionTesting"]),
+    .target(name: "TestHelpers"),
   ],
 )
+
+package.targets += targets.map { name in
+  .testTarget(
+    name: "\(name)Tests",
+    dependencies: ["Rapid", "TestHelpers"],
+    swiftSettings: swiftSettings
+  )
+}

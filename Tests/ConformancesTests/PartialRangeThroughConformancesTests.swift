@@ -1,4 +1,4 @@
-// Copyright © 2024-2025 Kaleb A. Ascevich
+// SPDX-FileCopyrightText: 2024 Kaleb A. Ascevich
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
 import TestHelpers
@@ -10,32 +10,27 @@ import Testing
   let range: PartialRangeThrough = ...5
 
   /// `PartialRangeThrough` conforms to `Equatable`.
-  @Test("PartialRangeThrough+Equatable")
-  func partialRangeThroughEquatable() {
+  @Test func `PartialRangeThrough+Equatable`() {
     #expect(range == ...5)
   }
 
   /// `PartialRangeThrough` conforms to `Hashable`.
-  @Test("PartialRangeThrough+Hashable")
-  func partialRangeThroughHashable() {
+  @Test func `PartialRangeThrough+Hashable`() {
     #expect(range.hashValue == 5.hashValue)
   }
 
   /// `PartialRangeThrough` conforms to `CustomStringConvertible`.
-  @Test("PartialRangeThrough+CustomStringConvertible")
-  func partialRangeThroughCustomStringConvertible() {
+  @Test func `PartialRangeThrough+CustomStringConvertible`() {
     #expect(String(describing: range) == "...5")
   }
 
   /// `PartialRangeThrough` conforms to `CustomDebugStringConvertible`.
-  @Test("PartialRangeThrough+CustomDebugStringConvertible")
-  func partialRangeThroughCustomDebugStringConvertible() {
+  @Test func `PartialRangeThrough+CustomDebugStringConvertible`() {
     #expect(String(reflecting: range) == "PartialRangeThrough(...5)")
   }
 
   /// `PartialRangeThrough` conforms to `CustomReflectable`.
-  @Test("PartialRangeThrough+CustomReflectable")
-  func partialRangeThroughCustomReflectable() {
+  @Test func `PartialRangeThrough+CustomReflectable`() {
     let mirror = Mirror(reflecting: range)
     #expect(mirror.children.first?.label == "upperBound")
     #expect(mirror.children.first?.value as? Int == 5)

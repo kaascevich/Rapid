@@ -1,4 +1,4 @@
-// Copyright © 2024-2025 Kaleb A. Ascevich
+// SPDX-FileCopyrightText: 2024 Kaleb A. Ascevich
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
 /// A property wrapper that clamps a value to the provided range.
@@ -13,7 +13,8 @@
 /// value = -4     // value == 3
 /// value = 9      // value == 9
 /// ```
-@propertyWrapper public struct Clamped<Value: Comparable> {
+@propertyWrapper
+public struct Clamped<Value: Comparable> {
   /// The wrapped value.
   ///
   /// On mutation, this property is clamped to `range`.
@@ -37,4 +38,4 @@
   }
 }
 
-extension Clamped: Sendable where Value: Sendable { }
+extension Clamped: Sendable where Value: Sendable {}

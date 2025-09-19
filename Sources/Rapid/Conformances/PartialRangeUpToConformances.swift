@@ -1,4 +1,4 @@
-// Copyright © 2024-2025 Kaleb A. Ascevich
+// SPDX-FileCopyrightText: 2024 Kaleb A. Ascevich
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
 extension PartialRangeUpTo: @retroactive Equatable {
@@ -17,13 +17,20 @@ extension PartialRangeUpTo: @retroactive Equatable {
   ///   - rhs: Another range to compare.
   ///
   /// - Returns: Whether the two ranges are equal.
-  @inlinable public static func == (lhs: Self, rhs: Self) -> Bool {
+  @inlinable
+  public static func == (lhs: Self, rhs: Self) -> Bool {
     lhs.upperBound == rhs.upperBound
   }
 }
 
 extension PartialRangeUpTo: @retroactive Hashable where Bound: Hashable {
-  @inlinable public func hash(into hasher: inout Hasher) {
+  /// Hashes the essential components of this value by feeding them into the
+  /// given hasher.
+  ///
+  /// - Parameter hasher: The hasher to use when combining the components of
+  ///   this instance.
+  @inlinable
+  public func hash(into hasher: inout Hasher) {
     hasher.combine(upperBound)
   }
 }
@@ -43,6 +50,10 @@ extension PartialRangeUpTo: @retroactive CustomDebugStringConvertible {
 }
 
 extension PartialRangeUpTo: @retroactive CustomReflectable {
+  /// The custom mirror for this instance.
+  ///
+  /// If this type has value semantics, the mirror should be unaffected by
+  /// subsequent mutations of the instance.
   public var customMirror: Mirror {
     Mirror(self, children: ["upperBound": upperBound])
   }

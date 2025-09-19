@@ -1,4 +1,4 @@
-// Copyright © 2024-2025 Kaleb A. Ascevich
+// SPDX-FileCopyrightText: 2024 Kaleb A. Ascevich
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
 import TestHelpers
@@ -13,16 +13,14 @@ import Testing
 
     /// The `Set.+(_:_:)` operator combines two sets. It keeps existing members
     /// in the event of conflicts.
-    @Test("Set.+(_:_:)")
-    func setAdd() {
+    @Test func `Set.+(_:_:)`() {
       let attendeesAndVisitors = attendees + visitors
       #expect(attendeesAndVisitors == ["Diana", "Nathaniel", "Bethany", "Alicia", "Marcia"])
     }
 
     /// The `Set.+=(_:_:)` operator combines two sets and assigns the result. It
     /// keeps existing members in the event of conflicts.
-    @Test("Set.+=(_:_:)")
-    mutating func setAddAssign() {
+    @Test mutating func `Set.+=(_:_:)`() {
       attendees += visitors
       #expect(attendees == ["Diana", "Nathaniel", "Bethany", "Alicia", "Marcia"])
     }
@@ -33,16 +31,14 @@ import Testing
     let neighbors: Set = ["Bethany", "Eric", "Forlani", "Greta"]
 
     /// The `Set.-(_:_:)` operator subtracts the second set from the first set.
-    @Test("Set.-(_:_:)")
-    func setSubtract() {
+    @Test func `Set.-(_:_:)`() {
       let nonNeighbors = employees - neighbors
       #expect(nonNeighbors == ["Diana", "Chris", "Alicia"])
     }
 
     /// The `Set.-=(_:_:)` operator subtracts the second set from the first set
     /// and assigns the result.
-    @Test("Set.-=(_:_:)")
-    mutating func setSubtractAssign() {
+    @Test mutating func `Set.-=(_:_:)`() {
       employees -= neighbors
       #expect(employees == ["Diana", "Chris", "Alicia"])
     }

@@ -1,9 +1,9 @@
-// Copyright © 2024-2025 Kaleb A. Ascevich
+// SPDX-FileCopyrightText: 2024 Kaleb A. Ascevich
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
 infix operator ??= : AssignmentPrecedence
 
-public extension Optional where Wrapped: ~Copyable {
+extension Optional where Wrapped: ~Copyable {
   /// Assigns a default value to an `Optional` instance if it doesn't have a
   /// value.
   ///
@@ -39,7 +39,8 @@ public extension Optional where Wrapped: ~Copyable {
   ///   - optional: An optional value.
   ///   - defaultValue: A value to use as a default. `defaultValue` is the same
   ///     type as the `Wrapped` type of `optional`.
-  static func ??= (
+  @inlinable
+  public static func ??= (
     optional: inout Self,
     defaultValue: @autoclosure () -> Wrapped,
   ) {

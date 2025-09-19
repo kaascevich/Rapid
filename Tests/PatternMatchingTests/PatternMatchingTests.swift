@@ -1,4 +1,4 @@
-// Copyright © 2024-2025 Kaleb A. Ascevich
+// SPDX-FileCopyrightText: 2024 Kaleb A. Ascevich
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
 import TestHelpers
@@ -9,8 +9,7 @@ import Testing
 @Suite struct PatternMatchingTests {
   /// The `KeyPath<Bool>.~=(_:_:)` operator allows switching on values based on
   /// their Boolean properties.
-  @Test("KeyPath<Bool>.~=(_:_:)")
-  func keyPathBoolPatternMatching() {
+  @Test func `KeyPath<Bool>.~=(_:_:)`() {
     let sign = switch -64 {
     case \.isPositive: "positive"
     case \.isNegative: "negative"
@@ -22,8 +21,7 @@ import Testing
   /// The `Regex.~=(_:_:)` operator only matches if the regex matches the
   /// entire string.
   @available(iOS 16, macOS 13, tvOS 16, watchOS 9, *)
-  @Test("Regex.~=(_:_:)")
-  func regexPatternMatching() {
+  @Test func `Regex.~=(_:_:)`() {
     func testForMatch(of string: String) -> String {
       switch string {
       case /[0-9]+/: "Number!"

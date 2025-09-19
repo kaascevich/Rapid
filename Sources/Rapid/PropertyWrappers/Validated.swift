@@ -1,4 +1,4 @@
-// Copyright © 2024-2025 Kaleb A. Ascevich
+// SPDX-FileCopyrightText: 2024 Kaleb A. Ascevich
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
 /// A property wrapper that rejects a new value if it does not pass a validation
@@ -18,18 +18,24 @@
 /// value = 29     // value == 7
 /// value = 9      // value == 9
 /// ```
-@propertyWrapper public struct Validated<Value> {
+@propertyWrapper
+public struct Validated<Value> {
   /// A function type that validates a value.
   public typealias Validator = (borrowing Value) -> Bool
+
+  private var _value: Value
 
   /// The wrapped value.
   ///
   /// On mutation, this property is reverted to the old value if calling
   /// `validator` with this property returns `false`.
   public var wrappedValue: Value {
-    didSet {
-      if !validator(wrappedValue) {
-        wrappedValue = oldValue
+    get {
+      _value
+    }
+    set {
+      if validator(newValue) {
+        _value = newValue
       }
     }
   }
@@ -53,7 +59,10 @@
   ) {
     self.validator = validator
 
-    precondition(validator(wrappedValue), "initial value is invalid")
-    self.wrappedValue = wrappedValue
+    precondition(
+      validator(wrappedValue),
+      "initial value of \(wrappedValue) is invalid"
+    )
+    self._value = wrappedValue
   }
 }

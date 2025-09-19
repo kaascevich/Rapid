@@ -1,7 +1,7 @@
-// Copyright © 2024-2025 Kaleb A. Ascevich
+// SPDX-FileCopyrightText: 2024 Kaleb A. Ascevich
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
-public extension BinaryInteger {
+extension BinaryInteger {
   /// A Boolean value indicating whether this value is even.
   ///
   /// An integer is even if it is evenly divisible by `2`. `0` is considered
@@ -14,7 +14,8 @@ public extension BinaryInteger {
   /// let oddNumber = -3
   /// // evenNumber.isEven == false
   /// ```
-  var isEven: Bool {
+  @inlinable
+  public var isEven: Bool {
     isMultiple(of: 2)
   }
 
@@ -30,7 +31,8 @@ public extension BinaryInteger {
   /// let evenNumber = -6
   /// // evenNumber.isOdd == false
   /// ```
-  @inlinable var isOdd: Bool {
+  @inlinable
+  public var isOdd: Bool {
     !isEven
   }
 }

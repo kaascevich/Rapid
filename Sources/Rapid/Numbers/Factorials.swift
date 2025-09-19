@@ -1,4 +1,4 @@
-// Copyright © 2024-2025 Kaleb A. Ascevich
+// SPDX-FileCopyrightText: 2024 Kaleb A. Ascevich
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
 public extension BinaryInteger where Stride: SignedInteger {
@@ -23,10 +23,11 @@ public extension BinaryInteger where Stride: SignedInteger {
   /// - Returns: The factorial of `self`.
   ///
   /// - Precondition: `self >= 0`.
+  @inlinable
   func factorial() -> Self {
     precondition(
       self >= 0,
-      "the factorial of \(self), a negative number, is not defined",
+      "the factorial of \(self), a negative number, is not defined"
     )
 
     return if isZero { 1 } else { (1...self).product() }

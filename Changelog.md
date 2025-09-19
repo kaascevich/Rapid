@@ -10,10 +10,17 @@
 ### Updates
 
 - Migrated several functions to use typed `throws` instead of `rethrows`
+- Change `*(_:_:)` overload for `String` repetition to use `Int` instead of
+  `UInt`
 - Added support for `~Copyable` and `~Escapable` types where feasible
 - Re-added `@inlinable` to many declarations
   - This time, _only_ declarations with implementations that are _exceedingly_
     unlikely to change in the future (i.e. exceedingly simple implementations)
+- Changed type of `AnyEquatable.base` from `Any` to `any Equatable`
+- Changed `sorted(by:)` and `sorted(by:using:)` to take a function instead of a
+  key path
+  - This _should_ be source-compatible, since Swift automatically converts key
+    paths into getter functions
 
 ### Deprecations
 
@@ -35,6 +42,10 @@
     drop-in replacement
   - The version that takes an element is still available, since the standard
     library doesn't yet have a replacement for it
+    
+### Other
+
+- Updated to Swift 6.2
 
 ## 3.0.1
 

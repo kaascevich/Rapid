@@ -1,9 +1,9 @@
-// Copyright © 2024-2025 Kaleb A. Ascevich
+// SPDX-FileCopyrightText: 2024 Kaleb A. Ascevich
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
 // MARK: - Errors
 
-public extension Error where Self: Equatable {
+extension Error where Self: Equatable {
   /// Returns a Boolean value indicating whether an error is equal to another
   /// error.
   ///
@@ -13,17 +13,22 @@ public extension Error where Self: Equatable {
   ///   likely to be a bug.**
   /// }
   @available(
-    *, deprecated,
-    message: "manually cast to the appropriate type instead; this operator never worked properlyy"
+    *,
+    deprecated,
+    message: """
+      manually cast to the appropriate type instead; this operator never \
+      worked properly
+      """
   )
-  @inlinable static func ~= (error: Self, other: some Error) -> Bool {
+  @inlinable
+  public static func ~= (error: Self, other: some Error) -> Bool {
     error == (other as? Self)
   }
 }
 
 // MARK: - Key Path Booleans
 
-public extension KeyPath where Value == Bool {
+extension KeyPath where Value == Bool {
   /// Returns a Boolean value indicating whether the property referenced by a
   /// key path is `true` for a value.
   ///
@@ -38,7 +43,8 @@ public extension KeyPath where Value == Bool {
   ///
   /// - Returns: Whether the property referenced by `keyPath` is `true` for
   ///   `value`.
-  @inlinable static func ~= (keyPath: KeyPath, value: Root) -> Bool {
+  @inlinable
+  public static func ~= (keyPath: KeyPath, value: Root) -> Bool {
     value[keyPath: keyPath] == true
   }
 }
@@ -46,7 +52,7 @@ public extension KeyPath where Value == Bool {
 // MARK: - Regular Expressions
 
 @available(iOS 16, macOS 13, tvOS 16, watchOS 9, *)
-public extension Regex {
+extension Regex {
   /// Returns a Boolean value indicating whether a regex matches the given
   /// string in its entirety.
   ///
@@ -82,7 +88,7 @@ public extension Regex {
   ///
   /// - Returns: `true`, if `regex` successfully matches the entirety of
   /// `string`; otherwise, `false`.
-  static func ~= (regex: Self, string: String) -> Bool {
+  public static func ~= (regex: Self, string: String) -> Bool {
     (try? regex.wholeMatch(in: string)).isNotNil
   }
 }

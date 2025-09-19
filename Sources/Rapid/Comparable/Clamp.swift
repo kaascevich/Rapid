@@ -1,7 +1,7 @@
-// Copyright © 2024-2025 Kaleb A. Ascevich
+// SPDX-FileCopyrightText: 2024 Kaleb A. Ascevich
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
-public extension Comparable {
+extension Comparable {
   /// Returns this value, clamped to the given range.
   ///
   /// ```swift
@@ -14,7 +14,8 @@ public extension Comparable {
   /// - Parameter range: A closed range.
   ///
   /// - Returns: `self`, clamped to `range`.
-  @inlinable func clamped(to range: ClosedRange<Self>) -> Self {
+  @inlinable
+  public func clamped(to range: ClosedRange<Self>) -> Self {
     if self > range.upperBound {
       range.upperBound
     } else if self < range.lowerBound {
@@ -36,7 +37,8 @@ public extension Comparable {
   /// ```
   ///
   /// - Parameter range: A closed range.
-  @inlinable mutating func clamp(to range: ClosedRange<Self>) {
+  @inlinable
+  public mutating func clamp(to range: ClosedRange<Self>) {
     self = clamped(to: range)
   }
 }

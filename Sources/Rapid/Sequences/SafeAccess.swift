@@ -1,7 +1,7 @@
-// Copyright © 2024-2025 Kaleb A. Ascevich
+// SPDX-FileCopyrightText: 2024 Kaleb A. Ascevich
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
-public extension Collection {
+extension Collection {
   /// Accesses the element at the specified position, returning `nil` if the
   /// position is invalid.
   ///
@@ -27,7 +27,8 @@ public extension Collection {
   ///
   /// - Returns: The element at the specified position, or `nil` if it doesn't
   ///   exist.
-  @inlinable subscript(ifExists position: Index) -> Element? {
+  @inlinable
+  public subscript(ifExists position: Index) -> Element? {
     guard indices.contains(position) else {
       return nil
     }

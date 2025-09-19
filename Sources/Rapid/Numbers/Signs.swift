@@ -1,14 +1,15 @@
-// Copyright © 2024-2025 Kaleb A. Ascevich
+// SPDX-FileCopyrightText: 2024 Kaleb A. Ascevich
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
-public extension SignedNumeric where Self: Comparable {
+extension SignedNumeric where Self: Comparable {
   // MARK: - Positivity
 
   /// A Boolean value indicating whether this value is positive.
   ///
   /// A number is positive if it compares greater than zero. Zero is neither
   /// negative nor positive.
-  @inlinable var isPositive: Bool {
+  @inlinable
+  public var isPositive: Bool {
     self > 0
   }
 
@@ -18,7 +19,8 @@ public extension SignedNumeric where Self: Comparable {
   ///
   /// A number is negative if it compares less than zero. Zero is neither
   /// negative nor positive.
-  @inlinable var isNegative: Bool {
+  @inlinable
+  public var isNegative: Bool {
     self < 0
   }
 
@@ -36,7 +38,8 @@ public extension SignedNumeric where Self: Comparable {
   /// let y = x.absoluteValue
   /// // Overflow error
   /// ```
-  @inlinable var absoluteValue: Self {
+  @inlinable
+  public var absoluteValue: Self {
     abs(self)
   }
 }

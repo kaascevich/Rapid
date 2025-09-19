@@ -1,7 +1,7 @@
-// Copyright © 2024-2025 Kaleb A. Ascevich
+// SPDX-FileCopyrightText: 2024 Kaleb A. Ascevich
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
-public extension Sequence {
+extension Sequence {
   /// Returns a Boolean value indicating whether no elements of a sequence
   /// satisfy a given predicate.
   ///
@@ -24,7 +24,9 @@ public extension Sequence {
   ///
   /// - Returns: `true` if the sequence contains no elements that satisfy
   ///   `predicate`; otherwise, `false`.
-  func noneSatisfy(_ predicate: (Element) throws -> Bool) rethrows -> Bool {
+  public func noneSatisfy(
+    _ predicate: (Element) throws -> Bool
+  ) rethrows -> Bool {
     try allSatisfy { try !predicate($0) }
   }
 
@@ -35,7 +37,7 @@ public extension Sequence {
   /// - Complexity: O(*n*), where *n* is the length of this sequence.
   ///
   /// - Returns: An array of the non-`nil` elements of the sequence.
-  func compacted<Value>() -> [Value] where Element == Value? {
+  public func compacted<Value>() -> [Value] where Element == Value? {
     compactMap(\.self)
   }
 
@@ -46,15 +48,20 @@ public extension Sequence {
   ///   Use the standard library version on `BidirectionalCollection` instead.
   /// }
   @available(
-    *, deprecated,
-    message: "use the standard library version on 'BidirectionalCollection' instead"
+    *,
+    deprecated,
+    message: """
+      use the standard library version on 'BidirectionalCollection' instead
+      """
   )
-  func last(where predicate: (Element) throws -> Bool) rethrows -> Element? {
+  public func last(
+    where predicate: (Element) throws -> Bool
+  ) rethrows -> Element? {
     try reversed().first(where: predicate)
   }
 }
 
-public extension RangeReplaceableCollection where Element: Equatable {
+extension RangeReplaceableCollection where Element: Equatable {
   /// Removes all the elements that equal the given value.
   ///
   /// Use this method to remove every element in a collection equal to a
@@ -70,14 +77,14 @@ public extension RangeReplaceableCollection where Element: Equatable {
   /// - Complexity: O(*n*), where *n* is the length of the collection.
   ///
   /// - Parameter element: An element of the collection.
-  mutating func removeAll(occurrencesOf element: Element) {
+  public mutating func removeAll(occurrencesOf element: Element) {
     removeAll { $0 == element }
   }
 }
 
 // MARK: - Counting
 
-public extension Sequence {
+extension Sequence {
   /// Returns the number of times the given element appears in the sequence.
   ///
   /// In this example, `count(of:)` is used to count the number of times the
@@ -96,83 +103,7 @@ public extension Sequence {
   /// - Parameter element: The element to count.
   ///
   /// - Returns: The number of times `element` appears in the sequence.
-  func count(of element: Element) -> Int where Element: Equatable {
-    count(where: { $0 == element }) // swiftlint:disable:this trailing_closure
-  }
-}
-
-// MARK: - Sorting
-
-public extension Sequence {
-  /// Returns the elements of the sequence, sorted by the given property.
-  ///
-  /// You can sort any sequence of elements with a property that conforms to the
-  /// `Comparable` protocol by calling this method. Elements are sorted in
-  /// ascending order.
-  ///
-  /// To sort the elements of your sequence in descending order, pass the
-  /// greater-than operator (`>`) to the ``sorted(by:using:)`` method.
-  ///
-  /// The sorting algorithm is guaranteed to be stable. A stable sort preserves
-  /// the relative order of elements that compare as equal.
-  ///
-  /// - Complexity: O(*n* log *n*), where *n* is the length of the sequence.
-  ///
-  /// - Parameter keyPath: A key path to a property of `Element`.
-  ///
-  /// - Returns: An array of the sequence's elements, sorted by `keyPath`.
-  func sorted(by keyPath: KeyPath<Element, some Comparable>) -> [Element] {
-    sorted(by: keyPath, using: <)
-  }
-
-  /// Returns the elements of the sequence, sorted by the given property, using
-  /// the given predicate as the comparison between elements.
-  ///
-  /// When you want to sort a sequence of elements by a property that dosen't
-  /// conform to the `Comparable` protocol, pass a predicate to this method that
-  /// returns `true` when the first element should be ordered before the second.
-  /// The elements of the resulting array are ordered according to the given
-  /// predicate.
-  ///
-  /// You also use this method to sort elements that conform to the `Comparable`
-  /// protocol in descending order. To sort your sequence in descending order,
-  /// pass the greater-than operator (`>`) as the `areInIncreasingOrder`
-  /// parameter.
-  ///
-  /// Calling the related ``sorted(by:)`` method is equivalent to calling this
-  /// method and passing the less-than operator (`<`) as the predicate.
-  ///
-  /// The predicate must be a *strict weak ordering* over the elements. That is,
-  /// for any elements a, b, and c, the following conditions must hold:
-  ///
-  /// - `areInIncreasingOrder(a, a)` is always `false`. (Irreflexivity)
-  /// - If `areInIncreasingOrder(a, b)` and `areInIncreasingOrder(b, c)` are
-  ///   both `true`, then `areInIncreasingOrder(a, c)` is also `true`.
-  ///   (Transitive comparability)
-  /// - Two elements are *incomparable* if neither is ordered before the other
-  ///   according to the predicate. If a and b are incomparable, and b and c are
-  ///   incomparable, then a and c are also incomparable. (Transitive
-  ///   incomparability)
-  ///
-  /// The sorting algorithm is guaranteed to be stable. A stable sort preserves
-  /// the relative order of elements for which `areInIncreasingOrder` does not
-  /// establish an order.
-  ///
-  /// - Complexity: O(*n* log *n*), where *n* is the length of the sequence.
-  ///
-  /// - Parameters:
-  ///   - keyPath: A key path to a property of `Element`.
-  ///   - areInIncreasingOrder: A predicate that returns `true` if its first
-  ///     argument should be ordered before its second argument; otherwise,
-  ///     `false`.
-  ///
-  /// - Returns: An array of the sequence's elements, sorted by `keyPath`.
-  func sorted<T>(
-    by keyPath: KeyPath<Element, T>,
-    using areInIncreasingOrder: (T, T) throws -> Bool,
-  ) rethrows -> [Element] {
-    try sorted {
-      try areInIncreasingOrder($0[keyPath: keyPath], $1[keyPath: keyPath])
-    }
+  public func count(of element: Element) -> Int where Element: Equatable {
+    count(where: { $0 == element })  // swiftlint:disable:this trailing_closure
   }
 }

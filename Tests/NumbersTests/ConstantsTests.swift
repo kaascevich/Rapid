@@ -1,4 +1,4 @@
-// Copyright © 2024-2025 Kaleb A. Ascevich
+// SPDX-FileCopyrightText: 2024 Kaleb A. Ascevich
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
 import TestHelpers
@@ -8,8 +8,7 @@ import Testing
 
 @Suite struct ConstantsTests {
   /// The `π` constant is equal to `Double.pi`.
-  @Test("π")
-  func pi() {
-    #expect(π == Double.pi)
+  @Test func `π`() {
+    #expect(Rapid.π == Double.pi)
   }
 }

@@ -1,4 +1,4 @@
-// Copyright © 2024-2025 Kaleb A. Ascevich
+// SPDX-FileCopyrightText: 2024 Kaleb A. Ascevich
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
 /// A property wrapper that applies a transformation to the wrapped value.
@@ -12,7 +12,8 @@
 ///
 /// value = -346   // value == 346
 /// ```
-@propertyWrapper public struct Transformed<Value: ~Copyable & ~Escapable>: ~Copyable, ~Escapable {
+@propertyWrapper
+public struct Transformed<Value: ~Copyable>: ~Copyable {
   /// A function type that transforms a value.
   public typealias Transform = (borrowing Value) -> Value
 
@@ -46,5 +47,4 @@
   }
 }
 
-extension Transformed: Copyable where Value: Copyable { }
-extension Transformed: Escapable where Value: Escapable { }
+extension Transformed: Copyable where Value: Copyable {}

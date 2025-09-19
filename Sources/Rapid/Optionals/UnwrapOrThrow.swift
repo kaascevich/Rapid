@@ -1,10 +1,10 @@
-// Copyright © 2024-2025 Kaleb A. Ascevich
+// SPDX-FileCopyrightText: 2024 Kaleb A. Ascevich
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
 infix operator ?! : NilCoalescingPrecedence
 infix operator !! : NilCoalescingPrecedence
 
-public extension Optional where Wrapped: ~Copyable {
+extension Optional where Wrapped: ~Copyable & ~Escapable {
   /// Performs a throwing `nil`-coalescing operation, returning the wrapped
   /// value of an `Optional` instance or throwing an error.
   ///
@@ -45,7 +45,8 @@ public extension Optional where Wrapped: ~Copyable {
   /// - Returns: The unwrapped value of `optional`.
   ///
   /// - Throws: `error` if `optional` is `nil`.
-  static func ?! <E: Error>(
+  @_lifetime(copy optional)
+  public static func ?! <E: Error>(
     optional: consuming Self,
     error: @autoclosure () -> E,
   ) throws(E) -> Wrapped {
@@ -73,7 +74,8 @@ public extension Optional where Wrapped: ~Copyable {
   ///
   /// - Returns: The unwrapped value of `optional`. If `optional` is `nil`, this
   ///   operator never returns.
-  static func !! (
+  @_lifetime(copy optional)
+  public static func !! (
     optional: consuming Self,
     error: @autoclosure () -> Never,
   ) -> Wrapped {

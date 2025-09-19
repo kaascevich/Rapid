@@ -1,4 +1,4 @@
-// Copyright © 2024-2025 Kaleb A. Ascevich
+// SPDX-FileCopyrightText: 2024 Kaleb A. Ascevich
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
 /// A type-erased wrapper over any value that can be compared for value
@@ -19,9 +19,9 @@ public struct AnyEquatable: Equatable {
   /// }
   /// // Prints "Hello world!"
   /// ```
-  public let base: Any
+  public let base: any Equatable
 
-  private let equals: (Any) -> Bool
+  private let equals: (any Equatable) -> Bool
 
   /// Creates a type-erased equatable value that wraps the given instance.
   ///

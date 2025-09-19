@@ -1,4 +1,4 @@
-// Copyright © 2024-2025 Kaleb A. Ascevich
+// SPDX-FileCopyrightText: 2024 Kaleb A. Ascevich
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
 infix operator <=> : AssignmentPrecedence
@@ -12,9 +12,10 @@ infix operator <=> : AssignmentPrecedence
 /// - Parameters:
 ///   - lhs: The first value to swap.
 ///   - rhs: The second value to swap.
-@inlinable public func <=> <Value: ~Copyable>(
+@inlinable
+public func <=> <Value: ~Copyable>(
   lhs: inout Value,
-  rhs: inout Value,
+  rhs: inout Value
 ) {
   swap(&lhs, &rhs)
 }

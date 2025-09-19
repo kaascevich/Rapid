@@ -1,4 +1,4 @@
-// Copyright © 2024-2025 Kaleb A. Ascevich
+// SPDX-FileCopyrightText: 2024 Kaleb A. Ascevich
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
 prefix operator §
@@ -51,6 +51,7 @@ prefix operator §
 /// - Parameter instance: The value for which to create a string representation.
 ///
 /// - Returns: A string representing `instance`.
-@inlinable public prefix func § (_ instance: Any) -> String {
+@inlinable
+public prefix func § (_ instance: some Any) -> String {
   String(describing: instance)
 }

@@ -1,4 +1,4 @@
-// Copyright © 2024-2025 Kaleb A. Ascevich
+// SPDX-FileCopyrightText: 2024 Kaleb A. Ascevich
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
 import TestHelpers
@@ -15,8 +15,7 @@ import Testing
 
   /// The `??=(optional:defaultValue:)` operator assigns `defaultValue` to
   /// `optional` if `optional` is `nil`.
-  @Test("??=(optional:defaultValue:) -> isNil")
-  mutating func nilCoalescingAssignmentIsNil() {
+  @Test mutating func `??=(optional:defaultValue:) -> isNil`() {
     var int: Int? = nil
     int ??= getDefault()
 
@@ -26,8 +25,7 @@ import Testing
 
   /// The `??=(optional:defaultValue:)` operator does nothing if `optional` is
   /// not `nil`. `defaultValue` is never evaluated.
-  @Test("??=(optional:defaultValue:) -> isNotNil")
-  mutating func nilCoalescingAssignmentIsNotNil() {
+  @Test mutating func `??=(optional:defaultValue:) -> isNotNil`() {
     var int: Int? = 69
     int ??= getDefault()
 

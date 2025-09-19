@@ -1,11 +1,11 @@
-// Copyright © 2024-2025 Kaleb A. Ascevich
+// SPDX-FileCopyrightText: 2024 Kaleb A. Ascevich
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
 // MARK: - Not Equal To
 
 infix operator ≠ : ComparisonPrecedence
 
-public extension Equatable {
+extension Equatable {
   /// Returns a Boolean value indicating whether two values are not equal.
   ///
   /// Inequality is the inverse of equality. For any values `a` and `b`, `a ≠ b`
@@ -16,7 +16,8 @@ public extension Equatable {
   ///   - rhs: Another value to compare.
   ///
   /// - Returns: Whether the two values are not equal.
-  @inlinable static func ≠ (lhs: Self, rhs: Self) -> Bool {
+  @inlinable
+  public static func ≠ (lhs: Self, rhs: Self) -> Bool {
     lhs != rhs
   }
 }
@@ -26,7 +27,7 @@ public extension Equatable {
 infix operator ≤ : ComparisonPrecedence
 infix operator ≥ : ComparisonPrecedence
 
-public extension Comparable {
+extension Comparable {
   /// Returns a Boolean value indicating whether the value of the first argument
   /// is less than or equal to that of the second argument.
   ///
@@ -35,7 +36,8 @@ public extension Comparable {
   ///   - rhs: Another value to compare.
   ///
   /// - Returns: Whether the first value is less than or equal to the second.
-  @inlinable static func ≤ (lhs: Self, rhs: Self) -> Bool {
+  @inlinable
+  public static func ≤ (lhs: Self, rhs: Self) -> Bool {
     lhs <= rhs
   }
 
@@ -47,7 +49,8 @@ public extension Comparable {
   ///   - rhs: Another value to compare.
   ///
   /// - Returns: Whether the first value is greater than or equal to the second.
-  @inlinable static func ≥ (lhs: Self, rhs: Self) -> Bool {
+  @inlinable
+  public static func ≥ (lhs: Self, rhs: Self) -> Bool {
     lhs >= rhs
   }
 }
