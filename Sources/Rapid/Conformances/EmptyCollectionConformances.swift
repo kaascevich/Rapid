@@ -12,7 +12,7 @@ extension EmptyCollection: ExpressibleByEmptyArrayLiteral {
   /// ```swift
   /// let nothing: EmptyCollection<Int> = []
   ///
-  /// // Throws a compiler error - cannot convert 'Int' to 'Never'
+  /// // 🛑 Cannot convert 'Int' to 'Never'
   /// let something: EmptyCollection<Int> = [42]
   /// ```
   @inlinable
@@ -32,7 +32,7 @@ extension EmptyCollection: ExpressibleByEmptyDictionaryLiteral {
   /// ```swift
   /// let nothing: EmptyCollection<(Int, Int)> = [:]
   ///
-  /// // Throws 2 compiler errors - cannot convert 'Int' to 'Never'
+  /// // 🛑 Cannot convert 'Int' to 'Never'
   /// let something: EmptyCollection<(Int, Int)> = [42: 69]
   /// ```
   @inlinable

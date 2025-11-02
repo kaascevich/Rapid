@@ -10,8 +10,8 @@ Work with Swift's numeric types in more expressive ways.
 
 ### Booleans
 
-- ``Swift/Bool/asInt``
-- ``Swift/Bool/init(fromInt:)``
+- ``Swift/BinaryInteger/init(_:)``
+- ``Swift/Bool/init(_:)``
 
 ### Comparison to Zero
 

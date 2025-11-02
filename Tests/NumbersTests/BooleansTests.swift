@@ -13,10 +13,10 @@ import Testing
     false: 0,
   ])
   func `asInt`(value: Bool, expected: Int) {
-    #expect(value.asInt == expected)
+    #expect(Int(value) == expected)
   }
 
-  /// The `init(fromInt:)` initializer returns `false` if the value is `0`,
+  /// The `Bool.init(_:)` initializer returns `false` if the value is `0`,
   /// `true` otherwise.
   @Test(arguments: [
     0: false,
@@ -24,7 +24,7 @@ import Testing
     42: true,
     -1: true,
   ])
-  func `init(fromInt:)`(value: Int, expected: Bool) {
-    #expect(Bool(fromInt: value) == expected)
+  func `Bool.init(_: Int)`(value: Int, expected: Bool) {
+    #expect(Bool(value) == expected)
   }
 }

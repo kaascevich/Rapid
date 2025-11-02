@@ -33,7 +33,9 @@
     `Sequence` but not `BidirectionalCollection`, but this is unlikely in
     practice
 - Deprecated `~=(_:_:)` overload on `Error`
-  - It, uh... never actually worked in the first place
+  - It, uh, never actually worked in the first place
+- Deprecated `Bool.init(fromInt:)` and `Bool.asInt`
+  - Replaced by `Bool.init(_:)` and `BinaryInteger.init(_:)`, respectively
 
 ### Removals
 
